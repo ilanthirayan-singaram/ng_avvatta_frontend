@@ -1,0 +1,171 @@
+<div class="movie">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>  
+    <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>  
+    <ng-container *ngFor="let data of descData">
+        <div class="maincontainer" style="background-image: url('{{data.big_url}}');">
+            <div class="middle web">
+                <div class="content">
+                   <div class="inside">
+                    <div class="first">
+                        <!-- <div class="left">&#10094;</div> -->
+                    <div class="info">
+                        <h1>{{data.title}}</h1>
+                        <p>
+                            {{data.short_description}}
+                        </p>
+                        <strong>
+                            <p *ngIf="data.people.Actor?.length">
+                                Starring: <span  *ngFor="let d of data.people.Actor"> {{d[2]}}</span>
+                            </p>
+                            <p *ngIf="data.people.Director?.length">
+                                Creators: <span  *ngFor="let d of data.people.Director"> {{d[2]}}</span>
+                            </p>
+                            <p>{{data.release_year}}</p>
+                        </strong>
+                    </div>
+                    <div class="empty">
+                    </div>
+                   
+                    <!-- <div class="right">&#10095;</div> -->
+                    </div>
+                    <div class="second">
+                        <div class="btncontainer">
+                            <div class="left">
+                                
+                                <div class="buttons">
+                                    <div class="play">
+                                        <button (click)="playVideo(data)">PLAY NOW</button>
+                                    </div>
+                                    <!-- <div class="watch">
+                                        <button>Play Trailer</button>
+                                    </div> -->
+                                    <div class="list" 
+                                    (click)="share(facebook)">
+                                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="list">
+                                        <i (click)="watchLaterClick()" class="fa fa-plus" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="list">
+                                        <i [ngClass]="{'active': data.iswishlist == 1}" class="fa fa-heart" aria-hidden="true" (click)="addFavourite()"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="right">
+                                <div>
+                                    <p>Episodes</p>
+                                </div> 
+                                <div class="episode">
+                                    <ng-container *ngFor="let d of episodeData; let i = index;">
+                                        <div class="sub" *ngIf="i < 5">
+                                            <span [ngClass]="{'active1': i == act}" (click)="getData(i)">
+                                                {{i+1}}
+                                            </span>
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngFor="let d of episodeData; let i = index;">
+                                        <div class="sub" *ngIf="i > 5">
+                                            <span [ngClass]="{'active1': i == act}" (click)="nextData(i)">
+                                                Next
+                                            </span>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                   </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="mobilebanner">
+            <img src="{{data.big_url}}" />
+        </div>
+
+        <div class="middle mob" *ngFor="let data of descData">
+            <div class="content">
+               <div class="inside">
+                <div class="first">
+                    <!-- <div class="left">&#10094;</div> -->
+                <div class="info">
+                   
+                </div>
+                <div class="empty">
+                    <h1>{{data.title}}</h1>
+                    <p>
+                        {{data.short_description}}
+                    </p>
+                    <strong>
+                        <p *ngIf="data.people.Actor?.length">
+                            Starring: <span  *ngFor="let d of data.people.Actor"> {{d[2]}}</span>
+                        </p>
+                        <p *ngIf="data.people.Director?.length">
+                            Creators: <span  *ngFor="let d of data.people.Director"> {{d[2]}}</span>
+                        </p>
+                        <p>{{data.release_year}}</p>
+                    </strong>
+                </div>
+               
+                <!-- <div class="right">&#10095;</div> -->
+                </div>
+                <div class="second">
+                    <div class="btncontainer">
+                        <div class="left">
+                            
+                            <div class="buttons">
+                                <div class="play">
+                                    <button (click)="playVideo(data)">PLAY NOW</button>
+                                </div>
+                                <!-- <div class="watch">
+                                    <button>Play Trailer</button>
+                                </div> -->
+                                <div class="list">
+                                    <i (click)="watchLaterClick()" class="fas fa-plus" aria-hidden="true"></i>
+                                </div>
+                                <div class="list">
+                                    <i  (click)="share(facebook)" class="fa fa-share-alt" aria-hidden="true"></i>
+                                </div>
+                                <div class="list">
+                                    <i [ngClass]="{'active': data.iswishlist != 0}" class="fa fa-heart" aria-hidden="true" (click)="addFavourite()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="right">
+                            <div>
+                                <p>Episodes</p>
+                            </div> 
+                            <div class="episode">
+                                <div class="sub" *ngFor="let d of episodeData; let i = index;">
+                                    <span (click)="getData(d)">
+                                        {{i+1}}
+                                    </span>
+                            </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+               </div>
+            </div>
+            
+        </div>
+    <app-back></app-back>
+    <div class="cont">
+        <div class="row">
+                    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" style="display:flex" class="slide">
+                        <ng-container>
+                            <div ngxSlickItem *ngFor="let episode of episodeData">
+                                <div class="playlist" (click)="getData(episode)">
+                                    <img defaultImage="../../../assets/Images/vdodummy.jpeg"  width="100%" [lazyLoad]="episode.small_url" />
+                                    <p>{{episode.title}}</p>
+                                  </div>
+                            </div>
+                        </ng-container>
+                    </ngx-slick-carousel>
+        </div> 
+    </div>
+    
+</ng-container>
+</div>

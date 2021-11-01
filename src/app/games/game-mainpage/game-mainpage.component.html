@@ -1,0 +1,80 @@
+<div class="games">
+    <!-- <app-loader [toggleLoader]="loader"></app-loader> -->
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>    
+    <!-- <div class="maincontainer" style="background: url('{{banner}}');">
+        <div class="middle">
+            <div class="content">
+                <div class="left"></div>
+                <div class="mid">
+                </div>
+                <div class="right"></div>
+            </div>
+        </div>
+    </div> -->
+    <div class="mobilebanner">
+        <img src="{{banner}}" />
+    </div>
+   <app-back></app-back>
+    <div class="cont" *ngFor="let data of gameTypes; let l = count">
+        <div class="row" *ngIf="(data.sub_category.source != '') && (data.sub_category.source.length >= 7)">
+                <h4>{{data.sub_category.name}}&nbsp;<span (click)="viewAll(data.sub_category.id)">View all</span></h4>
+                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideCount">
+                    <div ngxSlickItem *ngFor="let games of data.sub_category.source" class="slide">
+                        <div class="playlist">
+                            <div class="image">
+                                <img defaultImage="../../../assets/Images/gamesdummy.jpeg"  width="100%" [lazyLoad]="games.img" (click)="videoModal(games, data.sub_category.id)" />
+                            </div>
+                            <div class="text">
+                                <div class="left">
+                                    <p  (click)="videoModal(games, data.sub_category.id)">{{games.game_name}}</p>
+                                </div>
+                            </div>
+                            <div class="star">
+                                <div class="like">
+                                    <i [ngClass]="{'active': games.likes != 0}"  (click)="clickDisLikeGaming(games, 1)" class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;{{games.likes}}
+                                </div>
+                                <div class="dislike">
+                                    <i [ngClass]="{'active': games.dis_like != 0}" (click)="clickDisLikeGaming(games, 0)" class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;{{games.dis_like}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-slick-carousel>
+           
+        </div>
+    </div>
+    <!-- <div class="cont" *ngFor="let data of gameTypes">
+        <div class="row" *ngIf="data.sub_category.source != ''">
+            <h4>{{data.sub_category.name}}&nbsp;<span>View all</span></h4>
+            <div class="newrelease">
+                <div class="left">
+                    <div class="r1">
+                        <div class="playlists" (click)="videoModal(games)">
+                            <img src="../../assets/GoalKeeper.png" />
+                            <p>Name</p>
+                        </div>
+                    </div>
+                </div>
+                
+            <div class="center">
+                <div class="playlists" (click)="videoModal(games)">
+                    <img src="../../assets/GoalKeeper.png" />
+                    <p>Name</p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="r1">
+                    <div class="playlists" (click)="videoModal(games)">
+                        <img src="../../assets/GoalKeeper.png" />
+                        <p>Name</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </div> -->
+
+</div>

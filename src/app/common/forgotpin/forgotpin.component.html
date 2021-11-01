@@ -1,0 +1,22 @@
+<!-- Forgot password Start -->
+<div class="fpin epassword">
+    <div class="passcontainer">
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <h3>Forgot Parental PIN Code</h3>
+        <p>Enter the email or mobile number used when registering for Avvatta and we will send you
+            instructions to reset your PIN</p>
+        <form #fpin="ngForm" (ngSubmit)="forgotPin(fpin)">
+            <div class="input">
+                <input type="text" name="email" placeholder="Email / Mobile number" ngModel required
+                    (keyup)="checkMail(fpin.value.email)">
+
+                <p class="dangeralert" *ngIf="pinAlert">Please enter a valid email address
+                </p>
+            </div>
+            <div class="button">
+                <button type="submit">SEND</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Forgot password End -->

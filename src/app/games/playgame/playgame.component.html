@@ -1,0 +1,148 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.9)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<div class="playgames" *ngFor="let cat of selectedGameData">
+    <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>  
+    <div class="maincontainer" style="background-image: url('{{cat.banner}}');">
+        <!-- <div class="middle">
+            <div class="content">
+                <div class="left"></div>
+                <div class="mid web">
+                    <div class="infos">
+                        <div class="btn-container">
+                            <div class="buttons">
+                                <ng-container *ngFor="let cat of selectedGameData">
+                                    <div class="type">
+                                        <h4>
+                                            {{cat.name}}
+                                        </h4> &nbsp;&nbsp;
+                                    </div>
+                                    <div class="btn">
+                                        <button (click)="videoModal(cat)">PLAY NOW</button>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <div class="size">Size
+                                <br>48 MB
+                            </div>&nbsp;
+                            <div class="size">Age rating
+                                <br>3 +
+                            </div>&nbsp;
+                            <div class="add">
+                                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
+                            </div>
+                            <div class="share">
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empty" *ngFor="let cat of selectedGameData">
+                        <h1>About this game</h1>
+                        <p>
+                            {{cat.description}}
+                        </p>
+
+                        <div class="star">
+                            <div class="like">
+                                <i (click)="clickDisLikeGaming(cat, 1)" class="fa fa-thumbs-up"
+                                    aria-hidden="true"></i>&nbsp;{{cat.likes}}
+                            </div>
+                            <div class="dislike">
+                                <i (click)="clickDisLikeGaming(cat, 0)" class="fa fa-thumbs-down"
+                                    aria-hidden="true"></i>&nbsp;{{cat.dis_like}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right"></div>
+            </div>
+        </div> -->
+    </div>
+    <div class="mobilebanner">
+        <img src="{{cat.banner}}" />
+    </div>
+    <div class="mid mobile">
+        <div class="infos">
+            <div class="btn-container">
+                <div class="buttons">
+                    <ng-container *ngFor="let cat of selectedGameData">
+                        <div class="type">
+                            <h4>
+                                {{cat.name}}
+                            </h4> &nbsp;&nbsp;
+                        </div>
+                        <div class="btn">
+                            <button (click)="videoModal(cat)">PLAY NOW</button>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="size">Size
+                    <br>48 MB
+                </div>&nbsp;
+                <div class="size">Age rating
+                    <br>3 +
+                </div>&nbsp;
+                <div class="add">
+                    <i class="fa fa-plus" (click)="watchLaterClick()" aria-hidden="true"></i>&nbsp;
+                </div>
+                <div class="share">
+                    <i (click)="share(facebook)" class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="empty" *ngFor="let cat of selectedGameData">
+            <h1>About this game</h1>
+            <p [innerHtml]= "cat.description">
+               
+            </p>
+
+            <div class="star">
+                <div class="like">
+                    <i (click)="clickDisLikeGaming(cat, 1)" class="fa fa-thumbs-up"
+                        aria-hidden="true"></i>&nbsp;{{cat.likes}}
+                </div>
+                <div class="dislike">
+                    <i (click)="clickDisLikeGaming(cat, 0)" class="fa fa-thumbs-down"
+                        aria-hidden="true"></i>&nbsp;{{cat.dis_like}}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <app-virtual-back (click)="goBack()"></app-virtual-back> -->
+    <app-back></app-back>
+    <div class="cont">
+        <div class="row">
+            <div class="main">
+            <h4>RECOMMENDED</h4>
+                <ng-container *ngFor="let data of selectedGameCategory">
+                    <div class="playlists" *ngIf="gameId != data.game_id">
+                        <div class="image" (click)="displayGameDetail(data)">
+                            <img defaultImage="../../../assets/Images/gamesdummy.jpeg"  width="100%" [lazyLoad]="data.img" />
+                            <!-- <img src="{{data.img}}" width="100%"> -->
+                        </div>
+                        <div class="text">
+                            <div class="left">
+                                <h5 (click)="displayGameDetail(data)">{{data.name}}</h5>
+                            </div>
+                        </div>
+                        <div class="star">
+                            <div class="like">
+                                <i (click)="clickDisLikeGaming(data, 1)" class="fa fa-thumbs-up"
+                                    aria-hidden="true"></i>&nbsp;{{data.likes}}
+                            </div>
+                            <div class="dislike">
+                                <i (click)="clickDisLikeGaming(data, 0)" class="fa fa-thumbs-down"
+                                    aria-hidden="true"></i>&nbsp;{{data.dis_like}}
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

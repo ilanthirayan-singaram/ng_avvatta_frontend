@@ -1,0 +1,43 @@
+<div class="vmusic">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner> 
+    <div class="container">
+        <div class="left">
+            <img src="{{img}}" />
+            <i class="fa fa-play" (click)="videoPlayContent()"></i>
+        </div>
+        <div class="right desktop" *ngFor="let data of wholeData">
+            <ng-container *ngFor="let rec of data">
+                <ng-container *ngFor="let rec1 of rec.sources">
+                    <div class="recom" (click)="selectMovie(rec1)">
+                        <img src="{{rec1.small_url}}" />
+                        <p>{{rec1.title}}</p>
+                        <p>{{rec1.asset_title}}</p>
+                    </div>
+                </ng-container>
+                
+            </ng-container>
+           
+        </div>
+        <div class="right mobile" *ngFor="let data of wholeData">
+            <ng-container *ngFor="let rec of data">
+                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="trending" style="display:flex"
+                class="slide">
+                <ng-container>
+                  <div ngxSlickItem *ngFor="let rec1 of rec.sources">
+                    <div class="playlist" (click)="selectMovie(rec1)">
+                      <img defaultImage="../../../assets/Images/musicdummy.jpg" width="100%"
+                        [lazyLoad]="rec1.small_url" />
+                    </div>
+                    <h3 style="color:#fff;text-align: center;">{{rec1.title}}
+                    </h3>
+                  </div>
+                </ng-container>
+              </ngx-slick-carousel>
+            </ng-container>
+            
+        </div>
+    </div>
+</div>
+<app-back></app-back>

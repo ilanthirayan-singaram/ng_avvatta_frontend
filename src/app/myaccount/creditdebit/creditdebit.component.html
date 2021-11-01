@@ -1,0 +1,87 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <app-close (click)="closeModal()"></app-close> 
+        <div>
+            <div class="verify">
+                <div class="vcontainer">
+                    <h3>Update your credit or debit card</h3>
+                    <div class="pin">
+                        <div>
+                            <div class="change">
+                                <div class="text">
+                                    <h4>Change payment method</h4>
+                                </div>
+                                <div class="imgs">
+                                    <img src="../../assets/Images/Master Card.PNG" />
+                                </div>
+                                <div class="imgs">
+                                    <img src="../../assets/Images/Visa Icon.PNG" />
+                                </div>
+                                <div class="imgs">
+                                    <img src="../../assets/Images/Amex.PNG" />
+                                </div>
+                            </div>
+                            <div class="">
+                            </div>
+                        </div>
+                        <form #credit="ngForm" (ngSubmit)="creditDebitCard(credit)">
+                                <div class="fname">
+                                    <input type="text" name="fname" ngModel required #fname="ngModel"
+                                        placeholder="First Name">
+                                </div>
+                                <div class="lname">
+                                    <input type="text" name="lname" ngModel placeholder="Last Name">
+                                </div>
+                                <div class="number">
+                                    <div class="ip">
+                                        <input type="text" maxlength="4" name="pin1" placeholder="1234" required ngModel>
+                                    </div>
+                                    <div class="ip">
+                                        <input type="text" maxlength="4"  name="pin2" placeholder="1234" required ngModel>
+                                    </div>
+                                    <div class="ip">
+                                        <input type="text" maxlength="4" name="pin3" placeholder="1234" required ngModel>
+                                    </div>
+                                    <div class="ip">
+                                        <input type="text" maxlength="4" name="pin4" placeholder="1234" required ngModel>
+                                    </div>
+                                </div>
+                                <div class="dobcontainer">
+                                    <div class="dob">
+                                        <div class="dobinput">
+                                            <select name="month" ngModel required [(ngModel)]="selectedMonth">
+                                                <option value="" disabled selected>Month</option>
+                                                <option *ngFor="let month of months; let i = index" [value]="i+1">{{month}}</option>
+                                            </select>
+                                            <div class="downarrow">&#9660;</div>
+                                        </div>
+                                        <div class="dobinput">
+                                            <select name="year" ngModel required [(ngModel)]="selectedYear">
+                                                <option value="" disabled selected>Year</option>
+                                                <option *ngFor="let year of years">{{year}}</option>
+                                        </select>
+                                            <div class="downarrow">&#9660;</div>
+                                        </div>
+                                        <div class="dobinput">
+                                            <img src="../../assets/Images/CVV Icon.PNG"/>
+                                        </div>
+                                        <div class="dobinput">
+                                            <input type="text" name="cvvnumber" maxlength="3" placeholder="CVV" required ngModel>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            <div class="button">
+                                <button>SAVE</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+    </div>
+</div>

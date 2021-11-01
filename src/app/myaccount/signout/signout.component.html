@@ -1,0 +1,36 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="signout">
+            <h3>Sign Out Of All Devices</h3>
+            <div class="body">
+                <div class="list">
+                    <ul>
+                        <li>Are you sure you want to sign out of this Avvatta account on all devices?</li>
+                        <li>This may take upto 8 hours to take effect on all devices and affects all profiles in this account.</li>
+                    </ul>
+
+                </div>
+                <div class="button">
+                    <span></span>
+                    <button (click)="signOut()">SIGNOUT</button>
+                    <button (click)="closeModal()">CANCEL</button>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <app-foot (click)="closeModal()"></app-foot>
+        </div>
+    </div>
+</div>

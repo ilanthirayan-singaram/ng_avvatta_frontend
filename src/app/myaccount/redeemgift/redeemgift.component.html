@@ -1,0 +1,36 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="parental">
+            <div class="edit">
+                <form #redeem="ngForm" (ngSubmit)="redeemGift(redeem)">
+                    <div class="body">
+                        <div class="icon">
+                            <div>
+                                <img src="./../../../assets/Images/Redeem Gift.PNG" />
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <h3>Redeem your gift</h3>
+                            <h4>Enter your code below to get started.</h4>
+                            <div class="input">
+                                <input type="text" name="code" placeholder="Pin or code" ngModel required>
+                            </div>
+
+                            <div class="buttoncontainer">
+                                <div class="button">
+                                    <button>REDEEM</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="footer">
+                <p>Need help with <a>gift cards?</a></p>
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+    </div>
+</div>

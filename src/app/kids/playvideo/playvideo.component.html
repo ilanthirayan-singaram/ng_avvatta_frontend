@@ -1,0 +1,75 @@
+<div class="playvideo">
+    <ngx-spinner
+        bdColor="rgba(51,51,51,0.8)"
+        size="medium"
+        color="#fff"
+        type="ball-scale-multiple"
+      >
+        <p style="font-size: 20px; color: white">Loading...</p>
+      </ngx-spinner>
+    <div class="maincontainer"  *ngFor="let data of content" style="background: url('{{data.bannerImage}}')">
+        <div class="middle">
+            <div class="content">
+                <div class="inside">
+                    <div class="first">
+                        <div class="empty">
+                            <h1>{{data.content_name}}</h1>
+                            <p>{{data.describtion}}</p>
+                            <!-- <strong>
+                                What is Lorem Ipsum Lorem Ipsum is simply dummy text of th
+                            </strong> -->
+                        </div>
+                        <div class="info">
+                         
+                        </div>
+                    </div>
+                    <div class="second">
+                        <div class="btncontainer">
+                            <div class="left">
+
+                                <div class="buttons">
+                                    <div class="play">
+                                        <button (click)="videoModal(data)">PLAY NOW</button>
+                                    </div>
+                                    <div class="watch">
+                                        <button>Play Trailer</button>
+                                    </div>
+                                    <div class="list">
+                                        <i class="fas fa-plus active" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="list">
+                                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div style="width:25%; text-align:right">
+                                    Seasons
+                                </div>
+                                <div class="active">1</div>&nbsp; <div>2</div>&nbsp; <div>3</div>&nbsp; <div>4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <app-back></app-back>
+    <div class="cont">
+        <div class="row">
+          <h4>Recomended</h4>
+          <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="trending">
+            <div ngxSlickItem *ngFor="let image of wholeVideoData" class="slide">
+              <div class="playlist" (click)="goToPlayVideoPage(image)">
+                <img src="{{ image.profileImage}}" width="100%">
+              </div>
+              <div class="name">
+                {{image.content_name}}
+              </div>
+      
+            </div>
+          </ngx-slick-carousel>
+        </div>
+      </div>
+</div>

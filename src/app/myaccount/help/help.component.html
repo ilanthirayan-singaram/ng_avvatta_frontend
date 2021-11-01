@@ -1,0 +1,1147 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+   <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<div id="modal-content-wrapper">
+   <div class="modalcontainer">
+      <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+      <app-close (click)="goBack()"> </app-close>
+      <div class="help">
+         <div class="head">
+            <div class="tac" [ngClass]="{'active': clicked == 'terms'}" (click)="show('terms')"
+               [routerLink]="['/help/terms']">
+               <h3> Terms and Conditions </h3>
+            </div>
+            <div class="faq" [ngClass]="{'active': clicked == 'faq'}" (click)="show('faq')"
+               [routerLink]="['/help/faq']">
+               <h3> FAQ's </h3>
+            </div>
+            <div class="contact" [ngClass]="{'active': clicked == 'contact'}" (click)="show('contact')"
+               [routerLink]="['/help/contact']">
+               <h3> Contact </h3>
+            </div>
+            <div class="privacy" [ngClass]="{'active': clicked == 'privacy'}" (click)="show('privacy')"
+               [routerLink]="['/help/privacy']">
+               <h3> Privacy Policy </h3>
+            </div>
+         </div>
+         <div class="body">
+            <div class="taccont" *ngIf="click=='terms'">
+               <h3> TERMS AND CONDITIONS </h3>
+               <h4> Introduction </h4>
+               <ol>
+                  <li><strong>Avvatta</strong> was launched by Digital Media 333 Pty Ltd in April 2021.</li>
+                  <li><strong>Avvatta </strong>is an all in one entertainment solution for all age groups &ndash;
+                     it gives you a suite of movies, videos, games, news, e-learning and so much more.
+                  </li>
+                  <li>Parents or guardians who are 18 years or older can activate an account</li>
+                  <li>The <strong>Avvatta</strong> Service will be available to all individuals residing within
+                     the Republic of South Africa as well as selected African countries
+                  </li>
+                  <li>
+                     In order to access <strong>Avvatta</strong> you:
+                     <ul>
+                        <li>Will require internet access or data access</li>
+                        <li>Need to ensure sufficient download capacity is available on your device should you
+                           choose to download content
+                        </li>
+                     </ul>
+                  </li>
+                  <li><strong>Avvatta</strong> can be accessed only for private, individual use and in accordance
+                     to these Terms and Conditions. NOTE: No commercial use is permitted, unless otherwise signed off in
+                     a commercial
+                     agreement with Digital Media 333 Pty Ltd
+                  </li>
+               </ol>
+               <p><strong>Terms and Conditions (Terms of Use)</strong></p>
+               <ol>
+                  <li>In order to make use of the <strong>Avvatta</strong> service, it is important that the terms
+                     and conditions are read and understood as it forms a part of your contractual obligation.
+                     Note that by subscribing for the Service, you agree to be bound by these Terms and
+                     Conditions.
+                  </li>
+                  <li>The terms of this agreement ("Terms and Conditions") govern the relationship between you and
+                     Digital Media 333 Pty Ltd and its affiliates/partners regarding your use of
+                     <strong>Avvatta</strong> and its related services.
+                  </li>
+                  <li>Terms and Conditions may be amended from time to time:</li>
+               </ol>
+               <p>3.1. Digital Media 333 Pty Ltd may amend, modify or otherwise change these Terms and Conditions
+                  in its sole and absolute discretion and the amended version will be displayed on the
+                  <strong>Avvatta </strong>website and platform &ndash; you will also be notified of any changes
+               </p>
+               <p>3.2. Access and continued use of the <strong>Avvatta </strong>service implies that you agree and
+                  fully understand that you are bound by the amended terms and conditions
+               </p>
+               <p>3.3. The amended Terms and Conditions will become effective immediately (when posted on the
+                  <strong>Avvatta </strong>website), and any subsequent use of the <strong>Avvatta</strong>
+                  service will be governed by these amended Terms and Conditions
+               </p>
+               <p>3.4. Ensure that the Terms and Conditions are regularly checked for any amendments</p>
+               <p>3.5. These Terms and Conditions are applicable to you, the customer as well as any other
+                  3<sup>rd</sup>party accessing your account with your account information
+               </p>
+               <p>3.6. Digital Media 333 Pty Ltd may cede any of its rights and/or assign any of its obligations
+                  under these Terms and Conditions to any person it deems necessary at any time
+               </p>
+               <p>3.7. A customer may <u>not</u> cede any of their rights and/or assign any of their obligations
+                  under these Terms and Conditions to any other person at any time
+               </p>
+               <p><strong>Service Offering</strong></p>
+               <ol>
+                  <li>
+                     The following service offerings can be found on Avvatta:
+                     <ul>
+                        <li>1.1.<u>FREEMIUM CONTENT</u> &ndash; Avvatta has a great catalogue of freemium
+                           content, available anytime for unlimited entertainment This content is available to
+                           the user free of charge &ndash; this is where no subscription is required just a
+                           registration/ creation of an account.
+                        </li>
+                        <li>1.2.<u>RENT</u> &ndash; Avvatta has a library of old and new movies in a variety of
+                           categories such as Hollywood, Bollywood and Nollywood and you have the option to
+                           rent a movie for a set period of time.
+                        </li>
+                        <ul class="disk">
+                           <li>A rented movie will be available on your <strong>Avvatta </strong>account for a
+                              period of 30 (thirty) days until you press play or download for the first time.
+                           </li>
+                           <li>Once you press play or start a download, the rental will only be available for
+                              48 (forty-eight) hours.
+                           </li>
+                           <li>The rental can be watched as many times as you prefer during these 48 hours.
+                           </li>
+                           <li>The rental being watched may only be downloaded or watched on one device at any
+                              given time.
+                           </li>
+                        </ul>
+                     </ul>
+                  </li>
+                  <ul>
+                     <li>
+                     <li>1.3.<u>SUBSCRIPTION</u> &ndash; Avvatta has different verticals (categories) with
+                        different pricing associated with each. The verticals are as follows:
+                     </li>
+                     <ul class="disk">
+                        <li><u>Freemium</u>: A whole host of short form videos from comedy to DIY to
+                           documentaries that will keep you entertained for hours and this is available to you
+                           for free.
+                        </li>
+                        <li><u>Video On Demand</u>: You can binge watch your favourite series by selecting from
+                           a whole host of local and international shows or by selecting a movie from a library
+                           of old and new movies in a variety of categories such as Hollywood, Bollywood and
+                           Nollywood.
+                        </li>
+                        <li><u>Games</u>: The Avvatta platform offers a complete unique gaming experience for
+                           both the casual and the pro-gamer to suit every gamers&rsquo; need. The gaming
+                           catalogue has a collection of over 2000 games including a variety of genres, action,
+                           puzzles, sport, arcade, adventure and so much more.
+                        </li>
+                        <li><u>e-Learning:</u> Is an online learning solution for all ages from 2 to 18 and for
+                           any person that is interested in learning how to code. It is equipped with
+                           worksheets, assessments, and explanations for most subjects and you have the
+                           opportunity to learn other languages as well, all in the comfort of your home.
+                        </li>
+                     </ul>
+                  </ul>
+                  <p>When you subscribe, you have the option to select a package:</p>
+                  <ul class="disk">
+                     <li>Packages are daily, weekly and monthly.</li>
+                     <li>Packages are modular, where you can purchase a subscription specific to gaming, VOD,
+                        E-learning etc or you can purchase a package where you get an overall all-inclusive
+                        package, where your purchase entitles you to the full suite of products across the
+                        platform.
+                     </li>
+                     <li>The following validity period applies per package purchased:</li>
+                     <ul class="disk">
+                        <li>Daily &ndash; 24 hours from date and time of purchase</li>
+                        <li>Weekly &ndash; 7 days from date and time of purchase</li>
+                        <li>Monthly &ndash; 30 days from date and time of purchase</li>
+                     </ul>
+                     <li>All subscriptions are charged in advance</li>
+                     <li>Once you have subscribed to a weekly or monthly package, it will renew automatically. In
+                        other words, both the weekly and monthly packages are recurring.
+                     </li>
+                     <li>Your subscription package can be changed by first cancelling your active subscription
+                        and then choosing the new subscription package that suits you.
+                     </li>
+                  </ul>
+                  <li><u>PAYMENTS</u> on <strong>Avvatta</strong> can be done using the following options:</li>
+                  <ul>
+                     <li>2.1. Valid Credit or Debit card</li>
+                     <li>2.2. Airtime (with specific operators)</li>
+                     <li>2.3. Add to bill (also only available with specific operators)</li>
+                     <li>2.4. Vouchers (coming soon)</li>
+                  </ul>
+                  <li><u>PARENTAL CONTROL</u>: Parental control has been enabled on the platform so that you can
+                     control your child/ children&rsquo;s viewing. It is up to you as the parent to ensure you
+                     activate these controls when setting your profile and that of your child/children
+                  </li>
+                  <ul>
+                     <li>3.1. Age Restrictions - Movies, TV Shows, Series and Live TV channels that are available on
+                        the <strong>Avvatta</strong> service may be subject to age restrictions, contain strong language
+                        or other material which may offend sensitive viewers or be inappropriate for younger users.
+                     </li>
+                     <li><strong>Avvatta </strong>will attempt to provide appropriate audience guidelines related to
+                        such content,
+                        however, it is your responsibility to ensure you take note of such warnings and to act
+                        responsibly
+                     </li>
+                     <li>3.2. &nbsp;You must take all reasonable steps to prevent the viewing of content by children
+                        below the prescribed age restriction, as specified by <strong>Avvatta</strong>, our channel and
+                        content suppliers or by any applicable regulatory authority
+                     </li>
+                     <li>3.3. The <strong>Avvatta</strong> platform provides parental control tools under
+                        &ldquo;Settings&rdquo; which you can use to lock a TV channel or set an age restriction for all
+                        age-inappropriate content
+                     </li>
+                     <li>3.4. You can create a PIN when you complete your profile information or when you update your
+                        profile information. This PIN will be required to set the parental control and change other
+                        sensitive settings on your profile.
+                        your profile information. This PIN will be required to set the parental control and change other
+                        sensitive settings on your profile.
+                     </li>
+                  </ul>
+                  <li><u>CANCELLATION</u>:</li>
+                  <ul>
+                     <li>4.1. Should you <strong>cancel the subscription (package)</strong> at any time, you will be
+                        able to use the </li>
+                     <li>Service until its validity date, which can be viewed under the &ldquo;setting &gt;&gt;accounts
+                        tab&rdquo;.</li>
+                     <li>4.2. Once you cancel, it is not possible to issue refunds once payments are processed as access
+                        to content is immediately available.
+                     </li>
+                     <li>4.3. Your <strong>Avvatta</strong> account can be completely cancelled by contacting the
+                        support centre.</li>
+                     <li>Note that should you cancel the whole account, you will lose all your downloads and any profile
+                        information stored on your account.
+                     </li>
+                  </ul>
+                  <li><u>DEVICE RULES</u>:</li>
+                  <ul>
+                     <li>5.1. The number of devices you use on your account is dependent on the package you have
+                        subscribed to</li>
+                     <li>5.2.&nbsp; A specific restriction applies to rentals - the rental that is being watched may
+                        only
+                        be downloaded or watched on one device at any given time
+                     </li>
+                     <li>5.3. Devices can only be linked to one account &ndash; i.e. no two accounts can have the same
+                        device linked to it</li>
+                  </ul>
+                  <li>The <u>REGISTRATION PROCESS</u> requires:</li>
+                  <ul>
+                     <li>6.1. Name and Surname</li>
+                     <li>6.2. You to choose whether you want to register with your Email or Mobile Number. Email address
+                        <u>or</u> Mobile Number (must be verified at
+                        the end of the registration process)
+                     </li>
+                     <li> 6.3. You will be asked to create a password and to verify that password</li>
+                     <li>&nbsp;6.4. In order to complete the registration, you need to input the One Time Pin (OTP)
+                        &ndash; it will be sent to your Mobile Number or the email address provided &ndash; depends on
+                        your selection</li>
+                     <li>6.5. Your personal details can be changed (including your username and password) at any time by
+                        logging on to <strong>Avvatta</strong> and
+                        making such changes on your user profile directly</li>
+                     <li>6.6. Once logged in, you will be able to browse the content on the <strong>Avvatta
+                        </strong>platform only and &nbsp;will be allowed to watch any content purchased</li>
+                  </ul>
+
+                  <li><u>Free Trial</u> &ndash; Avvatta does not offer a free trial currently but allows you
+                     access to free content via the free entertainment section which is ad-based.
+                  </li>
+               </ol>
+               <p><strong>Content</strong></p>
+               <ol>
+                  <li>Content accessible via the <strong>Avvatta</strong> Service is subject to change at the
+                     discretion of Digital Media 333 Pty Ltd as well as the content providers affiliated to
+                     Digital Media 333 Pty Ltd
+                  </li>
+                  <li>Content on <strong>Avvatta</strong> is licensed by the various studios thus will be
+                     available for limited/ specified time periods as determined by our content providers
+                  </li>
+                  <li>All Content, systems and software used by <strong>Avvatta</strong> are owned or licensed by
+                     Digital Media 333 Pty Ltd/ Digital Media 333 Pty Ltd affiliates/ content providers and are
+                     protected by the intellectual property law
+                  </li>
+               </ol>
+
+               <p><strong>Liability/ Obligations/ Accountabilities</strong></p>
+               <ol>
+                  <li>Digital media 333 Pty Ltd will not be held responsible for:
+                     <ol>
+                        <li>Any failure or delay in the delivery of the content</li>
+                        <li>Any loss (including loss of data), damage (including damage to your hardware, devices and
+                           your equipment), costs or expenses suffered or incurred by you directly or
+                           indirectly as a result of your failure to properly install the hardware or software or the
+                           Android and/or iOS applications), or due to any incompatibility of your equipmentand/or
+                           devices
+                           with the<strong> Avvatta </strong>service.</li>
+                        <li>Any loss, damage, costs or expenses suffered or incurred by you due to factors beyond
+                           Digital Media 333 Pty Ltd&rsquo;s reasonable control including, but not limited to the
+                           congestion &nbsp;&nbsp;of the internet, slow internet
+                           connectivity, the operation of "cookies", internet files, firewalls, proxy servers, pop-up
+                           blockers and/or other files/software on your equipment and devices. It is your responsibility
+                           to manage your hardware to remove any impediments to the proper functioning of
+                           the <strong>Avvatta</strong> service. Be careful not to render yourself and/or your hardware
+                           (including including, without limitation, viruses or spam, and you do so at your own risk.
+                        </li>
+                     </ol>
+                  </li>
+                  <li>All customers that make use of the <strong>Avvatta</strong> service or accesses the
+                     <strong>Avvatta</strong> platform, indemnify Digital Media 333 Pty Ltd, its directors, affiliates,
+                     members, partners, employees, agents,
+                     consultants, suppliers, contractors and sponsors against any loss or damages, either direct,
+                     indirect, consequential or otherwise, arising from using the <strong>Avvatta</strong> service
+                     and/or the <strong>Avvatta</strong> platform.
+                  </li>
+                  <li>A delay or failure to fulfil obligations under these Terms and Conditions to the extent that
+                     such delay or failure results from causes beyond our reasonable control; or any negligent
+                     act or omission of ours or our consultants, agents or employees
+                  </li>
+                  <li>Digital media 333 Pty Ltd reserves the right, at any time, to:
+                     <ol>
+                        <li>limit or deny access to the <strong>Avvatta</strong> service, or any aspect thereof, for any
+                           reason which Digital media 333 Pty Ltd deems reasonably necessary for any purpose related to
+                           the business including, but not limited to supporting the provisioning, operations,
+                           maintenance and
+                           security of the <strong>Avvatta</strong> service, or
+                        </li>
+                        <li>any aspect thereof, and for purposes of performing any upgrade, repair or maintenance
+                           services</li>
+                        <li>Change the <strong>Avvatta</strong> service or platform, or any aspect thereof</li>
+                        <li>Discontinue the <strong>Avvatta</strong> service</li>
+                     </ol>
+                  </li>
+                  <li>
+                     Subject to the provisions of section 43(5) and section 43(6) of the Electronic
+                     Communications and Transactions Act (ECT Act), if applicable, and to any applicable
+                     provisions of the Consumer Protection Act (CPA) (if applicable) and to the full extent
+                     permitted by Applicable Law:
+
+
+                     <ol>
+                        <li>Digital Media 333 Pty Ltd makes no representations and give no warranties, whether
+                           expressed or implied, to the <strong>Avvatta</strong> service and specifically, does
+                           not warrant that the <strong>Avvatta </strong>service will be tailored to meet your
+                           personal requirements or expectations; or that the <strong>Avvatta</strong> service
+                           will be uninterrupted or error-free
+                        </li>
+                     </ol>
+                  </li>
+                  <li><strong>Avvatta </strong>or any aspect thereof, cannot be used in any manner that
+                     constitutes a violation of any law (including intellectual property law), or be used where
+                     there is an infringement of <strong>Avvatta&rsquo;s</strong> rights (including intellectual
+                     property rights)/ those of our affiliates, content providers, licensors or any third party
+                  </li>
+                  <li>No part of <strong>Avvatta</strong> or its contents can be reproduced, modified, copied or
+                     transferred to any person or onto any device, for any reason whatsoever, unless authorised
+                     to do so in line with these Terms and Conditions
+                  </li>
+                  <li>No permission is granted to hack, reverse engineer, decompile, modify, tamper with or
+                     otherwise compromise the security of any digital rights management system/ any other
+                     security or content protection systems used for or in relation to the provision of the
+                     <strong>Avvatta</strong> service and/or the <strong>Avvatta</strong> platform
+                  </li>
+                  <li><strong>Avvatta </strong>cannot be used in any manner that causes it, or any aspect thereof,
+                     to be interrupted or damaged
+                  </li>
+                  <li>Using VPN&rsquo;s or any by-passing tools for other districts is strictly prohibited. Strict
+                     measures will be taken against such act, including, but not limited to, formal reporting to
+                     relevant
+                     authorities
+                  </li>
+                  <li>Termination of service - Failure to comply with the Terms and Conditions and/or amendments set
+                     constitutes a breach of your agreement and may warrant the termination of your access to the
+                     <strong>Avvatta </strong>service &ndash; implying that all content stored on your applications will
+                     be removed with no refund for any purchased content or subscriptions
+                  </li>
+               </ol>
+               <p><strong>Conditions of Payments</strong></p>
+
+               <ol>
+                  <li>Customer Privacy Policy: Digital Media 333 (Pty) Ltd shall take all reasonable steps to
+                     protect the personal information of users. For this clause, "personal information" shall be
+                     defined as detailed in the Promotion of Access to Information Act 2 of 2000 (PAIA). The PAIA
+                     may be downloaded from: <a
+                        href="http://www.polity.org.za/attachment.php?aa_id=3569">http://www.polity.org.za/attachment.php?aa_id=3569</a>
+                  </li>
+                  <li>Payment options accepted: Payment may be made via Visa, MasterCard, Diners or American
+                     Express Cards or by bank transfer into the Digital Media 333 (Pty) Ltd bank account, the
+                     details of which will be provided on request
+                  </li>
+                  <li>Card acquiring and security Card transactions will be acquired for Digital Media 333 (Pty)
+                     Ltd via PayGate (Pty) Ltd who are the approved payment gateway for all South African
+                     Acquiring Banks. DPO PayGate uses the strictest form of encryption, namely Secure Socket
+                     Layer 3 (SSL3) and no Card details are stored on the website. Users may go to
+                     www.paygate.co.za to view their security certificate and security policy.
+                  </li>
+                  <li>Customer details separate from card details: Customer details will be stored by Digital
+                     Media 333 (Pty) Ltd separately from card details which are entered by the client on DPO
+                     PayGate&rsquo;s secure site. For more detail on DPO PayGate refer to <a
+                        href="http://www.paygate.co.za">paygate.co.za</a>
+                  </li>
+                  <li>Merchant Outlet country and transaction currency: The merchant outlet country at the time of
+                     presenting payment options to the cardholder is South Africa. Transaction currency is South
+                     African Rand (ZAR)
+                  </li>
+                  <li>Country of domicile: This website is governed by the laws of South Africa and Digital Media
+                     333 (Pty) Ltd chooses as its domicilium citandi et executandi for all purposes under this
+                     agreement, whether in respect of court process, notice, or other documents or communication
+                     of whatsoever nature, 33/35 Western Service Road, Woodmead, Gauteng.
+                  </li>
+                  <li>Company information: This website is run by Digital Media 333 (Pty) Ltd (sole trader / private
+                     company / close corporation) based in South Africa trading as Digital Media 333 (Pty) Ltd and with
+                     registration number 2020/ 537478 /07 and with Surie Ramasary and Prabhakar Manikonda as its
+                     Directors
+                  </li>
+                  <li>Digital Media 333 (Pty) Ltd contact details:</li>
+               </ol>
+               <div class="address">
+                  <div>Company Physical Address: </div>
+                  <div>
+                     <p>18 Ealing Crescent
+                     </p>
+                     <p>
+                        Bryanston Corner Office Park
+                     </p>
+                     <p>
+                        Bryanston East
+                     </p>
+                     <p>
+                        Gauteng
+                     </p>
+                     <p>
+                        2191
+                     </p>
+                  </div>
+               </div>
+
+               <p>Email: <a href="mailto:support@avvatta.co.za">support@avvatta.co.za</a></p>
+               <p>Telephone: +27 (0) 11-656-2033</p>
+
+               <p><strong>Support</strong></p>
+               <ol>
+                  <li>Kindly refer to the frequently asked questions (FAQ&rsquo;s) should you experience any
+                     issues on the <strong>Avvatta</strong> platform
+                  </li>
+                  <li>If your problem/ issue is not resolved after checking the FAQ&rsquo;s, please feel free to
+                     contact the team on our support email: <a
+                        href="mailto:support@avvatta.co.za">support@avvatta.co.za</a>
+                  </li>
+               </ol>
+            </div>
+            <div class="faqcont" *ngIf="click=='faq'">
+               <div class="content">
+                  <h3> FREQUENTLY ASKED QUESTIONS </h3>
+                  <h4> <strong> 1.&nbsp; </strong> <strong> What do I need to sign-up to the service? </strong>
+                  </h4>
+                  <p> &nbsp;You need one of the following methods in order to sign up: </p>
+                  <ol class="linone">
+                     <li>a) Email account </li>
+                     <li>b) Mobile number </li>
+                     <li>c) Facebook account </li>
+                     <li>d) Google account </li>
+                  </ol>
+                  <h4> <strong> 2.&nbsp; </strong> <strong> What do I do if I cannot sign into my account?
+                     </strong>
+                  </h4>
+                  <p> Firstly, please ensure that you are logging-in using the correct login method (that is the
+                     option that you selected to sign-up to the service &ndash; refer point 1)
+                  </p>
+                  <ol class="linone">
+                     <li>a) Login using email address: </li>
+                     <ul>
+                        <li> If you are using the correct log-in method, double check that you typed in the
+                           correct
+                           email address
+                        </li>
+                     </ul>
+                     <p> &nbsp; </p>
+                     <li>b) Forgot password: </li>
+                     <ul>
+                        <li> If you forgot your login password, then enter your username and use the forgot
+                           password
+                           option to reset your password
+                        </li>
+                        <li> A password reset link will be sent to your email address </li>
+                        <li> Open the link </li>
+                        <li> Create a new password </li>
+                        <li> Login to the service </li>
+                     </ul>
+                     <p> &nbsp; </p>
+                     <li>c) Login using your mobile number: </li>
+                     <ul>
+                        <li> If mobile number was your method to sign up and you cannot login, check if you
+                           typed-in
+                           the correct number
+                        </li>
+                        <li> If the number is correct, you will receive an OTP </li>
+                        <li> Enter the OTP on the verify screen </li>
+                        <li> If the OTP fails to verify, double check the OTP used or request a new one </li>
+                     </ul>
+                     <p> &nbsp; </p>
+                     <li>d) Not receiving an OTP: </li>
+                     <ul>
+                        <li>
+                           If you did not receive an OTP, double check the mobile number typed in (it should
+                           be
+                           the one you registered your account with)
+                           <ul>
+                              <li> If the mobile number used is correct and If your network connection is
+                                 good,
+                                 you should receive the OTP SMS within 60 seconds after you clicked
+                                 &rsquo;continue&rsquo;/ &lsquo;submit&rsquo;
+                              </li>
+                              <li> If you have not received the OTP in 60 seconds, use the resend OTP option
+                                 and
+                                 check your mobile phone for an SMS
+                              </li>
+                           </ul>
+                        </li>
+                        <li> Your mobile number must be active to receive an OTP </li>
+                        <li> Your mobile number must be connected to your mobile network and with sufficient
+                           signal
+                           connection to receive an OTP
+                        </li>
+                     </ul>
+                     <p> &nbsp; </p>
+                     <li>e)&nbsp;Login using Google or Facebook account </li>
+                     <ul>
+                        <li> If you signed up with a Google or Facebook account, you may need to re-authorize
+                           your
+                           Avvatta login on your Google or Facebook account settings
+                        </li>
+                        <li> Your Google or Facebook details will be used to verify you as the account holder
+                        </li>
+                     </ul>
+                  </ol>
+                  <h4> <strong> 3.&nbsp; </strong> <strong> How do I subscribe on Avvatta? </strong> </h4>
+                  <p> Subscribing to Avvatta gives you unlimited access to the content vertical subscribed to. You
+                     will have access to the full service for the period you have subscribed (daily, weekly or
+                     monthly) &nbsp;
+                  </p>
+                  <ul>
+                     <li> Subscription can be done in 2 ways: </li>
+                     <ul>
+                        <li> Launch Avvatta (open in your browser) </li>
+                        <li> Sign-in or Sign-up </li>
+                        <li> If subscribing from the <em> <u> Home Screen </u> </em> , select the burger menu
+                           button
+                           at the top menu bar of the screen (by clicking on your profile name)
+                        </li>
+                        <li> Select the My Account tab </li>
+                        <li> Enter your 4-digit PIN/Login password when prompted </li>
+                        <li> Select the Subscriptions Management tab under My Account </li>
+                        <li> Browse to the subscription content vertical that you wish to subscribe to </li>
+                        <li> Select the &lsquo;Subscribe&rsquo; tab on the subscription option of choice </li>
+                        <li> Make payment for your subscription </li>
+                        <li> Your subscription will be active for its validity period </li>
+                        <li> Enjoy watching <i class="fa fa-smile-o" aria-hidden="true"></i> </li>
+                        <p> <strong> OR, </strong> </p>
+                        <li> Launch Avvatta (open in your browser) </li>
+                        <li> Sign-in or Sign-up on Avvatta </li>
+                        <li> Select any premium content </li>
+                        <li> The subscription options will be displayed for you to choose </li>
+                        <li> Select the subscription package of your choice </li>
+                        <li> Make payment for your subscription </li>
+                        <li> Your subscription will be active for its validity period </li>
+                        <li> Enjoy watching <i class="fa fa-smile-o" aria-hidden="true"></i> </li>
+                     </ul>
+                  </ul>
+                  <p> &nbsp; </p>
+                  <h4> <strong> 4.&nbsp; </strong> <strong> How do I cancel my subscription? </strong> </h4>
+                  <ol>
+                     <ul>
+                        <li> Once logged in, click on the profile burger menu button on the right of the top
+                           menu bar
+                        </li>
+                        <li> Select the My Account tab </li>
+                        <li> Enter your 4-digit PIN/Login password when prompted </li>
+                        <li> Click on the &lsquo;Cancel Subscription&rsquo; tab </li>
+                        <li> Select the active package you wish to cancel </li>
+                        <li> Confirm to unsubscribe from the service </li>
+                        <li> Your subscription will be cancelled (recurring billing will be discontinued) </li>
+                        <li> NOTE &ndash; you will have access to the content until the package you cancelled
+                           expires
+                        </li>
+                     </ul>
+                  </ol>
+                  <h4> <strong> 5.&nbsp; </strong> <strong> Profile PIN </strong> </h4>
+                  <p> The &lsquo;Profile PIN&rsquo; feature allows the main account holder to create a profile pin
+                     &ndash; this will allow the account holder to restrict access to account tools and profile
+                     switching thus ensuring that age appropriate content is viewed correctly and account
+                     information is protected
+                  </p>
+                  <p> <strong> &nbsp; </strong> </p>
+                  <p> <strong> How do I create </strong> <strong> the Parental passcode? </strong> </p>
+                  <ul>
+                     <li> Launch Avvatta (open in browser) </li>
+                     <li> On the <em> Home Screen </em> , select the profile burger menu button at the right side
+                        of the top menu bar
+                     </li>
+                     <li> Select the Parental control menu tab </li>
+                     <li> Create the 4-digit pin by entering 4-digits of your choice </li>
+                     <li> Confirm the 4-digit pin by retyping it </li>
+                     <li> Select to save the profile PIN </li>
+                  </ul>
+                  <p> &nbsp; </p>
+                  <p> <strong> What do I do if I forgot my Profile PIN? </strong> </p>
+                  <ul>
+                     <li> Select the &lsquo;Forgot PIN&rsquo; option on the Profile PIN pop-up screen </li>
+                     <li> Input your registered email address or mobile number (depends on your chosen option at
+                        sign up)
+                     </li>
+                     <li> A link will be sent to your registered email or mobile number with instructions to
+                        reset your Profile PIN
+                     </li>
+                  </ul>
+                  <p> <strong> &nbsp; </strong> </p>
+                  <h4> <strong> 6.&nbsp; </strong> <strong> What does it mean when the subscription packages
+                        display when I want to stream? </strong>
+                  </h4>
+                  <p> If the subscription options pop up when content is clicked on it could mean one of the
+                     following:
+                  </p>
+                  <p> &nbsp; </p>
+                  <ul>
+                     <li> The content is premium content (paid content) and requires you to subscribe to it </li>
+                     <li> Your trial period has expired </li>
+                     <li> You have cancelled your subscription and the active package you had has now expired
+                     </li>
+                     <li> Your subscription renewal was not successful implying that your subscription was not
+                        renewed
+                     </li>
+                  </ul>
+                  <h4> <strong> 7.&nbsp; </strong> <strong> What tools does the account holder (main profile) have
+                        on Avvatta? </strong>
+                  </h4>
+                  <p> The main profile settings offer the following options: </p>
+                  <ul class="linone">
+                     <li>a) Create up to four profiles </li>
+                     <li>
+                        b) Manage profiles
+                        <ul>
+                           <li> Set age limits </li>
+                           <li> Edit or Remove profiles </li>
+                           <li> Switch profiles </li>
+                        </ul>
+                     </li>
+                     <li>
+                        c) Manage your account
+                        <ul>
+                           <li> Cancel membership </li>
+                           <li> Change billing date and/ or details of billing option </li>
+                           <li> View streaming history </li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <h4> <strong> 8.&nbsp; </strong> <strong> Have other questions? </strong> </h4>
+                  <p> Feel free to contact us on <a href="mailto:support@avvatta.co.za"> support@avvatta.co.za
+                     </a>
+                  </p>
+               </div>
+            </div>
+            <div class="contacecont" *ngIf="click=='contact'">
+               <div class="box">
+                  <div class="head">
+                     <h3> Contact Us </h3>
+                  </div>
+                  <div class="body">
+                     <form #contact="ngForm" (ngSubmit)="contactUs(contact)">
+                        <p> Select reason for contacting us </p>
+                        <div id="lists" class="sub" (click)="clickLists()">
+                           {{subject}}
+                           <div id="lists" class="downarrow"> ▼ </div>
+                        </div>
+                        <div id="lists" class="input reason" *ngIf="mainlist">
+                           <ul id="lists" *ngFor="let data of list" id="lists">
+                              <li id="lists" (click)="clickSubLists(data.id)">
+                                 {{data.mainList}}
+                                 <ng-container *ngIf="(id == data.id) && sublist">
+                                    <ul id="lists" *ngFor="let data1 of data.sublist"
+                                       (click)="select(data.mainList, data1)">
+                                       <li id="lists">{{data1}}</li>
+                                    </ul>
+                                 </ng-container>
+                              </li>
+                           </ul>
+                           <!-- <div class="dobinput">
+                   <select name="selectOne" ngModel required>
+                       <option selected value=""> Select One </option>
+                       <option value="payment subscription"> payment subscription </option>
+                       <option value="How to use Avvatta?" selected> How to use Avvatta? </option>
+                   </select>
+                   <div class="downarrow"> &#9660; </div>
+                   </div> -->
+                        </div>
+                        <div class="input">
+                           <p> Your email address </p>
+                           <input type="text" name="email" ngModel required #email="ngModel"
+                              placeholder="Enter your email adddress">
+                        </div>
+                        <div class="input">
+                           <p> Your comments </p>
+                           <textarea rows="5" name="comment" ngModel required
+                              placeholder="Type your comment"> </textarea>
+                        </div>
+                        <div class="foot">
+                           <div class="text">
+                              <p> This site is protected by<span [routerLink]="['/help/terms']"> Terms and
+                                    Conditions </span>and a <span><a [routerLink]="['/help/privacy']">Privacy
+                                       Policy </a></span>
+                              </p>
+                           </div>
+                           <div class="btn">
+                              <button type="submit"> SEND </button>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="privacycont" *ngIf="click=='privacy'">
+               <h3> Privacy Policy </h3>
+               <ol>
+                  <li><strong>Introduction</strong></li>
+               </ol>
+               <p>Welcome to <strong>Digital Media 333 Pty Ltd</strong>.</p>
+               <p><strong>Digital Media 333 Pty Ltd</strong> (&ldquo;us&rdquo;, &ldquo;we&rdquo;, or
+                  &ldquo;our&rdquo;) operates <strong><a href="{{domainName}}">{{domain}}</a></strong> (hereinafter
+                  referred to as
+                  <strong>&ldquo;Service&rdquo;</strong>).
+               </p>
+               <p>Our Privacy Policy governs your visit to <strong><a href="{{domainName}}">{{domain}}</a></strong>, and
+                  explains how we
+                  collect, safeguard and disclose information that results from your use of our Service.
+               </p>
+               <p>We use your data to provide and improve Service. By using the Service, you agree to the
+                  collection and use of information in accordance with this policy. Unless otherwise defined in
+                  this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our
+                  Terms and Conditions.
+               </p>
+               <p>Our Terms and Conditions (<strong>&ldquo;Terms&rdquo;</strong>) govern all use of our Service and
+                  together with the Privacy Policy constitutes your agreement with us
+                  (<strong>&ldquo;agreement&rdquo;</strong>).
+               </p>
+               <ol start="2">
+                  <li><strong>Definitions</strong></li>
+               </ol>
+               <p><strong>2.1. SERVICE</strong> means the <a href="{{domainName}}">{{domain}}</a>
+                  &nbsp;website and mobile App operated by Digital Media 333 Pty Ltd.
+               </p>
+               <p><strong>2.2. PERSONAL DATA</strong> means data about a living individual who can be identified
+                  from those data (or from those and other information either in our possession or likely to come
+                  into our possession).
+               </p>
+               <p><strong>2.3. USAGE DATA</strong> is data collected automatically either generated by the use of
+                  the Service or from the Service infrastructure itself (for example, the duration of a page
+                  visit).
+               </p>
+               <p><strong>2.4. COOKIES</strong> are small files stored on your device (computer or mobile device).
+               </p>
+               <p><strong>2.5. DATA CONTROLLER</strong> means a natural or legal person who (either alone or
+                  jointly or in common with other persons) determines the purposes for which and the manner in
+                  which any personal data are, or are to be, processed. For the purpose of this Privacy Policy, we
+                  are a Data Controller of your data.
+               </p>
+               <p><strong>2.6. DATA PROCESSORS (OR SERVICE PROVIDERS)</strong> means any natural or legal person
+                  who processes the data on behalf of the Data Controller. We may use the services of various
+                  Service Providers in order to process your data more effectively.
+               </p>
+               <p><strong>2.7. DATA SUBJECT</strong> is any living individual who is the subject of Personal Data.
+               </p>
+               <p><strong>2.8. THE USER</strong> is the individual using our Service. The User corresponds to the
+                  Data Subject, who is the subject of Personal Data.
+               </p>
+               <ol start="3">
+                  <li><strong>Information Collection and Use</strong></li>
+               </ol>
+               <p>We collect several different types of information for various purposes to provide and improve our
+                  Service to you.
+               </p>
+               <ol start="4">
+                  <li><strong>Types of Data Collected</strong></li>
+               </ol>
+               <p><strong>4.1. Personal Data</strong></p>
+               <p>While using our Service, we may ask you to provide us with certain personally identifiable
+                  information that can be used to contact or identify you (<strong>&ldquo;Personal
+                     Data&rdquo;</strong>). Personally identifiable information may include, but is not limited
+                  to:
+               </p>
+               <p>4.1.1. Email address</p>
+               <p>4.1.2. First name and last name</p>
+               <p>4.1.3. Phone number</p>
+               <p>4.1.4. Address, Country, State, Province, ZIP/Postal code, City</p>
+               <p>4.1.5. Cookies and Usage Data</p>
+               <p>We may use your Personal Data to contact you with newsletters, marketing or promotional materials
+                  and other information that may be of interest to you. You may opt out of receiving any, or all,
+                  of these communications from us by following the unsubscribe link.
+               </p>
+               <p><strong>4.2. Usage Data</strong></p>
+               <p>We may also collect information that your browser sends whenever you visit our Service or when
+                  you access our Service by or through any device (<strong>&ldquo;Usage Data&rdquo;</strong>).
+               </p>
+               <p>This Usage Data may include information such as your computer&rsquo;s Internet Protocol address
+                  (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the
+                  time and date of your visit, the time spent on those pages, unique device identifiers and other
+                  diagnostic data.
+               </p>
+               <p>When you access the Service with a device, this Usage Data may include information such as the
+                  type of device you use, your device unique ID, the IP address of your device, your device
+                  operating system, the type of Internet browser you use, unique device identifiers and other
+                  diagnostic data.
+               </p>
+               <p><strong>4.3. Location Data</strong></p>
+               <p>We may use and store information about your location if you give us permission to do so
+                  (<strong>&ldquo;Location Data&rdquo;</strong>). We use this data to provide features of our
+                  Service, to improve and customize our Service.
+               </p>
+               <p>You can enable or disable location services when you use our Service at any time by way of your
+                  device settings.
+               </p>
+               <p><strong>4.4. Tracking Cookies Data</strong></p>
+               <p>We use cookies and similar tracking technologies to track the activity on our Service and we hold
+                  certain information.
+               </p>
+               <p>Cookies are files with a small amount of data which may include an anonymous unique identifier.
+                  Cookies are sent to your browser from a website and stored on your device. Other tracking
+                  technologies are also used such as beacons, tags and scripts to collect and track information
+                  and to improve and analyse our Service.
+               </p>
+               <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
+                  However, if you do not accept cookies, you may not be able to use some portions of our Service.
+               </p>
+               <p>Examples of Cookies we use:</p>
+               <p>4.4.1. <strong>Session Cookies:</strong> We use Session Cookies to operate our Service.</p>
+               <p>4.4.2. <strong>Preference Cookies:</strong> We use Preference Cookies to remember your
+                  preferences and various settings.
+               </p>
+               <p>4.4.3. <strong>Security Cookies:</strong> We use Security Cookies for security purposes.</p>
+               <p>4.4.4. <strong>Advertising Cookies:</strong> Advertising Cookies are used to serve you with
+                  advertisements that may be relevant to you and your interests.
+               </p>
+               <p><strong>4.5. Other Data</strong></p>
+               <p>While using our Service, we may also collect the following information: sex, age, date of birth,
+                  contact number (work, mobile), and other data.
+               </p>
+               <ol start="5">
+                  <li><strong>Use of Data</strong></li>
+               </ol>
+               <p>Digital Media 333 Pty Ltd uses the collected data for various purposes:</p>
+               <p>5.1. to provide and maintain our Service;</p>
+               <p>5.2. to notify you about changes to our Service;</p>
+               <p>5.3. to allow you to participate in interactive features of our Service when you choose to do so;
+               </p>
+               <p>5.4. to provide customer support;</p>
+               <p>5.5. to gather analysis or valuable information so that we can improve our Service;</p>
+               <p>5.6. to monitor the usage of our Service;</p>
+               <p>5.7. to detect, prevent and address technical issues;</p>
+               <p>5.8. to fulfil any other purpose for which you provide it;</p>
+               <p>5.9. to carry out our obligations and enforce our rights arising from any contracts entered into
+                  between you and us, including for billing and collection;
+               </p>
+               <p>5.10. to provide you with notices about your account and/or subscription, including expiration
+                  and renewal notices, email-instructions, etc.;
+               </p>
+               <p>5.11. to provide you with news, special offers and general information about other goods,
+                  services and events which we offer that are similar to those that you have already purchased or
+                  enquired about unless you have opted not to receive such information;
+               </p>
+               <p>5.12. in any other way we may describe when you provide the information;</p>
+               <p>5.13. for any other purpose with your consent.</p>
+               <ol start="6">
+                  <li><strong>Retention of Data</strong></li>
+               </ol>
+               <p>We will retain your Personal Data only for as long as is necessary for the purposes set out in
+                  this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply
+                  with our legal obligations (for example, if we are required to retain your data to comply with
+                  applicable laws), resolve disputes, and enforce our legal agreements and policies.
+               </p>
+               <p>We will also retain Usage Data for internal analysis purposes. Usage Data is generally retained
+                  for a shorter period, except when this data is used to strengthen the security or to improve the
+                  functionality of our Service, or we are legally obligated to retain this data for longer time
+                  periods.
+               </p>
+               <ol start="7">
+                  <li><strong>Transfer of Data</strong></li>
+               </ol>
+               <p>Your information, including Personal Data, may be transferred to and maintained on computers
+                  located outside of your state, province, country or other governmental jurisdiction where the
+                  data protection laws may differ from those of your jurisdiction.
+               </p>
+               <p>If you are located outside South Africa and choose to provide information to us, please note that
+                  we transfer the data, including Personal Data, to South Africa and process it there.
+               </p>
+               <p>Your consent to this Privacy Policy followed by your submission of such information represents
+                  your agreement to that transfer.
+               </p>
+               <p>Digital Media 333 Pty Ltd will take all the steps reasonably necessary to ensure that your data
+                  is treated securely and in accordance with this Privacy Policy and no transfer of your Personal
+                  Data will take place to an organisation or a country unless there are adequate controls in place
+                  including the security of your data and other personal information.
+               </p>
+               <ol start="8">
+                  <li><strong>Disclosure of Data</strong></li>
+               </ol>
+               <p>We may disclose personal information that we collect, or you provide:</p>
+               <p>8.1. <strong>Disclosure for Law Enforcement.</strong></p>
+               <p>Under certain circumstances, we may be required to disclose your Personal Data if required to do
+                  so by law or in response to valid requests by public authorities.
+               </p>
+               <p>8.2. <strong>Business Transaction.</strong></p>
+               <p>If we or our subsidiaries are involved in a merger, acquisition or asset sale, your Personal Data
+                  may be transferred.
+               </p>
+               <p>8.3. <strong>Other cases. We may disclose your information also:</strong></p>
+               <p>8.3.1. to our subsidiaries and affiliates;</p>
+               <p>8.3.2. to contractors, service providers, and other third parties we use to support our business;
+               </p>
+               <p>8.3.3. to fulfil the purpose for which you provide it;</p>
+               <p>8.3.4. for the purpose of including your company&rsquo;s logo on our website;</p>
+               <p>8.3.5. for any other purpose disclosed by us when you provide the information;</p>
+               <p>8.3.6. with your consent in any other cases;</p>
+               <p>8.3.7. if we believe disclosure is necessary or appropriate to protect the rights, property, or
+                  safety of the Company, our customers, or others.
+               </p>
+               <ol start="9">
+                  <li><strong>Security of Data</strong></li>
+               </ol>
+               <p>The security of your data is important to us but remember that no method of transmission over the
+                  Internet or method of electronic storage is 100% secure. While we strive to use commercially
+                  acceptable means to protect your Personal Data, we cannot guarantee its absolute security.
+               </p>
+               <ol start="10">
+                  <li><strong>Your Data Protection Rights Under General Data Protection Regulation (GDPR)
+                     </strong>
+                  </li>
+               </ol>
+               <p>While POPIA's provisions only&nbsp;<strong>apply</strong>&nbsp;to the extent that businesses are
+                  registered and incorporated within the borders of&nbsp;<strong>South Africa</strong>,
+                  the&nbsp;<strong>GDPR</strong>&nbsp;is applicable to every organisation on
+                  the&nbsp;<strong>African</strong>&nbsp;continent that processes the personal data or monitors
+                  the online activities of citizens.
+               </p>
+               <p>Digital Media 333 (Pty) Ltd aims to take reasonable steps to allow you to correct, amend, delete,
+                  or limit the use of your Personal Data.
+               </p>
+               <p>If you wish to be informed what Personal Data we hold about you and if you want it to be removed
+                  from our systems, please email us at <a
+                     href="mailto:support@avvatta.com"><strong>support@avvatta.com</strong></a>
+               </p>
+               <p>In certain circumstances, you have the following data protection rights:</p>
+               <p>10.1. the right to access, update or to delete the information we have on you;</p>
+               <p>10.2. the right of rectification. You have the right to have your information rectified if that
+                  information is inaccurate or incomplete;
+               </p>
+               <p>10.3. the right to object. You have the right to object to our processing of your Personal Data;
+               </p>
+               <p>10.4. the right of restriction. You have the right to request that we restrict the processing of
+                  your personal information;
+               </p>
+               <p>10.5. the right to data portability. You have the right to be provided with a copy of your
+                  Personal Data in a structured, machine-readable and commonly used format;
+               </p>
+               <p>10.6. the right to withdraw consent. You also have the right to withdraw your consent at any time
+                  where we rely on your consent to process your personal information;
+               </p>
+               <p>Please note that Digital Media 333 (Pty) Ltd may ask you to verify your identity before
+                  responding to such requests. Please note, Digital Media 333 (Pty) Ltd may not be able to provide
+                  the Service without some necessary data.
+               </p>
+               <p>You have the right to complain to a Data Protection Authority about the collection and use of
+                  your Personal Data. For more information, please contact your local data protection authority.
+               </p>
+               <ol start="11">
+                  <li><strong>Your Data Protection Rights under the South African Privacy Protection Act (SAPPA)
+                        and the Protection of Personal Information Act (POPIA)</strong>
+                  </li>
+               </ol>
+               <p>SAPPA and POPIA require commercial websites and online services to post a privacy policy. The
+                  law&rsquo;s reach stretches well beyond South Africa to require a person or company that
+                  operates websites collecting personally identifiable information from consumers to post a
+                  conspicuous privacy policy on its website stating exactly the information being collected and
+                  those individuals with whom it is being shared, and to comply with this policy.
+               </p>
+               <p>According to SAPPA and POPIA we agree to the following:</p>
+               <p>11.1. users can visit our site anonymously;</p>
+               <p>11.2. our Privacy Policy link includes the word &ldquo;Privacy&rdquo;, and can easily be found on
+                  the home page of our website;
+               </p>
+               <p>11.3. users will be notified of any privacy policy changes on our Privacy Policy Page;</p>
+               <p>11.4. users will be able to change their personal information by emailing Digital Media 333 (Pty)
+                  Ltd at <a href="mailto:support@avvatta.com"><strong>support@avvatta.com</strong></a>
+               </p>
+               <p>The Digital Media 333 (Pty) Ltd Policy on &ldquo;Do Not Track&rdquo; Signals:</p>
+               <p>Digital Media 333 (Pty) Ltd honours Do Not Track signals and thus do not track, plant cookies, or
+                  use advertising when a Do Not Track browser mechanism is in place. Do Not Track is a preference
+                  you can set in your web browser to inform websites that you do not want to be tracked.
+               </p>
+               <p>You can enable or disable Do Not Track by visiting the Preferences or Settings page of your web
+                  browser.
+               </p>
+               <ol start="12">
+                  <li><strong>Your Data Protection Rights under the South African Consumer Privacy Act (SACPA) and
+                        the Protection of Personal Information Act (POPIA)</strong>
+                  </li>
+               </ol>
+               <p>You are entitled to learn what data Digital Media 333 (Pty) Ltd collect about you, ask to delete
+                  your data and not to sell (share) it. To exercise your data protection rights, you can make
+                  certain requests and ask us:
+               </p>
+               <p><strong>12.1. What personal information Digital Media 333 </strong>(Pty) Ltd <strong>has about
+                     you. If you make this request, Digital Media 333 </strong>(Pty) Ltd <strong>will return to
+                     you:</strong>
+               </p>
+               <p>12.1.1. The categories of personal information Digital Media 333 (Pty) Ltd has collected about
+                  you.
+               </p>
+               <p>12.1.2. The categories of sources from which Digital Media 333 (Pty) Ltd collect your personal
+                  information.
+               </p>
+               <p>12.1.3. The business or commercial purpose for collecting or selling your personal information.
+               </p>
+               <p>12.1.4. The categories of third parties with whom Digital Media 333 (Pty) Ltd share personal
+                  information.
+               </p>
+               <p>12.1.5. The specific pieces of personal information Digital Media 333 (Pty) Ltd has collected
+                  about you.
+               </p>
+               <p>12.1.6. A list of categories of personal information that Digital Media 333 (Pty) Ltd has sold,
+                  along with the category of any other company Digital Media 333 (Pty) Ltd sold it to. If Digital
+                  Media 333 (Pty) Ltd has not sold your personal information, Digital Media 333 (Pty) Ltd will
+                  inform you of that fact.
+               </p>
+               <p>12.1.7. A list of categories of personal information that Digital Media 333 (Pty) Ltd has
+                  disclosed for a business purpose, along with the category of any other Digital Media 333 (Pty)
+                  Ltd shared it with.
+               </p>
+               <p>Please note, you are entitled to ask us to provide you with this information up to two times in a
+                  rolling twelve-month period. When you make this request, the information provided may be limited
+                  to the personal information we collected about you in the previous 12 months.
+               </p>
+               <p><strong>12.2. To delete your personal information. </strong>If you make this request, Digital
+                  Media 333 (Pty) Ltd will delete the personal information Digital Media 333 (Pty) Ltd hold about
+                  you as at the date of your request from our records and direct any service providers to do the
+                  same. In some cases, deletion may be accomplished through de-identification of the information.
+                  If you choose to delete your personal information, you may not be able to use certain functions
+                  that require your personal information to operate.
+               </p>
+               <p><strong>12.3. To stop selling your personal information. </strong>Digital Media 333 (Pty) Ltd
+                  does not sell or rent your personal information to any third parties for any purpose. Digital
+                  Media 333 (Pty) Ltd does not sell your personal information for monetary consideration. However,
+                  under some circumstances, a transfer of personal information to a third party, or within our
+                  family of companies, without monetary consideration may be considered a &ldquo;sale&rdquo; under
+                  South African law. You are the only owner of your Personal Data and can request disclosure or
+                  deletion at any time.
+               </p>
+               <p>If you submit a request to stop selling your personal information, Digital Media 333 (Pty) Ltd
+                  will stop making such transfers. Please note, if you ask us to delete or stop selling your data,
+                  it may impact your experience with us, and you may not be able to participate in certain
+                  programs or membership services which require the usage of your personal information to
+                  function. But in no circumstances, will Digital Media 333 (Pty) Ltd discriminate against you for
+                  exercising your rights.
+               </p>
+               <p>To exercise your South African data protection rights described above, please send your
+                  request(s) by email to: <a href="mailto:support@avvatta.com"><strong>support@avvatta.com</strong></a>
+               </p>
+               <p>Your data protection rights, described above, are covered by the SACPA, short for the South
+                  African Consumer Privacy Act as well as the Protection of Personal Information Act (POPI or
+                  POPIA), which was enacted in 2013 in South Africa. To find out more, visit the official South
+                  African POPIA website, <a href="https://popia.co.za/">https://popia.co.za/</a>.
+               </p>
+               <ol start="13">
+                  <li><strong>Service Providers</strong></li>
+               </ol>
+               <p>Digital Media 333 (Pty) Ltd may employ third party companies and individuals to facilitate its
+                  Service (<strong>&ldquo;Service Providers&rdquo;</strong>), provide Service on its behalf,
+                  perform Service-related services, or assist in analysing how its Service is used.
+               </p>
+               <p>These third parties have access to your Personal Data only to perform these tasks on Digital
+                  Media 333 (Pty) Ltd behalf and are obligated not to disclose or use it for any other purpose.
+               </p>
+               <ol start="14">
+                  <li><strong>Analytics</strong></li>
+               </ol>
+               <p>Digital Media 333 (Pty) Ltd may use third-party Service Providers to monitor and analyse the use
+                  of our Service.
+               </p>
+               <ol start="15">
+                  <li><strong>CI/CD tools</strong></li>
+               </ol>
+               <p>Digital Media 333 (Pty) Ltd may use third-party Service Providers to automate the development
+                  process of its Service.
+               </p>
+               <ol start="16">
+                  <li><strong>Advertising</strong></li>
+               </ol>
+               <p>Digital Media 333 (Pty) Ltd may use third-party Service Providers to show advertisements to you
+                  to help support and maintain its Service.
+               </p>
+               <ol start="17">
+                  <li><strong>Behavioural Remarketing</strong></li>
+               </ol>
+               <p>Digital Media 333 (Pty) Ltd may use remarketing services to advertise on third party websites to
+                  you after you visited its Service. Digital Media 333 (Pty) Ltd and its third-party vendors use
+                  cookies to inform, optimise and serve ads based on your past visits to its Service.
+               </p>
+               <ol start="18">
+                  <li><strong>Payments</strong></li>
+               </ol>
+               <p>Digital Media 333 (Pty) Ltd may provide paid products and/or services within the Service. In that
+                  case, Digital Media 333 (Pty) Ltd use third-party services for payment processing (e.g., payment
+                  processors).
+               </p>
+               <p>Digital Media 333 (Pty) Ltd will not store or collect your payment card details. That information
+                  is provided directly to our third-party payment processors whose use of your personal
+                  information is governed by their Privacy Policy. These payment processors adhere to the
+                  standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint
+                  effort of brands like Visa, MasterCard, American Express and Discover. PCI-DSS requirements help
+                  ensure the secure handling of payment information.
+               </p>
+               <ol start="19">
+                  <li><strong>Links to Other Sites</strong></li>
+               </ol>
+               <p>Digital Media 333 (Pty) Ltd Service may contain links to other sites that are not operated by
+                  Digital Media 333 (Pty) Ltd. If you click a third party link, you will be directed to that third
+                  party&rsquo;s site. Digital Media 333 (Pty) Ltd strongly advises you to review the Privacy
+                  Policy of every site you visit.
+               </p>
+               <p>Digital Media 333 (Pty) Ltd has no control over and assume no responsibility for the content,
+                  privacy policies or practices of any third-party sites or services.
+               </p>
+               <ol start="20">
+                  <li><strong>Children&rsquo;s Privacy</strong></li>
+               </ol>
+               <p>Digital Media 333 (Pty) Ltd Services are intended for use by children under the age of 18
+                  (<strong>&ldquo;Child&rdquo;</strong> or <strong>&ldquo;Children&rdquo;</strong>), under the
+                  supervision of their elder.
+               </p>
+               <p>Digital Media 333 (Pty) Ltd does not knowingly collect personally identifiable information from
+                  Children under 18. If you become aware that a Child has provided Digital Media 333 (Pty) Ltd
+                  with Personal Data, please contact Digital Media 333 (Pty) Ltd. If Digital Media 333 (Pty) Ltd
+                  become aware that it has collected Personal Data from Children without verification of parental
+                  consent, Digital Media 333 (Pty) Ltd will take steps to remove that information from its
+                  servers.
+               </p>
+               <ol start="21">
+                  <li><strong>Changes to This Privacy Policy</strong></li>
+               </ol>
+               <p>Digital Media 333 (Pty) Ltd may update our Privacy Policy from time to time. Digital Media 333
+                  (Pty) Ltd will notify you of any changes by posting the new Privacy Policy on this page.
+               </p>
+               <p>Digital Media 333 (Pty) Ltd will let you know via email and/or a prominent notice on its Service,
+                  prior to the change becoming effective and update &ldquo;effective date&rdquo; at the top of
+                  this Privacy Policy.
+               </p>
+               <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this
+                  Privacy Policy are effective when they are posted on this page.
+               </p>
+               <ol start="22">
+                  <li><strong>Contact Us</strong></li>
+               </ol>
+               <p>If you have any questions about this Privacy Policy, please contact Digital Media 333 (Pty) Ltd
+                  by email: <a href="mailto:support@avvatta.com"><strong>support@avvatta.com</strong></a>
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

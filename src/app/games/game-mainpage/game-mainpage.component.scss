@@ -1,0 +1,390 @@
+.games{
+    background: #000 !important;
+    .bg{
+        width:100%;
+        background: #000;
+        padding:10px;
+    }
+    .mobilebanner{
+        width: 100%;
+        display: block;
+        img{
+            width: 100%;
+        }
+    }
+    .maincontainer{
+        display: block;
+        // background-image: url('http://129.232.184.36:8012/avvata/public/uploads/frontscreens/game.jpg'); 
+        height: 80vh; 
+        width:100%; 
+        background-position: center !important; 
+        background-repeat: no-repeat!important;
+        background-size: cover !important;
+        position: relative !important;
+        .middle{
+            width: calc(100% - 4px);
+            display: flex;
+            margin: auto;
+        }
+        .content{
+            width:100%;
+            display:flex;
+            margin: auto auto 0 auto;
+            color:#fff;
+            padding:80px 0px;
+            .left, .right{
+                width:5%;
+                text-align: center;
+                margin:auto;
+                cursor: pointer;
+                font-size: 30px;
+            }
+            .mid{
+                width:90%;
+                display: flex;
+                border-radius: 20px;
+            }
+            .empty{
+                width:50%;
+                margin: auto auto 0 auto;
+                padding:20px 0px;
+                color:#000;
+            }
+            .infos{
+                width:calc(50% - 40px);
+                color:#000;
+                padding:20px;
+                border-radius:20px;
+                .btn-container{
+                    width: 40%;
+                    display: flex;
+                    margin: auto auto auto 40px;
+                }
+                .buttons{
+                    width: 100%;
+                    display: flex;
+                    button{
+                        background: #b7cb1a;
+                        border-radius:10px 0px;
+                        border: 1px solid #b7cb1a;
+                        padding:10px;
+                        font-weight: bold;
+                    }
+                }
+                .detail{
+                    display:flex;
+                }
+                .add{
+                    margin:auto;
+                    i{
+                        text-align: center;
+                        border: 1px solid #fff;
+                        color:#000;
+                        border-radius: 50%;
+                        background: #fff;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                    }  
+                }
+                .share{
+                    margin:auto;
+                    i{
+                        text-align: center;
+                        border: 1px solid #fff;
+                        color:#000;
+                        border-radius: 50%;
+                        background: #fff;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                    }  
+                }
+            }
+        } 
+        .row{
+            padding:20px 0px;
+            width:100%;
+            bottom: 0;
+            position: absolute;
+            .slide{
+                display: table-cell !important;
+                float: none !important;
+                height:inherit;
+            }
+            .slick-slider {  
+                width: 95%;  
+                margin: auto;  
+              }              
+              .slick-track {
+                height: inherit !important;
+                display: table !important;
+              }
+              .slick-track {
+                display: flex !important;
+              }
+              
+              .slick-slide {
+                height: auto;
+              }
+            .btn{
+                width:100%;
+                display:flex;
+                cursor: pointer;
+                height: 100%;
+                .style{
+                    min-height: 40px;
+                    width:80%;
+                    height: calc(100% - 6px);
+                    margin:auto;
+                    display:flex;
+                    background:#b7cb1a; 
+                    border:1px solid #b7cb1a;
+                    text-align:center;
+                    padding:3px 10px;
+                    border-radius: 10px 0px;
+                    font-weight: bold;
+                    .inside{
+                        width:100%;
+                    margin:auto;
+                    display:flex;
+                    }
+                    .image{
+                        margin: auto 0 auto auto;
+                        width:20% !important;
+                    }
+                    .text{
+                        margin:auto auto auto 0;
+                        padding:0px 5px;
+                        text-transform: uppercase;
+                        font-size: 14px;
+                    }
+                    img{
+                        width:100%;
+                        height: 40px;
+                    }
+                }
+            }
+            .style:hover{
+                color:rgba(0, 0, 0, 1);
+                box-shadow: 0 5px 15px rgba(183, 203, 26, .8);
+            }
+        }
+    }
+
+    .cont{
+        width:100%;
+        background: #000;
+        h4{
+            text-transform: uppercase;
+            color:#fff;
+            margin:0px;
+            padding:20px 10px;
+            width:calc(95% - 20px);
+            margin:auto;
+            font-size: 16px;
+            font-weight: bold;
+            span{
+                color:#b7cb1a;
+                cursor:pointer;
+            }
+        }
+        
+        .slick-slider {  
+            width: 95%;  
+            margin: auto;  
+          }
+          .playlist{
+            width: calc(90% - 20px);
+            padding: 10px;
+            background: #fff;
+            margin: auto;
+            border:1px solid #fff;
+            border-radius:10px;
+            // min-height: 150px;
+            .image{
+                border-radius:5px;
+            }
+            .text{
+                display: flex;
+                width:100%;
+                .left{
+                    padding:5px 0px;
+                    width:100%;
+                    p{
+                        margin:0px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+                .right{
+                    width:20%;
+                    text-align:right;
+                }
+                h5{
+                    margin:0px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+        .row{
+            width:95%;
+            margin:auto;
+        }
+        .star{
+            display: flex;
+            margin: auto;
+            padding:5px 0px;
+            text-align: center;
+            color:#ccc;
+            // .active{
+            //     color:#b7cb1a;
+            // }
+            .like{
+                width:50%; 
+                i{
+                    cursor: pointer;
+                }
+            }
+            .dislike{
+                width:50%;
+                i{
+                    cursor: pointer;
+                    transform: rotatey(180deg);
+                }
+            }
+        }
+        .newrelease{
+            width:100%;
+            display: flex;
+            .left{
+                width:33.3%;
+                .r1{
+                    width:100%;
+                    display: inline-block;
+                    .playlists{
+                        width:50%; 
+                        float:left;
+                        img{
+                            width:100%;
+                        }
+                    }
+                }
+            }
+            .right{
+                width:33.3%;
+                .r1{
+                    width:100%;
+                    display: inline-block;
+                    .playlists{
+                        width:50%; 
+                        float:left;
+                        img{
+                            width:100%;
+                        }
+                    }
+                }
+            }
+            .center{
+                width:33.3%;
+                .playlists{
+                    width:100%;
+                    img{
+                        width:100%;
+                    }
+                }
+            }
+        }
+    }
+    .slide:focus{
+        outline:none;
+    }
+    .slide:hover{
+       img{
+        transform: scale(1.08) !important;
+        transition: transform .25s ease-in-out;
+        cursor: pointer;
+       }
+    }
+   
+    
+}
+
+
+
+
+// Responsive 
+@media screen and (max-width: 700px) and (min-width: 1px) { 
+    .games{
+        .mobilebanner{
+            width: 100%;
+            display: block;
+            img{
+                width: 100%;
+                padding:40px 0px 0px 0px;
+            }
+        }
+        .maincontainer{
+            display: none;
+            height: calc((50vh + 50vw)/2);
+            .middle{
+            height:unset;
+            margin-top: auto;  
+            padding:0px;
+            }
+            .content{
+                margin-top:auto;
+                padding:0px;
+            }
+            .modules.web{
+                display:none;
+            }
+            .modules.mobile{
+                display: block;
+                margin:5px auto;
+               
+            }
+            .inner{
+                display: flex;
+                margin:10px 0px;
+                width:100%;
+            }
+            .modules{
+                padding:0px;
+                // bottom: unset;
+                // position: unset;
+                
+                .btn{
+                    width:50%;
+                }
+            }
+            
+        }
+        .cont{
+            h4{
+                padding:10px 0px;
+                width:95%;
+            }
+        }
+    }
+    .games .maincontainer .content .mid{
+        display: block;
+    }
+    .games .maincontainer .content .infos {
+        width: calc(100% - 40px);
+        padding: 0px 20px;
+        h1{
+            margin:0px;
+        }
+    }
+    .games .maincontainer .content .empty{
+        width:100%;
+    }
+    .games .maincontainer .content .empty .btn-container{
+        width:80%;
+        margin:auto;
+    }
+  }

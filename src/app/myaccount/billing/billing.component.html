@@ -1,0 +1,81 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer"> 
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="account">
+            <h2>BILLING DETAIL</h2>
+            <div class="box">
+                <!-- <h3>Your Membership</h3> -->
+                <div class="head" *ngFor="let data of currentPlan">
+                    <div class="parent1">
+                        <div class="child1">
+                            <h3>Your Plan</h3>
+                        </div>
+                        <div class="child2">
+                            <div class="in">
+                               {{data.plan}}<br>
+                               {{data.currency}} &nbsp;{{data.amount}}
+                                <!-- <h3>Premium for R165/month</h3>
+                                <h3>4 screens + <span class="btn">ULTRAHD</span></h3> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="parent2">
+                        <div class="child1">
+                            <h3>Your Next Bill</h3>
+                        </div>
+                        <div class="child2">
+                            <div class="in">
+                                <h3>{{data.expire_date}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>Subscription fees are billed at the beginning of each period and may take a few days after the billing
+                    date to appear on your account.</p>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Purchase Date</th>
+                                <th>Expiry Date</th>
+                                <th>Payment Method</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of billData">
+                                <td>{{data.date}}</td>
+                                <td>{{data.title}}</td>
+                                <td>{{data.service_start}}</td>
+                                <td>{{data.service_end}}</td>
+                                <td class="add">
+                                    <div class="stream">
+                                        <p>{{data.payment_mode}}</p>
+                                        <!-- <div class="image">
+                                            <img src="../../assets/Images/Visa Icon.PNG" />
+                                        </div>
+                                        <div class="text">
+                                            <p>{{**** **** **** 1234}}</p>
+                                        </div> -->
+                                    </div>
+                                </td>
+                                <!-- <td>R416, <span>(+R22 + 23)</span></td> -->
+                                <td>{{data.currency}}&nbsp;{{data.amount}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <p>NOTE: Billing history is only available for the past 12 months</p>
+                <app-foot (click)="closeModal()"></app-foot>
+                <div class="body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

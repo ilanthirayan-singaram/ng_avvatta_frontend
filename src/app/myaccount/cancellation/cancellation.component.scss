@@ -1,0 +1,217 @@
+.head{
+    font-size: 18px !important;
+    font-weight: bold;
+}
+.subhead{
+    font-size: 18px !important;
+    font-weight: bold;
+}
+#modal-content-wrapper{
+    position: fixed;
+	background: rgb(0, 0, 0, 0.5);
+    color: white;
+    height: 100vh;
+    vertical-align: middle;
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+#modal-content-wrapper .modalcontainer{
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    width: calc(50% - 20px);
+    margin: auto;
+    height: fit-content;
+    text-align: center;
+}
+.signout{
+    width:100%;
+    padding: 35px 0px;
+    .body{
+        position: relative;
+        width:calc(100% - 40px);
+        border:3px solid #b7cb1a;
+        border-radius:10px;
+        padding:50px 20px;
+        .list{
+            width:100%;
+            text-align:left;
+            .button{
+                width:100%;
+            }
+        }
+        .button {
+            width: 50%;
+            display: flex;
+            padding: 10px 0px;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -40px;
+            background: #000;
+            button {
+                width: calc(100% - 20px);
+                margin: 10px;
+                padding: 10px;
+                background: #b7cb1a;
+                border: 2px solid #b7cb1a;
+                border-radius: 10px 0px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+        ul {
+            list-style: none;
+          }
+          
+          ul li::before {
+            content: "\2022";
+            color: #b7cb1a;
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+          }
+    }
+    span.left, span.right{
+        width: 20px;
+        height: 8px;
+        margin: auto;
+        background: #b7cb1a;
+        border: 2px solid #b7cb1a;
+    }
+    .feedback{
+        width:100%;
+        h4{
+            margin:0px;
+            text-align: left;
+            padding:5px;
+        }
+        .select{
+            width:100%;
+            // padding:20px 0px;
+            select{                
+                padding: 10px;
+                width: 100%;
+                border-radius: 5px 5px 0px 0px;
+                border: 1px solid rgb(150, 149, 147);
+                background:  rgb(150, 149, 147);
+            }
+        }
+        .text{
+            width:100%;
+            textarea{
+            width:100%;
+            padding: 10px;
+            width: calc(100% - 22px);
+            border-radius: 0px 0px 5px 5px;
+            border: 1px solid #fff;
+            background: #fff;
+            }
+        }
+    }
+}
+.check {
+    width: calc(100% - 20px);
+    padding:10px;
+    text-align: left;
+    //    Check box
+    .main {
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    /* Hide the default checkbox */
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    /* Creating a custom checkbox 
+based on demand */
+    .geekmark {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        border-radius: 5px;
+        border: 2px solid #b7cb1a;
+                       }
+    /* Checkmark to be shown in checkbox */
+    /* It is not be shown when not checked */
+    .geekmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    /* Display checkmark when checked */
+    .main input:checked~.geekmark:after {
+        display: block;
+    }
+    /* Styling the checkmark using webkit */
+    /* Rotated the rectangle by 45 degree and  
+showing only two border to make it look 
+like a tickmark */
+    .main .geekmark:after {
+        left: 6px;
+        bottom: 4px;
+        width: 7px;
+        height: 15px;
+        border: solid #b7cb1a;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+    input:checked {
+        border-radius: 5px;
+        border: 3px solid #b7cb1a;
+    }
+}
+select { 
+    /* for Firefox */ 
+    -moz-appearance: none; 
+    /* for Safari, Chrome, Opera */ 
+    -webkit-appearance: none; 
+  } 
+  .select {
+    width: 100%;
+    margin: auto 0;
+    position: relative;
+    select {
+        width: 100%;
+        margin: auto 0 auto auto;
+        padding: 15px 10px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background: #fff;
+    }
+    div {
+        position: absolute;
+        top: 30%;
+        right: 10px;
+        color: #000;
+    }
+}
+textarea {
+    resize: none;
+  }
+
+
+    // Responsive for portrait
+    @media screen and (max-width: 700px) and (min-width: 1px) { 
+        #modal-content-wrapper{
+            position: unset;
+        }
+        #modal-content-wrapper .modalcontainer{
+            width: calc(90% - 20px);
+        }
+        li{
+            font-size: 16px;
+        }
+        .signout .body .button {
+            width: 65%;
+            bottom: -45px;
+        }
+    }

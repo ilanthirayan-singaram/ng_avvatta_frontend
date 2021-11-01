@@ -1,0 +1,56 @@
+// Forgot password
+.epassword {
+    background:#000;
+    color:#fff;
+	.passcontainer {
+        text-align: center;
+		width: 80%;
+		margin: auto;
+	}
+	h3 {
+		width: 80%;
+		margin: auto;
+		padding: 10px;
+		font-size: calc((20px + 1vh + 1vw)/2 ) !important;
+		font-weight: bold;
+	}
+	p {
+		width: 80%;
+		margin: auto;
+		padding: 10px;
+	}
+	.min {
+		width: 50%;
+		margin: auto;
+		padding: 10px;
+		text-align: left;
+	}
+	.input {
+		width: 100%;
+		input {
+			width: calc(50% - 20px);
+			margin: auto;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #fff;
+			background: #fff;
+		}
+	}
+	.button {
+		width: 70%;
+		display: flex;
+		padding: 10px 0px;
+		margin-left: auto;
+		margin: auto;
+		button {
+			width: calc(50% - 20px);
+			margin:auto;
+			padding: 10px;
+			background: #b7cb1a;
+			border: 1px solid #b7cb1a;
+			border-radius: 10px 0px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+	}
+}

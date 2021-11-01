@@ -1,0 +1,40 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <a href="{{link}}" target="_blank" *ngIf="link != undefined">
+            <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        </a>
+        <a *ngIf="link == undefined">
+            <app-alert  [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        </a>
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="parental">
+            <div class="edit">
+                <form #request="ngForm" >
+                    <h3>Request copy of your information</h3>
+                    <div class="body">
+                        <div class="icon">
+                            <div>
+                                <img src="../../assets/icons/Parental Control.PNG" />
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <h4>Request a copy of your personal information from Avvatta. <br>
+                                The download will include a copy of your subscription activity on Avvatta.</h4>
+                                <hr>
+                            <h4>If you have any questions around the personal information contained in your downloadable file, please visit the help centre.</h4>
+                        </div>
+                    </div>
+                    <div class="buttoncontainer">
+                        <div class="button">
+                            <button (click)="submitRequest()">SUBMIT REQUEST</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+    </div>
+</div>

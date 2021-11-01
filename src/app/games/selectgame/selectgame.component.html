@@ -1,0 +1,171 @@
+<div class="games">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>  
+    <!-- <div class="maincontainer" style="background: url('{{banner}}');">
+        <div class="middle"> -->
+            <!-- <div class="content">
+                <div class="left"></div>
+                <div class="mid">
+                    <div class="infos">
+                        <div class="btn-container">
+                            <div class="buttons">
+                               <ng-container *ngFor="let cat of gameList">
+                                <div class="type" *ngIf="cat.sub_category.id == gameId">
+                                    <h4>
+                                        {{cat.sub_category.name}}
+                                    </h4> &nbsp;&nbsp;
+                                </div>
+                               </ng-container>
+                                <div class="btn">
+                                    <button>PLAY NOW</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <div class="size">Size
+                                <br>48 MB
+                            </div>&nbsp;
+                            <div class="size">Age rating
+                                <br>3 +
+                            </div>&nbsp;
+                            <div class="add">
+                                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
+                            </div>
+                            <div class="share">
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empty">
+                        <h1>About this game</h1>
+                        <p>
+                            What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry Lorem
+                            Ipsum has
+                            been the industry's standard dummy text ever since the 1500s when an unknownand
+                        </p>
+
+                        <div class="star">
+                            <i class="fa fa-star s1" aria-hidden="true"></i>&nbsp;
+                            <i class="fa fa-star s2" aria-hidden="true"></i>&nbsp;
+                            <i class="fa fa-star s3" aria-hidden="true"></i>&nbsp;
+                            <i class="fa fa-star s4" aria-hidden="true">
+                                <i class="fa fa-star s41" aria-hidden="true"></i>
+                            </i>&nbsp;
+                            <i class="fa fa-star" aria-hidden="true"></i>&nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="right"></div>
+            </div> -->
+        <!-- </div>
+    </div> -->
+    <div class="mobilebanner">
+        <img src="{{banner}}" />
+    </div>
+   <app-back></app-back>
+    
+    <!-- <div class="cont" *ngFor="let data of gameList">
+        <div class="row">
+            *ngIf="(data.sub_category.source != '') && (data.sub_category.source.length >= 7) && data.sub_category==this.gameId">
+            <h4>Play for free&nbsp;<span>View all</span></h4>
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="trending">
+                <div ngxSlickItem *ngFor="let games of data.play_for_free" class="slide">
+                    <div class="playlist" (click)="videoModal(games)">
+                        <div class="image">
+                            <img src="{{games.img}}" width="100%">
+                        </div>
+                        <div class="text">
+                            <div class="left">
+                                <h5>{{games.name}}</h5>
+                            </div>
+                            <div class="right">
+                                Free
+                            </div>
+                        </div>
+                        <div class="star">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+    </div> -->
+    <div class="cont" >
+        <div class="row">
+            <div *ngFor="let cat of gameList">
+                <h4 *ngIf="cat.sub_category.id == gameId">
+                    {{cat.sub_category.name}}&nbsp;
+                    <!-- <span>View all</span> -->
+                </h4> 
+            </div>
+            <div class="carousel">
+                <div class="main">
+                   <ng-container *ngFor="let data of selectedGameCategory">
+                    <div class="playlists">
+                        <div class="image"  (click)="videoModal(data)">
+                            <img defaultImage="../../../assets/Images/gamesdummy.jpeg"  width="100%" [lazyLoad]="data.img" />
+                            <!-- <img loading="lazy" src="{{data.img}}" width="100%"> -->
+                        </div>
+                        <div class="text">
+                            <div class="left">
+                                <h5  (click)="videoModal(data)">{{data.name}}</h5>
+                            </div>
+                        </div>
+                        <div class="star">
+                            <div class="like">
+                                <i (click)="clickDisLikeGaming(data, 1)" class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;{{data.likes}}
+                            </div>
+                            <div class="dislike">
+                                <i (click)="clickDisLikeGaming(data, 0)" class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;{{data.dis_like}}
+                            </div>
+                            <!-- <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i> -->
+                        </div>
+                    </div>
+                   </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="cont" *ngFor="let data of gameList">
+        <div class="row" >
+            <h4>New Release&nbsp;<span>View all</span></h4>
+            <div class="newrelease">
+                <div class="left">
+                    <div class="r1">
+                        <div  *ngFor="let low of data.mid" class="playlists" (click)="videoModal(low)">
+                            <img src="{{low.img}}" />
+                            <p>{{low.game_name}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center">
+                    <div>
+                        <div  *ngFor="let mid of data.high_mid" class="playlists" (click)="videoModal(mid)">
+                            <img src="{{mid.img}}" />
+                            <p>{{mid.game_name}}</p>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="right">
+                    <div class="r1"  >
+                        <div *ngFor="let high of data.low_mid" class="playlists" (click)="videoModal(high)">
+                            <img src="{{high.img}}" />
+                            <p>{{high.game_name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+
+</div>

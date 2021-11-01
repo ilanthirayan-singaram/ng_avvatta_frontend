@@ -1,0 +1,28 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="language">
+            <div class="heading">
+                <h4>Please select your preferred display language</h4>
+            </div>
+            <div class="body">
+                <div class="list">
+                    <div class="lang" *ngFor="let data of lang">
+                        <div class="img">
+                            <img src={{data.img}} />
+                        </div>
+                        <div class="text">
+                            {{data.lang}}
+                        </div>
+                    </div>
+                </div>
+                <div class="btn">
+                    <button>SELECT</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="elrn">
+  <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>
+  <div>
+    <!-- <div class="maincontainer" style="background: url('../../assets/Images/elearn/ELearning Landing Page BG.JPG');">
+      <div class="middle">
+        <div class="content">
+          <div class="left"></div>
+          <div class="empty">
+
+          </div>
+          <div class="info">
+          </div>
+          <div class="right"></div>
+        </div>
+      </div>
+    </div> -->
+    <div class="mobilebanner">
+      <img src="{{banner}}" />
+    </div>
+  </div>
+  <div class="modules">
+    <div class="inner web">
+      <div class="btn" *ngFor="let data of list">
+        <div class="style" (click)="goToNextPage(data.id)">
+          <div class="text">
+            <h3 [innerHtml]="data.name"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modules">
+    <!-- Mobile -->
+    <div class="inner mobile">
+      <div class="cont">
+        <div class="row">
+          <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="btn">
+            <div ngxSlickItem class="slide" *ngFor="let data of list">
+              <div class="btn">
+                <div class="style" (click)="goToNextPage(data.id)">
+                  <div class="text">
+                    <h3 [innerHtml]="data.name"></h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ngx-slick-carousel>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <app-back></app-back>
+
+  <!--  -->
+
+
+  <div class="cont">
+    <div class="row" *ngFor="let category of videoData">
+    <ng-container *ngIf="category.source.length >= 7">
+      <h4>{{category.sub_category_name | uppercase}}</h4>
+      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="trending">
+          <div ngxSlickItem *ngFor="let image of category.source" class="slide">
+              <div class="playlist" (click)="goToPlayVideoPage(image, category.sub_category_name)">
+                  <img defaultImage="../../../assets/Images/vdodummy.jpeg"  width="100%" [lazyLoad]="image.profileImage" />
+              </div>
+              <p class="textcenter">{{image.content_name}}</p>
+          </div>
+      </ngx-slick-carousel>
+    </ng-container>
+    </div>
+</div>

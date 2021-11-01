@@ -1,0 +1,294 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$avvatta-primary: mat-palette($mat-indigo);
+$avvatta-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$avvatta-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$avvatta-theme: mat-light-theme((
+  color: (
+    primary: $avvatta-primary,
+    accent: $avvatta-accent,
+    warn: $avvatta-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($avvatta-theme);
+
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+// @import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+// @include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+// $avvatta-primary: mat-palette($mat-indigo);
+// $avvatta-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+// $avvatta-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+// $avvatta-theme: mat-light-theme((
+//   color: (
+//     primary: $avvatta-primary,
+//     accent: $avvatta-accent,
+//     warn: $avvatta-warn,
+//   )
+// ));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+// @include angular-material-theme($avvatta-theme);
+
+/* You can add global styles to this file, and also import other style files */
+body{
+    margin:0px;
+    font-family: Futura Hv BT !important;
+}
+
+/* font family */
+@font-face {
+    font-family: Futura Hv BT;
+    src: url(assets/font/cc84650569fd07dac022c55b20c66e46.woff);
+  }
+  @font-face {
+    font-family: Futura Bk BT;
+    src: url(assets/font/FuturaHvBTHeavy.woff);
+  }
+  @font-face {
+    font-family: Futura Md BT;
+    src: url(assets/font/FuturaMdBTMedium.woff);
+  }
+  @font-face {
+    font-family: Futura Bk BT;
+    src: url(assets/font/FuturaBkBTBook.woff);
+  }
+
+  
+html, body { height: 100%;
+  position: relative;
+background:#000 !important; }
+body { margin: 0 ;}
+.mat-body, .mat-body-1, .mat-typography, .mat-typography h4, .mat-h1, .mat-headline, .mat-typography h1, h2, h3, h4, h5, h6 {
+  // font: unset !important;
+  font-family: Futura Hv BT !important;
+}
+// Modal
+
+body .maincontainer{
+  position: relative;
+  flex: 1 0 auto;
+  vertical-align: middle;
+}
+// .mat-dialog-container
+mat-dialog-container.mat-dialog-container{
+  background: unset !important;
+}
+mat-dialog-container#modal-component {
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  padding:0px;
+  top: 0;
+  background: unset !important;
+  margin: auto;
+  text-align: center;
+  z-index: 100;
+}
+#modal-content-wrapper{
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+.cdk-overlay-pane{
+  width:100% !important;
+  max-width: unset !important;
+}
+.cdk-overlay-pane{
+  height: auto !important;
+}
+input:focus, button:focus, select:focus, textarea:focus{
+  outline:none;
+}
+*[ng-reflect-router-link]:focus {
+  outline: none !important;
+}
+*:focus {
+  outline: none !important;
+}
+.slick-prev, .slick-next{
+  z-index: 1;
+}
+.slick-next{
+height: 0;
+width: 0;
+right:0 !important;
+// display: none !important;
+}
+.slick-prev{
+height: 0;
+width: 0;
+left:0 !important;
+// display: none !important;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; 
+  font-family: Futura Hv BT !important;
+ }
+div, p, button, a, h3, h4{
+  font-size: calc((10px + 1vh + 1vw)/2 ) !important;
+  // font-size: calc(17px + (22 - 17)*((100vw - 320px)/(1200 - 320)));
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.justify{
+  text-align: justify;
+}
+
+
+// prev next button
+.slick-slider {
+  width: 90%;
+  margin: auto;
+  background: #000;
+}
+
+.nav-btn {
+  height: 47px;
+  position: absolute;
+  width: 26px;
+  cursor: pointer;
+  top: 50% !important;
+}
+
+.prev-slide.slick-disabled,
+.next-slide.slick-disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.prev-slide {
+  height: 15px;
+  width: 15px;
+  background-image: url('https://www.avvatta.com:8100/avvata/public/uploads/frontscreens/Left Arrow.PNG') !important;
+  background-size: 15px 15px;
+  left: -17px;
+}
+
+.next-slide {
+  height: 15px;
+  width: 15px;
+  background-image: url('https://www.avvatta.com:8100/avvata/public/uploads/frontscreens/Right Arrow.PNG') !important;
+  background-size: 15px 15px;
+  right: -17px;
+}
+.banner{
+  .slick-slider{
+      width: 100%;
+  }
+  .slide:hover{
+      transform: unset;
+      transition: unset;
+  }
+  .prev-slide{
+      z-index: 2 !important;
+      left: 0 !important;
+  }
+  .next-slide{
+      z-index: 2 !important;
+      right: 0 !important;
+  }
+}
+
+@media screen and (max-width: 760px) and (min-width: 1px) { 
+  .slick-prev, .slick-next{
+      z-index: 1;
+  }
+  .slick-next{
+    height: 0;
+    width: 0;
+    right:0 !important;
+    // display: none !important;
+  }
+  .slick-prev{
+    height: 0;
+    width: 0;
+    left:0 !important;
+    // display: none !important;
+  }
+}
+
+// Ipad
+@media screen and (width: 768px){ 
+  .slick-next{
+    height: 0;
+    width: 0;
+    display: none !important;
+  }
+  .slick-prev{
+    height: 0;
+    width: 0;
+    display: none !important;
+    }
+  p{
+    font-size: calc(90% - -4px) !important;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 761px) { 
+  .maincontainer{
+    height: calc((50vh + 50vw)/2) !important;
+  }
+  .middle, .content{
+    height: unset !important;
+  }
+  .slick-next{
+    height: 0;
+    width: 0;
+    display: none !important;
+  }
+  .slick-prev{
+    height: 0;
+    width: 0;
+    display: none !important;
+    }
+    .prev-slide {
+      left: -17px;
+    }
+    .next-slide {
+      right: -17px;
+    }
+  p{
+    font-size: calc(90% - -4px) !important;
+  }
+}

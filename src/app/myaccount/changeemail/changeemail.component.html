@@ -1,0 +1,46 @@
+<div class="changeemail">
+    <div id="modal-content-wrapper">
+        <div class="modalcontainer">
+            <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+            <app-close (click)="closeModal()"></app-close> 
+            <div class="sinlog" [ngStyle]="{ 'display': changeEmailShow }">
+                <div class="mcontainer">
+                    <div class="left">
+                        <div class="login">
+                            <h3>Change Email</h3>
+                            <form #changeemail="ngForm" (ngSubmit)="changeEmail(changeemail)">
+                                <div class="input">
+                                    <input type="text" name="oldemail" ngModel required #oldemail="ngModel"
+                                        placeholder="Current Email">
+                                </div>
+                                <div class="input">
+                                    <input type="text" name="newemail" ngModel required #newemail="ngModel"
+                                    placeholder="New Email" (keyup)="checkMail(changeemail.value.newemail)">
+                                </div>
+                                <p *ngIf="emailId" class="danger font">Invalid email format</p>
+                                <div class="input">
+                                    <input type="password" name="password" ngModel required #password="ngModel" placeholder="Current Password">
+                                </div>
+                                <div class="foot">
+                                    <div class="forgot font" (click)="forgotPasswordDisplay()">
+                                        Forgot Password?
+                                    </div>
+                                </div>
+                                <div class="cont">
+                                    <button class="btn1" type="submit">SAVE</button>
+                                    <button class="btn2" type="button" (click)="closeModal()">CANCEL</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div [ngStyle]="{ 'display': forgotPasswordShow }">  
+            <app-forgotpassword></app-forgotpassword>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+    </div>
+</div>

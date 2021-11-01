@@ -1,0 +1,35 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="participation">
+            <form #particip="ngForm" (ngSubmit)="partcipation(particip)">
+                <div class="body">
+                    <h3>Test Participation</h3>
+                    <div class="content">
+                        <div class="text">
+                            <p>Include me in tests and preview</p>
+                        </div>
+                        <div class="toggle">
+                            <label class="switch"><input type="checkbox" id="togBtn" name="include" value="sa" checked
+                                    ngModel>
+                                <div class="slider round">
+                                    <!--ADDED HTML --><span class="on">ON</span><span class="off">OFF</span>
+                                    <!--END-->
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <p class="para">Participate in test to help improve the avvatta experience and see potential changes
+                        before they are available to all members.</p>
+                    <div class="button">
+                        <button (click)="closeModal()">DONE</button>
+                    </div>
+                </div>
+            </form>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Test participation End -->

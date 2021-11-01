@@ -1,0 +1,10 @@
+<div class="alert" *ngIf="alert">
+    <div id="modal-content-wrapper">
+        <div class="modalcontainer">
+            <div class="conts">
+                <p>{{Message.success}}{{Message.error}}</p>
+                <button (click)="alertClose()">ok</button>
+            </div>
+        </div>
+    </div>
+</div>

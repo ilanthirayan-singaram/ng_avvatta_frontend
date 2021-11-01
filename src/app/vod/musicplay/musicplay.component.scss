@@ -1,0 +1,96 @@
+.vmusic{
+    width:100%;
+    .recom{
+        cursor: pointer;
+    }
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+    .container{
+        width:100%;
+        display: flex;
+        .left{
+            width:80%;
+            padding: 100px 0px;
+            position: relative;
+            img{
+                width:100%;
+            }
+            i{
+                font-size: 24px;
+                border-radius: 50%;
+                border: 3px solid #fff;
+                padding: 14px 14px 15px 18px;
+                color: #fff;
+                width: 60px;
+                height: 60px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                transition: opacity .2s ease-out,background-color .2s ease-out;
+                z-index: 3;
+                background-color: rgba(0,0,0,.25);
+                cursor: pointer;
+                font-size: 50px;
+                text-align: center;
+                }
+        }
+        .right{
+            width:calc(20% - 0px);
+            padding: 100px 0px;
+            height: 70vh;
+            overflow: auto;
+            .recom{
+                width:calc(100% - 20px);
+                padding:10px;
+                img{
+                    width:100%;
+                }
+                p{
+                    padding:10px 10px 0 10px;
+                    margin: 0px;
+                    color:#fff;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 700px) and (min-width: 1px) { 
+    .vmusic .container{
+        display: block;
+        .mobile{
+            display: block;
+        }
+        .desktop{
+            display: none;
+        }
+        .left{
+            width:100%;
+            padding-bottom: 0px;
+            img{
+                width:100%;
+            }
+        }
+        .right{
+            width:calc(100% - 0px);
+            padding-bottom: 0px;
+            .recom{
+                width:calc(33.3% - 20px);
+                padding:10px;
+            }
+        }
+    }
+    .playlist{
+        width: 90%;
+        margin: auto;
+        border-radius: 15px;
+        border: 2px solid #000;
+        overflow:hidden;
+    }
+}

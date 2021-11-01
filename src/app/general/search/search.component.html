@@ -1,0 +1,59 @@
+<div class="search">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
+    <h2 *ngIf="!gameName?.length && !videoName?.length && !erosName?.length">No record Found</h2>
+    <div class="cont" *ngIf="gameName?.length">
+        <div class="row hide">
+            <div class="title fleft">Explore titles related to :</div>
+            <div class="fleft filterContent line" *ngFor="let data of gameName; let i=index">{{data}}</div>
+        </div>
+    </div>
+
+    <div class="cont" *ngIf="gameBanner?.length">
+        <div class="row">
+            <div class="pad fleft" *ngFor="let data of gameBanner; let i=index"><img style="width: 100%;min-width: 100%;" (click)=" gameNav(data.game_id, data.sub_cat_id)" src='{{data.img}}' /></div>
+        </div>
+    </div>
+
+    <div class="cont" *ngIf="videoName?.length">
+        <div class="row hide">
+            <div class="title fleft">Explore titles related to :</div>
+            <div class="fleft filterContent line" *ngFor="let data of videoName; let i=index">{{data}}
+            </div>
+        </div>
+    </div>
+
+    <div class="cont" *ngIf="videoBanner?.length">
+        <div class="row">
+            <div class="pad fleft" *ngFor="let data of videoBanner; let i=index"><img style="min-width: 100%;width: 100%;" (click)=" videoNav(data, data.cat_id)" src='{{data.profileImage}}' /></div>
+        </div>
+    </div>
+
+    <div class="cont" *ngIf="erosName?.length">
+        <div class="row hide">
+            <div class="title fleft">Explore titles related to :</div>
+            <div class="fleft filterContent line" *ngFor="let data of erosName; let i=index">{{data}}
+            </div>
+        </div>
+    </div>
+
+    <div class="cont" *ngIf="erosBanner?.length">
+        <div class="row">
+            <div class="pad fleft" *ngFor="let data of erosBanner; let i=index"><img style="min-width: 100%;width: 100%;" (click)=" erosNav(data, data.cat_id)" src='{{data.profileImage}}' /></div>
+        </div>
+    </div>
+    <!-- <div *ngIf="erosName?.length && !videoName?.length && !gameName?.length">
+        No data found
+    </div> -->
+    
+    <h2>ErosNow</h2>
+<div class="cont" *ngIf="erosResult?.length">
+    <div class="row">
+        <div class="pad fleft" *ngFor="let data of erosResult; let i=index">
+            <img defaultImage="../../../assets/Images/vdodummy.jpeg"  width="100%" [lazyLoad]="data.profileImage" (click)=" erosNav(data, data.cat_id)" src='{{data.profileImage}}' />
+            <p  (click)=" erosNav(data, data.cat_id)">{{data.content_name}}</p>
+        </div>
+    </div>
+</div>
+</div>

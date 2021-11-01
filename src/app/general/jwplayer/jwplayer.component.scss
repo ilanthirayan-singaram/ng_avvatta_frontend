@@ -1,0 +1,66 @@
+mat-dialog-container#modal-component {
+	height: fit-content !important;
+	position: unset !important;
+}
+#modal-content-wrapper {
+	overflow: auto;
+    position:unset;
+    width: 100%;
+    height: 100%;
+	background: rgb(0, 0, 0) !important;
+	color: white;
+	vertical-align: middle;
+	display: flex;
+	width: 100%;
+	margin: auto;
+	.modalcontainer {
+		padding: 10px 0px;
+		width: calc(100% - 0px);
+		margin: auto;
+		height: fit-content;
+		background: rgb(0, 0, 0) !important;
+        box-shadow: 0px 0px 2px 1px black;
+    }
+    .close{
+        top: 0;
+		text-align: right;
+		// position: absolute;
+		right: 0;
+		padding: 10px;
+		cursor: pointer;
+		i{
+			font-size: 25px !important;
+		}
+	}
+	video:focus{
+		outline:none;
+	}
+	.rotate{
+		transform: translatex(calc(50vw - 50%)) translatey(calc(50vh - 50%)) rotate(90deg);
+		position: absolute;
+		left: 0;
+		top: 0;
+		// transform: rotate(90deg); 
+	}
+	.player{
+		width:100%;
+		height:auto;
+		margin: auto;
+	}
+}
+
+
+// Response view
+@media screen and (max-width: 1024px) and (min-width: 1px) {
+	#modal-content-wrapper {
+		overflow: auto;
+	} 
+	.close{
+		text-align: right;
+		cursor: pointer;
+		z-index: 2;
+		position: absolute;
+		right: 5px;
+		bottom: 5px;
+	}
+}

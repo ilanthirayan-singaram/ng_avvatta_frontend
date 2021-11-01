@@ -1,0 +1,57 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+          <!-- Payment Success Start -->
+          <div class="paymentsuccess" *ngIf="status == '1' && ghanaStatus == undefined">
+            <div class="body">
+                <h3>Payment Successful</h3>
+                <div class="succ">
+                    <i class='fas fa-check'></i>
+                </div>
+                <p>You will be redirected.</p>
+                <p>Please do not close the browser.</p>
+                <p>If you are not automatically redirected, please </p>
+                <div class="button">
+                    <button (click)="clickHere()">CLICK HERE</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Success End -->
+        <!-- Payment Fail Start -->
+        <div class="paymentfail" *ngIf="status != '1'">
+            <div class="body">
+                <h3>Sorry, Payment Failed!</h3>
+                <div class="succ">
+                    <i class='fas fa-close'></i>
+                </div>
+                <p>Unfortunately, your payment was unsuccessful</p>
+                <p>Please ensure that the card details you paid with is correct as register.</p>
+                <p>Alternatively, please try a different payment method.</p>
+                <p>If the problem presists, Please contact Avvatta customer service</p>
+                <div class="button">
+                    <!-- <button>PAY NOW</button> -->
+                    <button (click)="goBack()">GO BACK</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Fail End -->
+
+        <!-- Ghana payment start-->
+        <div class="paymentfail" *ngIf="status == '1' && ghanaStatus != undefined">
+            <div class="body">
+                <h3>PAYMENT IN PROGRESS</h3>
+                <p>
+                    Thank you for your patience. While we await your payment confirmation, please enjoy our Free
+Entertainment.
+                </p>
+                <p><strong>NOTE:</strong> Once your subscription is successful, you will receive the successful subscription screen, where you will click confirm to have access to the content just purchased.</p>
+                <div class="button">
+                    <!-- <button>PAY NOW</button> -->
+                    <button (click)="goBackGhanauser()">GO BACK</button>
+                </div>
+            </div>
+        </div>
+        <!-- Ghana payment end -->
+    </div>
+</div>

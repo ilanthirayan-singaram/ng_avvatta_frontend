@@ -1,0 +1,50 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="sinlog" [ngStyle]="{'display':changePhoneShow}">
+            <div class="mcontainer">
+                
+                <h3>Change Phone Number</h3>
+                <p class="inst">Your phone number will be used if you forgot your password and for important account messages.</p>
+                <div class="left">
+                    <div class="login">
+                        <form #changephone="ngForm" (ngSubmit)="changePhoneNumber(changephone)">
+                            <p>Mobile number</p>
+                            <div class="inputs">                                
+                                <div class="selectcountry">
+                                    <select name="selectcountry" placeholder="Country" ngModel required>
+                                        <option value="27" >+27</option>
+                                    </select>
+                                    <div class="downarrow">&#9660;</div>
+                                </div>
+                                <div class="phone">
+                                    <input type="text" name="phone" placeholder="Phone number" ngModel required (keyup)="checkPhone(changephone.value.phone)">
+                                </div>
+                            </div>
+                            <p *ngIf="emailId" class="danger">Invalid mobile number</p>
+                            <div class="input">
+                                <input type="password" name="password" ngModel required placeholder="Current Password" #psswd="ngModel">
+                            </div>
+                            <div class="foot">
+                                <div class="forgot" (click)="forgotPasswordDisplay()">
+                                    Forgot Password?
+                                </div>
+                            </div>
+                            <div class="cont">
+                                <button class="btn1" type="submit">SAVE</button>
+                                <button class="btn2" type="button" (click)="closeModal()">CANCEL</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [ngStyle]="{ 'display': forgotPasswordShow }">
+            <app-forgotpassword></app-forgotpassword>
+        </div>
+        <div class="footer">
+            <app-foot (click)="closeModal()"></app-foot>
+        </div>
+    </div>
+</div>

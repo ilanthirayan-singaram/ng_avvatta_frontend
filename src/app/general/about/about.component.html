@@ -1,0 +1,498 @@
+<div class="About">
+<!-- <app-loader [toggleLoader]="test">
+
+</app-loader> -->
+    <div class="pad0">
+        <img class="width100" src="assets/image/Screenshot_27.png">
+    </div>
+
+    <!-- 4 Boxes -->
+    <div class="col-sm-12">
+        <div class="container_new">
+            <div class="container-fluid four-box d-flex">
+                <div class="modules">
+                    <div class="inner web">
+                        <div class="cont">
+                            <div class="row">
+                                <div class="width100">
+                                    <div class="height100 txtCen pad10 green">
+                                        <h4 class="font18 fontB">Introduction</h4>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btnn borderR whiteC green">
+                                            <i (click)="myFunction1(this, 'section1')" id="tag1" class="{{tag1}}"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="width100">
+                                    <div class="height100 orange txtCen pad10">
+                                        <h4 class="font18 fontB">What is AVVATTA?</h4>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btnn borderR whiteC orange">
+                                            <i (click)="myFunction2(this, 'section2')" id="tag2" class="{{tag2}}"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="width100">
+                                    <div class="height100 blue txtCen pad10">
+                                        <h4 class="font18 fontB">Our offering</h4>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btnn borderR whiteC blue">
+                                            <i (click)="myFunction3(this, 'section3')" id="tag3" class="{{tag3}}"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="width100">
+                                    <div class="height100 yellow txtCen pad10">
+                                        <h4 class="font18 fontB">Access</h4>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btnn borderR whiteC yellow">
+                                            <i (click)="myFunction4(this, 'section4')" id="tag4" class="{{tag4}}"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-12">
+        <div class="container_new">
+            <div class="container-fluid four-box d-flex">
+                <div class="modules">
+                    <div class="inner mobile">
+                        <div class="cont">
+                            <div class="row">
+                                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="btn">
+                                    <div ngxSlickItem class="slide">
+                                        <div class="width100">
+                                            <div class="widthTwenty txtCen green">
+                                                <h4 class="pt-30 font18 fontB">Introduction</h4>
+                                            </div>
+                                            <div class="plusIcon">
+                                                <button class="btnn borderR whiteC green">
+                                                    <i (click)="myFunction1(this, 'section1')" id="tag1"
+                                                        class="{{tag1}}"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ngxSlickItem class="slide">
+                                        <div class="width100">
+                                            <div class="widthTwenty txtCen orange">
+                                                <h4 class="pt-30 font18 fontB">What is AVVATTA?</h4>
+                                            </div>
+                                            <div class="plusIcon">
+                                                <button class="btnn borderR whiteC orange">
+                                                    <i (click)="myFunction2(this, 'section2')" id="tag2"
+                                                        class="{{tag2}}"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ngxSlickItem class="slide">
+                                        <div class="width100">
+                                            <div class="widthTwenty txtCen blue">
+                                                <h4 class="pt-30 font18 fontB">Our offering</h4>
+                                            </div>
+                                            <div class="plusIcon">
+                                                <button class="btnn borderR whiteC blue">
+                                                    <i (click)="myFunction3(this, 'section3')" id="tag3"
+                                                        class="{{tag3}}"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ngxSlickItem class="slide">
+                                        <div class="width100">
+                                            <div class="widthTwenty txtCen yellow">
+                                                <h4 class="pt-30 font18 fontB">Access</h4>
+                                            </div>
+                                            <div class="plusIcon">
+                                                <button class="btnn borderR whiteC yellow">
+                                                    <i (click)="myFunction4(this, 'section4')" id="tag4"
+                                                        class="{{tag4}}"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ngx-slick-carousel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Introduction to Avvatta -->
+    <div class="container_new1 d-flex" id="section1">
+        <div class="width60">
+            <img class="width100 introB borderG" src="assets/image/pexels-pixabay-327540.PNG">
+        </div>
+        <div class="paddlr txtJfy">
+            <h4 class="font18 fontB greenC">Introduction to Avvatta</h4>
+            <p class="lineH whiteC">Avvatta journeys you through an all-inclusive entertainment experience for kids,
+                families and anyone that wants to binge watch! It is tailored for the African market giving you access
+                on the go, wherever, whenever. </p>
+            <p class="lineH whiteC">It was created in 2020 from a love for media and as a safe haven to stream, play or
+                download content and learning securely.
+            </p>
+        </div>
+    </div>
+
+    <!-- What is AVVATTA? -->
+    <div class="container_new1 d-flex" id="section2">
+        <div class="paddrl txtJfy">
+            <h4 class="orangeC font18 fontB">What is AVVATTA?</h4>
+            <p class="lineH whiteC">Avvatta is a one stop shop for all your entertainment needs. It is a video on demand
+                experience that brings you a collection of TV shows and movies, casual Gaming, fun Kids shows,
+                e-learning for all age groups, DIY and so much more. It is a subscription based service offering with a free trial for you to experience Avvatta before you commit.
+            </p>
+        </div>
+        <div class="width100">
+            <img class="width100 introB" src="assets/image/683497.PNG">
+        </div>
+    </div>
+
+    <!-- Our Offering Image -->
+    <div class="container_new1">
+        <img class="width100" src="assets/image/Our Offering Icons.png">
+    </div>
+
+    <!-- Our Offering Content -->
+    <div class="txtJfy">
+        <div class="container_new1 borderO pad1">
+            <p class="whiteC lineH font17"><i class="fa fa-arrow-circle-right orangeC" aria-hidden="true"></i> The
+                offering includes a freemium catalogue of short form content and VOD at no cost to the end user.
+            </p>
+            <div class="d-flex">
+                <div class="width35">
+                    <img class="width100 introB borderG" src="assets/image/laptop-1483974(1).jpg">
+                </div>
+                <div class="paddlr">
+                    <p class="whiteC lineH font17"><i class="fa fa-arrow-circle-right orangeC" aria-hidden="true"></i>
+                        Premium bundles are available on ala carte for customers to choose what they want to watch and
+                        when. </p>
+                    <p class="whiteC lineH font17"><i class="fa fa-arrow-circle-right orangeC" aria-hidden="true"></i>
+                        It is affordable entertainment & learning on the go. </p>
+                    <p class="whiteC lineH font17"><i class="fa fa-arrow-circle-right orangeC" aria-hidden="true"></i>
+                        You will also be able to stay informed on news, sports and your learning progress. </p>
+                </div>
+            </div>
+            <p class="whiteC lineH font17">
+                <i class="fa fa-arrow-circle-right orangeC" aria-hidden="true"></i> Content is refreshed weekly, and you
+                will receive personalised content recommended for you. You have the power of choice.
+            </p>
+        </div>
+    </div>
+
+    <!-- Our offering Types -->
+    <div class="marb3" id="section3">
+        <div class="container_new1 abou_sec">
+            <h4 class="font18 fontB blueC">Our offering</h4>
+            <div class="d-table">
+                <div class="width20 d-tabC pad2">
+                    <div>
+                        <img class="width100 introB videosBorder" src="assets/image/vidoe.PNG">
+                        <div id="line"></div>
+                    </div>
+                    <div class="padt35">
+                        <h4 class="txtCen lineH fontB videosC videosborderB">
+                            Short Form Videos </h4>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle videosC" aria-hidden="true"></i>&nbsp;Short form
+                            videos are under 5 minutes and are designed to be concise and memorable.
+                        </p>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle videosC" aria-hidden="true"></i>&nbsp;Avvatta
+                            has a whole host of short form videos from comedy to DIY to documentaries that will keep you
+                            entertained for hours.
+                        </p>
+                    </div>
+                </div>
+                <div class="width20 d-tabC pad2">
+                    <div>
+                        <img class="width100 introB freeBorder" src="assets/image/Entertainment.PNG">
+                        <div id="line1"></div>
+                    </div>
+                    <div class="padt35">
+                        <h4 class="txtCen blueC lineH fontB freeborderB">
+                            Freemium Entertainment
+                        </h4>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle blueC" aria-hidden="true"></i>&nbsp;Avvatta has
+                            a great catalogue of freemium content, available anytime for you to watch for free, yes free
+                            – no subscription to have access to unlimited entertainment – all
+                            you need is to simply register.
+                        </p>
+                    </div>
+                </div>
+                <div class="width20 d-tabC pad2">
+                    <div>
+                        <img class="width100 introB gamesBorder" src="assets/image/Games.PNG">
+                        <div id="line2"></div>
+                    </div>
+                    <div class="padt35">
+                        <h4 class="txtCen lineH fontB gamesC gamesborderB">
+                            Games
+                        </h4>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle gamesC" aria-hidden="true"></i>&nbsp;Avvatta
+                            offers a complete unique gaming experience for both the casual and the pro-gamer to suit
+                            every gamers need.
+                        </p>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle gamesC" aria-hidden="true"></i>&nbsp;With a
+                            collection of over 2000 games including a variety of genres, action, puzzles, sport, arcade,
+                            adventure and so much more.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="d-table padt35">
+                <div class="width20 d-tabC pad2">
+                    <div>
+                        <img class="width100 introB learnBorder" src="assets/image/Learning.PNG">
+                        <div id="line3"></div>
+                    </div>
+                    <div class="padt35">
+                        <h4 class="txtCen greenC lineH fontB learnborderB">
+                            E-Learning
+                        </h4>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle greenC" aria-hidden="true"></i>&nbsp;Avvatta
+                            provides its online learning solution for all ages from 2 to 18 and for any person that is
+                            interested in learning how to code.</p>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle greenC" aria-hidden="true"></i>&nbsp;It is
+                            equipped with worksheet, assessments, and explanations for most subjects and you have the
+                            opportunity to learn other languages.
+                        </p>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle greenC" aria-hidden="true"></i>&nbsp;Learning
+                            that takes you beyond school now online in the comfort of your home or office.
+                        </p>
+                    </div>
+                </div>
+                <div class="width20 d-tabC pad2">
+                    <div>
+                        <img class="width100 introB moviesBorder" src="assets/image/movies.PNG">
+                        <div id="line4"></div>
+                    </div>
+                    <div class="padt35">
+                        <h4 class="txtCen moviesC fontB lineH moviesborderB">
+                            Movies
+                        </h4>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle moviesC" aria-hidden="true"></i>&nbsp;Avvatta
+                            has a library of old and new movies in a variety of categories such as Hollywood, Bollywood
+                            and Nollywood. </p>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle moviesC" aria-hidden="true"></i>&nbsp;You have
+                            the option to subscribe and have access to all the movies under subscription whenever you
+                            need it or you have the option to rent a recent movie and have access
+                            to it for 48 hours.
+                        </p>
+                    </div>
+                </div>
+                <div class="width20 d-tabC pad2">
+                    <div>
+                        <img class="width100 introB seriesBorder" src="assets/image/Series.PNG">
+                        <div id="line5"></div>
+                    </div>
+                    <div class="padt35">
+                        <h4 class="txtCen fontB lineH seriesC seriesborderB">
+                            Series
+                        </h4>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle seriesC" aria-hidden="true"></i>&nbsp;You can
+                            binge watch your favourite series by selecting from a whole host of local and international
+                            shows.
+                        </p>
+                        <p class="whiteC txtJfy"><i class="fa fa-circle seriesC" aria-hidden="true"></i>&nbsp;Once you
+                            subscribe to a package, you will have full access to all selected series for the full
+                            duration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Access -->
+    <div class="txtCen fontB accessS" id="section4"><h4>How do I gain access to Avvatta?</h4></div>
+    <div class="wrapper">
+        <div class="div1">
+            <div class="vl"></div>
+        </div>
+        <div class="div2">
+            <div class="row">
+                <div class="col span2"> <strong class="font100 point1C">1</strong></div>
+                <div class="col span3">
+                    <p class="whiteC lineH txtCen padtop2 font18">
+                        You simply register on Avvatta to open a world of entertainment.
+                    </p>
+                </div>
+                <div class="col span1 empty">
+                    <div class="circle"><span class="round"></span></div>
+                </div>
+                <div class="col span3 empty"></div>
+                <div class="col span2 empty"></div>
+            </div>
+        </div>
+        <div class="div2">
+            <div class="row">
+                <div class="col span2 empty"></div>
+                <div class="col span3 empty"></div>
+                <div class="col span1 empty">
+                    <div class="circle"><span class="round"></span></div>
+                </div>
+                <div class="col span3">
+                    <p class="whiteC lineH txtCen padtop2 font18">
+                        You can consume content on your laptop, phone or tablet or you can cast from your phone to your
+                        TV, if the capability on your device exists.
+                    </p>
+                </div>
+                <div class="col span2"> <strong class="font100 orangeC">2</strong></div>
+            </div>
+        </div>
+        <div class="div2">
+            <div class="row">
+                <div class="col span2 "><strong class="font100 blueC mart">3</strong></div>
+                <div class="col span3">
+                    <p class="whiteC lineH txtCen padtop2 font18 mart9">
+                        The number of devices you can use on one account is dependent on the package you have chosen.
+                    </p>
+                </div>
+                <div class="col span1 empty">
+                    <div class="circle"><span class="round"></span></div>
+                </div>
+                <div class="col span3 empty"></div>
+                <div class="col span2 empty"> </div>
+            </div>
+        </div>
+        <div class="div2">
+            <div class="row">
+                <div class="col span2 empty"></div>
+                <div class="col span3 empty"></div>
+                <div class="col span1 ">
+                    <div class="circle"><span class="round"></span></div>
+                </div>
+                <div class="col span3 ">
+                    <p class="whiteC lineH padtop2 txtCen font18 mart9">
+                        You can create multiple profiles and as a parent/adult and you will be able to set age
+                        restrictions per child in order to ensure secure viewing.
+                    </p>
+                </div>
+                <div class="col span2"> <strong class="font100 mart point4C">4</strong></div>
+            </div>
+        </div>
+        <div class="div2">
+            <div class="row">
+                <div class="col span2"> <strong class="font100 mart point5C">5</strong></div>
+                <div class="col span3">
+                    <p class="whiteC lineH padtop2 txtCen font18 mart9">
+                        You will be able to pause and resume where you left off, and you will be able to share your
+                        favourites on your social handles.
+                    </p>
+                </div>
+                <div class="col span1 empty">
+                    <div class="circle"><span class="round"></span></div>
+                </div>
+                <div class="col span3 empty"> </div>
+                <div class="col span2 empty"> </div>
+            </div>
+        </div>
+        <div class="div2">
+            <div class="row">
+                <div class="col span2 empty"></div>
+                <div class="col span3 empty"></div>
+                <div class="col span1 empty">
+                    <div class="circle"><span class="round"></span></div>
+                </div>
+                <div class="col span3">
+                    <p class="whiteC lineH padtop2 txtCen font18 mart9">
+                        You can cancel anytime and you will be able to use the service until that subscription
+                        officially expires.
+                    </p>
+                </div>
+                <div class="col span2"> <strong class="font100 mart point6C">6</strong></div>
+            </div>
+        </div>
+        <div class="div2">
+            <div class="row">
+                <div class="col span2">
+                    <strong class="font100 blueC mart">7</strong>
+                </div>
+                <div class="col span3">
+                    <p class="whiteC lineH padtop2 txtCen font18 mart9">
+                        Can be accessed on Web or any smartphone mobile.
+                    </p>
+                </div>
+                <div class="col span1 empty">
+                    <div class="circle"><span class="round"></span></div>
+                </div>
+                <div class="col span3 empty"> </div>
+                <div class="col span2 empty"> </div>
+            </div>
+        </div>
+        <div class="div2">
+            <div class="row">
+                <div class="col span2 empty"></div>
+                <div class="col span3 empty"></div>
+                <div class="col span1 empty">
+                    <div class="circle"><span class="round"></span></div>
+                </div>
+                <div class="col span3">
+                    <p class="whiteC lineH padtop2 txtCen font18 mart">
+                        All images used are for illustrative purposes only. Content may vary per operator and/or per
+                        country.
+                    </p>
+                </div>
+                <div class="col span2">
+                    <strong class="font100 mart point8C">8</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multi Screen -->
+    <div class="container_new1 txtCen">
+        <img src="assets/image/Multi Screens.PNG" class="width60">
+    </div>
+
+    <!-- Bottom Content -->
+    <div class="container_new1">
+        <div class="txtJfy">
+            <p class="whiteC lineH txtCen font18">Downloading this application, implies that you agree to the Avvatta
+                <span class="cursor" (click)="help('terms')">Terms and Conditions</span>, <span class="cursor" (click)="help('privacy')">Privacy Policy</span> and End User License Agreement, all of which can be viewed at
+                <span class="cursor"><a href="{{domainName}}">{{domain}}</a></span> 
+            </p>
+            <p class="whiteC lineH txtCen font18 martb">
+                Get access to the latest trends and new content being release by visiting our social media pages.
+            </p>
+        </div>
+    </div>
+
+    <!-- About us footer icon -->
+    <!-- <div class="width100 d-flex pad0">
+      <div class="width25 txtCen green pad4">
+        <a href="https://www.facebook.com/AVVATTA/"><img src="assets/image/facebook.PNG" class="width21 txtCen"></a>
+      </div>
+      <div class="width25 txtCen orange pad4">
+        <a href="twitter.com"> <img src="assets/image/Twitter.PNG" class="width21 txtCen"></a>
+      </div>
+      <div class="width25 txtCen blue pad4">
+        <a href="playstore.com"> <img src="assets/image/play store.PNG" class="txtCen width21"></a>
+      </div>
+      <div class="width25 txtCen yellow pad4">
+        <a href="instagram.com"> <img src="assets/image/Instagram.PNG" class="txtCen width21"></a>
+      </div>
+    </div> -->
+    <!-- Scroll Icon -->
+    <div [ngClass]="{'show-scroll': showScroll}" (click)="scrollToTop()" class="scroll-to-top">
+        <i class="fa fa-arrow-circle-up scrollS"></i>
+    </div>
+
+    <app-back></app-back>
+</div>

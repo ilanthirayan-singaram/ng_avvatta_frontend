@@ -1,0 +1,27 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="manage">
+           <h3>Manage Download Devices</h3>
+           <p>Your plan allows downloads on devices, when you remove a device, all downloads on that device will no longer be available.</p>
+           <div class="body">
+               <div class="left">
+                <h4>Android Phone</h4>
+                <p>Last download on 06 August 2020</p>
+                <span>&#x25B6;&nbsp;</span><a>Show Downloads</a>
+               </div>
+               <div class="right">
+                    <div class="button">
+                        <button>Download</button>
+                    </div>
+               </div>
+           </div> 
+           <div class="button">
+            <button>BACK TO ACCOUNT</button>
+        </div>
+           <div class="footer">
+            <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+    </div>
+</div>

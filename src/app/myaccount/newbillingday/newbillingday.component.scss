@@ -1,0 +1,124 @@
+#modal-content-wrapper{
+    position: fixed;
+	background: rgb(0, 0, 0, 0.5);
+    color: white;
+    height: 100vh;
+    vertical-align: middle;
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+#modal-content-wrapper .modalcontainer{
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    width: calc(75% - 40px);
+    margin: auto;
+    height: fit-content;
+    text-align: center;
+}
+.body{
+    width:100%;
+    display:flex;
+    .icon{
+        width: calc(25% - 20px);
+        display: flex;
+        background: #b7cb1a;
+        border: 3px solid #b7cb1a;
+        border-radius: 20px 0px 0px 0px;
+        padding: 10px;
+        div{
+            width: 100%;
+            margin: auto;
+        }
+        img{
+            width:100%;
+        }
+    }
+    .profile{
+        width:calc(75% - 20px);
+        padding:10px;
+        border:3px solid #b7cb1a;
+        border-radius:0px 0px 20px 0px;
+        h4{
+            text-align:left;
+        }
+        .foot{
+            width:100%;
+            display:flex;
+            .image{
+                width:5%;
+                vertical-align: middle;
+                display: flex;
+                margin: auto;
+                img{
+                    width:100%;
+                }
+            }            
+            .text{
+                width:calc(90% - 20px);
+                padding:10px;
+                text-align: left;
+                margin:auto;
+            }
+        }
+    }
+    .date{
+        width:100%;
+        display:flex;
+    }
+    .dateinput {
+        width: 25%;
+        position: relative;
+        div {
+            position: absolute;
+            top: 30%;
+            right: 20px;
+            color: #000;
+        }
+        select {
+            width: 95%;
+            margin: auto;
+            padding: 15px 10px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background: #fff;
+            /* for Firefox */ 
+             -moz-appearance: none; 
+             /* for Safari, Chrome, Opera */ 
+             -webkit-appearance: none; 
+
+        }
+        img{
+            width:100%;
+        }
+    }
+    .side{
+        width:75%;
+        margin:auto;
+        text-align:left;
+    }
+}
+.parental{
+    h3{
+        text-align:left;
+    }
+    .buttoncontainer{
+        width:100%;
+        .button {
+            width: 40%;
+            margin-left:auto;
+            padding: 10px 0px;
+            button {
+                margin-left: auto;
+                width: calc(100% - 20px);
+                margin: 10px;
+                padding: 15px 10px;
+                background: #b7cb1a;
+                border: 1px solid #b7cb1a;
+                border-radius: 10px 0px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
+}

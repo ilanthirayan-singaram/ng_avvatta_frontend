@@ -1,0 +1,26 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <div>
+            <div  [ngStyle]="{'position':posValue}" class="close" (click)="closeModal()">
+                <i class="fa fa-close" aria-hidden="true"></i>
+            </div>
+            <div>
+                <div (click)="gamecheck()">
+                    <iframe [ngClass]="{'rotate': rotationValue== true}" [ngStyle]="{'display':iframe}" class="e2e-iframe-trusted-src" style="border-width:0px; margin:auto"
+                    [width]=this.width [height]=this.height [src]="safeURL"></iframe>
+                </div>
+                    
+                    <div class="player">
+                        <div style="width:100%; margin: auto;" [ngStyle]="{'display':video}"  >
+                            <div class='video' (click)="check()">
+            
+            
+                                <div id="myElement"></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- <button [ngStyle]="{'display':video}" (click)="playNext()">dkofjjiofas</button> -->
+</div>

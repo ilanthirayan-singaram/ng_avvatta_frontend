@@ -1,0 +1,329 @@
+<div class="landing">
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>
+  <!-- <ngx-spinner
+        bdColor="rgba(0, 0, 0, 1)">
+        template="<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />" 
+      </ngx-spinner> -->
+
+  <div class="mobilebanner">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="banner">
+      <div ngxSlickItem class="slide" *ngFor="let data of slidesShow">
+        <img src="{{data.banner}}" (click)="subscribe(data)"/>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+
+  <div class="modules">
+    <div class="inner web">
+      <div class="btn" *ngFor="let data of list">
+        <div class="style" (click)="goToNextPage(data.id)">
+          <div class="inside">
+            <div class="image">
+              <img src="{{data.picture}}" />
+            </div>
+            <div class="text">{{data.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modules mobile">
+    <!-- Mobile -->
+    <div class="inner mobile">
+      <div class="cont">
+        <div class="row">
+
+          <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="btn">
+            <div ngxSlickItem class="slide" *ngFor="let data of list">
+              <div class="btn">
+                <div class="style" (click)="goToNextPage(data.id)">
+                  <div class="inside">
+                    <div class="image">
+                      <img src="{{data.picture}}" />
+                    </div>
+                    <div class="text">{{data.name}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ngx-slick-carousel>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <app-back></app-back>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMXXTCF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+  <div class="cont">
+    <div class="row">
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Avvatta Challenges</h3>
+        <div>
+            <script async type="text/javascript" src="//asset.fwcdn2.com/js/embed-feed.js"></script>
+<fw-embed-feed
+channel="avvatta"
+playlist="gKzXko"
+mode="row"
+open_in="default"
+max_videos="0"
+placement="middle"
+player_placement="bottom-right"
+branding="false"
+size="medium"                 
+></fw-embed-feed>
+        </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Africa</h3>
+        <!-- <div style="display:flex;flex-wrap:nowrap;">
+          <div style="width:calc(100% - 300px);margin-right:25px;">
+           
+          </div>
+          <div style="width: 300px;">
+            <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+            <script>
+              window.googletag = window.googletag || { cmd: [] };
+              googletag.cmd.push(function () {
+                googletag.defineSlot('/21796380238,22327168071/op1vlwQNnznCgfWK13vc1fcNDfJkmm2j', [300, 250], '300x250').addService(googletag
+                  .pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+              });
+            </script>
+            <div id='300x250' style='width: 300px; height: 250px;'>
+              <script>
+                googletag.cmd.push(function () {
+                  googletag.display('300x250');
+                });
+              </script>
+            </div>
+          </div> -->
+         
+        <div id="africa"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Beauty and Fashion</h3>
+        <div id="beauty"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Cars and Automotive</h3>
+        <!-- <div style="display:flex;flex-wrap:nowrap;">
+          <div style="width:calc(100% - 300px);margin-right:25px;">
+            <fw-embed-feed
+              channel="avvatta" 
+              playlist="xvJBWv"
+              mode="row"
+              open_in="_iframe"
+              max_videos="30"
+              placement="middle">
+            </fw-embed-feed>
+          </div>
+          <div style="width: 300px;">
+            <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+            <script>
+              window.googletag = window.googletag || { cmd: [] };
+              googletag.cmd.push(function () {
+                googletag.defineSlot('/21796380238,22327168071/YcxPwZxDWv7f-fxR9GH_ga2fj2NQew9P', [300, 250], '300x250').addService(googletag
+                  .pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+              });
+            </script>
+            <div id='300x250' style='width: 300px; height: 250px;'>
+              <script>
+                googletag.cmd.push(function () {
+                  googletag.display('300x250');
+                });
+              </script>
+            </div>
+          </div> -->
+         
+        <div id="cars"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Comedy</h3>
+        <div id="comedy"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Animals and Pets</h3>
+        <!-- <div style="display:flex;flex-wrap:nowrap;">
+          <div style="width:calc(100% - 300px);margin-right:25px;">
+            <fw-embed-feed
+              channel="avvatta" 
+              playlist="Zg2Jlg"
+              mode="row"
+              open_in="_iframe"
+              max_videos="30"
+              placement="middle">
+            </fw-embed-feed>
+          </div>
+          <div style="width: 300px;">
+            <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+            <script>
+              window.googletag = window.googletag || { cmd: [] };
+              googletag.cmd.push(function () {
+                googletag.defineSlot('/21796380238,22327168071/ztTk8ePBZzau68p5wpvSp-pYltIXofpO', [300, 250], '300x250').addService(googletag
+                  .pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+              });
+            </script>
+            <div id='300x250' style='width: 300px; height: 250px;'>
+              <script>
+                googletag.cmd.push(function () {
+                  googletag.display('300x250');
+                });
+              </script>
+            </div>
+          </div> -->
+         
+        <div id="animal"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Entertainment</h3>
+        <div id="entertainment"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Environment</h3>
+        <!-- <div style="display:flex;flex-wrap:nowrap;">
+          <div style="width:calc(100% - 300px);margin-right:25px;">
+            <fw-embed-feed
+              channel="avvatta" 
+              playlist="KgONdo"
+              mode="row"
+              open_in="_iframe"
+              max_videos="30"
+              placement="middle">
+            </fw-embed-feed>
+          </div>
+          <div style="width: 300px;">
+            <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+            <script>
+              window.googletag = window.googletag || { cmd: [] };
+              googletag.cmd.push(function () {
+                googletag.defineSlot('/21796380238,22327168071/3_M7IQjPpTPuhidjIotaL-shJ6hsh1ZR', [300, 250], '300x250').addService(googletag
+                  .pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+              });
+            </script>
+            <div id='300x250' style='width: 300px; height: 250px;'>
+              <script>
+                googletag.cmd.push(function () {
+                  googletag.display('300x250');
+                });
+              </script>
+            </div>
+          </div> -->
+         
+        <div id="environment"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Food</h3>
+        <div id="food"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Gaming</h3>
+        <!-- <div style="display:flex;flex-wrap:nowrap;">
+          <div style="width:calc(100% - 300px);margin-right:25px;">
+            <fw-embed-feed
+              channel="avvatta" 
+              playlist="JvrYVg"
+              mode="row"
+              open_in="_iframe"
+              max_videos="30"
+              placement="middle">
+            </fw-embed-feed>
+          </div>
+          <div style="width: 300px;">
+            <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+            <script>
+              window.googletag = window.googletag || { cmd: [] };
+              googletag.cmd.push(function () {
+                googletag.defineSlot('/21796380238,22327168071/oGqakf69ki18YQv6iJcFQuJEDrAGYFET', [300, 250], '300x250').addService(googletag
+                  .pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+              });
+            </script>
+            <div id='300x250' style='width: 300px; height: 250px;'>
+              <script>
+                googletag.cmd.push(function () {
+                  googletag.display('300x250');
+                });
+              </script>
+            </div>
+          </div> -->
+         
+        <div id="game"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Sport</h3>
+        <div id="sport"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Technology</h3>
+        <div id="tech"></div>
+
+      </div>
+      <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Travel</h3>
+        <div id="travel"></div>
+
+      </div>
+      <!-- <div style="background:#000;">
+        <h3 style="margin:0; padding:10px; color:#fff">Gadgets</h3> -->
+        <!-- <div style="display:flex;flex-wrap:nowrap;">
+          <div style="width:calc(100% - 300px);margin-right:25px;">
+            <fw-embed-feed
+              channel="avvatta" 
+              playlist="W5Edrv"
+              mode="row"
+              open_in="_iframe"
+              max_videos="30"
+              placement="middle">
+            </fw-embed-feed>
+          </div>
+          <div style="width: 300px;">
+            <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+            <script>
+              window.googletag = window.googletag || { cmd: [] };
+              googletag.cmd.push(function () {
+                googletag.defineSlot('/21796380238,22327168071/8gOtDuo-xncTw1GEHoX-8YXRax-PKl-L', [300, 250], '300x250').addService(googletag
+                  .pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+              });
+            </script>
+            <div id='300x250' style='width: 300px; height: 250px;'>
+              <script>
+                googletag.cmd.push(function () {
+                  googletag.display('300x250');
+                });
+              </script>
+            </div>
+          </div> -->
+         
+        <!-- <div id="travel"></div>
+
+      </div> -->
+    </div>
+  </div>
+  <!-- <a href="http://ngmtn.avvatta.com/mtnng/optin.php?pid=25&cp=1&tid=1234gsdf23sgzfrwq32ht8888">LP URL</a> -->
+  

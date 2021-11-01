@@ -1,0 +1,164 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <app-close (click)="closeModal()"></app-close>
+        <div>
+            <div class="verify" [ngStyle]="{ 'display': securityPinShow }">
+                <div class="vcontainer">
+                    <h3>Security Check</h3>
+                    <p>First, let's confirm your identity</p>
+                    <div class="pin">
+                        <h4>Enter your 4 digit PIN you created for security</h4>
+
+                        <form #pin="ngForm" (ngSubmit)="verifyPin(pin)">
+                            <div class="number">
+                                <div class="ip">
+                                    <input type="password" name="pin1" maxlength="1" placeholder="&#9679;" required
+                                        ngModel #pin1="ngModel" #passcode1 (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="password" name="pin2" maxlength="1" placeholder="&#9679;" ngModel
+                                        (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="password" name="pin3" maxlength="1" placeholder="&#9679;" ngModel
+                                        (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="password" name="pin4" maxlength="1" placeholder="&#9679;" ngModel
+                                        (keyup)="keytab($event)">
+                                </div>
+                            </div>
+                            <div class="button">
+                                <button>VERIFY</button>
+                            </div>
+                            <p class="forgot" (click)="forgotPinDisplay()">Forgot PIN?</p>
+                        </form>
+                    </div>
+                </div>
+                <p>Need Help? <a>Visit the Help Center</a></p>
+            </div>
+            <!-- Forgot PIN Start -->
+            <div class="fpin epassword" [ngStyle]="{ 'display': forgotPinShow }">
+                <div class="passcontainer">
+                    <h3>Forgot Parental PIN Code</h3>
+                    <p>Enter the email or mobile number used when registering for Avvatta and we will send you
+                        instructions
+                        to reset your PIN</p>
+                    <form #fpin="ngForm" (ngSubmit)="forgotPin(fpin)">
+                        <div class="input">
+                            <input type="text" name="email" placeholder="Email / Mobile number" ngModel required
+                                (keyup)="checkMail(fpin.value.email)">
+                            <p class="dangeralert" *ngIf="emailId">Please enter a valid email address or mobile number
+                            </p>
+                        </div>
+                        <div class="button">
+                            <button type="submit">SEND</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Forgot PIN End -->
+            <!-- Verify Account Start -->
+            <div [ngStyle]="{ 'display': VerifyShow }">
+                <div class="verify">
+                    <div class="vcontainer">
+                        <h3>Verify Your Account</h3>
+                        <div class="pin">
+                            <h4>Enter your 4 digit PIN send to your mobile number</h4>
+
+                            <form #vpin="ngForm" (ngSubmit)="getPin(vpin)">
+                                <div class="number">
+                                    <div class="ip">
+                                        <input type="password" name="pin1" maxlength="1" placeholder="&#9679;" required
+                                            ngModel #pin1="ngModel" #passcode1 (keyup)="keytab($event)">
+                                    </div>
+                                    <div class="ip">
+                                        <input type="password" name="pin2" maxlength="1" placeholder="&#9679;" ngModel
+                                            (keyup)="keytab($event)">
+                                    </div>
+                                    <div class="ip">
+                                        <input type="password" name="pin3" maxlength="1" placeholder="&#9679;" ngModel
+                                            (keyup)="keytab($event)">
+                                    </div>
+                                    <div class="ip">
+                                        <input type="password" name="pin4" maxlength="1" placeholder="&#9679;" ngModel
+                                            (keyup)="keytab($event)">
+                                    </div>
+                                </div>
+                                <div class="button">
+                                    <button>VERIFY</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Verify Account End -->
+
+            <!-- Parental Pin start -->
+             <!-- Parental Control Start -->
+        <div class="parental" [ngStyle]="{ 'display': parentalControlShow }">
+            <div class="edit">
+                <div class="header">
+                    <div class="head">
+                        <h3>Parental Control</h3>
+                    </div>
+                    <!-- <div class="close" (click)="closeModal()"><i class="fa fa-close"></i></div> -->
+                </div>
+
+                <form #setpin="ngForm" (ngSubmit)="parentalControl(setpin)">
+                    <div class="body">
+                        <div class="icon">
+                            <div>
+                                <img src="../../assets/icons/Parental Control.PNG" />
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <h3>You can create a 4 digit PIN to restrict access to the following functions.</h3>
+                            <ul class="list">
+                                <li>Switch Profile</li>
+                                <li>Manage Profile</li>
+                                <li>Account & Payment Information</li>
+                            </ul>
+                            <div class="name">
+                                <div class="fname">
+                                    <input type="password" maxlength="4" name="pin" ngModel required
+                                        placeholder="Enter PIN" >
+                                </div>
+                                <div class="lname">
+                                    <input type="password" maxlength="4" name="cpin" required ngModel placeholder="Confirm PIN"
+                                        (focusout)="checkPin(setpin.value.pin, setpin.value.cpin)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttoncontainer">
+                        <div class="button">
+                            <div class="btn1">
+                                <button>SAVE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <!-- <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div> -->
+        </div>
+            <!-- Parental Pin End -->
+
+
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

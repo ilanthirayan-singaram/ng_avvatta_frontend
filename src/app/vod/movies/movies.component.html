@@ -1,0 +1,75 @@
+<div class="movie">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>    
+    <div class="maincontainer">
+        <div class="middle">
+            <div class="content">
+               <div class="inside">
+                <div class="first">
+                    <!-- <div class="left">&#10094;</div> -->
+                <div class="info">
+                   
+                </div>
+                <div class="empty">
+                    <!-- <h1>The Dark night</h1>
+                    <p>
+                        What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem
+                        Ipsum has
+                        been the industry's standard dummy text ever since the 1500s when an unknownand
+                    </p>
+                    <strong>
+                        What is Lorem Ipsum Lorem Ipsum is simply dummy text of th
+                    </strong> -->
+                </div>
+               
+                <!-- <div class="right">&#10095;</div> -->
+                </div>
+                <div class="second">
+                    <div class="btncontainer">
+                        <!-- <div class="left">
+                            
+                            <div class="buttons">
+                                <div class="play">
+                                    <button>PLAY NOW</button>
+                                </div>
+                                <div class="watch">
+                                    <button>Play Trailer</button>
+                                </div>
+                                <div class="list">
+                                    <i class="fas fa-plus active" aria-hidden="true"></i>
+                                </div>
+                                <div class="list">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="right">
+                            <div>
+                                Seasons
+                            </div> 
+                            <div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+            </div>
+            
+        </div>
+    </div>
+    <app-back></app-back>
+    <div class="cont">
+        <div class="row">
+          <h4>Trending Now</h4>
+          <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let image of images" class="slide">
+              <div class="playlist" (click)="vdoModals(image)">
+                <img src="{{ image.img}}" width="100%">
+              </div>
+            </div>
+          </ngx-slick-carousel>
+        </div>
+    </div>
+</div>

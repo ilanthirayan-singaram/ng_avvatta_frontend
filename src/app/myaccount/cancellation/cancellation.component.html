@@ -1,0 +1,66 @@
+<div id="modal-content-wrapper">
+    <ngx-spinner
+    bdColor="rgba(51,51,51,0.8)"
+    size="medium"
+    color="#fff"
+    type="ball-scale-multiple"
+  >
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>
+    <div class="modalcontainer">
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="signout">
+            <h3 class="head">We are sad to see you leave</h3>
+          <form #cancel="ngForm" (ngSubmit)="cancellComeBack(cancel)">
+            <div class="body">
+                <div class="list">
+                    <ul>
+                        <li *ngIf="date != null">Cancellation will be effective at the end of your current billing period on 
+                            {{date}}
+                        </li>
+                        <li>Come back anytime. If you restart within 10 months, your profiles, favourites, viewing preferences and account details will be waiting for you</li>
+                    </ul>
+
+                </div>
+                <div class="check">
+                    <label class="main"> Yes, please email me about Avvatta, including newly added TV shows and movies
+                        <input type="checkbox" name="yes" value="1" ngModel required>
+                        <span class="geekmark"></span>
+                    </label>    
+                </div>
+                <div class="check">
+                    <label class="main"> Are you sure you want to cancel? Type your comment below to tell us why?
+                        <input type="checkbox" name="cancel" value="2" ngModel required>
+                        <span class="geekmark"></span>
+                    </label>    
+                </div>
+                <div class="feedback">
+                    <h4 class="subhead">Feedback</h4>
+                    <div class="select"> 
+                        <select name="selectOne"  ngModel required>
+                            <option value="Package">Package</option>
+                        </select>
+                        <div class="downarrow">&#9660;</div>
+                    </div>
+                    <div class="text">
+                        <textarea rows="4" cols="50" name="textarea"  ngModel required></textarea>
+                    </div>
+
+
+                </div>
+                <div class="button">
+                    <span class="left"></span>
+                    <button type="submit">SUBMIT</button>
+                    <button type="button" (click)="closeModal()">GO BACK</button>
+                    <span class="right"></span>
+                </div>
+            </div>
+          </form>
+        </div>
+        
+        <div class="footer">
+            <app-foot (click)="closeModal()"></app-foot>
+        </div>
+    </div>
+</div>

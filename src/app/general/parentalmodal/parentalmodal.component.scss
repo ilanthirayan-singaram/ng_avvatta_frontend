@@ -1,0 +1,276 @@
+#modal-content-wrapper {
+	overflow: hidden;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	vertical-align: middle;
+	display: flex;
+	width: 100%;
+	margin: auto;
+	.modalcontainer {
+		position: relative;
+		padding: 10px;
+		width: calc(60% - 20px);
+		margin: auto;
+		height: fit-content;
+		// border: 1px solid hsl(0, 0%, 15%) !important;
+		background: rgba(0, 0, 0, 0.8);
+		box-shadow: 0px 0px 2px 1px black;
+		.header {
+			text-align: right;
+			padding: 10px;
+			i {
+				cursor: pointer;
+			}
+		}
+		
+		// parental control
+		.edit {
+			width: 100%;
+			.header {
+				width: 100%;
+				margin: auto;
+				display: flex;
+				.head {
+                    width: 70%;
+                    margin: auto;
+					text-align: left;
+				}
+				.close {
+					width: 5%;
+					text-align: center;
+					vertical-align: middle;
+					display: flex;
+					margin: auto;
+				}
+			}
+			.body {
+				display: flex;
+				width: 90%;
+				margin: auto;
+				overflow: hidden;
+				.icon {
+					width: calc(25% - 20px);
+					display: flex;
+					background: #b7cb1a;
+					border: 3px solid #b7cb1a;
+					border-radius: 20px 0px 0px 0px;
+					padding: 10px;
+					div {
+						width: 100%;
+						margin: auto;
+						vertical-align: middle;
+					}
+					img {
+						width: 100%;
+					}
+				}
+				.profile {
+					width: calc(75% - 20px);
+					border: 3px solid #b7cb1a;
+					border-radius: 0px 0px 20px 0px;
+					padding: 10px;
+					p {
+						width: calc(80% - 0px);
+						text-align: left;
+						margin: auto;
+						padding: 10px;
+					}				
+				}
+			}
+			.buttoncontainer {
+				width: 90%;
+				margin: auto;
+				.button {
+					width: 60%;
+					display: flex;
+					padding: 10px 0px;
+					margin-left: auto;
+					.btn1,
+					.btn2 {
+						width: 50%;
+					}
+					button {
+						width: 90%;
+						padding: 10px;
+						background: #b7cb1a;
+						border: 1px solid #b7cb1a;
+						border-radius: 10px 0px;
+						font-weight: bold;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+        // Password
+		.epassword {
+			.passcontainer {
+				width: 80%;
+				margin: auto;
+			}
+			h3 {
+				width: 80%;
+				margin: auto;
+				padding: 10px;
+			}
+			p {
+				width: 80%;
+				margin: auto;
+				padding: 10px;
+			}
+			.min {
+				width: 50%;
+				margin: auto;
+				padding: 10px;
+				text-align: left;
+			}
+			.input {
+				width: 100%;
+				input {
+					width: calc(50% - 20px);
+					margin: auto;
+					padding: 10px;
+					border-radius: 5px;
+					border: 1px solid #fff;
+					background: #fff;
+				}
+			}
+			.button {
+				width: 70%;
+				display: flex;
+				padding: 10px 0px;
+				margin-left: auto;
+				margin: auto;
+				button {
+					width: calc(50% - 20px);
+					margin: 10px;
+					padding: 10px;
+					background: #b7cb1a;
+					border: 1px solid #b7cb1a;
+					border-radius: 10px 0px;
+					font-weight: bold;
+					cursor: pointer;
+				}
+			}
+		}
+		// Parental control
+		.parental {
+			.list {
+				color: #fff;
+				text-align: left;
+				font-weight: bold;
+			}
+			.btn1 {
+				margin-left: auto;
+			}
+			.name {
+				width: 80%;
+				padding: 10px 0px;
+				display: flex;
+				.fname {
+					width: 48%;
+					margin-right: auto;
+					input {
+						padding: 10px;
+						width: calc(100% - 20px);
+						border-radius: 5px;
+						border: 1px solid #fff;
+                        background: #fff;
+                        -webkit-text-security: disc;
+                    }
+				}
+				.lname {
+					width: 48%;
+					margin-left: auto;
+					input {
+						padding: 10px;
+						width: calc(100% - 20px);
+						border-radius: 5px;
+						border: 1px solid #fff;
+                        background: #fff;
+                        -webkit-text-security: disc;
+					}
+                }                
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0;
+                }
+			}
+		}
+		// Forgot parental PIN
+		.fpin {
+			.input p {
+				width: 50%;
+			}
+			.dangeralert {
+				color: red;
+			}
+			.button {
+				width: 100%;
+				button {
+					margin: auto;
+					width: 50%;
+				}
+			}
+			.passcontainer {
+				padding-bottom: 40px;
+			}
+		}
+	}
+}
+
+
+// Responsive 
+@media screen and (max-width: 700px) and (min-width: 1px) { 
+	#modal-content-wrapper {
+		p{
+			padding:5px !important;
+		}
+		.modalcontainer{
+			width: calc(95% - 20px);
+			.verify{
+				.vcontainer {
+					.pin{
+						width: calc(70% - 40px);
+					}
+				}
+			}
+			.epassword {
+				.min{
+					width:80%;
+				}
+				.passcontainer {
+					width: 100%;
+					margin: auto;
+				}
+				.input {
+					input {
+						width: calc(80% - 20px);
+					}
+				}
+				.button {
+					width:100%;
+					button {
+						width: 80%;
+					}
+				}
+			}
+			// EDIT
+			.edit{
+				.body{
+					.name{
+						width:100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+ 
+  

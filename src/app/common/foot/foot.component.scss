@@ -1,0 +1,22 @@
+div{
+    padding:10px;
+    .content{
+        font-size: 17px !important;
+        a{
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 760px) and (min-width: 1px) { 
+div {
+    padding: 10px;
+    .content {
+        font-size: 15px !important;
+        a {
+            cursor: pointer;
+            font-size: calc((22px + 1vh + 1vw)/2 ) !important;
+        }
+    }
+}
+}

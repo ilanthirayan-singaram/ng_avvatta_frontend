@@ -1,0 +1,289 @@
+#modal-content-wrapper{
+    position: fixed;
+	background: rgb(0, 0, 0, 0.5);
+    color: white;
+    height: 100vh;
+    vertical-align: middle;
+    width: 100%;
+    margin: auto;
+    display:flex;
+}
+#modal-content-wrapper .modalcontainer{
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+    padding: 10px;
+    width: calc(60% - 20px);
+    margin: auto;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    text-align: center;
+}
+.verify {
+    width: 100%;
+    .vcontainer {
+        width: 100%;
+        .pin {
+            width: calc(50% - 40px);
+            margin: auto;
+            border: 3px solid #b7cb1a;
+            border-radius: 25px 0px;
+            padding: 20px;
+            .number {
+                width: 100%;
+                display: flex;
+                padding: 10px 0px;
+                .ip {
+                    width: 25%;
+                    input {
+                        width: calc(70% - 20px);
+                        margin: auto;
+                        padding: 10px;
+                        text-align: center;
+                        border-radius: 5px;
+                        border: 1px solid #fff;
+                        background: #fff;
+                        -webkit-text-security:disc;
+                    }
+                }
+            }
+            .button {
+                width: 100%;
+                padding: 10px 0px;
+                button {
+                    width: 100%;
+                    padding: 10px 0px;
+                    background: #b7cb1a;
+                    border: 1px solid #b7cb1a;
+                    border-radius: 10px 0px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .forgot{
+        cursor: pointer;
+    }
+}
+.epassword {
+    .passcontainer {
+        width: 80%;
+        margin: auto;
+    }
+    h3 {
+        width: 80%;
+        margin: auto;
+        padding: 10px;
+    }
+    p {
+        width: 80%;
+        margin: auto;
+        padding: 10px;
+    }
+    .min {
+        width: 50%;
+        margin: auto;
+        padding: 10px;
+        text-align: left;
+    }
+    .input {
+        width: 100%;
+        input {
+            width: calc(50% - 20px);
+            margin: auto;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background: #fff;
+        }
+    }
+    .button {
+        width: 70%;
+        display: flex;
+        padding: 10px 0px;
+        margin: auto;
+        button {
+            width: calc(50% - 20px);
+            margin: auto;
+            padding: 10px;
+            background: #b7cb1a;
+            border: 1px solid #b7cb1a;
+            border-radius: 10px 0px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}
+// Parental control
+.parental {
+    .list {
+        color: #fff;
+        text-align: left;
+        font-weight: bold;
+    }
+    .btn1 {
+        margin-left: auto;
+    }
+    .name {
+        width: 80%;
+        padding: 10px 0px;
+        display: flex;
+        .fname {
+            width: 48%;
+            margin-right: auto;
+            input {
+                padding: 10px;
+                width: calc(100% - 20px);
+                border-radius: 5px;
+                border: 1px solid #fff;
+                background: #fff;
+                -webkit-text-security: disc;
+            }
+        }
+        .lname {
+            width: 48%;
+            margin-left: auto;
+            input {
+                padding: 10px;
+                width: calc(100% - 20px);
+                border-radius: 5px;
+                border: 1px solid #fff;
+                background: #fff;
+                -webkit-text-security: disc;
+            }
+        }                
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+    }
+}
+// parental control
+.edit {
+    width: 100%;
+    .header {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        .head {
+            width: 70%;
+            margin: auto;
+            text-align: left;
+        }
+        .close {
+            width: 5%;
+            text-align: center;
+            vertical-align: middle;
+            display: flex;
+            margin: auto;
+        }
+    }
+    .body {
+        display: flex;
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+        .icon {
+            width: calc(25% - 20px);
+            display: flex;
+            background: #b7cb1a;
+            border: 3px solid #b7cb1a;
+            border-radius: 20px 0px 0px 0px;
+            padding: 10px;
+            div {
+                width: 100%;
+                margin: auto;
+                vertical-align: middle;
+            }
+            img {
+                width: 100%;
+            }
+        }
+        .profile {
+            width: calc(75% - 20px);
+            border: 3px solid #b7cb1a;
+            border-radius: 0px 0px 20px 0px;
+            padding: 10px;
+            p {
+                width: calc(80% - 0px);
+                text-align: left;
+                margin: auto;
+                padding: 10px;
+            }				
+        }
+    }
+    .buttoncontainer {
+        width: 90%;
+        margin: auto;
+        .button {
+            width: 60%;
+            display: flex;
+            padding: 10px 0px;
+            margin-left: auto;
+            .btn1,
+            .btn2 {
+                width: 50%;
+            }
+            button {
+                width: 90%;
+                padding: 10px;
+                background: #b7cb1a;
+                border: 1px solid #b7cb1a;
+                border-radius: 10px 0px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// Responsive 
+@media screen and (max-width: 700px) and (min-width: 1px) { 
+	#modal-content-wrapper{
+        position: unset;
+		.modalcontainer{
+			width: calc(95% - 20px);
+			.verify{
+				.vcontainer {
+					.pin{
+						width: calc(100% - 40px);
+					}
+				}
+			}
+		}
+
+	}
+}
+    
+
+@media screen and (max-width: 850px) and (min-width: 1px) { 
+    p {
+        font-size: calc((25px + 1vh + 1vw)/2 ) !important;
+    }   
+    h3 {
+        font-size: calc(100% - -10px) !important;
+    }
+    h4, button {
+        font-size: calc(100% - -5px) !important;
+    }
+    a {
+        font-size: calc(90% - -2px) !important;
+    }
+}
+
+@media screen and (max-width: 1347px) and (min-width: 850px) { 
+    p {
+        font-size: calc((15px + 1vh + 1vw)/2 ) !important;
+    }   
+    h3 {
+        font-size: calc(90% - -4px) !important;
+    }
+    h4, button {
+        font-size: calc(90% - -4px) !important;
+    }
+    a {
+        font-size: calc(90% - -1px) !important;
+    }
+}

@@ -1,0 +1,164 @@
+.footer{
+    width:100%;
+    display:flex;
+    background:#000;
+    padding:10px 0px;
+    margin-top: auto;
+    bottom: 0;
+    .left{
+        width:15%;
+        div{
+            width:75%;
+            margin-left: auto;
+            display: flex;
+            .fb{
+                width:calc(25% - 10px);
+                padding:5px;
+                a{
+                    margin: auto;
+                    display: flex;
+                }
+                img{
+                    width:100%;
+                }
+            }
+        }
+    }
+    .center{
+        width:60%;
+        vertical-align: middle;
+        display: flex;
+        div{
+            width:100%;
+            display: flex;
+            color:#fff;
+            margin: auto;
+            .help{
+                width:fit-content;
+                padding:5px 20px;
+                margin: 0;
+                cursor:pointer;
+                text-align: center;
+            }
+        }
+    }
+    .right{
+        width:25%; 
+        margin:auto;
+        div{
+            width:100%;
+            color:#fff;
+            p{
+                margin:0;
+                text-align: center;
+            }
+        }
+    }
+}
+.f2{
+    width:100%;
+    // background: #fff;
+    .paygateimg{
+        width:35%;
+        margin-left: auto;
+        img{
+            width: 100%;
+        }
+    }
+}
+@media screen and (max-width: 1200px) and (min-width: 701px) {
+    .footer{
+        display:block !important;
+        .left{
+            width:100%;
+            div{
+                width: 50%;
+                margin: auto;
+                display:flex;
+                .fb{
+                    width:calc(10% - 10px);
+                    img{
+                        width:100%;
+                    }
+                }
+            }
+        }
+        .center{
+            width:90%;
+            margin: auto;
+            div{
+                // width:100%;
+                .help{
+                    width:90%;
+                    margin:auto;
+                    text-align: center;
+                    padding:5px;
+                    font-size: 14px !important;
+                }
+            }
+        }
+        .right{
+            width:100%; 
+            div{
+                width:100%;
+                p{
+                    margin:0;
+                    text-align: center;
+                    font-size: 14px !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) and (min-width: 1px) { 
+    .footer{
+        display:block;
+        .left{
+            width:100%;
+            div{
+                width: 100%;
+                margin: auto;
+                display:flex;
+                .fb{
+                    width:calc(10% - 10px);
+                    img{
+                        width:100%;
+                    }
+                }
+            }
+        }
+        .center{
+            width:100%;
+            div{
+                width:100%;
+                display: block;
+                .help{
+                    width:90%;
+                    margin:auto;
+                    text-align: center;
+                    padding:5px;
+                    font-size: 14px !important;
+                }
+            }
+        }
+        .right{
+            width:100%; 
+            div{
+                width:100%;
+                p{
+                    margin:0;
+                    text-align: center;
+                    font-size: 14px !important;
+                }
+            }
+        }
+    }
+    .f2{
+        // background: #fff;
+        .paygateimg{
+            width:100%;
+            margin: 0;
+        }
+    }
+}

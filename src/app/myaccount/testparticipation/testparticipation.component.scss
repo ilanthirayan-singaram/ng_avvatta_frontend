@@ -1,0 +1,139 @@
+#modal-content-wrapper {
+	position: fixed;
+	background: rgb(0, 0, 0, 0.5);
+	color: white;
+	height: 100vh;
+	vertical-align: middle;
+	display: flex;
+	width: 100%;
+    margin: auto;
+    text-align:center;
+	.modalcontainer {
+		padding: 10px;
+		width: calc(60% - 20px);
+		margin: auto;
+		height: fit-content;
+		background: rgba(0, 0, 0, 0.8);
+    }
+    .participation {
+        h3 {
+            text-align: left;
+        }
+        .body {
+            width: 80%;
+            margin: auto;
+            .content {
+                display: flex;
+                width: calc(100% - 20px);
+                border: 3px solid #b7cb1a;
+                border-radius: 20px 0px;
+                padding: 10px;
+                .text {
+                    width: 80%;
+                    margin: auto;
+                    text-align: left;
+                }
+                .toggle {
+                    width: 20%;
+                    margin: auto;
+                }
+            }
+            .para {
+                width: 90%;
+                margin-right: auto;
+                text-align: left;
+            }
+            .button {
+                width: 30%;
+                padding: 10px 0px;
+                margin-left: auto;
+                button {
+                    width: calc(100% - 20px);
+                    margin: 10px;
+                    padding: 10px;
+                    background: #b7cb1a;
+                    border: 2px solid #b7cb1a;
+                    border-radius: 10px 0px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+        // toggle
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            display: none;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border: 2px solid #ccc;
+            transition: .4s;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: calc(26px - 4px);
+            width: calc(26px - 4px);
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+        input:checked+.slider {
+            background-color: #b7cb1a;
+        }
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+        input:checked+.slider:before {
+            transform: translateX(28px);
+        }
+        /*------ ADDED CSS ---------*/
+        .on {
+            display: none;
+        }
+        .off {
+            color: #000;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 75%;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .on {
+            color: #000;
+            font-weight: bold;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 27%;
+            font-size: 12px;
+        }
+        input:checked+.slider .on {
+            display: block;
+        }
+        input:checked+.slider .off {
+            display: none;
+        }
+        /*--------- END --------*/
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    }
+}

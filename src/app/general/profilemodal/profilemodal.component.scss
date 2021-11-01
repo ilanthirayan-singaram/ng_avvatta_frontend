@@ -1,0 +1,819 @@
+#modal-content-wrapper {
+	overflow: hidden;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	vertical-align: middle;
+	display: flex;
+	width: 100%;
+	margin: auto;
+	.modalcontainer {
+		padding: 10px;
+		width: calc(70% - 20px);
+		margin: auto;
+		height: fit-content;
+		position: relative;
+		// border: 1px solid hsl(0, 0%, 15%) !important;
+		background: rgba(0, 0, 0, 0.8);
+		box-shadow: 0px 0px 2px 1px black;
+		.header {
+			text-align: right;
+			padding: 10px;
+			i {
+				cursor: pointer;
+			}
+		}
+		// Verify pin for account management
+		.verify {
+			width: 100%;
+			.vcontainer {
+				width: 100%;
+				.pin {
+					width: calc(50% - 40px);
+					margin: auto;
+					padding: 20px;
+					.number {
+						width: 100%;
+						display: flex;
+						padding: 10px 0px;
+						.ip {
+							width: 25%;
+							text-align: center;
+							input {
+								width: calc(70% - 20px);
+								margin: auto;
+								padding: 10px;
+								text-align: center;
+								border-radius: 5px;
+								border: 1px solid #fff;
+								background: #fff;
+							}
+						}
+					}
+					.button {
+						width: 100%;
+						padding: 10px 0px;
+						button {
+							width: 100%;
+							padding: 10px 0px;
+							background: #b7cb1a;
+							border: 1px solid #b7cb1a;
+							border-radius: 10px 0px;
+							font-weight: bold;
+							cursor: pointer;
+						}
+					}
+					p{
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		// Manage Profile
+		.manage {
+			width: calc(100% - 40px);
+			padding: 20px;
+			h3 {
+				margin: 0;
+			}
+			p {
+				font-style: 16px;
+				padding: 10px;
+				margin: 0;
+			}
+			.header {
+				width: 100%;
+				margin: auto;
+				display: flex;
+				.head {
+					width: 95%;
+					text-align: center;
+				}
+				.close {
+					width: 5%;
+				}
+			}
+			.subhead {
+				width: 80%;
+				margin: auto;
+			}
+			.profile {
+				// width: 90%;
+				width:fit-content;
+				margin: auto;
+				border: 3px solid #b7cb1a;
+				border-radius: 20px 0px;
+				.detail {
+					width: 95%;
+					margin: auto;
+					vertical-align: middle;
+					display: flex;
+					align-items: center;
+					.edit {
+						padding: 10px 0px;
+						cursor: pointer;
+						.icon {
+							width: 90%;
+							margin: auto;
+							font-size: 40px;
+							color: #fff;
+							img {
+								vertical-align: middle;
+								width:100%;
+								border-radius: 50%;
+							}
+						}
+						.iconplus {
+							width: 90px;
+							height: 90px;
+							font-size: 40px !important;
+							border-radius: 50%;
+							border: 3px dashed #b7cb1a;
+							color: #b7cb1a;
+							display: flex;
+							margin: auto;
+							vertical-align: middle;
+							align-items: center;
+							i {
+								vertical-align: middle;
+								padding: 20px;
+								margin:auto;
+							}
+						}
+											}
+				}
+			}
+			.button {
+				width: 90%;
+				padding: 10px 0px;
+				margin: auto;
+				button {
+					font-weight: bold;
+					width: 30%;
+					padding: 10px;
+					background: #b7cb1a;
+					border: 1px solid #b7cb1a;
+					border-radius: 10px 0px;
+					font-weight: bold;
+					cursor: pointer;
+				}
+			}
+		}
+		// Edit profile
+		.edit {
+			width: 100%;
+			.header {
+				width: 100%;
+				margin: auto;
+				display: flex;
+				.head {
+					width: 95%;
+					text-align: center;
+				}
+				.close {
+					width: 5%;
+					text-align: center;
+					vertical-align: middle;
+					display: flex;
+					margin: auto;
+				}
+			}
+			.body {
+				display: flex;
+				width: 90%;
+				margin: auto;
+				overflow: hidden;
+				.icon {
+					width: calc(25% - 20px);
+					display: flex;
+					background: #b7cb1a;
+					border: 3px solid #b7cb1a;
+					border-radius: 20px 0px 0px 0px;
+					padding: 10px;
+					div {
+						width: 100%;
+						margin: auto;
+						vertical-align: middle;
+					}
+					img {
+						width: 100%;
+					}
+				}
+				.profile {
+					width: calc(75% - 20px);
+					border: 3px solid #b7cb1a;
+					border-radius: 0px 0px 20px 0px;
+					padding: 10px;
+					p {
+						width: calc(80% - 20px);
+						text-align: left;
+						margin: auto;
+						padding: 0px 10px;
+					}
+					.inputs {
+						width: 80%;
+						margin: auto;
+						display: flex;
+						.input {
+							width: calc(50% - 20px);
+							padding: 10px;
+							input {
+								width: calc(100% - 20px);
+								margin: auto;
+								padding: 10px;
+								border-radius: 5px;
+								border: 1px solid #fff;
+								background: #fff;
+							}
+						}
+						.gender {
+							width: 15%;
+							margin: auto;
+						}
+						.selectgen {
+							width: 35%;
+							margin: auto;
+							select {
+								width: calc(100% - 20px);
+								margin: auto;
+								padding: 10px;
+								border-radius: 5px;
+								border: 1px solid #fff;
+								background: #fff;
+							}
+						}
+					}
+					.input {
+						width: 100%;
+						input {
+							width: calc(80% - 20px);
+							margin: auto;
+							padding: 10px;
+							border-radius: 5px;
+							border: 1px solid #fff;
+							background: #fff;
+						}
+					}
+					.check {
+						width: calc(80% - 0px);
+						text-align: left;
+						margin: auto;
+						// padding: 10px;
+						//    Check box
+						.main {
+							display: block;
+							position: relative;
+							padding-left: 30px;
+							// margin-bottom: 15px;
+							cursor: pointer;
+							font-size: 20px;
+						}
+						/* Hide the default checkbox */
+						input[type=checkbox] {
+							display: none;
+						}
+						/* Creating a custom checkbox 
+                based on demand */
+						.geekmark {
+							position: absolute;
+							top: 3px;
+							left: 0;
+							height: 15px;
+							width: 15px;
+							border-radius: 5px;
+							border: 2px solid #b7cb1a;
+						}
+						/* Checkmark to be shown in checkbox */
+						/* It is not be shown when not checked */
+						.geekmark:after {
+							content: "";
+							position: absolute;
+							display: none;
+						}
+						/* Display checkmark when checked */
+						.main input:checked~.geekmark:after {
+							display: block;
+						}
+						/* Styling the checkmark using webkit */
+						/* Rotated the rectangle by 45 degree and  
+                showing only two border to make it look 
+                like a tickmark */
+						.main .geekmark:after {
+							left: 4px;
+							bottom: 3px;
+							width: 4px;
+							height: 9px;
+							border: solid #b7cb1a;
+							;
+							border-width: 0 2px 2px 0;
+							-webkit-transform: rotate(45deg);
+							-ms-transform: rotate(45deg);
+							transform: rotate(45deg);
+						}
+						input:checked {
+							border-radius: 5px;
+							border: 3px solid #b7cb1a;
+						}
+					}
+					.spn {
+						width: 100%;
+						display: flex;
+						margin: auto;
+						.s1 {
+							width: 10px;
+							height: 10px;
+							margin-left: auto;
+							border: 2px solid #b7cb1a;
+							background: #b7cb1a;
+							border-radius: 50%;
+							position: relative;
+							top: 18px;
+							z-index: 1;
+							right: 38%;
+						}
+						.s2 {
+							width: 10px;
+							height: 10px;
+							margin-left: auto;
+							border: 2px solid #b7cb1a;
+							background: #b7cb1a;
+							border-radius: 50%;
+							position: relative;
+							top: 18px;
+							z-index: 1;
+							right: -3px;
+						}
+					}
+					.select {
+						width: 80%;
+						margin: auto;
+						display: flex;
+						div {
+							width: 20%;
+							z-index: 1;
+							p {
+								text-align: center;
+								position:relative;
+								top:3px;
+								left:5px;
+							}
+						}
+						input[type='radio']:after {
+							width: 10px;
+							height: 10px;
+							border-radius: 15px;
+							top: -2px;
+							position: relative;
+							background-color: #FFF;
+							content: "";
+							display: inline-block;
+							visibility: visible;
+							border: 5px solid white;
+						}
+						input[type='radio']:checked:after {
+							width: 10px;
+							height: 10px;
+							border-radius: 15px;
+							top: -2px;
+							position: relative;
+							background-color: #2196f3;
+							content: '';
+							display: inline-block;
+							visibility: visible;
+							border: 5px solid white;
+						}
+					}
+					.selecthr {
+						width: 90%;
+						margin-left: auto;
+						hr {
+							width: 100%;
+							position: relative;
+							bottom: 37px;
+							background: #fff;
+						}
+					}
+				}
+			}
+			.buttoncontainer {
+				width: 90%;
+				margin: auto;
+				.button {
+					width: 60%;
+					display: flex;
+					padding: 10px 0px;
+					margin-left: auto;
+					.btn1,
+					.btn2 {
+						width: 50%;
+					}
+					.btn11 {
+						width: 100%;
+						button{
+							width: 100%;
+						}
+					}
+					button {
+						width: 90%;
+						padding: 10px;
+						background: #b7cb1a;
+						border: 1px solid #b7cb1a;
+						border-radius: 10px 0px;
+						font-weight: bold;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		// Create New Profile
+		.new {
+			.buttoncontainer {
+				width: 90%;
+				margin: auto;
+				.button {
+					width: 60%;
+					display: flex;
+					padding: 10px 0px;
+					margin-left: auto;
+					.btn1 {
+						width: 100%;
+						display: flex;
+					}
+					button {
+						width: calc(50% - 20px);
+						margin: 10px;
+						padding: 10px;
+						background: #b7cb1a;
+						border: 1px solid #b7cb1a;
+						border-radius: 10px 0px;
+						font-weight: bold;
+						cursor: pointer;
+					}
+				}
+			}
+			.footer {
+				width: 70%;
+				margin: auto;
+				text-align: center;
+				p {
+					margin: auto;
+					a{
+					cursor: pointer;
+				}
+				}
+				
+			}
+		}
+		// Delete profile
+		.delete {
+			width: 90%;
+			margin: auto;
+			.close {
+				text-align: right;
+				cursor: pointer;
+			}
+			h4 {
+				width: 100%;
+			}
+			.profilephoto {
+				width: 25%;
+				border-radius: 50%;
+				margin: auto;
+				img {
+					width: 100%;
+				}
+			}
+			.text {
+				width: 80%;
+				margin: auto;
+			}
+			.button {
+				width: 70%;
+				display: flex;
+				padding: 10px 0px;
+				margin-left: auto;
+				margin: auto;
+				button {
+					width: calc(50% - 20px);
+					margin: 10px;
+					padding: 10px;
+					background: #b7cb1a;
+					border: 1px solid #b7cb1a;
+					border-radius: 10px 0px;
+					font-weight: bold;
+					cursor: pointer;
+				}
+			}
+		}
+		// Who start
+		.who {
+			.button {
+				width: 70%;
+				display: flex;
+				padding: 10px 0px;
+				margin-left: auto;
+				margin: auto;
+				button {
+					width: calc(50% - 20px);
+					margin: 10px;
+					padding: 10px;
+					background: #b7cb1a;
+					border: 1px solid #b7cb1a;
+					border-radius: 10px 0px;
+					font-weight: bold;
+					cursor: pointer;
+				}
+			}
+		}
+		// Forgot parental PIN
+		.epassword {
+				.passcontainer {
+					width: 80%;
+					margin: auto;
+				}
+				h3 {
+					width: 80%;
+					margin: auto;
+					padding: 10px;
+				}
+				p {
+					width: 80%;
+					margin: auto;
+					padding: 10px;
+				}
+				.min {
+					width: 50%;
+					margin: auto;
+					padding: 10px;
+					text-align: left;
+				}
+				.input {
+					width: 100%;
+					input {
+						width: calc(50% - 20px);
+						margin: auto;
+						padding: 10px;
+						border-radius: 5px;
+						border: 1px solid #fff;
+						background: #fff;
+					}
+				}
+				.button {
+					width: 70%;
+					display: flex;
+					padding: 10px 0px;
+					margin-left: auto;
+					margin: auto;
+					button {
+						width: calc(50% - 20px);
+						margin: 10px;
+						padding: 10px;
+						background: #b7cb1a;
+						border: 1px solid #b7cb1a;
+						border-radius: 10px 0px;
+						font-weight: bold;
+						cursor: pointer;
+					}
+				}
+			}
+		.fpin {
+			.input p {
+				width: 50%;
+			}
+			.dangeralert {
+				color: red;
+			}
+			.button {
+				width: 100%;
+				button {
+					margin: auto;
+					width: 50%;
+				}
+			}
+			.passcontainer {
+				padding-bottom: 40px;
+			}
+		}
+			// Parental control
+			.parental {
+				.list {
+					color: #fff;
+					text-align: left;
+					font-weight: bold;
+				}
+				.btn1 {
+					margin-left: auto;
+				}
+				.name {
+					width: 80%;
+					padding: 10px 0px;
+					display: flex;
+					.fname {
+						width: 48%;
+						margin-right: auto;
+						input {
+							padding: 10px;
+							width: calc(100% - 20px);
+							border-radius: 5px;
+							border: 1px solid #fff;
+							background: #fff;
+						}
+					}
+					.lname {
+						width: 48%;
+						margin-left: auto;
+						input {
+							padding: 10px;
+							width: calc(100% - 20px);
+							border-radius: 5px;
+							border: 1px solid #fff;
+							background: #fff;
+						}
+					}                
+					input::-webkit-outer-spin-button,
+					input::-webkit-inner-spin-button {
+					  -webkit-appearance: none;
+					  margin: 0;
+					}
+				}
+			}
+
+			// Verify PIN
+			.verify {
+				width: 100%;
+				.vcontainer {
+					width: 100%;
+					.pin {
+						width: calc(50% - 40px);
+						margin: auto;
+						// border: 3px solid #b7cb1a;
+						border-radius: 25px 0px;
+						padding: 20px;
+						.number {
+							width: 100%;
+							display: flex;
+							padding: 10px 0px;
+							.ip {
+								width: 25%;
+								text-align: center;
+								input {
+									width: calc(70% - 20px);
+									margin: auto;
+									padding: 10px;
+									border-radius: 5px;
+									border: 1px solid #fff;
+									background: #fff;
+									text-align: center;
+									-webkit-text-security:disc;
+								}
+							}
+						}
+						.button {
+							width: 100%;
+							padding: 10px 0px;
+							button {
+								width: 100%;
+								padding: 10px 0px;
+								background: #b7cb1a;
+								border: 1px solid #b7cb1a;
+								border-radius: 10px 0px;
+								font-weight: bold;
+								cursor: pointer;
+							}
+						}
+					}
+				}
+			}
+	}
+}
+
+
+
+// Responsive 
+@media screen and (max-width: 700px) and (min-width: 1px) { 
+	#modal-content-wrapper {
+		position: unset;
+			overflow: auto;
+		.modalcontainer{
+			width: calc(95% - 20px);
+			position: unset;
+			overflow: auto;
+			.verify{
+				.vcontainer {
+					.pin{
+						width: calc(70% - 40px);
+					}
+				}
+			}
+			.epassword {
+				.passcontainer {
+					width: 100%;
+					margin: auto;
+				}
+				.input {
+					input {
+						width: calc(80% - 20px);
+					}
+				}
+				.button {
+					button {
+						width: 80%;
+					}
+				}
+			}
+			// EDIT
+			.edit{
+				.body{
+					width:100%;
+					.name{
+						width:100%;
+					}
+					.icon{
+						padding:0px;
+						width:25%;
+					}
+					.profile{
+						width:calc(75% - 10px);
+						padding:5px;
+						.inputs{
+							.input{
+								width:calc(100% - 20px);
+							}
+							p{
+								width:80%;
+								padding:0px;
+							}
+						}
+					}
+				}
+				.buttoncontainer{
+					.button{
+							width:100%;
+						}
+					}
+			}
+			// CREATE
+			.new{
+					.buttoncontainer {
+						width: 100%;
+					}
+					.footer {
+						width: 100%;
+						p {
+							width:100% !important;
+							padding:0px !important;;
+						}
+					}
+				.profile{
+						p {
+							width:100% !important;
+							padding:0px !important;;
+						}
+					.inputs{
+						width:100% !important;
+						.input{
+							padding:10px 2px 10px 0px !important;
+						}							
+						.selectgen {
+							select {
+								width: 100% !important;
+								select:required:invalid {
+									color: gray;
+								  }
+								  option[value=""][disabled] {
+									display: none;
+								  }
+								  option {
+									color: black;
+								  }
+							}
+							
+						}
+						p{
+							width:100% !important;
+							padding:0px !important;;
+						}
+					}
+				}
+			}	
+		}
+// DELETE
+.delete {
+	.profilephoto {
+		width: 50% !important;
+	}
+	.text {
+		width: 100% !important;
+	}
+	.button {
+		width: 100% !important;
+	}
+}
+	}
+}
+
+
+ 
+  

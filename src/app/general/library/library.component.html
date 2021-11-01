@@ -1,0 +1,107 @@
+<div class="lib">
+    <div class="head">
+        <div class="left">
+            <div>
+                My Library
+            </div>
+        </div>
+        <div class="center">
+            <ul class="web">
+                <li [ngClass]="{'active': clicked == 'movie'}" (click)="show('movie')">Movies</li>
+                <li [ngClass]="{'active': clicked == 'series'}" (click)="show('series')">Series</li>
+                <li [ngClass]="{'active': clicked == 'shows'}" (click)="show('shows')">Shows</li>
+                <li [ngClass]="{'active': clicked == 'fav'}" (click)="show('fav')">Favourites</li>
+                <li [ngClass]="{'active': clicked == 'all'}" (click)="show('all')">All</li>
+            </ul>
+            <div class="mobile">
+                <div class="fLeft" (click)="showMyList1()">
+                    <span id="text" class="bg">
+                        {{clickVal ? clickVal : 'Movies'}}&nbsp;
+                    <!-- <i _ngcontent-gou-c118="" id="text" class="fas fa-angle-down"></i> -->
+                    <span style="color: #b7cb1a;font-weight: bold;">&#9660;</span>
+                    </span>
+                </div>
+                <div class="list" [ngStyle]="{ 'display': listShow1 }">
+                    <ul>
+                        <span class="arrow">
+                             &#9650;
+                        </span>
+                        <div class="showlist">
+                            <li [ngClass]="{'active': clickVal == 'Movies'}" id="text" class="text" (click)="show1('Movies')">Movies</li>
+                            <li [ngClass]="{'active': clickVal == 'Series'}" id="text" class="text" (click)="show1('Series')">Series</li>
+                            <li [ngClass]="{'active': clickVal == 'Shows'}" id="text" class="text" (click)="show1('Shows')">Shows</li>
+                            <li [ngClass]="{'active': clickVal == 'Favourites'}" id="text" class="text" (click)="show1('Favourites')">Favourites</li>
+                            <li [ngClass]="{'active': clickVal == 'All'}" id="text" class="text" (click)="show1('All')">All</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div (click)="showMyList2()">
+                <span class="spl bg">Sort by:&nbsp;</span><span id="text" class="bg"> {{clickValue ? clickValue : 'Most Recent Addition'}}&nbsp;
+                    <span class="arrow">&#9660;</span></span>
+            </div>
+            <div class="list" [ngStyle]="{ 'display': listShow2 }">
+                <ul>
+                    <span class="arrow">
+                         &#9650;
+                    </span>
+                    <div class="showlist">
+                        <li [ngClass]="{'active': clickValue == 'Most Recent Addition'}" id="text" class="text" (click)="show2('Most Recent Addition')">Most Recent Addition</li>
+                        <li [ngClass]="{'active': clickValue == 'Title : A to Z'}" id="text" class="text" (click)="show2('Title : A to Z')">Title : A to Z</li>
+                        <li [ngClass]="{'active': clickValue == 'Title : Z to A'}" id="text" class="text" (click)="show2('Title : Z to A')">Title : Z to A</li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="cont">
+        <div class="row">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="trending">
+                <div ngxSlickItem *ngFor="let image of images" class="slide">
+                    <div class="playlist" (click)="vdoModals(image)">
+                        <img src="{{ image.img}}" width="100%">
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+        <div class="row">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="recomonded">
+                <div ngxSlickItem *ngFor="let image of images" class="slide">
+                    <div class="playlist" (click)="vdoModals(image)">
+                        <img src="{{ image.img}}" width="100%">
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+        <div class="row">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="recomonded">
+                <div ngxSlickItem *ngFor="let image of images" class="slide">
+                    <div class="playlist" (click)="vdoModals(image)">
+                        <img src="{{ image.img}}" width="100%">
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+        <div class="row">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="recomonded">
+                <div ngxSlickItem *ngFor="let image of images" class="slide">
+                    <div class="playlist" (click)="vdoModals(image)">
+                        <img src="{{ image.img}}" width="100%">
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+        <div class="row">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="recomonded">
+                <div ngxSlickItem *ngFor="let image of images" class="slide">
+                    <div class="playlist" (click)="vdoModals(image)">
+                        <img src="{{ image.img}}" width="100%">
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+    </div>
+</div>
+<!-- <app-forgotpassword></app-forgotpassword> -->

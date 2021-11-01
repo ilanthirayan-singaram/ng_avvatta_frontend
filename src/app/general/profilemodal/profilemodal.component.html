@@ -1,0 +1,516 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+            <p style="font-size: 20px; color: white">Loading...</p>
+        </ngx-spinner>
+          <!-- Enter password Start -->
+          
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+          <div class="epassword" [ngStyle]="{ 'display': passwordShow }">
+            <div class="header" (click)="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="passcontainer">
+                <h3>Enter Password</h3>
+                <p>To setup your parental controls - please enter your password to proceed</p>
+                <p>(So that we know its actually you)</p>
+                <form #password="ngForm" (ngSubmit)="enterPassword(password)">
+                    <div class="input">
+                        <input type="password" name="password" placeholder="Enter password" ngModel required>
+                    </div>
+                    <p class="min">Minimum 8 charcters</p>
+                    <div class="button">
+                        <button type="submit">CONTINUE</button>
+                        <button type="button" (click)="forgotPasswordDisplay()">FORGOT PASSWORD</button>
+                    </div>
+                </form>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Enter password End -->
+        <!-- Parental Control Start -->
+        <div class="parental" [ngStyle]="{ 'display': parentalControlShow }">
+            <div class="edit">
+                <div class="header">
+                    <div class="head">
+                        <h3>Parental Control</h3>
+                    </div>
+                    <div class="close" (click)="closeModal()"><i class="fa fa-close"></i></div>
+                </div>
+
+                <form #setpin="ngForm" (ngSubmit)="parentalControl(setpin)">
+                    <div class="body">
+                        <div class="icon">
+                            <div>
+                                <img src="../../assets/icons/Parental Control.PNG" />
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <h3>You can create a 4 digit PIN to restrict access to the following functions.</h3>
+                            <ul class="list">
+                                <li>Switch Profile</li>
+                                <li>Manage Profile</li>
+                                <li>Account & Payment Information</li>
+                            </ul>
+                            <div class="name">
+                                <div class="fname">
+                                    <input type="password" maxlength="4" name="pin" ngModel required
+                                        placeholder="Enter PIN" >
+                                </div>
+                                <div class="lname">
+                                    <input type="password" maxlength="4" name="cpin" required ngModel placeholder="Confirm PIN"
+                                        (focusout)="checkPin(setpin.value.pin, setpin.value.cpin)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttoncontainer">
+                        <div class="button">
+                            <div class="btn1">
+                                <button type="submit">SAVE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Parental Control End -->
+        <!-- Pin Verification to manage account Start -->
+        <div [ngStyle]="{ 'display': pinVerifyShow }">
+            <div class="header" (click)="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="verify">
+                <div class="vcontainer">
+                    <h3>Enter PIN</h3>
+                    <div class="pin">
+                        <form #pin="ngForm" (ngSubmit)="verifyPin(pin)">
+                            <div class="number">
+                                <div class="ip">
+                                    <input type="password" name="pin1" maxlength="1" placeholder="&#9679;" required ngModel
+                                        #pin1="ngModel" (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="password" name="pin2" maxlength="1" placeholder="&#9679;" ngModel
+                                        (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="password" name="pin3" maxlength="1" placeholder="&#9679;" ngModel
+                                        (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="password" name="pin4" maxlength="1" placeholder="&#9679;" ngModel
+                                        (keyup)="keytab($event)">
+                                </div>
+                            </div>
+                            <div class="button">
+                                <button type="submit">VERIFY</button>
+                            </div>
+                            <p (click)="forgotParentalDisplay()">Forgot PIN</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Pin verification to manage account End -->
+        <!-- Manage Account Start -->
+        <div class="manage" [ngStyle]="{ 'display': manageProfileShow }">
+            <div class="header">
+                <div class="head">
+                    <h3>Manage Profile</h3>
+                </div>
+                <div class="close" (click)="closeModal()"><i class="fa fa-close"></i></div>
+            </div>
+            <div class="subhead">
+                <p>Click on the profile to edit</p>
+            </div>
+            <div class="profile">
+                <div class="detail">
+                    <div class="edit"  *ngFor="let data of subProfileList" (click)="editProfileDisplay(data)">
+                        <div class="icon">
+                            <img src={{data.picture}} />
+                        </div>
+                        <div class="name">
+                            {{data.name}}
+                        </div>
+                    </div>
+                    <div class="edit" (click)="createNewProfileDisplay()" *ngIf="subProfileList.length < 4">
+                        <div class="iconplus">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="name">
+                            Add new profile
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <button (click)="closeModal()">DONE</button>
+            </div>
+        </div>
+        <!-- Manage Account End -->
+        <!-- Edit Profile Start -->
+        <div class="edit" [ngStyle]="{ 'display': editProfileShow }">
+            <div class="header">
+                <div class="head">
+                    <h3>Edit Profile</h3>
+                </div>
+                <div class="close" (click)="closeModal()"><i class="fa fa-close"></i></div>
+            </div>
+
+            <form #edit="ngForm" (ngSubmit)="editProfile(edit)" >
+                <div [ngStyle]="{display: cropImage}">
+                    <image-cropper style="display: none" style="width:100%" [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                    [aspectRatio]="4 / 4" format="png" (imageCropped)="imageCropped($event)"
+                    (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                    (loadImageFailed)="loadImageFailed()"></image-cropper>
+                   </div>
+                <div class="body" *ngFor="let data of editProfileList">
+                    <div class="icon">
+                        <div (click)="fileInput.click()">
+                            <input style="display: none" type="file" (change)="fileChangeEvent($event)" #fileInput>
+                            <img style="width:100%" [src]="croppedImage" />
+                            <img src={{data.picture}} />
+                        </div>
+                    </div>
+                    <div class="profile">
+                        <p>Profile Name</p>
+                        <div class="inputs">
+                            <div class="input">
+                                <input type="text" name="name" placeholder="Existing profile name" ngModel required [value]='name' [(ngModel)]="data.name">
+                            </div>
+                        </div>
+                        <p>Select Viewing Restrictions</p>
+                        <div class="spn">
+                            <div class="s1">
+                                <span></span>
+                            </div>
+                            <div class="s2">
+
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="select">
+
+                            <div>
+                                <input id="0" type="radio" name="age"  [value]="1" ngModel required [(ngModel)]="data.age"><br>
+                                <p>All</p>
+                            </div>
+                            <div>
+                                <input id="7" type="radio" name="age" [value]="2" ngModel required [(ngModel)]="data.age"><br>
+                                <p>7+</p>
+                            </div>
+                            <div>
+                                <input id="13" type="radio" name="age" [value]="13" ngModel required [(ngModel)]="data.age"><br>
+                                <p>13+</p>
+                            </div>
+                            <div>
+                                <input id="16" type="radio" name="age" [value]="16" ngModel required [(ngModel)]="data.age"><br>
+                                <p>16+</p>
+                            </div>
+                            <div>
+                                <input id="18" type="radio" name="age" [value]="18" ngModel required [(ngModel)]="data.age"><br>
+                                <p>18+</p>
+                            </div>
+                        </div>
+                        <div class="selecthr">
+                            <hr width="100">
+                        </div>
+                        <div class="check">
+                            <label class="main"> I agree to the terms & conditions
+                                <input type="checkbox" name="agree" value="1" ngModel required>
+                                <span class="geekmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttoncontainer">
+                    <div class="button">
+                        <div class="btn1">
+                            <button type="submit">SAVE</button>
+                        </div>
+                        <div class="btn2">
+                            <button type="button" (click)="deleteProfileDisplay()">DELETE PROFILE</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <!-- Edit profile End -->
+        <!-- Create new profile start  -->
+        <div class="edit new" [ngStyle]="{ 'display': createNewProfileShow }">
+            <div class="header">
+                <div class="head">
+                    <h3>Create New Profile</h3>
+                </div>
+                <div class="close" (click)="closeModal()"><i class="fa fa-close"></i></div>
+            </div>
+
+            <form #newprofile="ngForm" (ngSubmit)="createNewProfile(newprofile)">
+                <div [ngStyle]="{display: cropImage}">
+                    <image-cropper style="display: none" style="width:100%" [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                    [aspectRatio]="4 / 4" format="png" (imageCropped)="imageCropped($event)"
+                    (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                    (loadImageFailed)="loadImageFailed()"></image-cropper>
+                   </div>
+                <div class="body">
+                    <div class="icon">
+                        <div (click)="fileInput.click()">
+                            <input style="display: none" type="file" (change)="fileChangeEvent($event)" #fileInput>
+                            <img style="width:100%" [src]="croppedImage" />
+                            <img src="../../assets/icons/Create Profile.PNG"/>
+                        </div>
+                        <!-- <div>
+                            <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+                            <img src="../../assets/icons/Create Profile.PNG" (click)="fileInput.click()" />
+                        </div> -->
+                    </div>
+                    <div class="profile">
+                        <p>Profile Name</p>
+                        <div class="inputs">
+                            <div class="input">
+                                <input type="text" name="name" placeholder="Profile name" ngModel required>
+                            </div>
+                            <div class="gender">Gender</div>
+                            <div class="selectgen">
+                                <select name="selectedValue" ngModel required>
+                                    <option value="" disabled selected>Gender</option>
+                                    <option value="female">Female</option>
+                                    <option value="male">Male</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <p>Select Viewing Restrictions</p>
+                        <div class="spn">
+                            <div class="s1">
+                                <span></span>
+                            </div>
+                            <div class="s2">
+
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="select">
+
+                            <div>
+                                <input type="radio" name="age" value="1" ngModel required><br>
+                                <p>All</p>
+                            </div>
+                            <div>
+                                <input type="radio" name="age" value="7" ngModel required><br>
+                                <p>7+</p>
+                            </div>
+                            <div>
+                                <input type="radio" name="age" value="13" ngModel required><br>
+                                <p>13+</p>
+                            </div>
+                            <div>
+                                <input type="radio" name="age" value="16" ngModel required><br>
+                                <p>16+</p>
+                            </div>
+                            <div>
+                                <input type="radio" name="age" value="18" ngModel required><br>
+                                <p>18+</p>
+                            </div>
+                        </div>
+                        <div class="selecthr">
+                            <hr width="100">
+                        </div>
+                        <div class="check">
+                            <label class="main"> I agree to the terms & conditions
+                                <input type="checkbox">
+                                <span class="geekmark"></span>
+                            </label>
+                            <input type="checkbox" name="agree" value="1" ngModel required>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="buttoncontainer">
+                    <div class="button">
+                        <div class="btn11">
+                            <button type="submit">SAVE & CREATE ANOTHER PROFILE</button>
+                            <!-- <button type="button">DELETE PROFILE</button> -->
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Create new profile End -->
+        <!-- Delete Profile Start -->
+        <div class="delete" [ngStyle]="{ 'display': deleteProfileShow }">
+            <div class="close" (click)="closeModal()"><i class="fa fa-close"></i></div>
+            <h4>Delete Profile</h4>
+            <div class="profilephoto" *ngFor="let data of editProfileList">
+                <img src={{data.picture}} />
+            </div>
+            <div class="text">
+                <p>On Deleting your profile, you will lose all information including your profile history, your Mylist
+                    or any other activity.</p>
+            </div>
+            <div class="button">
+                <button type="button" (click)="manageProfileDisplay();">KEEP PROFILE</button>
+                <button type="submit" (click)="deleteSubProfile()">DELETE PROFILE</button>
+            </div>
+        </div>
+        <!-- Delete Profile End -->
+        <!-- Who watching Start -->
+        <div class="manage who" [ngStyle]="{ 'display': whoWatchingShow }">
+            <div class="header">
+                <div class="head">
+                    <h3>Who's watching</h3>
+                </div>
+                <div class="close" (click)="closeModal()"><i class="fa fa-close"></i></div>
+            </div>
+            <div class="profile">
+                <div class="detail">
+                    <div class="edit">
+                        <div class="icon">
+                            <i class='fas fa-pen'></i>
+                        </div>
+                        <div class="name">
+                            Name
+                        </div>
+                    </div>
+                    <div class="edit">
+                        <div class="icon">
+                            <i class='fas fa-pen'></i>
+                        </div>
+                        <div class="name">
+                            Name
+                        </div>
+                    </div>
+                    <div class="edit">
+                        <div class="icon">
+                            <i class='fas fa-pen'></i>
+                        </div>
+                        <div class="name">
+                            Name
+                        </div>
+                    </div>
+                    <div class="edit">
+                        <div class="iconplus">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="name">
+                            Name
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <button>MANAGE PROFILES</button>
+                <button>PARANTAL CONTROL</button>
+            </div>
+        </div>
+        <!-- who watching End -->
+        <!-- Forgot PIN Start -->
+        <div class="fpin epassword" [ngStyle]="{ 'display': forgotPinShow }">
+            <div class="header" (click)="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="passcontainer">
+                <h3>Forgot Parental PIN Code</h3>
+                <p>Enter the email or mobile number used when registering for Avvatta and we will send you instructions
+                    to reset your PIN</p>
+                <form #fpin="ngForm" (ngSubmit)="forgotPin(fpin)">
+                    <div class="input">
+                        <input type="text" name="email" placeholder="Email / Mobile number" ngModel required (keyup)="checkMail(fpin.value.email)">
+                        <p class="dangeralert" *ngIf="emailId">Please enter a valid email address or mobile number
+                        </p>
+                    </div>
+                    <div class="button">
+                        <button type="submit">SEND</button>
+                    </div>
+                </form>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Forgot PIN End -->
+        <!-- Forgot password Start -->
+        <div class="fpin epassword" [ngStyle]="{ 'display': forgotPasswordShow }">
+            <div class="header" (click)="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="passcontainer">
+                <h3>Forgot Password</h3>
+                <p>Enter the email or mobile number used when registering for Avvatta and we will send you instructions
+                    to reset your Password</p>
+                <form #fpass="ngForm" (ngSubmit)="forgotPassword(fpass)">
+                    <div class="input">
+                        <input type="text" name="email" placeholder="Email / Mobile number" ngModel required (keyup)="checkMail(fpass.value.email)">
+                        <p class="dangeralert" [ngStyle]="{ 'display': pinAlert }">Please enter a valid email address
+                        </p>
+                    </div>
+                    <div class="button">
+                        <button>SEND</button>
+                    </div>
+                </form>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Forgot password End -->
+        <!-- Verify Account Start After forgot pin-->
+        <div [ngStyle]="{ 'display': VerifyShow }">
+            <div class="header" (click)="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="verify">
+                <div class="vcontainer">
+                    <h3>Verify Your Account</h3>
+                    <div class="pin">
+                        <h4>Enter your 4 digit PIN send to your mobile number</h4>
+
+                        <form #vpin="ngForm" (ngSubmit)="getPin(vpin)">
+                            <div class="number">
+                                <div class="ip">
+                                    <input type="text" name="pin1" maxlength="1" placeholder="&#9679;" required ngModel
+                                        #pin1="ngModel" (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="text" name="pin2" maxlength="1" placeholder="&#9679;" required ngModel
+                                         (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="text" name="pin3" maxlength="1" placeholder="&#9679;" required ngModel
+                                         (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="text" name="pin4" maxlength="1" placeholder="&#9679;" required ngModel
+                                         (keyup)="keytab($event)">
+                                </div>
+                            </div>
+                            <div class="button">
+                                <button>VERIFY</button>
+                            </div>
+                            <p (click)="resendPin()">Resend PIN</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Verify Account End -->
+    </div>
+</div>

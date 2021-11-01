@@ -1,0 +1,404 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+
+        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+            <p style="font-size: 20px; color: white">Loading...</p>
+        </ngx-spinner>
+        <!-- <app-loader></app-loader> -->
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <!-- Login Start  -->
+        <div [ngStyle]="{ 'display': loginShow }">
+            <div class="header" (click)="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="sinlog">
+                <div class="mcontainer">
+                    <div class="left">
+                        <div class="login">
+                            <h3>Enter your credentials</h3>
+                            <form #l="ngForm" (ngSubmit)="login(l)">
+                                <div class="input">
+                                    <input type="text" name="email" autocomplete="off" ngModel required #email="ngModel" placeholder="Mobile number or Email" (keyup)="checkMail(l.value.email)">
+                                </div>
+                                <div class="input">
+                                    <input type="password" name="password" autocomplete="off" ngModel placeholder="Password">
+                                </div>
+                                <div class="cont">
+                                    <button>CONTINUE</button>
+                                </div>
+                            </form>
+                            <div class="foot">
+                                <div class="forgot">
+                                    <p (click)="showForgotPassword()">Forgot Password?</p>
+                                </div>
+                                <div class="sign">
+                                    <p (click)="showSignUp()">Sign Up?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div>
+                            <h3>Enjoy the best entertainment at your fingertips</h3>
+                            <div class="container">
+                                <div class="box">
+                                    <div class="icon">
+                                        <div class="in">
+                                            <img src="../../assets/Images/Watch From Anywhere.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="arrow">
+                                        <div class="in">
+                                            &#9654;
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <div>
+                                            <h4>Watch anywhere, everywhere</h4>
+                                            <p>Unlimited streaming on your phone, tablet or PC</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="icon">
+                                        <div class="in">
+                                            <img src="../../assets/Images/Download to watch later.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="arrow">
+                                        <div class="in">
+                                            &#9654;
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <div>
+                                            <h4>Download to watch later</h4>
+                                            <p>Watch your downloads in offline mode</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="icon">
+                                        <div class="in">
+                                            <img src="../../assets/Images/try.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="arrow">
+                                        <div class="in">
+                                            &#9654;
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <div>
+                                            <h4>Try it for FREE</h4>
+                                            <p>Get a FREE trial to experience endless entertainment when you subscribe
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Login End -->
+        <!-- Forgot password Start -->
+        <div class="fpin epassword" [ngStyle]="{ 'display': forgotPasswordShow }">
+            <div class="header" (click)="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <app-forgotpassword></app-forgotpassword>
+            <!-- <div class="passcontainer">
+                <h3>Forgot Password</h3>
+                <p>Enter the email or mobile number used when registering for Avvatta and we will send you instructions
+                    to reset your Password</p>
+                <form #fpin="ngForm" (ngSubmit)="forgotPassword(fpin)">
+                    <div class="input">
+                        <input type="text" name="email" placeholder="Email / Mobile number" ngModel required
+                            (keyup)="checkMail(fpin.value.email)">
+                        <p class="dangeralert" [ngStyle]="{ 'display': pinAlert }">Please enter a valid email address
+                        </p>
+                    </div>
+                    <div class="button">
+                        <button>SEND</button>
+                    </div>
+                </form>
+            </div> -->
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Forgot password End -->
+        <!-- Sign up start -->
+        <div [ngStyle]="{ 'display': signUpShow }">
+            <div class="header" (click)="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="sinlog">
+                <div class="mcontainer">
+                    <div class="left">
+                        <div class="signup">
+                            <h3>Enter your credentials</h3>
+                            <form #s="ngForm" (ngSubmit)="signUp(s)">
+                                <div class="name">
+                                    <div class="fname">
+                                        <input type="text" name="fname" ngModel required #fname="ngModel" placeholder="First Name">
+                                    </div>
+                                    <div class="lname">
+                                        <input type="text" name="lname" ngModel placeholder="Last Name">
+
+                                    </div>
+                                </div>
+                                <div class="input">
+                                    <input type="text" name="email" ngModel placeholder="Email or Mobile number" email #Email="ngModel" (keyup)="checkMail(s.value.email)">
+                                </div>
+                                <p *ngIf="emailId" class="danger">Invalid email format</p>
+                                <div class="cont">
+                                    <button>CONTINUE</button>
+                                </div>
+                            </form>
+                            <div class="foot">
+                                <div class="hrline">
+                                    <div class="l" width=100>
+                                        <hr>
+                                    </div>
+                                    <div class="c">or</div>
+                                    <div class="r" width=100>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="social">
+                                    <div class="fb" (click)="comingSoon()">
+                                        <img src="../../assets/icons/Facebook.png">
+                                    </div>
+                                    <div class="google" (click)="comingSoon()">
+                                        <img src="../../assets/icons/Google.PNG">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div>
+                            <h3>Enjoy the best entertainment at your fingertips</h3>
+                            <div class="container">
+                                <div class="box">
+                                    <div class="icon">
+                                        <div class="in">
+                                            <img src="../../assets/Images/Watch From Anywhere.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="arrow">
+                                        <div class="in">
+                                            &#9654;
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <div>
+                                            <h4>Watch anywhere, everywhere</h4>
+                                            <p>Unlimited streaming on your phone, tablet or PC</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="icon">
+                                        <div class="in">
+                                            <img src="../../assets/Images/Download to watch later.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="arrow">
+                                        <div class="in">
+                                            &#9654;
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <div>
+                                            <h4>Download to watch later</h4>
+                                            <p>Watch your downloads in offline mode</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="icon">
+                                        <div class="in">
+                                            <img src="../../assets/Images/try.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="arrow">
+                                        <div class="in">
+                                            &#9654;
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <div>
+                                            <h4>Try it for FREE</h4>
+                                            <p>Get a FREE trial to experience endless entertainment when you subscribe
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Sign up End -->
+        <!-- Verify Account Start -->
+        <div [ngStyle]="{ 'display': VerifyShow }">
+            <div class="header" (click)="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="verify">
+                <div class="vcontainer">
+                    <h3>Verify Your Account</h3>
+                    <div class="pin">
+                        <h4>Enter your 4 digit PIN send to your mobile number</h4>
+
+                        <form #pin="ngForm" (ngSubmit)="getPin(pin)">
+                            <div class="number">
+                                <div class="ip">
+                                    <input type="text" name="pin1" maxlength="1" placeholder="&#9679;" required ngModel #pin1="ngModel" #passcode1 (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="text" name="pin2" maxlength="1" placeholder="&#9679;" ngModel #passcode2 (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="text" name="pin3" maxlength="1" placeholder="&#9679;" ngModel #passcode3 (keyup)="keytab($event)">
+                                </div>
+                                <div class="ip">
+                                    <input type="text" name="pin4" maxlength="1" placeholder="&#9679;" ngModel #passcode4 (keyup)="keytab($event)">
+                                </div>
+                            </div>
+                            <div class="button">
+                                <button>VERIFY</button>
+                            </div>
+                            <p (click)="reSendPin()">Resend PIN</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Verify Account End -->
+        <!-- Complete profile Start -->
+        <div [ngStyle]="{ 'display': completeProfileShow }">
+            <div class="header" (click)="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="profile">
+                <div class="mcontainers">
+                    <h3 class="leftalign">Complete your Profile</h3>
+                    <div class="outer">
+                        <form #profile="ngForm" (ngSubmit)="completeProfile(profile)">
+                            <div class="inner">
+                                <div class="name">
+                                    <div class="left">
+                                        <div class="input">
+                                            <input type="text" name="fname" placeholder="First name" ngModel required [value]='fname1' [(ngModel)]="fname1" #fname="ngModel">
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="input">
+                                            <input type="text" name="lname" placeholder="Last name" ngModel required [value]='lname1' [(ngModel)]="lname1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="emailmobile">
+                                    <div class="left">
+                                        <div class="input">
+                                            <input type="text" name="email" placeholder="Enter email address" ngModel [(ngModel)]="email1" required #email="ngModel" [value]='email1' [readonly]='emailRead'>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="input">
+                                            <input type="tel" maxlength="10" pattern="[0-9]{10}" name="mobile" placeholder="Enter mobile number" ngModel required [readonly]='phoneRead' [(ngModel)]="phone1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4>Date of Birth</h4>
+                                    <div class="dateofbirth">
+                                        <div class="left">
+                                            <div class="dobcontainer">
+                                                <div class="dob">
+                                                    <div class="dobinput">
+                                                        <select name="year" ngModel required [(ngModel)]="selectedYear">
+                                                            <option *ngFor="let year of years">{{year}}</option>
+                                                        </select>
+                                                        <!-- <div class="downarrow">&#9660;</div> -->
+                                                    </div>
+                                                    <div class="dobinput">
+                                                        <select name="month" ngModel required [(ngModel)]="selectedMonth">
+                                                            <option *ngFor="let month of months; let i = index"
+                                                                [value]="i+1">{{month}}</option>
+                                                        </select>
+                                                        <!-- <div class="downarrow">&#9660;</div> -->
+                                                    </div>
+                                                    <div class="dobinput">
+                                                        <select name="date" ngModel required>
+                                                            <option *ngFor="let day of days" [value]="day">{{day}}
+                                                            </option>
+                                                        </select>
+                                                        <!-- <div class="downarrow">&#9660;</div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <div class="gender">
+                                                <div class="input">
+                                                    <div class="lable">Gender</div>
+                                                    <div class="option">
+                                                        <input type="radio" id="male" name="gender" value="male" ngModel required>
+                                                        <label for="male">Male</label><br>
+                                                    </div>
+                                                    <div class="option">
+                                                        <input type="radio" id="female" name="gender" value="female" ngModel required>
+                                                        <label for="female">Female</label><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4>Setup Your Password</h4>
+                                    <div class="password">
+                                        <div class="left">
+                                            <div class="input">
+                                                <input type="password" name="password" placeholder="Password" ngModel required>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <div class="input">
+                                                <input type="password" name="cpassword" placeholder="Confirm Password" ngModel required (focusout)="passwordCheck(profile.value.password, profile.value.cpassword)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="button">
+                                    <button>REGISTER</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Complete profile End -->
+    </div>
+</div>

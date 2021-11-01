@@ -1,0 +1,126 @@
+#modal-content-wrapper{
+    position: fixed;
+	background: rgb(0, 0, 0, 0.5);
+    color: white;
+    height: 100vh;
+    vertical-align: middle;
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+#modal-content-wrapper .modalcontainer{
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    width: calc(50% - 20px);
+    margin: auto;
+    height: fit-content;
+    text-align: center;
+}
+.body{
+    width:100%;
+    display:flex;
+    .input{
+        width:75%;
+        margin-right: auto;
+        input {
+            padding:15px 10px;
+            width: calc(100% - 20px);
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background: #fff;
+        }
+    }
+    .icon{
+        width: calc(25% - 20px);
+        display: flex;
+        padding: 10px;
+        div{
+            width: 100%;
+            margin: auto;
+        }
+        img{
+            width:100%;
+        }
+    }
+    .profile{
+        width:calc(75% - 20px);
+        padding:10px;
+        h4{
+            text-align:left;
+        }
+    }
+}
+.parental{
+    h3{
+        text-align:left;
+    }
+    .buttoncontainer{
+        width:100%;
+        .button {
+            width: 40%;
+            margin-right:auto;
+            padding: 10px 0px;
+            button {
+                margin-left: auto;
+                width: 100%;
+                padding: 15px 10px;
+                background: #b7cb1a;
+                border: 1px solid #b7cb1a;
+                border-radius: 10px 0px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+// Response view
+@media screen and (max-width: 700px) and (min-width: 1px) { 
+    #modal-content-wrapper{
+        position: unset;
+        .modalcontainer{
+            width: calc(95% - 20px);
+        }
+    }
+    #modal-content-wrapper .modalcontainer{
+        width: calc(90% - 20px);
+    }
+    .parental .buttoncontainer .button {
+        width: 100%;
+    }
+    .body .input{
+        width:100%;
+    }
+}
+
+@media screen and (max-width: 850px) and (min-width: 1px) { 
+    p {
+        font-size: calc((25px + 1vh + 1vw)/2 ) !important;
+    }   
+    h3 {
+        font-size: calc(100% - -10px) !important;
+    }
+    h4 {
+        font-size: calc(100% - -7px) !important;
+    }
+    a {
+        font-size: calc((22px + 1vh + 1vw)/2 ) !important;
+    }
+}
+
+@media screen and (max-width: 1347px) and (min-width: 850px) { 
+    p {
+        font-size: calc((15px + 1vh + 1vw)/2 ) !important;
+    }   
+    h3 {
+        font-size: calc(90% - -4px) !important;
+    }
+    h4 {
+        font-size: calc(90% - -4px) !important;
+    }
+    a {
+        font-size: calc((11px + 1vh + 1vw)/2 ) !important;
+    }
+}
+

@@ -1,0 +1,176 @@
+.accountcont{
+    .desk{
+        display: block;
+    }
+    .mob{
+        display: none;
+    }
+    #modal-content-wrapper{
+        padding:3vh 0px;
+        position: relative;
+        background: rgb(0, 0, 0) !important;
+        min-height: 100vh;
+        vertical-align: middle;
+        width: 100%;
+        margin: auto;
+        display: flex;
+    }
+    #modal-content-wrapper .modalcontainer{
+        background:#fff;
+        width: calc(90% - 20px);
+        margin: auto;
+        height: fit-content;
+        text-align: center;
+    }
+    .account{
+        width:100%;
+        h4{
+            width:calc(80% - 10px);
+            text-align: left;
+            margin:0px auto;
+            padding:5px;
+            font-weight: bold;
+        }
+        .head{
+            width:100%;
+            margin:auto;
+            background: #b7cb1a;
+            border: 1px solid #b7cb1a;
+            text-align: left;
+            h3{
+                padding:10px;
+                margin:0;
+                font-weight: bold;
+            }
+        }
+        .body{
+            width:calc(100% - 20px);
+            padding:0px 10px;
+            margin:auto;
+        }
+        .parent{
+            width:100%;
+            display: flex;
+            .special p{
+                color:rgb(43, 157, 211);
+                font-weight:bold;
+                cursor:pointer;
+            }
+            .child{
+                text-align:left;
+                width:calc(33.3% - 20px);
+                padding:5px 10px;
+                button {
+                    width: calc(100% - 20px);
+                    margin: 10px;
+                    padding: 10px;
+                    background: #b7cb1a;
+                    border: 2px solid #b7cb1a;
+                    border-radius: 10px 0px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+                p{
+                    margin:0;
+                    padding:3px;
+                }
+                .childone{
+                    width:100%;
+                    display: flex;
+                   .image{
+                       width:10%;
+                       img{
+                        width:100%;
+                    }
+                    .text{
+                        margin:auto;
+                        width:90%;
+                    }
+                   }
+                }
+            }
+            .child1{
+                text-align:left;
+                width:calc(66.6% - 20px);
+                padding:10px;
+                p{
+                    margin: 0px;
+                    padding: 3px;
+                }
+            }
+        }
+        
+        hr{ 
+            height: 2px;
+            background-color: rgb(220, 220, 220);
+            border: none;
+            width:100%;
+            margin:0;
+        }
+        .box{
+            width:80%;
+            margin: 10px auto;
+            border-radius: 10px;
+            overflow:hidden;
+            box-shadow: 0 0 5px 2px #9e9e9ed1;
+        }
+    }
+    
+    // Responsive for landscape
+    @media screen and (max-height: 700px) and (min-height: 1px) { 
+
+    }
+    
+    // Responsive for portrait
+    @media screen and (max-width: 700px) and (min-width: 1px) { 
+        .desk{
+            display: none;
+        }
+        .mob{
+            display: block;
+        }
+        .c1{
+            width:50% !important;
+        }
+        .special{
+            width: 50%;
+        }
+        #modal-content-wrapper{
+            position:unset;
+            height:unset;
+            // padding:70px 0px;
+            .modalcontainer{      
+                width: calc(95% - 20px);
+            }
+            .box{
+                width:100%;
+            }
+            .body{
+                padding:0px 5px;
+                width:calc(100% - 10px);
+            }
+            .parent{
+                .child{
+                    padding:5px;
+                    width:calc(33.3% - 10px);
+                    button{
+                        width:100%;
+                        margin: 0px;
+                        font-size: 12px;
+                        padding:5px;
+                    }
+                    .childone{
+                        display: block;
+                        .image{
+                            width:50%;
+                        }
+                        .text{
+                            width:100%;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}

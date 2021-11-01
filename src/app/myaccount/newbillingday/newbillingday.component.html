@@ -1,0 +1,53 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer">
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="parental">
+            <div class="edit">
+                <form #choosebill="ngForm" (ngSubmit)="chooseNewBilling(choosebill)">
+                    <h3>Choose a new billing day</h3>
+                    <div class="body">
+                        <div class="icon">
+                            <div>
+                                <img src="../../assets/icons/Parental Control.PNG" />
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <h4>Right now, your membership is billed on the 2nd of each month, but feel free to change it to a day that's more convenient for you.</h4>
+                            <h4>Your new billing day</h4>
+                           <div class="date">
+                            <div class="dateinput">
+                                <select name="selectDate" ngModel required>
+                                    <option selected value="">Day</option>
+                                    <option value="US">+123</option>
+                                    <option value="India" selected>+91</option>
+                                </select>
+                                <div class="downarrow">&#9660;</div>
+                            </div>
+                            <div class="side">
+                                of each month
+                            </div>
+                           </div>
+                            <div class="foot">
+                                <div class="image">
+                                    <img src="../../../assets/icons/Warning.PNG"/>
+                                </div>
+                                <div class="text">
+                                    <p>You won’t be requested a fund on your first month if you change your billing date</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttoncontainer">
+                        <div class="button">
+                                <button (click)="closeModal()">REVIEW & CONFIRM</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+    </div>
+</div>

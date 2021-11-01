@@ -1,0 +1,72 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer" > 
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <app-close (click)="closeModal()"></app-close> 
+        <div class="head">
+            <h3>Change Streaming Plan</h3>
+        </div>
+        <p *ngIf="list == null">no record found</p>
+        <div class="bodyh" *ngIf="list != null">
+            <div class="col1">
+                <h3>Packages</h3>
+            </div>
+            <div class="col2">
+              <div class="in">
+                <h3>Access Device</h3>
+              </div>
+            </div>
+            <div class="col3">
+                <h3>Cost</h3>
+            </div>
+            <div class="col4"> 
+                <h3>Expiry Date</h3>
+            </div>
+            <div class="col4"> 
+                <h3>Bill Date</h3>
+            </div>
+            <div class="col5">
+                <h3>Cancel</h3>
+            </div>
+        </div>
+        <div class="body" *ngFor="let data of list">
+            <div class="col1">
+                <h3>{{data.title}}</h3>
+            </div>
+            <div class="col2">
+              <div class="in">
+            <h3>Access {{data.no_of_account}} Device</h3>
+                <!-- <p>Get you first day</p> -->
+              </div>
+            </div>
+            <div class="col3">
+                <h3>{{data.currency}}&nbsp;{{data.amount}}</h3>
+            </div>
+            <div class="col4"> 
+                <!-- <button>SELECT</button> -->
+                <h3>{{data.expiry_date}}</h3>
+            </div>
+            
+            <div class="col4"> 
+                <h3>{{data.expiry_date.split(' ')[0]}}</h3>
+            </div>
+            <div class="col5">
+               <button [disabled]="data.cancel == 1" (click)="cancelSubscribe(data.pay_request_id)">CANCEL SUBSCRIPTION</button>
+            </div>
+        </div>
+       
+        <!-- <div class="button">
+            <div class="btn1">
+                <button>CONTINUE</button>
+            </div>
+            <div class="btn2">
+                <button>GO BACK</button>
+            </div>
+        </div> -->
+        <div class="footer">
+            <app-foot (click)="closeModal()"></app-foot>
+        </div>
+    </div>
+
+
+
+</div>

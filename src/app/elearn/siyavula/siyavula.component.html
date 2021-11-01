@@ -1,0 +1,73 @@
+<div class="siyavula">
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>    
+  <div class="empty" [style.padding-top]="paddingHeight">
+
+  </div>
+  <div class="header" [style.top]="paddingHeight">
+    <div class="left">
+      <h3>Aspire Maths</h3>
+    </div>
+    <div class="right">
+      <img src="../../../assets/Images/siyavula.png" />
+    </div>
+  </div>
+  <div class="body1" *ngIf="screen === 1">
+    <div class="con1">
+      <p class="blue">Welcome to Aspire Maths by Siyavula</p>
+      <p>
+        Avvatta offers you a 7 day FREE trail to explore Maths, giving you the opportunity to upskill and assess
+        yourself in your own time. Once the free trail is over, a subscription will be required to continue on your
+        journey to mastering your Mathematics.
+      </p>
+    </div>
+    <div class="con2">
+      <h3>PLEASE SELECT YOUR LEVEL OF STUDY</h3>
+    </div>
+    <div class="con3">
+      <div class="list1">
+        <h3 (click)="showMathsTopics($event, 0)">&#9654;&nbsp;JUNIOR SECONDARY 1</h3>
+        <h3 (click)="showMathsTopics($event, 1)">&#9654;&nbsp;JUNIOR SECONDARY 2</h3>
+        <h3 (click)="showMathsTopics($event, 2)">&#9654;&nbsp;JUNIOR SECONDARY 3</h3>
+      </div>
+      <div class="list2">
+        <h3 (click)="showMathsTopics($event, 3)">&#9654;&nbsp;SENIOR SECONDARY 1</h3>
+        <h3 (click)="showMathsTopics($event, 4)">&#9654;&nbsp;SENIOR SECONDARY 2</h3>
+        <h3 (click)="showMathsTopics($event, 5)">&#9654;&nbsp;SENIOR SECONDARY 3</h3>
+      </div>
+      <div class="image">
+        <img src="../../../assets/Images/slide/smiling-african-student-studying-for-an-exam-on-ca-PTMKU4K.jpg" />
+      </div>
+    </div>
+  </div>
+
+  <div class="body2" *ngIf="screen === 2">
+    <div class="list1" *ngFor="let topic of topics;">
+      <div class="sublist" *ngFor="let chapter of topic.chapters;">
+        <div class="text" (mouseover)="topicMouseOver(chapter, $event)" (mouseout)="topicMouseOut(chapter)">&#9654;&nbsp;{{chapter.title}}</div>
+        <div class="percent" (mouseover)="topicMouseOver(chapter, $event)" (mouseout)="topicMouseOut(chapter)">({{ chapter.mastery ? chapter.mastery : 0 }}%)</div>
+      </div>
+    </div>
+    <div class="sidelist" style="display: flex;" [ngStyle]="{'top': popupPosition + 'px'}" *ngIf="sideList"  (mouseover)="sectionMouseOver()" (mouseout)="sectionMouseOut()">
+      <div class="sym">&#9664;</div>
+      <div class="show">
+        <div class="sublist" (click)="createPractice(section.id)" *ngFor="let section of selectedChapter.sections;">
+          <div class="text">{{section.title}}</div>
+          <div class="percent">({{ section.mastery ? section.mastery : 0 }}%)</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="list2">
+      <img src="../../../assets/Images/slide/a-young-woman-writing-a-mathematical-equation-with-3GX2S8E.jpg" />
+    </div>
+  </div>
+
+  <div class="body2 body3" *ngIf="screen === 3"  [ngClass]="{'whitebg': this.screen === 3 }">
+    <link rel="stylesheet" href="https://www.siyavula.com/static/themes/emas/siyavula-api/siyavula-api.min.css" />
+    <div [innerHTML]="questionHtml" class="question-content" ></div>
+    </div>
+  <app-virtual-back *ngIf="this.screen !== 1" (back)="onback($event)"></app-virtual-back>
+  <app-back *ngIf="this.screen === 1"></app-back>
+</div>

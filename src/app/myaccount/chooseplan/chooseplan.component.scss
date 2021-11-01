@@ -1,0 +1,1311 @@
+.mobile{
+	display: none;
+}
+.web{
+	display: block;
+}
+.tit{
+	padding:10px 0px;
+	text-align: left;
+	display: flex;
+	text-transform: uppercase;
+}
+.in{
+	margin:0px 10px;
+	border-radius: 50%;
+	width:10px;
+	height:10px;
+	margin: auto;
+}
+.in1{
+	background:  rgb(198, 216, 46);
+}
+.in2{
+	background:  rgb(245, 206, 25);
+}
+.in3{
+	background:  rgb(67, 153, 186);
+}
+.in4{
+	background: rgb(221, 64, 75);
+}
+// .active1{
+// 	// border:2px solid #7f7b7b;
+// 	// background: rgb(198, 216, 46) !important;
+// 	// border:2px solid #fff !important;
+// }
+// .active2{
+// 	// background: rgb(245, 206, 25) !important;
+// 	// border:2px solid #fff !important;
+// }
+// .active3{
+// 	// background: rgb(67, 153, 186) !important;
+// 	// border:2px solid #fff !important;
+// }
+// .active4{
+// 	// background: rgb(221, 64, 75) !important;
+// 	// border:2px solid #fff !important;
+// }
+.circ{
+	vertical-align: middle;
+    display: flex;
+	margin:0px 10px;
+	border:2px solid #7f7b7b;
+	background: #fff;
+	border-radius: 50%;
+	width:20px;
+	height:20px;
+}
+.title .head .list{
+	height:115px;
+	overflow: auto;
+}
+.title .head p{
+	color:#fff;
+	padding: 22px 5px !important;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#modal-content-wrapper {
+	height: unset;
+	overflow: auto;
+	position: unset;
+	// overflow: hidden;
+	// position: fixed;
+	width: 100%;
+	// height: 100%;
+	background: rgba(0, 0, 0, 0.5) !important;
+	color: white;
+	vertical-align: middle;
+	display: flex;
+	width: 100%;
+	margin: auto;
+	h3{
+		font-weight: bold !important;
+	}
+	.footbtn{	
+		background: #b7cb1a;
+		font-weight: bold;
+		.button{
+			width:100%;
+			padding:0px 0px 10px 0px;
+		}
+	}
+	.sub.modalcontainer {
+		padding: 10px;
+		width: calc(90% - 20px);
+		margin: auto;
+		height: fit-content;
+		background: rgba(0, 0, 0, 0.8) !important;
+		box-shadow: 0px 0px 2px 1px black;
+		position: relative;
+		.header {
+			text-align: right;
+			padding: 10px;
+			i {
+				cursor: pointer;
+			}
+		}
+		// Payment method
+		.payment {
+			padding: 10px;
+			.button {
+				width: 60%;
+				padding: 10px 0px;
+				margin: auto;
+				button {
+					width: calc(100% - 20px);
+					margin: 10px;
+					padding: 10px;
+					background: #b7cb1a;
+					border: 2px solid #b7cb1a;
+					border-radius: 10px 0px;
+					font-weight: bold;
+					cursor: pointer;
+				}
+			}
+		}
+		.paymentsuccess {
+			.body {
+				width: 80%;
+				margin: auto;
+				.succ {
+					width: calc(100px - 40px);
+					height: calc(100px - 40px);
+					border-radius: 50%;
+					border: 1px solid #b7cb1a;
+					background: #b7cb1a;
+					padding: 20px;
+					font-size: 40px !important;
+					vertical-align: middle;
+					display: flex;
+					align-items: center;
+					text-align: center;
+					margin: auto;
+					i {
+						margin: auto;
+					}
+				}
+				h4 {
+					margin: auto;
+				}
+			}
+			.button {
+				width: 60%;
+				padding: 10px 0px;
+				margin: auto;
+				button {
+					width: calc(100% - 20px);
+					margin: 10px;
+					padding: 10px;
+					background: #b7cb1a;
+					border: 2px solid #b7cb1a;
+					border-radius: 10px 0px;
+					font-weight: bold;
+					cursor: pointer;
+				}
+			}
+		}
+		.paymentfail {
+			.body {
+				width: 80%;
+				margin: auto;
+				.succ {
+					width: calc(20% - 40px);
+					margin: 20px auto;
+					border-radius: 50%;
+					border: 1px solid #ff6347;
+					background: #ff6347;
+					padding: 20px;
+					font-size: 30px;
+				}
+				h4 {
+					margin: auto;
+				}
+			}
+			.button {
+				width: 60%;
+				padding: 10px 0px;
+				display: flex;
+				margin: auto;
+				button {
+					width: calc(100% - 20px);
+					margin: 10px;
+					padding: 10px;
+					background: #b7cb1a;
+					border: 2px solid #b7cb1a;
+					border-radius: 10px 0px;
+					font-weight: bold;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+
+// Subscribe
+.subscribe {
+	.header {
+		width: calc(100% - 40px);
+		display: flex;
+		.content {
+			width: 60%;
+			margin-left: auto;
+			text-align: center;
+			padding: 10px 0px;
+			h3,
+			p {
+				margin: 0px;
+			}
+		}
+		.right {
+			width: 20%;
+			display: flex;
+			.skip {
+				width: 80%;
+				button {
+					width: 70%;
+					text-align: center;
+					border: 2px solid #fff;
+					border-radius: 20px;
+					background-color: rgba(0, 0, 0, 0.3);
+					color: #fff;
+					padding: 5px;
+					margin: auto;
+				}
+			}
+			.head {
+				width: 20%;
+			}
+		}
+	}
+	.choose {
+		width: 100%;
+		.title{
+			width:20%;
+			background: #fff;
+			color: #000;
+		}
+		.others {
+			width: 80%;
+			.inside{
+				display: flex;
+			}
+			.container {
+				// display: none;
+				box-shadow: 5px 0 26px -2px #000;
+				position: relative;
+			}
+			.head {
+				width: 100%;
+				background: #b7cb1a;
+				p {
+					font-weight: bold;
+					text-transform: uppercase;
+				}
+			}
+			button {
+				background: #b7cb1a;
+				border: 0px;
+			}
+		}
+		// .eros {
+		//     width: 16.6%;
+		//     .head {
+		//         width: 100%;
+		//         background: rgb(24, 136, 177);
+		//         p{
+		//             font-weight: bold;
+		//         }
+		//     }
+		//     button {
+		//         background: rgb(24, 136, 177);
+		//         border: 1px solid rgb(24, 136, 177);
+		//     }
+		// }
+		// .elearn {
+		//     width: 16.6%;
+		//     .head {
+		//         width: 100%;
+		//         background: rgb(241, 191, 0);
+		//         p{
+		//             font-weight: bold;
+		//         }
+		//     }
+		//     button {
+		//         background: rgb(241, 191, 0);
+		//         border: 1px solid rgb(241, 191, 0);
+		//     }
+		// }
+		.body {
+			width: 100%;
+			display: flex;
+			border-radius: 20px;
+			overflow: hidden;
+			margin:10px 0px;
+			p {
+				margin: 0;
+				padding: 5px;
+			}
+			.container {
+				// display: none;
+				width: 100%;
+				margin: auto;
+				background: #fff;
+				color: #000;
+				overflow: hidden;
+				text-align: center;
+				position: relative;
+				.head {
+					padding: 0px 0px 10px 0px;
+				}
+				.bodycontent {
+					width: calc(100% - 0px);
+					background: #fff;
+					position: relative;
+					p {
+						padding: 10px 0px;
+					}
+					.circle {
+						width: 20px;
+						height: 20px;
+						border-radius: 50%;
+						position: absolute;
+						top: -11px;
+						box-shadow: 0 0 6px -2px #000;
+					}
+					.rxx {
+						font-weight: bold;
+					}
+					.day {
+						color: #7d7777;
+					}
+					.selectbtn {
+						// display: flex;
+						// .check {
+						// 	width: 20%;
+						// 	margin: auto 0 auto auto;
+						// }
+						.selectbutton {
+							// width: fit-content;
+							// margin-right: auto;
+							button {
+								width: 100%;
+								text-align: center;
+							}
+						}
+						button {
+							padding: 10px;
+							font-weight: bold;
+							width: 100%;
+							background: unset;
+						}
+						.script {
+							display: block;
+							position: relative;
+							margin-left: 10px;
+							cursor: pointer;
+							font-size: 20px;
+						}
+						input[type=checkbox] {
+							visibility: hidden;
+						}
+						.geekmark {
+							position: absolute;
+							top: 0;
+							left: 0;
+							height: 15px;
+							width: 15px;
+							border: 2px solid #fff;
+						}
+						.script input:checked~.geekmark {
+							background-color: #fff;
+						}
+						.script .geekmark {
+							background-color: #fff;
+						}
+						.geekmark:after {
+							content: "";
+							position: absolute;
+							display: none;
+						}
+						.script input:checked~.geekmark:after {
+							display: block;
+						}
+						.script .geekmark:after {
+							content: '✔';
+							font-size: 21px;
+							left: 0px;
+							bottom: -2px;
+							color: #000;
+						}
+					}
+				}
+			}
+		}
+		.button {
+			width: 100%;
+			padding: 10px 0px;
+			button {
+				width: 100%;
+				padding: 10px;
+				background: #b7cb1a;
+				border: 1px solid #b7cb1a;
+				border-radius: 10px 0px;
+				font-weight: bold;
+				color: rgba(0, 0, 0, 0.9);
+				cursor: pointer;
+			}
+		}
+		.subs {
+			width: 100%;
+			// display: flex;
+		}
+		.form {
+			width: 90%;
+			margin: auto;
+		}
+	}
+	.footer {
+		text-align: center;
+	}
+}
+
+// Responsive 
+@media only screen and (max-height: 300px) {
+	.maincontainer {
+		background-position: unset !important;
+	}
+}
+
+//   Payment method
+.pay {
+	padding: 10px;
+	width: calc(100% - 20px);
+	background: rgba(0, 0, 0, 0.8) !important;
+	margin: auto;
+	height: fit-content;
+	text-align: center;
+}
+
+.pay .modalcontainer {
+	padding: 10px;
+	width: calc(80% - 20px);
+	background: rgba(0, 0, 0, 0.8) !important;
+	margin: auto;
+	height: fit-content;
+	text-align: center;
+}
+
+.pay {
+	.modalcontainer {
+		padding: 10px;
+		width: calc(80% - 20px);
+		background: rgba(0, 0, 0, 0.8) !important;
+		margin: auto;
+		height: fit-content;
+		text-align: center;
+	}
+	.paymethod {
+		width: calc(100% - 20px); 
+		display: flex;
+		padding: 10px;
+		.redeem {
+			width: 45%;
+			margin: auto 0 auto auto;
+			padding: 20px 0px;
+			.left {
+				width: 100%;
+				margin: 10px 0px;
+				.cont {
+					width: calc(100% - 6px);
+					overflow: hidden;
+					border: 3px solid #fff;
+					border-radius: 10px 0px;
+					display: block;
+					h4 {
+						margin: 0px;
+						padding: 10px;
+					}
+					.check {
+						width: calc(80% - 0px);
+						text-align: left;
+						margin: auto;
+						//    Check box
+						.main {
+							display: block;
+							position: relative;
+							padding-left: 30px;
+							cursor: pointer;
+							font-size: 16px;
+							color:#000;
+						}
+						/* Hide the default checkbox */
+						input[type=checkbox] {
+							visibility: hidden;
+						}
+						/* Creating a custom checkbox 
+					based on demand */
+						.geekmark {
+							position: absolute;
+							// top: 3px;
+							left: 0;
+							height: 20px;
+							width: 20px;
+							border-radius: 5px;
+							border: 2px solid #fff;
+						}
+						/* Checkmark to be shown in checkbox */
+						/* It is not be shown when not checked */
+						.geekmark:after {
+							content: "";
+							position: absolute;
+							display: none;
+						}
+						/* Display checkmark when checked */
+						.main input:checked~.geekmark:after {
+							display: block;
+						}
+						/* Styling the checkmark using webkit */
+						/* Rotated the rectangle by 45 degree and  
+					showing only two border to make it look 
+					like a tickmark */
+						.main .geekmark:after {
+							left: 6px;
+							bottom: 4px;
+							width: 7px;
+							height: 15px;
+							border: solid #fff;
+							border-width: 0 2px 2px 0;
+							transform: rotate(45deg);
+						}
+						input:checked {
+							border-radius: 5px;
+							border: 3px solid #fff;
+						}
+					}
+					.topay {
+						width: calc(100% - 20px);
+						display: flex;
+						color: #000;
+						padding: 10px;
+						text-align: center;
+						.left {
+							width: 50%;
+							}
+						}
+						.right {
+							width: 50%;
+						}
+				}
+				.values {
+					width: calc(100% - 20px);
+					display: flex;
+					padding: 10px;
+					.input {
+						width: 75%;
+						input {
+							padding: 10px;
+							width: calc(90% - 20px);
+							border-radius: 5px;
+							border: 1px solid #fff;
+							background: #fff;
+							margin-right: auto;
+						}
+					}
+				}
+				.button {
+					width: 25%;
+					margin: auto;
+					button {
+						text-align: center;
+						border: 2px solid #fff;
+						border-radius: 20px;
+						background-color: rgba(0, 0, 0, 0.3);
+						color: #fff;
+						padding: 5px;
+						margin: auto;
+						width: 100%;
+					}
+				}
+			}
+			.right {
+				width: 100%;
+				margin: 10px 0px;
+				.cont {
+					width: calc(100% - 0px);
+					padding: 10px;
+					margin: auto;
+					border: 3px solid #fff;
+					border-radius: 10px 0px;
+				}
+				.text {
+					width: 100%;
+					display: flex;
+					h4 {
+						width: 50%;
+						margin: 0px;
+						text-align: center;
+					}
+				}
+				.button {
+					width: 70%;
+					display: flex;
+					margin: auto;
+					button {
+						width: calc(100% - 20px);
+						margin: 10px;
+						padding: 10px;
+						background: #b7cb1a;
+						border: 2px solid #b7cb1a;
+						border-radius: 10px 0px;
+						font-weight: bold;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		// .redeem {
+		// 	width: 30%;
+		// 	margin: auto 0 auto auto;
+		// 	padding: 20px 0px;
+		// 	.left {
+		// 		width: 100%;
+		// 		margin: 10px 0px;
+		// 		.cont {
+		// 			width: calc(100% - 6px);
+		// 			overflow: hidden;
+		// 			border: 3px solid #fff;
+		// 			border-radius: 10px 0px;
+		// 			display: block;
+		// 			h4 {
+		// 				margin: 0px;
+		// 				padding: 10px;
+		// 			}
+		// 			.topay {
+		// 				width: calc(100% - 20px);
+		// 				background: #b7cb1a;
+		// 				display: flex;
+		// 				color: #000;
+		// 				padding: 10px;
+		// 				text-align: center;
+		// 				.left {
+		// 					width: 50%;
+		// 				}
+		// 				.right {
+		// 					width: 50%;
+		// 				}
+		// 			}
+		// 		}
+		// 		.values {
+		// 			width: calc(100% - 20px);
+		// 			display: flex;
+		// 			padding: 10px;
+		// 			.input {
+		// 				width: 75%;
+		// 				input {
+		// 					padding: 10px;
+		// 					width: calc(90% - 20px);
+		// 					border-radius: 5px;
+		// 					border: 1px solid #fff;
+		// 					background: #fff;
+		// 					margin-right: auto;
+		// 				}
+		// 			}
+		// 		}
+		// 		.button {
+		// 			width: 25%;
+		// 			margin: auto;
+		// 			button {
+		// 				text-align: center;
+		// 				border: 2px solid #fff;
+		// 				border-radius: 20px;
+		// 				background-color: rgba(0, 0, 0, 0.3);
+		// 				color: #fff;
+		// 				padding: 5px;
+		// 				margin: auto;
+		// 				width: 100%;
+		// 			}
+		// 		}
+		// 	}
+		// 	.right {
+		// 		width: 100%;
+		// 		margin: 10px 0px;
+		// 		.cont {
+		// 			width: calc(100% - 0px);
+		// 			padding: 10px;
+		// 			margin: auto;
+		// 			border: 3px solid #fff;
+		// 			border-radius: 10px 0px;
+		// 		}
+		// 		.text {
+		// 			width: 100%;
+		// 			display: flex;
+		// 			h4 {
+		// 				width: 50%;
+		// 				margin: 0px;
+		// 				text-align: center;
+		// 			}
+		// 		}
+		// 		.button {
+		// 			width: 70%;
+		// 			display: flex;
+		// 			margin: auto;
+		// 			button {
+		// 				width: calc(100% - 20px);
+		// 				margin: 10px;
+		// 				padding: 10px;
+		// 				background: #b7cb1a;
+		// 				border: 2px solid #b7cb1a;
+		// 				border-radius: 10px 0px;
+		// 				font-weight: bold;
+		// 				cursor: pointer;
+		// 			}
+		// 		}
+		// 	}
+		// }
+	}
+	.help {
+		width: calc(50% - 10px);
+		margin: auto;
+		margin: auto auto auto 10px;
+		.head {
+			width: 100%;
+			display: flex;
+			background: rgb(56, 144, 154);
+			color: #fff;
+			border-radius: 5px 5px 0px 0px;
+			overflow: auto;
+			div {
+				width: 50%;
+				padding: 10px;
+				display: flex;
+				cursor: pointer;
+				border-right: 4px solid #fff;
+				h3 {
+					margin: auto;
+					vertical-align: middle;
+					display: flex;
+					align-items: center;
+				}
+			}
+			.faq {
+				border: 0px;
+			}
+		}
+		.body {
+			width: calc(100% - 40px);
+			padding: 20px;
+			color: #000;
+			background: #fff;
+			margin: auto;
+			border-radius: 0px 0px 5px 5px;
+			overflow: auto;
+			.taccont,
+			.privacycont,
+			.aboutcont,
+			.contacecont,
+			.faqcont {
+				text-align: left;
+				// overflow:auto;
+				// height: 60vh;
+			}
+			h3 {
+				margin: 0px;
+				text-align: left;
+			}
+		}
+	}
+	// .aboutcont{
+	.verify {
+		width: 90%;
+		margin: auto;
+		.paypal {
+			width: 20% !important;
+			margin: auto;
+			img {
+				width: 100%;
+			}
+		}
+		.fname {
+			margin: auto;
+			width: 100%;
+			padding: 10px 0px;
+			position: relative;
+			color: #000;
+			input {
+				width: calc(100% - 20px);
+				margin: auto;
+				padding: 15px 10px;
+				border-radius: 5px;
+				border: 1px solid #000;
+				background: #fff;
+			}
+			.placeimage {
+				width: 25%;
+				position: absolute;
+				top: 30%;
+				right: 5px;
+				color: #ccc;
+				display: flex;
+				.imgs {
+					width: 50%;
+					img {
+						width: 100%;
+					}
+				}
+			}
+		}
+		.vcontainer {
+			width: 100%;
+			.pin {
+				width: 100%;
+				.r1 {
+					width: 100%;
+					// display:flex;
+					h3 {
+						text-align: center;
+						font-weight: bold;
+					}
+				}
+				.number {
+					width: 45%;
+					margin: auto;
+					display: flex;
+					padding: 10px 0px;
+					.ip {
+						width: 25%;
+						input {
+							width: calc(95% - 20px);
+							margin: auto;
+							padding: 15px 10px;
+							border-radius: 5px;
+							border: 1px solid #000;
+							background: #fff;
+							-webkit-text-security: disc;
+						}
+					}
+				}
+				.button {
+					width: 100%;
+					margin: auto;
+					padding: 10px 0px;
+					display: flex;
+					text-align: center;
+					.check {
+						width: calc(80% - 0px);
+						text-align: left;
+						margin: auto;
+						//    Check box
+						.main {
+							display: block;
+							position: relative;
+							padding-left: 30px;
+							cursor: pointer;
+							font-size: 16px;
+						}
+						/* Hide the default checkbox */
+						input[type=checkbox] {
+							visibility: hidden;
+						}
+						/* Creating a custom checkbox 
+                    based on demand */
+						.geekmark {
+							position: absolute;
+							top: 3px;
+							left: 0;
+							height: 20px;
+							width: 20px;
+							border-radius: 5px;
+							border: 2px solid #b7cb1a;
+						}
+						/* Checkmark to be shown in checkbox */
+						/* It is not be shown when not checked */
+						.geekmark:after {
+							content: "";
+							position: absolute;
+							display: none;
+						}
+						/* Display checkmark when checked */
+						.main input:checked~.geekmark:after {
+							display: block;
+						}
+						/* Styling the checkmark using webkit */
+						/* Rotated the rectangle by 45 degree and  
+                    showing only two border to make it look 
+                    like a tickmark */
+						.main .geekmark:after {
+							left: 6px;
+							bottom: 4px;
+							width: 7px;
+							height: 15px;
+							border: solid #b7cb1a;
+							border-width: 0 2px 2px 0;
+							transform: rotate(45deg);
+						}
+						input:checked {
+							border-radius: 5px;
+							border: 3px solid #b7cb1a;
+						}
+					}
+					.btn {
+						width: 20%;
+						button {
+							width: 100%;
+							padding: 15px 0px;
+							background: #b7cb1a;
+							border: 1px solid #b7cb1a;
+							border-radius: 10px 0px;
+							font-weight: bold;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
+	}
+	.cont {
+		width: 50%;
+		margin: auto;
+		// padding: 10px 0px;
+		display: flex;
+		button {
+			width: calc(50% - 20px);
+			padding: 15px 0px;
+			background: #b7cb1a;
+			border: 1px solid #b7cb1a;
+			border-radius: 10px 0px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		.btn1 {
+			margin-right: auto;
+		}
+		.btn2 {
+			margin-left: auto;
+		}
+	}
+	.selectcountry {
+		position: relative;
+		width: 25%;
+		margin: auto 0;
+		div {
+			position: absolute;
+			top: 30%;
+			right: 10px;
+			color: #000;
+		}
+		select {
+			width: 100%;
+			margin: auto 0 auto auto;
+			padding: 15px 10px;
+			border-radius: 5px;
+			border: 1px solid #000;
+			background: #fff;
+		}
+	}
+	.dobcontainer {
+		margin: auto;
+		width: 45%;
+		.dob {
+			width: 100%;
+			display: flex;
+			.dobinput {
+				width: 25%;
+				position: relative;
+				div {
+					position: absolute;
+					top: 30%;
+					right: 20px;
+					color: #ccc;
+				}
+				select {
+					width: 95%;
+					margin: auto;
+					padding: 15px 10px;
+					border-radius: 5px;
+					border: 1px solid #000;
+					background: #fff;
+					/* for Firefox */
+					//  -moz-appearance: none; 
+					/* for Safari, Chrome, Opera */
+					//  -webkit-appearance: none; 
+				}
+				img {
+					width: 100%;
+					height: 50px;
+				}
+				select:required:invalid {
+					color: gray;
+				}
+				option[value=""][disabled] {
+					display: none;
+				}
+				option {
+					color: black;
+				}
+			}
+			input {
+				width: calc(95% - 20px);
+				margin: auto;
+				padding: 15px 10px;
+				border-radius: 5px;
+				border: 1px solid #000;
+				background: #fff;
+			}
+		}
+	}
+	// }
+	// FAQ
+	.faqcont {
+		.content {
+			width: calc(100% - 20px);
+			padding: 10px;
+			display: flex;
+			.left {
+				overflow: hidden;
+				width: calc(30% - 40px);
+				padding: 0px 20px;
+				text-align: left;
+				.head {
+					border: 1px solid #b7cb1a;
+					border-radius: 10px 10px 0px 0px;
+					width: calc(100% - 20px);
+					background: #b7cb1a;
+					color: #000;
+					padding: 10px;
+				}
+				.body {
+					border: 1px solid rgb(56, 144, 154);
+					border-radius: 0px 0px 10px 10px;
+					padding: 10px;
+					width: calc(100% - 20px);
+					background: rgb(56, 144, 154);
+					color: #fff;
+					h4 {
+						margin: 0px;
+					}
+					ul {
+						list-style: none;
+						li {
+							padding: 5px 0px;
+						}
+					}
+				}
+			}
+			.right {
+				width: calc(70% - 20px);
+				padding: 10px;
+				p {
+					text-align: left;
+					margin: 0px;
+				}
+			}
+		}
+	}
+	ol {
+		counter-reset: item;
+		list-style-type: none;
+	}
+	ol>li:before {
+		content: counters(item, ".") ". ";
+		counter-increment: item
+	}
+	ul {
+		list-style-type: disc;
+	}
+	// Contact
+	.contacecont {
+		.box {
+			width: 80%;
+			margin: 10px auto;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 0 5px 2px #9e9e9ed1;
+			.head {
+				width: 100%;
+				margin: auto;
+				background: #b7cb1a;
+				border: 1px solid #b7cb1a;
+				text-align: left;
+				color: #000;
+				h3 {
+					padding: 10px;
+					margin: 0;
+				}
+			}
+			.body {
+				width: calc(100% - 20px);
+				padding: 10px;
+				margin: auto;
+			}
+		}
+		p {
+			margin: 0px;
+			text-align: left;
+			padding: 5px;
+		}
+		span {
+			color: rgb(93, 186, 220);
+			font-weight: bold;
+		}
+		.dobinput {
+			width: 100%;
+			position: relative;
+			div {
+				position: absolute;
+				top: 30%;
+				right: 20px;
+				color: rgb(193, 193, 193);
+			}
+			select {
+				width: 100%;
+				margin: auto;
+				padding: 15px 10px;
+				border-radius: 5px;
+				border: 2px solid rgb(193, 193, 193);
+				color: rgb(193, 193, 193);
+				background: #fff;
+				/* for Firefox */
+				//  -moz-appearance: none; 
+				/* for Safari, Chrome, Opera */
+				//  -webkit-appearance: none; 
+			}
+			img {
+				width: 100%;
+			}
+		}
+		input,
+		textarea {
+			padding: 15px 10px;
+			width: calc(100% - 20px);
+			border-radius: 5px;
+			border: 2px solid rgb(193, 193, 193);
+			background: #fff;
+			color: rgb(193, 193, 193);
+		}
+		textarea {
+			resize: none;
+		}
+		.foot {
+			width: 100%;
+			display: flex;
+			.text {
+				width: 80%;
+				margin: auto;
+			}
+			.btn {
+				width: 20%;
+				padding: 10px 0px;
+				button {
+					width: 100%;
+					padding: 15px 10px;
+					background: #b7cb1a;
+					border: 1px solid #b7cb1a;
+					border-radius: 10px 0px;
+					font-weight: bold;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	.active {
+		background: #b7cb1a;
+    }  
+}
+
+// Responsive
+@media screen and (max-width: 700px) and (min-width:1px) {
+	.mobile{
+		display: block;
+	}
+	.web{
+		display: none;
+	}
+		.subscribe .choose .others .inside{
+			display: block !important;
+		}
+		.subscribe .choose .body .container{
+			margin:20px auto;
+		}
+    #modal-content-wrapper {
+        height: unset;
+        overflow: auto;
+        position: unset;
+        .sub.modalcontainer {
+            width: calc(100% - 10px) !important;
+            padding: 80px 5px;
+        }
+        .paymethod {
+            display: block;
+            .redeem {
+                width: 100%;
+            }
+            .help {
+                width: 100%;
+            }
+        }
+        .cont {
+            width: 90%;
+        }
+        .body {
+            padding: 10px;
+            width: calc(100% - 20px);
+        }
+        h3 {
+            font-size: 14px;
+        }
+        p {
+            font-size: 14px;
+            margin: 0px;
+            padding: 5px 0px;
+        }
+        .help {
+            margin: 0;
+            .head {
+                div {
+                    padding: 3px;
+                    width: calc(50% - 6px);
+                }
+            }
+        }
+        .faqcont .content {
+            display: block;
+            .left {
+                width: 95%;
+            }
+            .right {
+                width: 95%;
+            }
+        }
+        .box {
+            width: 100%;
+        }
+    }
+    .subscribe .choose{
+        .form {
+            width: 100%;
+            .body {
+                display: block;
+                .others {
+                    width: 100%;
+                    margin-bottom: 15px;
+                    .container{
+                        width:70%;
+                        border-radius: 10px;
+                        .head{
+                            padding:0px 0px 20px 0px;
+                        }
+                        .bodycontent{
+                            .day{
+                                padding:10px !important;
+                            }
+                            .circle{
+                                top: -11px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .button{
+            width:50%;
+            margin:auto;
+        }
+    } 
+} 
+
+@media screen and (max-width: 900px) and (min-width: 701px) {
+	#modal-content-wrapper .sub.modalcontainer{
+		width:100% !important;
+	}
+	.subs .form{
+		width: 100% !important;
+	}
+	.modalcontainer{
+		width:100%;
+	}
+	.subscribe .choose{
+        .form {
+            width: 100% !important;
+		}
+	}
+}
+
+@media screen and (max-width: 850px) and (min-width: 1px) {
+	p {
+		font-size: calc((25px + 1vh + 1vw)/2) !important;
+	}
+	h3 {
+		font-size: calc(100% - -10px) !important;
+	}
+}
+
+@media screen and (max-width: 1347px) and (min-width: 851px) {
+	p {
+		font-size: calc((15px + 1vh + 1vw)/2) !important;
+	}
+	h3 {
+		font-size: calc(90% - -4px) !important;
+	}
+}

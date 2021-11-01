@@ -1,0 +1,170 @@
+<!-- <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner> -->
+<div class="header" [class]=scroll #header>
+    <div class="inner">
+        <div class="left">
+            <div class="logo" [routerLink]="['']">
+                <img src="../../assets/icons/Avvatta Logo.PNG" />
+            </div>
+        </div>
+        <div class="center">
+            <!-- <div class="vod" *ngIf="vod == 'vod'">
+            <div class="cusr" [routerLink]="['']">Home</div>
+            <div class="cusr" [routerLink]="['/series']">Series</div>
+            <div class="cusr" [routerLink]="['/movie']">Movie</div>
+            <div class="cusr" [routerLink]="['']">My List</div>
+            </div> -->
+        </div>
+        <div class="right">
+            <div class="in">
+                <div class="startbtn">
+                    <div *ngIf="!logIn" class="list">
+                        <button (click)="openModal()">Let's Get Started</button>
+                        <div class="searchicon" (click)="searchClick()" *ngIf="icon">
+                            <img id="search" src="../../assets/icons/Search.PNG" />
+                        </div>
+                        <div class="filterIn" *ngIf="!icon && !searchFieldResponsive" >
+                            <input id="search" type="search" placeholder="Search...." name="searchkey" #searchBox
+                                (input)="onSearch(searchBox.value)">
+                        </div>
+                    </div>
+                    <div class="log">
+                        <div class="list" *ngIf="logIn">
+                            <ng-container *ngFor="let name of mainProfile">
+                                <div id="text" (click)="showMyList()" class="text">{{name.name}}</div>
+                                <div class="initial" id="text" *ngIf="!name.picture" [ngStyle]="{'background': color}">
+                                    <p (click)="showMyList()">{{name.name.charAt(0) | uppercase}}</p>
+                                </div>
+                                <div class="icon" *ngIf="name.picture">
+                                    <img (click)="showMyList()" id="text" src="{{name.picture}}">
+                                </div>
+                            </ng-container>
+                            <div class="noti">
+                                <img src="../../assets/Images/Notification.PNG" />
+                            </div>
+                            <div class="searchicn" (click)="searchClick()" *ngIf="icon">
+                                <img id="search" src="../../assets/icons/Search.PNG" />
+                            </div>
+                            <div class="filterIn" *ngIf="!icon && !searchFieldResponsive">
+                                <input id="search" type="search" placeholder="Search...." name="searchkey" #searchBox (input)="onSearch(searchBox.value)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="filterIn next" *ngIf="!icon && searchFieldResponsive">
+        <input id="search" type="search" placeholder="Search...." name="searchkey" #searchBox
+            (input)="onSearch(searchBox.value)">
+    </div>
+</div>
+
+<div class="list" [ngStyle]="{ 'display': listShow }">
+    <ul>
+        <span class="arrow">
+            &#9650;
+        </span>
+        <div class="dummy"></div>
+        <div class="showlist">
+            <li *ngFor="let names of subProfile">
+                <div class="subprofilename" (click)="closeList(); switchProfile(names)">
+                    <div class="icon">
+                        <img *ngIf="names.picture == ''" src="../../assets/icons/Action.PNG">
+                        <img src={{names.picture}} />
+                    </div>
+                    <div class="text">{{names.name | uppercase}}</div>
+                </div>
+            </li>
+            <li (click)="showSetting()" class="blackwhite setting">
+                <div class="icon">
+                    <img class="black" id="text" src="../../assets/Images/Settings.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/Settings Icon_White.PNG">
+                </div>
+                <div class="text" id="text">Setting &nbsp;<i id="text" class='fa fa-angle-down'></i></div>
+            </li>
+            <li class="sublist blackwhite" (click)="closeSubList()" (click)="profileModal()"
+                [ngStyle]="{ 'display': subListShow }">
+                <div class="icon">
+                    <img src="../../assets/Images/Manage Profiles.PNG">
+                </div>
+                <div class="text">Manage profiles</div>
+            </li>
+            <li class="sublist blackwhite" (click)="closeSubList()" (click)="parentalModal()"
+                [ngStyle]="{ 'display': subListShow }">
+                <div class="icon">
+                    <img class="black" src="../../assets/Images/Parental Controles.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/Parental Control Icon_White.PNG">
+                </div>
+                <div class="text">Parental Control</div>
+            </li>
+            <li class="sublist blackwhite" (click)="closeSubList();comingSoon()" [ngStyle]="{ 'display': subListShow }">
+                <div class="icon">
+                    <img class="black" src="../../assets/Images/Language.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/Language Icon_White.PNG">
+                </div>
+                <div class="text">Language</div>
+            </li>
+            <li class="sublist blackwhite" (click)="closeSubList()" [routerLink]="['/help/terms']"
+                [ngStyle]="{ 'display': subListShow }">
+                <div class="icon">
+                    <img class="black" src="../../assets/Images/Terms & Conditions.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/Terms & Conditions_White.PNG">
+                </div>
+                <div class="text">Terms & conditions</div>
+            </li>
+            <li class="sublist blackwhite" (click)="closeSubList();comingSoon()" (click)="testParticipationModal()"
+                [ngStyle]="{ 'display': subListShow }">
+                <div class="icon">
+                    <img class="black" src="../../assets/Images/Test Participation.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/Test Participation_White.PNG">
+                </div>
+                <div class="text">Test Participation</div>
+            </li>
+            <li class="blackwhite" (click)="closeList();comingSoon()">
+                <div class="icon">
+                    <img class="black" src="../../assets/Images/My Library.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/My Library_White.PNG">
+                </div>
+                <div class="text">My Library</div>
+            </li>
+            <li class="blackwhite" (click)="closeList()" [routerLink]="['/help']">
+                <div class="icon">
+                    <img class="black" src="../../assets/Images/Help.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/Help_White.PNG">
+                </div>
+                <div class="text">Help</div>
+            </li>
+            <li class="blackwhite" (click)="closeList();comingSoon()">
+                <div class="icon">
+                    <img class="black" src="../../assets/Images/Redeem Voucher.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/Redeem Voucher_White.PNG">
+                </div>
+                <div class="text">Redeem Voucher</div>
+            </li>
+            <li class="blackwhite" (click)="myAccount()">
+                <div class="icon">
+                    <img class="black" src="../../assets/Images/My Account.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/My Account_White.PNG">
+                </div>
+                <div class="text">My Account</div>
+            </li>
+            <li class="blackwhite" (click)="closeList()" [routerLink]="['/about']">
+                <div class="icon">
+                    <img class="black" src="../../assets/Images/My Account.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/My Account_White.PNG">
+                </div>
+                <div class="text">About us</div>
+            </li>
+            <li class="blackwhite" (click)="closeList();signOutModal()">
+                <div class="icon">
+                    <img class="black" src="../../assets/Images/Signout.PNG">
+                    <img class="white" id="text" src="../../assets/icons/white/Sign Out_White.PNG">
+                </div>
+                <div class="text">Sign Out</div>
+            </li>
+        </div>
+    </ul>
+</div>
