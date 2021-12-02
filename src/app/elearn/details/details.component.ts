@@ -174,6 +174,10 @@ export class DetailsComponent implements OnInit {
 {
     "id": 149,
     "imageUrl": this.path+"smilelearn813.webp"
+},
+{
+  "id": 187,
+  "imageUrl": "https://avvatta.com:8100/avvata/public/uploads/newverticalbanners/BG2.jpg"
 }
 ]
 

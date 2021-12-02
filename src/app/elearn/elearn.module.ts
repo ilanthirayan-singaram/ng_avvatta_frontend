@@ -11,6 +11,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SiyavulaComponent } from './siyavula/siyavula.component';
 import { DetailsComponent } from './details/details.component';
+import { StudytothriveComponent } from './selectelearn/studytothrive/studytothrive.component';
+import { StudychampComponent } from './selectelearn/studychamp/studychamp.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { DetailsComponent } from './details/details.component';
     ElearnMainpageComponent,
     SelectelearnComponent,
     SiyavulaComponent,
-    DetailsComponent
+    DetailsComponent,
+    StudytothriveComponent,
+    StudychampComponent
   ],
   imports: [
     CommonModule,

@@ -1,23 +1,22 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ChooseplanComponent } from '../../myaccount/chooseplan/chooseplan.component';
-import { ModalComponent } from '../../general/modal/modal.component';
+import { ChooseplanComponent } from '../../../myaccount/chooseplan/chooseplan.component';
+import { ModalComponent } from '../../../general/modal/modal.component';
 import { NgxSpinnerService } from "ngx-spinner";
-import { VideopopupComponent } from '../../general/videopopup/videopopup.component';
-import { ServiceService } from '../service.service';
-import { CommonService } from '../../common.service';
+import { VideopopupComponent } from '../../../general/videopopup/videopopup.component';
+import { ServiceService } from '../../service.service';
+import { CommonService } from '../../../common.service';
 import { HostListener } from "@angular/core";
 import { Router } from '@angular/router';
-import { environment } from '../../../environments/environment'; 
-
+import { environment } from '../../../../environments/environment'; 
 
 @Component({
-  selector: 'app-selectelearn',
-  templateUrl: './selectelearn.component.html',
-  styleUrls: ['./selectelearn.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'app-studytothrive',
+  templateUrl: './studytothrive.component.html',
+  styleUrls: ['./studytothrive.component.scss']
 })
-export class SelectelearnComponent implements OnInit {
+export class StudytothriveComponent implements OnInit {
+
   trending;
   videoData = [];
   path: string = environment.imageUrl;
@@ -46,7 +45,12 @@ export class SelectelearnComponent implements OnInit {
 
   // Category
   category(id) {
-    this.service.subCategory({cat_id: id}).subscribe(data => {
+    let data;
+    data={
+      cat_id: id,
+      img:''
+    }
+    this.service.subCategory(data).subscribe(data => {
       this.list = JSON.parse(JSON.stringify(data)).categories;
       // console.log(this.list);
     })
@@ -127,10 +131,7 @@ export class SelectelearnComponent implements OnInit {
       // this.router.navigateByUrl('mentalup'); 
     }
     else if(detail.id == 184){
-      this.router.navigateByUrl('/elearning/stot/184');
-    }
-    else if(detail.id == 206){
-      this.router.navigateByUrl('/elearning/stchamp/206');
+
     }
     else{
       this.router.navigateByUrl('/elearning/' + this.selectelearn + '/' + detail.id);
@@ -139,17 +140,7 @@ export class SelectelearnComponent implements OnInit {
   }
 
   goToPlayVideoPage(data, genere){
-    let main_type;
-    if(this.selectelearn == 45){
-      main_type = 'fun';
-    }
-    else if(this.selectelearn == 46){
-      main_type = 'hig';
-    }
-    else{
-      main_type = 'cod';
-    }
-    this.common.checkLogin(data, '45', 'video', main_type, data.id, '69', 'play', '0', genere);
+    this.router.navigateByUrl('/elearning/' + this.selectelearn + '/' + data.id);
   }
 
   goToSubcription() {

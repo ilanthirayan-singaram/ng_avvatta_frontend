@@ -142,8 +142,8 @@ export class ServiceService {
         "password":"4eda0321741179f26a466f72d9113d03451118684e0d6cc7668425c1e91f6ca2dc42d646bdad5e5bff4f5030f72dc38d38d61274f79de1a5880a98ad77f5e1ede10691597ba5ec2a9ddbeb2a4d3a36b9e24c8d110f025549f734b03ddd7dd132fb72c780cd7ba31c89064fea89d201af843426011cef877de747f3184c98d433b1c0a64a0bf71251e9cc8abf27ad31f64b337c90c7b31f3fc10e66a77ff717909bb3c3ff479eec0c37a64504465746bf74c1e9744b622ac175cb7f114d38d43bdd32b9cc924380dbc36a537ba21d81f2c9eb837726e5fe241b4dccb23f375168638ad7ffee6b1e7220b84a75405d6eb3e60e928e848b12368f4cdd0290497c60",
         "client_ip":"105.184.237.123",
         "theme": "basic",
-        "region": "ZA",
-        "curriculum": "CAPS"
+        "region": "NG",
+        "curriculum": "NG"
     };
 
     try {

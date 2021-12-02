@@ -1,0 +1,20 @@
+<div class="se">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+      <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>    
+    <div class="selectelrn">
+        <div class="mobilebanner"><img src="https://avvatta.com:8100/avvata/public/uploads/newverticalbanners/BG1.jpg"></div>
+    
+        <app-back></app-back>
+    </div>
+  
+  
+    <div class="cont">
+        <div class="row">
+            <div class="column1" *ngFor="let data of list">
+                <div class="column2" (click)="goToPlayVideoPage(data, category.sub_category_name)"> <img class="img1" [src]="data.img" alt="Cinque Terre"></div>
+                <div class="text-block" (click)="goToPlayVideoPage(data, category.sub_category_name)">{{data.name}}</div>
+            </div>
+        </div>
+    </div>
+  </div>
