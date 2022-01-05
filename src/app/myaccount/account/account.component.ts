@@ -157,7 +157,8 @@ export class AccountComponent implements OnInit {
   cancelMemberShip(){
     let token;
     token = {
-      token: localStorage.getItem('token')
+      token: localStorage.getItem('token'),
+      id:localStorage.getItem('id')
     }
     this.service.cancelMemberShip(token).subscribe(data =>{
       // console.log(data);

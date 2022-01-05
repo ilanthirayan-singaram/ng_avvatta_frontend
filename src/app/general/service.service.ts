@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { CheckmailPipe } from './../checkmail.pipe';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -99,6 +100,13 @@ export class ServiceService {
       headers:this.headers
       });
   }
+  mondias(data) {
+
+    return this.http.post(this.UrlApi+'isMondiaActive',data,{
+      headers:this.headers
+    });
+  }
+
 
 
 
@@ -181,6 +189,12 @@ export class ServiceService {
     return this.http.post(this.UrlApi+'ngresettoken', data, {
       headers:this.headers
       });
+  }
+
+  mondiasession(data):Observable<any>{
+    return this.http.post(this.UrlApi+'isMondiaSession',data,{
+      headers:this.headers
+    });
   }
   
 

@@ -46,6 +46,18 @@
               </div>
           </ngx-slick-carousel>
         </ng-container>
+        <ng-container *ngIf="category.source.length < 7">
+          <h4 style="color: #fff">{{category.sub_category_name | uppercase}}</h4>
+          <div class="parent">
+              <div class="child" *ngFor="let image of category.source">
+                  <div class="playlist" (click)="goToPlayVideoPage(image, category.sub_category_name)">
+                    <img defaultImage="../../../assets/Images/vdodummy.jpeg"  width="100%" [lazyLoad]="image.profileImage" />
+                      <h3 style="color:#fff;text-align: center;">{{image.content_name}}
+                      </h3>
+                  </div>
+              </div>
+          </div>
+        </ng-container>
         </div>
     </div>
   </div>

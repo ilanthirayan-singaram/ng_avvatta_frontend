@@ -329,6 +329,7 @@
             padding: 10px;
             width: calc(95% - 20px);
             margin: auto;
+            font-size: 17px !important;
         }
         .slick-slider {
             width: 95%;
@@ -357,6 +358,7 @@
             h3 {
                 margin: 0px !important;
                 font-weight: bold;
+                font-size: 15px !important;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -429,6 +431,7 @@
         }
     }
 }
+
 
 @media(max-height: 400px) {
     .emovie {

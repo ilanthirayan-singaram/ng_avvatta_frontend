@@ -22,9 +22,12 @@ export class SubscriptionComponent implements OnInit {
   parReqId: string;
   click: string;
   clicked: string;
+  mobileNo: string;
+  mobile:any;
   planDetails = [];
   pay: boolean;
   checking: boolean = false;
+  checking1: boolean = false;
   paymentCheck: boolean = false;
   paymentMethodDisplay: string = 'none';
   subscribeDisplay: string = 'block';
@@ -39,7 +42,9 @@ export class SubscriptionComponent implements OnInit {
   amount;
   autoSubmit;
   billingEmail: any;
+  billingMobile: any = '';
   billmail: any = '';
+  moobile:any;
   constructor(private router: Router,
     public matDialog: MatDialog,
     public dialogRef: MatDialogRef<SubscriptionComponent>,
@@ -54,6 +59,11 @@ export class SubscriptionComponent implements OnInit {
     this.service.getBillingEmail(id).subscribe(data =>{
       this.billingEmail = data;
     });
+
+    if(JSON.parse(localStorage.getItem('log')).mobile){
+      this.billingMobile = JSON.parse(localStorage.getItem('log')).mobile;
+    }
+    
     this.common.loaderOnLoad();
     this.subscriptionId = this.dialogRef._containerInstance._config.data.select;
     // console.log(this.subscriptionId)
@@ -61,6 +71,7 @@ export class SubscriptionComponent implements OnInit {
     this.common.subscription({ id: JSON.parse(this.subscriptionId) }).subscribe(data => {
       if (JSON.parse(JSON.stringify(data)).success == true) {
         this.subscriptionData = JSON.parse(JSON.stringify(data)).data;
+        console.log(this.subscriptionData)
         this.subscriptionHead = this.subscriptionData[0].description.split(" ").reverse().slice(1).reverse().join(" ");
         this.common.loaderStop();
       }
@@ -75,6 +86,8 @@ export class SubscriptionComponent implements OnInit {
     // this.paymentSuccessShow = 'block';
     // this.paymentFailShow = 'block';
     this.choosePlanShow = 'block';
+
+
   }
 
 
@@ -91,7 +104,7 @@ export class SubscriptionComponent implements OnInit {
     this.pay = true;
   }
 
-  confirmPayment() {
+  checkBillingMail(){
     if(!this.billingEmail){
       if(this.billmail != '' ){
         // let emailChange;
@@ -181,10 +194,93 @@ export class SubscriptionComponent implements OnInit {
         this.errorMessage('Please check the box');
       }
     }
-    
+  }
+
+  checkBillingMobile(){
+    console.log(this.billingMobile);
+    if(!this.billingMobile){
+      if(this.mobileNo != '' ){
+      
+        this.common.loaderStart();
+
+            if (this.checking1 == true) {
+              this.common.loaderStart();
+
+              let datas={
+      
+                user_id: JSON.parse(localStorage.getItem('log')).id,
+                // mobile: this.mobileNo,
+                mobile:JSON.parse(localStorage.getItem('log')).mobile,
+                user_token: JSON.parse(localStorage.getItem('log')).token
+              };
+              this.service.mobile_data(datas).subscribe(data => {
+                this.mobile = data
+                console.log(this.mobile);
+              });
+              let payments;
+              payments = [{
+                user_id:JSON.parse(localStorage.getItem('log')).id,
+                user_token:JSON.parse(localStorage.getItem('log')).token,
+                pid:this.amount[0].id
+              }];
+              this.service.mondia(payments[0]).subscribe(data => {
+                window.open("https://avvatta.com:8100/avvatta_email/mondiapay/" + this.amount[0].id, "_self");
+              });
+            }
+            else {
+              this.errorMessage('Please check the box');
+            }
+          this.common.loaderStop();
+      }
+      else{
+        this.errorMessage('Please enter a billing Mobile Number');
+      }
+    }
+    else{
+      if (this.checking1 == true) {
+        // this.common.loaderStart();
+        let datas={
+      
+          user_id: JSON.parse(localStorage.getItem('log')).id,
+          // mobile: this.mobileNo,
+          mobile:JSON.parse(localStorage.getItem('log')).mobile,
+          user_token: JSON.parse(localStorage.getItem('log')).token
+        };
+        this.service.mobile_data(datas).subscribe(data => {
+          this.mobile = data
+          console.log(this.mobile);
+        });
+        let payments;
+        payments = [{
+          user_id:JSON.parse(localStorage.getItem('log')).id,
+          user_token:JSON.parse(localStorage.getItem('log')).token,
+          pid:this.amount[0].id
+        }];
+        this.service.mondia(payments[0]).subscribe(data => {
+          window.open("https://avvatta.com:8100/avvatta_email/mondiapay/" + this.amount[0].id, "_self");
+        });
+      }
+      else {
+        this.errorMessage('Please check the box');
+      }
+    }
+  }
+
+
+  confirmPayment() {
+    if(this.checking){
+      this.checkBillingMail();
+    }
+    if(this.checking1){
+      this.checkBillingMobile();
+    }
   }
   checkTrue(val) {
     this.checking = !this.checking;
+  }
+
+  checkTrue1(val){
+  this.checking1 = !this.checking1;  
   }
 
   confirm() {
@@ -194,13 +290,25 @@ export class SubscriptionComponent implements OnInit {
   }
 
   continuePay() {
-    if (window.location.href.split('/')[2] == 'gh.avvatta.com' || window.location.href.split('/')[2] == 'ng.avvatta.com') {
+    if ( window.location.href.split('/')[2] == 'ng.avvatta.com') {
       let datas =  {
         user_id: localStorage.getItem('id'),
       };
       this.common.paymentToken(datas).subscribe(data =>{ 
         // ngverion
         window.open("http://ngmtn.avvatta.com/mtnng/optin.php?pid=" + this.amount[0].id + '&cp=1&tid=' + JSON.parse(JSON.stringify(data)).token, "_self");
+        // window.location.protocol = "http://ngmtn.avvatta.com/mtnng/optin.php?pid=" + this.amount[0].id + '&cp=1&tid=' + JSON.parse(JSON.stringify(data)).token;
+        // window.location.href = "https://ngmtn.avvatta.com/mtnng/optin.php?pid=" + this.amount[0].id + '&tid=' + JSON.parse(JSON.stringify(data)).token;
+        // window.location.href = "http://65.0.83.92/mtn/optin.php?pid=" + this.amount[0].id+'&refid=' + JSON.parse(JSON.stringify(data)).token;
+      })
+    }
+    else if (window.location.href.split('/')[2] == 'gh.avvatta.com' ) {
+      let datas =  {
+        user_id: localStorage.getItem('id'),
+      };
+      this.common.paymentToken(datas).subscribe(data =>{ 
+        // ngverion
+        window.open("http://65.0.83.92/mtn/optin.php?pid=" + this.amount[0].id + '&cp=1&tid=' + JSON.parse(JSON.stringify(data)).token, "_self");
         // window.location.protocol = "http://ngmtn.avvatta.com/mtnng/optin.php?pid=" + this.amount[0].id + '&cp=1&tid=' + JSON.parse(JSON.stringify(data)).token;
         // window.location.href = "https://ngmtn.avvatta.com/mtnng/optin.php?pid=" + this.amount[0].id + '&tid=' + JSON.parse(JSON.stringify(data)).token;
         // window.location.href = "http://65.0.83.92/mtn/optin.php?pid=" + this.amount[0].id+'&refid=' + JSON.parse(JSON.stringify(data)).token;

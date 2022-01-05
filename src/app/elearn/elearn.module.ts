@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { CommonsModule } from '../common/common.module';
 import { ElearnRoutingModule } from './elear-routing.module';
 import { ElearnMainpageComponent } from './elearn-mainpage/elearn-mainpage.component';

@@ -36,14 +36,16 @@ export class CancellationComponent implements OnInit {
   }
 
   cancellComeBack(val){
-    // console.log(val.value)
-    if((val.value.cancel == '') || (val.value.yes == '') || (val.value.cancel == false) || (val.value.yes == false) || (val.value.selectOne == '') || (val.value.textarea == '')){
-      // alert('Please fill all the fields');
-      this.errorMessage('Please fill all the fields');
-      return;
-    }
+    console.log(val.value);
+    // if((val.value.cancel == '') || (val.value.yes == '') || (val.value.cancel == false) || (val.value.yes == false) || (val.value.selectOne == '') || (val.value.textarea == '')){
+    //   // alert('Please fill all the fields');
+    //   this.errorMessage('Please fill all the fields');
+    //   return;
+    // }
     let cancel = {
-      token: localStorage.getItem('token')
+      token: localStorage.getItem('token'),
+      feedback:val.value.selectOne,
+      id:localStorage.getItem('id')
     }
     this.common.loaderStart();
     this.service.cancelMemberShip(cancel).subscribe(data=>{

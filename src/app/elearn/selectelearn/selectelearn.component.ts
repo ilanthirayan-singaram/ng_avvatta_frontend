@@ -122,15 +122,16 @@ export class SelectelearnComponent implements OnInit {
     // this.common.userActivity('elearn', sub_type, detail.id, detail.id, 'interact', '0').subscribe(data =>{
     //   console.log('data', data);
     // });
-    if(detail.id == 147){
+    if(detail.id == 206){
+      this.common.studychampCheckLogin('stchamp',45);
+      // this.router.navigateByUrl('/elearning/stchamp/206');
+    }
+    else if(detail.id == 147){
       this.common.mentalUpCheckLogin('mentalup', 45);
       // this.router.navigateByUrl('mentalup'); 
     }
     else if(detail.id == 184){
       this.router.navigateByUrl('/elearning/stot/184');
-    }
-    else if(detail.id == 206){
-      this.router.navigateByUrl('/elearning/stchamp/206');
     }
     else{
       this.router.navigateByUrl('/elearning/' + this.selectelearn + '/' + detail.id);
@@ -138,6 +139,7 @@ export class SelectelearnComponent implements OnInit {
    
   }
 
+  
   goToPlayVideoPage(data, genere){
     let main_type;
     if(this.selectelearn == 45){

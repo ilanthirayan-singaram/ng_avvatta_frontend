@@ -38,6 +38,7 @@ export class LandingComponent implements OnInit {
   recomonded;
   btn;
   banner;
+  monSession;
 
   constructor(private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
@@ -57,10 +58,24 @@ export class LandingComponent implements OnInit {
       // // console.log(params.mn, params.pid); 
       this.mn = params.mn,
       this.pid = params.pid,
-      this.cid = params.cptid
+      this.cid = params.cptid,
+      this.monSession = params.mondia_session
     } 
   );
+  // this.common.getMnPid(this.mn, this.pid, this.cid);
+  // this.common.getmondia(this.monSession);
+if(this.mn && this.pid){
   this.common.getMnPid(this.mn, this.pid, this.cid);
+}
+if(this.monSession){
+  this.common.getmondia(this.monSession);
+}
+
+
+ 
+  
+
+  
   // if(this.mn != undefined && this.pid != undefined){
   //   // console.log(parseInt(this.mn, 16).toString(10));
   //   mobileNumber = parseInt(this.mn, 16).toString(10);
@@ -185,6 +200,7 @@ checkPid(pid:string){
     else if(pid == '25' || pid == '26' || pid == '27'){
       this.router.navigateByUrl('elearning/siyavula');
     }
+   
     else{
       this.router.navigateByUrl('');
     }

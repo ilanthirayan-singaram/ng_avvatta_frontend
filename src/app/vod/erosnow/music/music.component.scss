@@ -60,6 +60,7 @@
                             font-size: 20px;
                             font-weight: bold;
                             background:#0a0b0c;
+
                         }
                     }
                     span{
@@ -329,6 +330,7 @@
             padding: 10px;
             width: calc(95% - 20px);
             margin: auto;
+            font-size: 17px !important;
         }
         .slick-slider {
             width: 95%;
@@ -360,6 +362,7 @@
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                font-size: 15px !important;
             }
         }
         // ngx-slick-carousel{

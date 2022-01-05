@@ -38,19 +38,25 @@ packageList(){
   })
 }
 
-cancelSubscribe(req_id){  
+cancelSubscribe(req_id, cdata){  
   this.common.loaderStart();
   let id;
   id = {
     request_id: req_id
   }
   this.service.cancelSubscription(id).subscribe(data =>{
-    // console.log(data);
+  //   // console.log(data);
     this.common.loaderStop();
-    this.errorMessage(JSON.parse(JSON.stringify(data)).message)
-  })
+    this.packageList();
+  //   this.errorMessage(JSON.parse(JSON.stringify(data)).message)
+  });
+ 
+      if ( window.location.href.split('/')[2] == 'ng.avvatta.com' || window.location.href.split('/')[2] == 'localhost:4200') {
+        let mn = JSON.parse(localStorage.getItem('log')).mobile;
+        console.log(mn.toString(16));
+        window.open("http://65.0.83.92/mtn/api/unsubscribe.php?mn="+mn+"&pid=" + cdata.subscription_id + '&cp=1', "_self");
+      }
 }
-
   closeModal() {
       this.dialogRef.close();
     }

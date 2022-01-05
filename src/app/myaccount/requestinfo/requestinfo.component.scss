@@ -47,6 +47,7 @@
         }
         h4{
             text-align: left;
+            font-size: 15px !important
         }
         }
     .date{
@@ -88,6 +89,7 @@
 .parental{
     h3{
         text-align:left;
+        font-size: 20px !important;
     }
     .buttoncontainer{
         width:100%;
@@ -119,4 +121,6 @@
     #modal-content-wrapper .modalcontainer{
         width: calc(95% - 20px) !important;
     }
+
+    
 }

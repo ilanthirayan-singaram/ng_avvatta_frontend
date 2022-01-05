@@ -50,7 +50,7 @@
                 <h3>{{data.expiry_date.split(' ')[0]}}</h3>
             </div>
             <div class="col5">
-               <button [disabled]="data.cancel == 1" (click)="cancelSubscribe(data.pay_request_id)">CANCEL SUBSCRIPTION</button>
+               <button [disabled]="data.cancel == 1" (click)="cancelSubscribe(data.pay_request_id, data)">CANCEL SUBSCRIPTION</button>
             </div>
         </div>
        

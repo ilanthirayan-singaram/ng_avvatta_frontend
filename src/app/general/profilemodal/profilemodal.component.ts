@@ -52,12 +52,33 @@ export class ProfilemodalComponent implements OnInit {
     this.subProfileList = JSON.parse(localStorage.getItem('subprofiles'));
     // //// console.log(this.subProfileList)
     this.parentPin = localStorage.getItem('parentpin');
-    if (this.parentPin == '0') {
-      this.passwordShow = 'block';
+
+    let dat;
+    dat={
+      user_id:JSON.parse(localStorage.getItem('log')).id
     }
-    else {
-      this.pinVerifyShow = 'block';
-    }
+    this.service.mondias(dat).subscribe(data=>{
+// console.log(JSON.parse(JSON.stringify(data[0])).MondiaUser)
+      if(JSON.parse(JSON.stringify(data[0])).MondiaUser == 'TRUE'){
+        this.pinVerifyShow = 'none';
+        this.manageProfileShow = 'block';
+      }
+      else{
+        if (this.parentPin == '0') {
+          this.passwordShow = 'block';
+        }
+        else {
+          this.pinVerifyShow = 'block';
+        }
+      }
+    })
+
+    // if (this.parentPin == '0') {
+    //   this.passwordShow = 'block';
+    // }
+    // else {
+    //   this.pinVerifyShow = 'block';
+    // }
     // this.passwordShow = 'block';
     // this.parentalControlShow = 'block';
     // this.pinVerifyShow = 'block';

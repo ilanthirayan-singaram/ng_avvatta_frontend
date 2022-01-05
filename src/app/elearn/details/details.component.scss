@@ -1,4 +1,12 @@
 .selectkid {
+	.parent{
+        display: flex !important;
+        width: 95%;
+        margin: auto;
+    }
+    .child{
+        width:14.28%;
+    }
 	
 	background-color: #000;
 	.textcenter{
@@ -155,6 +163,9 @@
 			border-radius: 15px;
 			border: 2px solid #000;
 			overflow: hidden;
+			img{
+             border-radius: 15px;
+			}
 		}
 		.row {
 			width: 100%;
@@ -274,6 +285,9 @@
 }
 
 @media screen and (max-width: 700px) and (min-width: 1px) {
+	.child{
+		width:33.3%;
+	}
 	.selectkid .maincontainer {
 		display: none;
 	}

@@ -29,6 +29,10 @@ const routes: Routes = [
         component: AccountComponent,
         canActivate: [AuthGuard] 
     },
+    {
+      path:'account',
+      component:AccountComponent,
+    },
     { 
         path: 'help', 
         component: HelpComponent 

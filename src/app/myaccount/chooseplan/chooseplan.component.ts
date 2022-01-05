@@ -221,7 +221,7 @@ export class ChooseplanComponent implements OnInit {
   continuePay(amt, currency){
     // console.log(this.amount[0]);
     // if(this.paymentCheck == true){
-      if (window.location.href.split('/')[2] == 'gh.avvatta.com' || window.location.href.split('/')[2] == 'ng.avvatta.com') {
+      if (window.location.href.split('/')[2] == 'ng.avvatta.com') {
         let datas =  {
           user_id: localStorage.getItem('id'),
         };
@@ -229,6 +229,18 @@ export class ChooseplanComponent implements OnInit {
           // // console.log(JSON.parse(JSON.stringify(data)).token);
           // ngverion
           window.open("http://ngmtn.avvatta.com/mtnng/optin.php?pid=" + this.amount[0].id + '&cp=1&tid=' + JSON.parse(JSON.stringify(data)).token, "_self");
+          // window.location.protocol = "http://ngmtn.avvatta.com/mtnng/optin.php?pid=" + this.amount[0].id + '&cp=1&tid=' + JSON.parse(JSON.stringify(data)).token;
+          // window.location.href = "https://ngmtn.avvatta.com/mtnng/optin.php?pid=" + this.amount[0].id+ '&tid=' + JSON.parse(JSON.stringify(data)).token;
+        })
+      }
+      if (window.location.href.split('/')[2] == 'gh.avvatta.com' ) {
+        let datas =  {
+          user_id: localStorage.getItem('id'),
+        };
+        this.common.paymentToken(datas).subscribe(data =>{ 
+          // // console.log(JSON.parse(JSON.stringify(data)).token);
+          // ngverion
+          window.open("http://65.0.83.92/mtn/optin.php?pid=" + this.amount[0].id + '&cp=1&tid=' + JSON.parse(JSON.stringify(data)).token, "_self");
           // window.location.protocol = "http://ngmtn.avvatta.com/mtnng/optin.php?pid=" + this.amount[0].id + '&cp=1&tid=' + JSON.parse(JSON.stringify(data)).token;
           // window.location.href = "https://ngmtn.avvatta.com/mtnng/optin.php?pid=" + this.amount[0].id+ '&tid=' + JSON.parse(JSON.stringify(data)).token;
         })

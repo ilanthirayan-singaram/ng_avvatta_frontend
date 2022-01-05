@@ -86,8 +86,8 @@
                 <div class="subs">
                     <div class="form">
                         <form #chooseplan="ngForm" (ngSubmit)="choosePlan(chooseplan)">
-                            
-                                    
+
+
                             <h1>{{subscriptionHead}}</h1>
                             <div class="body">
                                 <div class="others" *ngFor="let d of subscriptionData;  let i = index">
@@ -107,8 +107,8 @@
                                                     <label class="script">
                                                         <input (click)="selectPaymentTrue(selected === i)"
                                                             [checked]="selected === i" (change)="selected = i"
-                                                            type="checkbox" name="subscribe" ngModel required
-                                                            #subscribe="ngModel" value="password">
+                                                            type="checkbox" name="subscribe" ngModel required #subscribe="ngModel"
+                                                            value="password">
                                                         <span class="geekmark"></span>
                                                     </label>
                                                 </div>
@@ -328,9 +328,9 @@
                                         <form #credit="ngForm" (ngSubmit)="creditDebitCard(credit)">
                                             <div class="r1">
                                                 <b>Billing Email:</b>{{billingEmail}}
-                                                <div class="fname" *ngIf = "billingEmail == ''">
-                                                    <input [(ngModel)]="billmail" type="text" name="name" ngModel required #fname="ngModel"
-                                                        placeholder="Billing Email"><br> 
+                                                <div class="fname" *ngIf="billingEmail == ''">
+                                                    <input [(ngModel)]="billmail" type="text" name="name" ngModel
+                                                        required #fname="ngModel" placeholder="Billing Email"><br>
                                                 </div>
                                                 <h3>You will be redirected to paygate to complete your transcation.</h3>
                                                 <div class="button">
@@ -357,16 +357,17 @@
                                     <div class="pin">
                                         <form #credit="ngForm" (ngSubmit)="creditDebitCard(credit)">
                                             <div class="r1">
-                                                <div class="fname">
+                                                <b>Billing Mobile:</b>{{billingMobile}}
+                                                <div class="fname" *ngIf="billingMobile == ''">
                                                     <input type="text" name="name" ngModel required #fname="ngModel"
-                                                        placeholder="Mobile Number"><br> An OTP will be sent to this
-                                                    mobile number for verification.
+                                                        [(ngModel)]="mobileNo" placeholder="Mobile Number"><br>You will
+                                                    be redirected to MondiaPay to complete your transcation.
                                                 </div>
                                                 <div class="button">
                                                     <div class="check">
                                                         <label class="main"> I agree to the terms and conditions.
                                                             <input type="checkbox" name="signin" value="" ngModel
-                                                                required>
+                                                                required (click)="checkTrue1(checking1)">
                                                             <span class="geekmark"></span>
                                                         </label>
                                                     </div>

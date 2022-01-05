@@ -16,6 +16,7 @@ import { LanguageComponent } from '../language/language.component';
 import { ElementRef, ViewChild } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -63,10 +64,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRandomColor();
-    if(window.screen.width >= 760 ){
+    if (window.screen.width >= 760) {
       this.searchFieldResponsive = false;
     }
-    else{
+    else {
       this.searchFieldResponsive = true;
     }
   }
@@ -76,9 +77,9 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem('height', this.viewHeight);
   }
 
-comingSoon(){
-  this.common.popupModal('Coming Soon');
-}
+  comingSoon() {
+    this.common.popupModal('Coming Soon');
+  }
 
   ngDoCheck() {
     if (localStorage.getItem('firstname') != null) {
@@ -165,12 +166,15 @@ comingSoon(){
     const modalDialog = this.matDialog.open(ChooseplanComponent, dialogConfig);
   }
   profileModal() {
+  
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component";
     dialogConfig.height = "350px";
     dialogConfig.width = "600px";
     const modalDialog = this.matDialog.open(ProfilemodalComponent, dialogConfig);
+   
+
   }
   parentalModal() {
     const dialogConfig = new MatDialogConfig();
@@ -248,16 +252,17 @@ comingSoon(){
 
 
   onSearch(event) {
-    if(event.length>=3){
+    if (event.length >= 3) {
       clearTimeout(this.inDebounce);
       this.inDebounce = setTimeout(() => {
-      if (location.href.split('/')[4] == 'search') {
-      localStorage.setItem('searchKey', '1');
-    }
-      this.router.navigateByUrl('/search/' + event)}, 1000)
+        if (location.href.split('/')[4] == 'search') {
+          localStorage.setItem('searchKey', '1');
+        }
+        this.router.navigateByUrl('/search/' + event)
+      }, 1000)
       // console.log("inDebounce", this.inDebounce);
-    // console.log("test");
-    } 
+      // console.log("test");
+    }
   }
   openLang() {
     const dialogConfig = new MatDialogConfig();
@@ -279,15 +284,30 @@ comingSoon(){
 
   // My Account
   myAccount() {
+    let datas;
+    datas = {
+      user_id: JSON.parse(localStorage.getItem('log')).id
+    }
+    this.service.mondias(datas).subscribe(data => {
+      // console.log( JSON.parse(JSON.stringify(data[0])).MondiaUser);
+      if (JSON.parse(localStorage.getItem('log')).ghana_user == 1 || JSON.parse(JSON.stringify(data[0])).MondiaUser == 'TRUE') {
+       
+        this.router.navigateByUrl('/account');
+      }
+      else {
+        this.securityModal();
+        this.closeList();
+      }
+    })
     // console.log(JSON.parse(localStorage.getItem('log')).ghana_user);
-    if(JSON.parse(localStorage.getItem('log')).ghana_user == 1){
-      this.router.navigateByUrl('account');
-    }
-    else{ 
-    this.securityModal();
-    this.closeList();
-    }
+    // console.log(JSON.parse(JSON.stringify(datas)).MondiaUser)
+
   }
+ 
+ 
+
+
+
   // Switch profile 
   switchProfile(val) {
     localStorage.setItem('part', JSON.stringify(val));

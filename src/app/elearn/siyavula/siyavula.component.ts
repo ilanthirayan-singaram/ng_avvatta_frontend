@@ -4,6 +4,7 @@ import { ActivityResult, Chapter, Topic } from '../models';
 import { ServiceService } from '../service.service';
 import { CommonService } from './../../common.service';
 
+
 declare var MathJax: any;
 
 @Component({
@@ -30,7 +31,9 @@ export class SiyavulaComponent implements OnInit {
   topicInterval: any;
   activityResponse: ActivityResult;
 
+
   constructor(
+   
     private service: ServiceService,
     private sanitizer: DomSanitizer,
     private common : CommonService
@@ -161,13 +164,12 @@ export class SiyavulaComponent implements OnInit {
         }
         else{
           this.common.subscribeModal(subscriptionId);
-          // this.subscribeModal(subscriptionId);
-          // this.vdoModals(val);
+          
         }
       });
     }
 
-    }
+  }
     // this.sideList = false;
     // await this.service.verifyLogin();
     // const response = await this.service.createPracticeActivity<ActivityResult>(sectionId).toPromise();

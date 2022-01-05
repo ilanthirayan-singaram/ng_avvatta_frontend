@@ -1,43 +1,40 @@
+
+
+
+.champ {
+
+.dropdown:first-child{
+  .dropbtn{
+    border-left: 0px;
+  }
+}
+
 .drop{
   padding-bottom: 100px;
 }
 .dropbtn {
   background-color: rgb(92, 196, 223);
-  color: rgb(255, 255, 255);
+  color: black;
   padding: 16px;
-  font-size: 16px;
-  border: none;
-  width: 100%;
-}
-.dropbtn1{
-  background-color: rgb(92, 196, 223);
-  color: rgb(255, 255, 255);
-  padding: 16px;
-  font-size: 16px;
+  // margin-bottom: 15px;
+  font-size: 15px !important;
+  font-weight: bold;
   border: none;
   width: 100%;
   border-left: 1px solid rgb(255, 255, 255);
 
 }
-.dropbtn2{
+
+.dropbtn  a{
   background-color: rgb(92, 196, 223);
-  color: rgb(255, 255, 255);
+  color: white;
   padding: 16px;
-  font-size: 16px;
+  // margin-bottom: 15px;
+  font-size: 15px !important;
+  font-weight: bold;
   border: none;
   width: 100%;
   border-left: 1px solid rgb(255, 255, 255);
-
-}
-.dropbtn3{
-  background-color: rgb(92, 196, 223);
-  color: rgb(255, 255, 255);
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  width: 100%;
-  border-left: 1px solid rgb(255, 255, 255);
-
 }
 
 .dropdown {
@@ -49,13 +46,12 @@
   display: none;
   position: absolute;
   background-color:  rgb(92, 196, 223);
-  min-width: 80%;
+  min-width: 25%;
   z-index: 1;
-  margin: 10px  35px;
+  margin-top: 9px;
 }
 
-
-.dropdown-content a {
+.dropdown-content .menu {
   text-align: center;
   color: rgb(255, 255, 255);
   padding: 10px 10px;
@@ -64,144 +60,148 @@
   display: block;
 }
 
+.dropdown-content .menu:last-child{
+  border-bottom: 0px !important;
+}
+
 .hh-arrow{
  position: relative; 
 color: rgb(92, 196, 223);
-top: -18.5px;
-left: 70%;
-right: 30%;
+top: -14px;
+left: 47%;
+}
+.left{
+  background-color: rgb(255, 215, 75);
+  width: 50%;
+  padding: 25px;
+}
+.right{
+  width:50%;
+  height: 100vh;
 }
 
-.dropdown-content a:hover {background-color: rgb(0, 167,203)}
+.mouse{
+  cursor: pointer;
+}
+
+.container1{
+  padding: 30px;
+  padding-left: 48%;
+  height: 89%;
+ 
+}
+.pdf{
+  width: 100%;
+  height: 100vh;
+
+}
+.text1{
+  width: 90%;
+    font-size: 18px !important;
+    padding: 5px 0;
+}
+.list1{
+  display: flex;
+  margin-top: 10px;
+}
+
+.dropdown-content .menu:hover {background-color: rgb(0, 167,203)}
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: rgb(0, 167,203);}
+.dropdown:hover .dropbtn {background-color: rgb(0, 167,203); color: white;}
+.text1:hover{color: white;}
 
+}
 @media only screen and (max-width: 600px){
-  .dropbtn {
-    background-color: rgb(92, 196, 223);
-    color: rgb(255, 255, 255);
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    width: 100%;
-  }
-  .dropbtn1{
-    background-color: rgb(92, 196, 223);
-    color: rgb(255, 255, 255);
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    width: 100%;
-    border-left: 1px solid rgb(255, 255, 255);
-  
-  }
-  .dropbtn2{
-    background-color: rgb(92, 196, 223);
-    color: rgb(255, 255, 255);
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    width: 100%;
-    border-left: 1px solid rgb(255, 255, 255);
-  
-  }
-  .dropbtn3{
-    background-color: rgb(92, 196, 223);
-    color: rgb(255, 255, 255);
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    width: 100%;
-    border-left: 1px solid rgb(255, 255, 255);
-  
-  }
-  
-  .dropdown {
-    display: inline-block;
-    width: 25%;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color:  rgb(92, 196, 223);
-    min-width: 350px;
-    z-index: 1;
-    margin: 10px  10px;
-  }
-  .dropdown11{
-    display: none;
-    position: absolute;
-    background-color:  rgb(92, 196, 223);
-    min-width: 350px;
-    left: -90px;
-    z-index: 1;
-    margin: 10px  10px;
-  }
-  .dropdown12{
-    display: none;
-    position: absolute;
-    background-color:  rgb(92, 196, 223);
-    min-width: 350px;
-    left: -180px;
-    z-index: 1;
-    margin: 10px  10px;
-  }
-  .dropdown13{
-    display: none;
-    position: absolute;
-    background-color:  rgb(92, 196, 223);
-    min-width: 350px;
-    left: -280px;
-    z-index: 1;
-    margin: 10px  10px;
-  }
+  .champ{
+    .drop{
+      padding-bottom: 100px;
+    }
+    .dropbtn {
+      background-color: rgb(92, 196, 223);
+      color: rgb(0, 0, 0);
+      padding: 16px;
+      border: none;
+      width: 100%;
+      border-left: 1px solid rgb(255, 255, 255);
+    }
+    
+    .dropdown {
+      display: inline-block;
+      width: 25%;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color:  rgb(92, 196, 223);
+      width: 25%;
+      z-index: 1;
+      
+    }
+    
+    .dropdown-content .menu  {
+      text-align: center;
+      color: rgb(255, 255, 255);
+      padding: 10px 10px;
+      border-bottom: 2px solid rgb(255, 255, 255);
+      text-decoration: none;
+      display: block;
+    }
 
-  .dropdown-content a {
-    text-align: center;
-    color: rgb(255, 255, 255);
-    padding: 10px 10px;
-    border-bottom: 2px solid rgb(255, 255, 255);
-    text-decoration: none;
-    display: block;
-  }
-  
-  .hh-arrow{
-   position: relative; 
-  color: rgb(92, 196, 223);
-  top: -18.5px;
-  left: 8%;
-  
-  }
-  .hh-arrow1{
-    position: relative; 
+    .dropdown-content .menu:last-child{
+      border-bottom: 0px !important;
+    }
+    
+    .hh-arrow{
+     position: relative; 
     color: rgb(92, 196, 223);
-    top: -18.5px;
-    left: 35%;
-  
-  }
-  .hh-arrow2{
-    position: relative; 
-    color: rgb(92, 196, 223);
-    top: -18.5px;
-    left: 60%;
+    top: -13px;
+    left: 47%;
+    
+    }
+    .left{
+      background-color: rgb(255, 215, 75);
+      width: 85%;
+      padding: 25px;
+      margin: 6px;
+    }
+    .right{
+      width: 98%;
+      height: 100vh;
+      padding: 2px;
+    }
+    
+    .mouse{
+      cursor: pointer;
+    }
+    
+    .container1{
+      padding: 30px;
+      padding-left: 48%;
+      height: 89%;
+     
+    }
+    .pdf{
+      width: 100%;
+      height: 100vh;
+    }
+    .text1{
+      width: 90%;
+        font-size: 18px !important;
+        padding: 5px 0;
+    }
+    .list1{
+      display: block;
+      margin-top: 10px;
+    }
+    .dropdown-content a:hover {background-color: rgb(0, 167,203)}
 
+    .dropdown:hover .dropdown-content {display: block;}
+    
+    .dropdown:hover .dropbtn {background-color: rgb(0, 167,203); color: white;}
+    .text1:hover{color: white;}
   }
-  .hh-arrow3{
-    position: relative; 
-    color: rgb(92, 196, 223);
-    top: -18.5px;
-    left: 90%;
-
-  }
-
-  .dropdown-content a:hover {background-color: rgb(0, 167,203)}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: rgb(0, 167,203);}
-  
 
 }

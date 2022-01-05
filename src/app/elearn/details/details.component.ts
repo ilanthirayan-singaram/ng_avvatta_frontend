@@ -176,7 +176,19 @@ export class DetailsComponent implements OnInit {
     "imageUrl": this.path+"smilelearn813.webp"
 },
 {
+  "id": 185,
+  "imageUrl": "https://avvatta.com:8100/avvata/public/uploads/newverticalbanners/BG2.jpg"
+},
+{
+  "id": 186,
+  "imageUrl": "https://avvatta.com:8100/avvata/public/uploads/newverticalbanners/BG2.jpg"
+},
+{
   "id": 187,
+  "imageUrl": "https://avvatta.com:8100/avvata/public/uploads/newverticalbanners/BG2.jpg"
+},
+{
+  "id": 188,
   "imageUrl": "https://avvatta.com:8100/avvata/public/uploads/newverticalbanners/BG2.jpg"
 }
 ]
@@ -194,7 +206,8 @@ export class DetailsComponent implements OnInit {
       main_type = 'cod';
     }
     // this.router.navigateByUrl('/playvideo/' + window.location.href.split('/')[5] + '/' + window.location.href.split('/')[6] + '/' + [val][0].id);
-    this.common.checkLogin(val, this.selectelearn, 'video', main_type, val.id, window.location.href.split('/')[6], 'play', '0', genere);
+    this.common.checkLogin(val, 45, 'video', main_type, val.id, window.location.href.split('/')[6], 'play', '0', genere);
+    
   }
 
 
