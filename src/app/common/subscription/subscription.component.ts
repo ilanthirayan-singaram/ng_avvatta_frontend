@@ -223,8 +223,9 @@ export class SubscriptionComponent implements OnInit {
                 user_token:JSON.parse(localStorage.getItem('log')).token,
                 pid:this.amount[0].id
               }];
+              let id = JSON.parse(localStorage.getItem('id'));
               this.service.mondia(payments[0]).subscribe(data => {
-                window.open("https://avvatta.com:8100/avvatta_email/mondiapay/" + this.amount[0].id, "_self");
+                 window.open("https://avvatta.com:8100/avvatta_email/mondiapay/" + this.amount[0].id+"?user_id="+id, "_self"); 
               });
             }
             else {
@@ -256,8 +257,9 @@ export class SubscriptionComponent implements OnInit {
           user_token:JSON.parse(localStorage.getItem('log')).token,
           pid:this.amount[0].id
         }];
+        let id = JSON.parse(localStorage.getItem('id'));
         this.service.mondia(payments[0]).subscribe(data => {
-          window.open("https://avvatta.com:8100/avvatta_email/mondiapay/" + this.amount[0].id, "_self");
+          window.open("https://avvatta.com:8100/avvatta_email/mondiapay/" + this.amount[0].id+"?user_id="+id, "_self");
         });
       }
       else {

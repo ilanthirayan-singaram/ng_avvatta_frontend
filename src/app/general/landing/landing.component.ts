@@ -77,28 +77,28 @@ if(this.monSession){
 
   
   // if(this.mn != undefined && this.pid != undefined){
-  //   // console.log(parseInt(this.mn, 16).toString(10));
-  //   mobileNumber = parseInt(this.mn, 16).toString(10);
-  //   let data={    
-  //     "msisdn":mobileNumber
-  // }
-  // if (window.location.href.split('/')[2] == 'ng.avvatta.com'){
-  //   this.service.clearLoggeddevice(data).subscribe(d =>{
-  //     let resetToken;
-  //     resetToken = {
-  //       user_id : JSON.parse(JSON.stringify(d)).user_id,
-  //       token : JSON.parse(JSON.stringify(d)).token
-  //     };
-  //     this.service.ngResetToken(resetToken).subscribe(t =>{
-  //       // console.log('success');
+    // console.log(parseInt(this.mn, 16).toString(10));
+    // mobileNumber = parseInt(this.mn, 16).toString(10);
+    let data={    
+      "msisdn":7894561230
+  }
+  if (window.location.href.split('/')[2] == 'ng.avvatta.com'){
+    this.service.clearLoggeddevice(data).subscribe(d =>{
+      let resetToken;
+      resetToken = {
+        user_id : JSON.parse(JSON.stringify(d)).user_id,
+        token : JSON.parse(JSON.stringify(d)).token
+      };
+      this.service.ngResetToken(resetToken).subscribe(t =>{
+        // console.log('success');
         
-  //   this.emailphone = [{"name":"mobile","value":mobileNumber}]
-  //   localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
-  //   this.initialLogin();
-  //     });
-  //   });
+    this.emailphone = [{"name":"mobile","value":7894561230}]
+    localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
+    this.initialLogin();
+      });
+    });
   // }
-  // }
+  }
     // // console.log(this.deviceService.getDeviceInfo());
     this.browserHistory();
     this.testLoad = true;

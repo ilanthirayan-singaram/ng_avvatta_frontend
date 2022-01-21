@@ -63,6 +63,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
     this.getRandomColor();
     if (window.screen.width >= 760) {
       this.searchFieldResponsive = false;
@@ -280,6 +281,21 @@ export class HeaderComponent implements OnInit {
   searchBar() {
     this.icon = true;
   }
+
+ loader(){
+   console.log('test',this.loader);
+   setTimeout(()=>{
+    window.location.reload();
+  }, 100);
+  //  if(window.location.href == '' ){
+   
+  //  }
+  // else{
+
+  // }
+    
+ 
+ }
 
 
   // My Account

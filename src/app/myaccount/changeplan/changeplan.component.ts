@@ -9,12 +9,12 @@ import { CommonService } from '../../common.service';
   styleUrls: ['./changeplan.component.scss']
 })
 export class ChangeplanComponent implements OnInit {
-  alertShow : boolean;
-  alertMessage : {};
+  alertShow: boolean;
+  alertMessage: {};
   list = [];
-  constructor(private router : Router, 
+  constructor(private router: Router,
     public dialogRef: MatDialogRef<ChangeplanComponent>,
-    private common : CommonService,
+    private common: CommonService,
     private service: ServiceService) { }
 
   ngOnInit(): void {
@@ -22,64 +22,80 @@ export class ChangeplanComponent implements OnInit {
     this.common.scrollTop();
     this.packageList();
   }
-  
-packageList(){
-  this.common.loaderStart();
-  let getPackage;
-  getPackage = {
-    user_id: localStorage.getItem('id')
-  }
-  this.service.activeSubscription(getPackage).subscribe(data =>{
-    // console.log(data);
-    this.list = JSON.parse(JSON.stringify(data)).data;
-    // console.log(data, this.list);
-    this.common.loaderStop();
-    // console.log(this.list);
-  })
-}
 
-cancelSubscribe(req_id, cdata){  
-  this.common.loaderStart();
-  let id;
-  id = {
-    request_id: req_id
+  packageList() {
+    this.common.loaderStart();
+    let getPackage;
+    getPackage = {
+      user_id: localStorage.getItem('id')
+    }
+    this.service.activeSubscription(getPackage).subscribe(data => {
+      // console.log(data);
+      this.list = JSON.parse(JSON.stringify(data)).data;
+      console.log('hjkl', this.list)
+      // console.log(data, this.list);
+      this.common.loaderStop();
+      // console.log(this.list);
+    })
   }
-  this.service.cancelSubscription(id).subscribe(data =>{
-  //   // console.log(data);
-    this.common.loaderStop();
-    this.packageList();
-  //   this.errorMessage(JSON.parse(JSON.stringify(data)).message)
-  });
- 
-      if ( window.location.href.split('/')[2] == 'ng.avvatta.com' || window.location.href.split('/')[2] == 'localhost:4200') {
+
+  cancelSubscribe(req_id, cdata) {
+    // this.common.loaderStart();
+    let id;
+    id = {
+      request_id: req_id
+    }
+    if (window.location.href.split('/')[2] == 'www.avvatta.com' || window.location.href.split('/')[2] == 'avvatta.com' || window.location.href.split('/')[2] == 'localhost:4200') {
+      this.service.cancelSubscription(id).subscribe(data => {
+          // console.log(data);
+        this.common.loaderStop();
+        this.packageList();
+        this.errorMessage(JSON.parse(JSON.stringify(data)).message)
+      });
+    }
+    else {
+     
+
+      this.service.cancelSubscription(id).subscribe(data => {
+          // console.log(data);
+        this.common.loaderStop();
+        this.packageList();
+         this.successMessage(' You have cancelled the ' + cdata.title + ' package.Note: that you will still have access to the content until the expiry date.');
+      });
+
+      if (window.location.href.split('/')[2] == 'ng.avvatta.com' || window.location.href.split('/')[2] == 'localhost:4200') {
         let mn = JSON.parse(localStorage.getItem('log')).mobile;
         console.log(mn.toString(16));
-        window.open("http://65.0.83.92/mtn/api/unsubscribe.php?mn="+mn+"&pid=" + cdata.subscription_id + '&cp=1', "_self");
+        window.open("http://65.0.83.92/mtn/api/unsubscribe.php?mn=" + mn + "&pid=" + cdata.subscription_id + '&cp=1', "_self");
       }
-}
-  closeModal() {
-      this.dialogRef.close();
+
     }
 
-    public alertClose(val) {
-      if(val.error){
-        this.alertShow = false;
-      }
-      else{
-        this.alertShow = false;
-        this.dialogRef.close();
-      }
+
+  }
+  closeModal() {
+    this.dialogRef.close();
+  }
+
+  public alertClose(val) {
+    if (val.error) {
+      this.alertShow = false;
     }
-  
-    errorMessage(message){
-      this.alertMessage = { error: message };
-      this.alertShow = true;
-      this.packageList();
+    else {
+      this.alertShow = false;
+      this.dialogRef.close();
     }
-    
-    successMessage(message){
-      this.alertMessage = { success: message };
-      this.alertShow = true;
-    }
-  
+  }
+
+  errorMessage(message) {
+    this.alertMessage = { error: message };
+    this.alertShow = true;
+    this.packageList();
+  }
+
+  successMessage(message) {
+    this.alertMessage = { success: message };
+    this.alertShow = true;
+  }
+
 }

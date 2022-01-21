@@ -218,6 +218,7 @@ export class CommonService {
           }
           else {
             this.subscribeModal(subscriptionId);
+        
            
           }
         })
@@ -566,6 +567,7 @@ export class CommonService {
           }
           else {
             this.subscribeModal(subscriptionId);
+            
           
           }
         })
@@ -851,7 +853,7 @@ let data={
         orientation: this.browserDetails.orientation,
         os: this.browserDetails.os,
         os_version: this.browserDetails.os_version,
-        age: JSON.parse(localStorage.getItem('main')).age,
+        // age: JSON.parse(localStorage.getItem('main')).age,
       };
       return this.http.post(this.urlApi + 'setlog', data);
     }

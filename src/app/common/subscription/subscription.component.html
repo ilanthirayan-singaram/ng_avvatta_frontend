@@ -358,10 +358,10 @@
                                         <form #credit="ngForm" (ngSubmit)="creditDebitCard(credit)">
                                             <div class="r1">
                                                 <b>Billing Mobile:</b>{{billingMobile}}
-                                                <div class="fname" *ngIf="billingMobile == ''">
-                                                    <input type="text" name="name" ngModel required #fname="ngModel"
-                                                        [(ngModel)]="mobileNo" placeholder="Mobile Number"><br>You will
-                                                    be redirected to MondiaPay to complete your transcation.
+                                                <div class="fname">
+                                                    <input type="text"  *ngIf="billingMobile == ''" name="name" ngModel required #fname="ngModel"
+                                                        [(ngModel)]="mobileNo" placeholder="Mobile Number">
+                                                        <h3>You will be redirected to MondiaPay to complete your transcation.</h3>
                                                 </div>
                                                 <div class="button">
                                                     <div class="check">

@@ -45,7 +45,7 @@ export class StudychampComponent implements OnInit {
   category(id) {
 
     this.service.subCategory({ cat_id: 206 }).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.list = JSON.parse(JSON.stringify(data)).categories;
     })
   }
@@ -65,13 +65,20 @@ export class StudychampComponent implements OnInit {
     this.service.categoryVideo(data).subscribe(data => {
      
       this.play = JSON.parse(JSON.stringify(data)).content;
-      this.Source=this.play[0].source;
+      // console.log('play',this.play)
+      this.Source=this.play[0].source ;
+      // console.log('dfghjkl',this.Source)
       // this.sourcefile=this.Source[0].sourceFile;
       // this.sourcefile=this.Source.sourcefile;
-      this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.sourcefile=this.Source[0].sourceFile);
+     
+      this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.sourcefile=this.Source[0].sourceFile +'?page=hsn#toolbar=0');
+    // console.log('source',this.sourcefile=this.Source[0].sourceFile)
     })
   
 }
+
+
+
 
 
 openPdf(content,genere,content_id) {
@@ -84,8 +91,11 @@ openPdf(content,genere,content_id) {
   //   this.play = JSON.parse(JSON.stringify(data)).content;
     // this.Source=this.play[0].source;
     // this.sourcefile=this.Source[0].sourceFile;
-    this.sourcefile=content.sourceFile;
+    this.sourcefile=content.sourceFile +'?page=hsn#toolbar=0';
+    
     this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.sourcefile);
+ 
+    window.open(this.sourcefile ,"_blank");
     this.common.userActivity('stchamp','206',content_id,this.cat_id,'pdf','0',genere).subscribe();
 
 
