@@ -131,6 +131,22 @@
 		}
 	}
 }
+select{
+	width: 50%;
+	height: 4vh;
+	padding: 5px;
+	border: 2px solid #b7cb1a;
+	border-radius: 5px;
+	color: #b7cb1a;
+}
+
+
+
+
+option{
+	// height: 5px;
+    color: #000;
+}
 
 // Subscribe
 .subscribe {
@@ -1049,6 +1065,13 @@
             width: 100%;
         }
     }
+
+	select{
+		width: 70% !important;
+		
+	}
+
+
     .subscribe .choose{
         .form {
             width: 100%;
@@ -1089,6 +1112,11 @@
 	// h3 {
 	// 	font-size: calc(100% - -10px) !important;
 	// }
+
+	select{
+		width: 70% !important;
+	
+	}
 }
 
 @media screen and (max-width: 1347px) and (min-width: 850px) {

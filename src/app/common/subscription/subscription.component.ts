@@ -45,6 +45,8 @@ export class SubscriptionComponent implements OnInit {
   billingMobile: any = '';
   billmail: any = '';
   moobile:any;
+  test: string = 'Paygate';
+
   constructor(private router: Router,
     public matDialog: MatDialog,
     public dialogRef: MatDialogRef<SubscriptionComponent>,
@@ -90,6 +92,9 @@ export class SubscriptionComponent implements OnInit {
 
   }
 
+  a(){
+    console.log(this.test)
+  }
 
   show(val) {
     this.click = val;
@@ -212,10 +217,11 @@ export class SubscriptionComponent implements OnInit {
                 // mobile: this.mobileNo,
                 mobile:JSON.parse(localStorage.getItem('log')).mobile,
                 user_token: JSON.parse(localStorage.getItem('log')).token
+                
               };
               this.service.mobile_data(datas).subscribe(data => {
                 this.mobile = data
-                console.log(this.mobile);
+               
               });
               let payments;
               payments = [{
@@ -249,7 +255,7 @@ export class SubscriptionComponent implements OnInit {
         };
         this.service.mobile_data(datas).subscribe(data => {
           this.mobile = data
-          console.log(this.mobile);
+        
         });
         let payments;
         payments = [{
@@ -386,8 +392,13 @@ export class SubscriptionComponent implements OnInit {
     this.dialogRef.close();
   }
   creditDebitCard(val) {
-    // // console.log(val);
+    console.log('asd',val.value.selectOne);
+    // selectOne
   }
+  mobileNumber(val){
+    console.log('asd',val.value)
+  }
+
 
   public alertClose(val) {
     if (val.error) {

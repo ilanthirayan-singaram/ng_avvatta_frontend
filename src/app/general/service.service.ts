@@ -170,7 +170,7 @@ export class ServiceService {
 
   public getIPAddress()
   {
-    return this.http.get("https://jsonip.com/");
+    return this.http.get("http://api.ipify.org/?format=json");
   }
   
   categoried(){

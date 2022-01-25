@@ -95,7 +95,7 @@ openPdf(content,genere,content_id) {
     
     this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.sourcefile);
  
-    window.open(this.sourcefile ,"_blank");
+    // window.open(this.sourcefile ,"_blank");
     this.common.userActivity('stchamp','206',content_id,this.cat_id,'pdf','0',genere).subscribe();
 
 

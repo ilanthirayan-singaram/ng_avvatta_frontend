@@ -111,6 +111,7 @@ export class ModalComponent implements OnInit {
   getIpAddress(){
     this.service.getIPAddress().subscribe((res:any)=>{
       this.ipAddress=res.ip;
+      console.log('IPADDRESS',this.ipAddress)
     });
   }
 
