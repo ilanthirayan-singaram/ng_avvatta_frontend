@@ -218,8 +218,8 @@ export class CommonService {
           }
           else {
             this.subscribeModal(subscriptionId);
-        
-           
+
+
           }
         })
       }
@@ -563,12 +563,12 @@ export class CommonService {
           // console.log(data);
           if (JSON.parse(JSON.stringify(data)).success == true) {
             this.router.navigateByUrl('/elearning/stchamp/206');
-            
+
           }
           else {
             this.subscribeModal(subscriptionId);
-            
-          
+
+
           }
         })
       }
@@ -634,7 +634,7 @@ export class CommonService {
     });
   }
 
-  initialLogin(pid) {
+  initialLogin(pid, sessionId) {
     if (localStorage.getItem('emailPhone') != '') {
       this.emailphone = JSON.parse(localStorage.getItem('emailPhone'));
     }
@@ -645,14 +645,15 @@ export class CommonService {
     else {
       deviceName = this.deviceService.getDeviceInfo().device;
     }
-    
+
     let loginData = {};
     loginData = {
       device_type: this.deviceType,
       login_by: this.loginBy,
       [this.emailphone[0].name]: this.emailphone[0].value,
       login_type: this.emailphone[0].name,
-      password: '12345678',
+      password: sessionId,
+      mondia_session: sessionId,
       device_browser: this.deviceService.getDeviceInfo().browser,
       device_ip: this.ipAddress,
       device_os: deviceName
@@ -730,48 +731,57 @@ export class CommonService {
       // console.log(parseInt(mn, 16).toString(10));
       mobileNumber = parseInt(mn, 16).toString(10);
       let data = {
-        "msisdn": mobileNumber
+        "msisdn": mobileNumber,
       }
 
-      // if ((window.location.href.split('/')[2] == 'gh.avvatta.com') || (window.location.href.split('/')[2] == 'ng.avvatta.com')){
-      let hex = {
-        "hexcode": mn,
-        "mobile": mobileNumber,
-        "pid": pid,
-        "cpid": cid == '' ? 0 : cid
-      };
-      this.hexaLog(hex).subscribe();
-      this.service.clearLoggeddevice(data).subscribe(d => {
-        let resetToken;
-        resetToken = {
-          user_id: JSON.parse(JSON.stringify(d)).user_id,
-          token: JSON.parse(JSON.stringify(d)).token
+      if (window.location.href.split('/')[2] == 'ng.avvatta.com') {
+        let hex = {
+          "hexcode": mn,
+          "mobile": mobileNumber,
+          "pid": pid,
+          "cpid": cid == '' ? 0 : cid
         };
-        this.service.ngResetToken(resetToken).subscribe(t => {
-          // console.log('success');
+        this.hexaLog(hex).subscribe();
+        this.service.clearLoggeddevice(data).subscribe(d => {
+          let resetToken;
+          resetToken = {
+            user_id: JSON.parse(JSON.stringify(d)).user_id,
+            token: JSON.parse(JSON.stringify(d)).token
+          };
+          this.service.ngResetToken(resetToken).subscribe(t => {
+            // console.log('success');
 
-          this.emailphone = [{ "name": "mobile", "value": mobileNumber }]
-          localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
-          this.initialLogin(pid);
+            this.emailphone = [{ "name": "mobile", "value": mobileNumber }]
+            localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
+            this.initialLogin(pid, '********');
+          });
         });
-      });
-      // }
+      }
     }
   }
-  getmondia(mondia_session){
-let data={
-  mondia_session:mondia_session
-};
-    this.service.mondiasession(data).subscribe(res=>{
-      console.log(res[0].mobile);
-      
+  getmondia(mondia_session) {
+let datas ={
+  
+    msisdn: 7894561230,
+    mondia_session: mondia_session
+  
+}
+this.service.clearLoggeddevice(datas).subscribe(res=>{
+})
+
+    let data = {
+      mondia_session: mondia_session
+    };
+    this.service.mondiasession(data).subscribe(res => {
+      console.log(res);
+
       this.emailphone = [{ "name": "mobile", "value": res[0].mobile }];
       localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
-      
-    this.initialLogin(res[0].pid);
+
+      this.initialLogin(res[0].pid, mondia_session);
     });
   }
-  
+
 
   musicPlay(val, subscriptionId) {
     if (localStorage.getItem("log") === null) {

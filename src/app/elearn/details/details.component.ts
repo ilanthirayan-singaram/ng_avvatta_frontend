@@ -177,7 +177,7 @@ export class DetailsComponent implements OnInit {
 },
 {
   "id": 185,
-  "imageUrl": "https://avvatta.com:8100/avvata/public/uploads/newverticalbanners/BG2.jpg"
+  "imageUrl": "../../../assets/image/detail.jpg"
 },
 {
   "id": 186,

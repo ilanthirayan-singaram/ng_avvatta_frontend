@@ -55,6 +55,16 @@
         }
     }
 }
+.footer1{
+    color: #fff;
+    display: flex;
+   .left{
+       margin: auto 20px;
+       padding: 0 35px;
+   }
+    
+}
+
 .f2{
     width:100%;
     // background: #fff;
@@ -109,6 +119,15 @@
             }
         }
     }
+    .footer1{
+        color: #fff;
+        display: flex;
+        .left{
+            margin: auto 20px;
+            padding: 0 35px;
+        }
+       
+    }
 }
 
 @media screen and (max-width: 700px) and (min-width: 1px) { 
@@ -152,6 +171,15 @@
                     font-size: 14px !important;
                 }
             }
+        }
+    }
+
+    .footer1{
+        color: #fff;
+        display: block;
+        text-align: center;
+        .left{
+            margin: auto 20px;
         }
     }
     .f2{

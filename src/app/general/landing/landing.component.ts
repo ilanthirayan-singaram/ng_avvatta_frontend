@@ -71,11 +71,6 @@ if(this.monSession){
   this.common.getmondia(this.monSession);
 }
 
-
- 
-  
-
-  
   // if(this.mn != undefined && this.pid != undefined){
     // console.log(parseInt(this.mn, 16).toString(10));
     // mobileNumber = parseInt(this.mn, 16).toString(10);

@@ -4,7 +4,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ServiceService } from '../../service.service';
 import { CommonService } from '../../../common.service';
 import { Router } from '@angular/router';
-import { DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 
 
@@ -21,7 +21,7 @@ export class StudychampComponent implements OnInit {
   play;
   subjects;
   sublist;
-  safeURL;
+  safeURL: SafeResourceUrl;
   passedData;
   cat_id: number = 207;
   Source;

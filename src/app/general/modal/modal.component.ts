@@ -40,7 +40,9 @@ export class ModalComponent implements OnInit {
   phone1: string;
   alertMessage;
   alertShow: boolean;
-
+  errorCode: number;
+  user_id: number;
+  loginDta: any;
   emailId: boolean = false;
   emailRead: boolean = false;
   phoneRead: boolean = false;
@@ -119,6 +121,7 @@ export class ModalComponent implements OnInit {
   login(login: NgForm) {
     let pin;
     let deviceName;
+
     if ((login.value.email == '') || (login.value.password == '')) {
       // console.log(login.value);
       this.errorMessage("Please fill all the fields");
@@ -143,11 +146,41 @@ export class ModalComponent implements OnInit {
       device_ip:this.ipAddress,
       device_os:deviceName
     };
+    this.loginDta = loginData;
     // console.log(loginData);
-    this.service.loginCall(loginData).subscribe(data => {
+    this.loginApi(login)
+    
+  }
+
+  loginApi(login){
+    this.service.loginCall(this.loginDta).subscribe(data => {
       let successData;
       successData = JSON.parse(JSON.stringify(data));
       localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
+
+      if(successData.status_code == 101){
+        this.errorCode = successData.status_code;
+        this.user_id = successData.user_id;
+        let signOut;
+    signOut = [{
+      [this.emailphone[0].name]: this.emailphone[0].value,
+      signout_from_all_device : 1,
+      id : this.user_id
+    }];
+   if(successData.mondia_user == true){
+    this.service.signOutApiCall(signOut[0]).subscribe(data=>{
+      console.log('data', data);
+    });
+   }
+      }
+   else{
+    this.service.loginCall(this.loginDta).subscribe(data => {
+      let successData;
+      successData = JSON.parse(JSON.stringify(data));
+      localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
+    });
+
+   }
       if (successData.success == false) {
         this.errorMessage(successData.error_messages);
         login.resetForm();
@@ -185,12 +218,15 @@ export class ModalComponent implements OnInit {
       }
       this.common.loaderStop();
     });
-    
   }
 
   public alertClose(val) {
     if(val.error){
       this.alertShow = false;
+      if(this.errorCode == 101){
+        this.loginApi('login');
+      }
+        
     }
     else{
       this.alertShow = false;
