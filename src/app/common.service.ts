@@ -760,12 +760,12 @@ export class CommonService {
     }
   }
   getmondia(mondia_session) {
-let datas ={
+     let datas ={
   
-    msisdn: 7894561230,
-    mondia_session: mondia_session
+           msisdn: 7894561230,
+           mondia_session: mondia_session
   
-}
+       }
 this.service.clearLoggeddevice(datas).subscribe(res=>{
 })
 

@@ -253,9 +253,7 @@ subCategory(data){
     });
 }
 
-wholeData() {
-  return this.http.get('https://staging.videyo.tv/manage/exportSiteContentByUUIDForIngestion?uuid=6feee207-a3a1-41ab-9d55-e6dc8ce6c1dd');
-}
+
 
 
 

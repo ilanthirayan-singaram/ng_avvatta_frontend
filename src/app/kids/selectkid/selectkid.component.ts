@@ -20,7 +20,7 @@ export class SelectkidComponent implements OnInit {
   trending;
   clickId;
   selectelearn;
-  wholeData = [];
+ 
   leapData = [];
   cat;
   videoData;
@@ -46,9 +46,7 @@ export class SelectkidComponent implements OnInit {
     this.slideShow();
     this.onResize();
     this.getVideoDataUrl();
-    this.service.wholeData().subscribe(data => {
-      this.wholeData = JSON.parse(JSON.stringify(data))['channels'];
-    })
+   
     // if (this.router.url === '/kidselect/4/54') {
     //   this.Akil = true;
     // } else 

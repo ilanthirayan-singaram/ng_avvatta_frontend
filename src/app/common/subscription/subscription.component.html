@@ -359,10 +359,10 @@
                                             <div class="r1">
                                                 <b>Billing Mobile:</b>{{billingMobile}}
                                                 <div class="fname">    
-                                                        <select name="selectOne" [(ngModel)]="test" ngModel required (change)="a()">
+                                                        <!-- <select name="selectOne" [(ngModel)]="test" ngModel required (change)="a()">
                                                             <option value="Paygate">Paygate</option>
                                                             <option value="MondiaPay">MondiaPay</option>
-                                                        </select><br>
+                                                        </select><br> -->
                                                     <input type="text"  *ngIf="billingMobile == ''" name="name" ngModel required #fname="ngModel"
                                                         [(ngModel)]="mobileNo" placeholder="Mobile Number">
                                                         <h3>You will be redirected to MondiaPay to complete your transcation.</h3>
