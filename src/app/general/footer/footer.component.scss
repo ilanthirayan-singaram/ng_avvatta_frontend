@@ -3,12 +3,12 @@
     display:flex;
     background:#000;
     padding:10px 0px;
-    margin-top: auto;
+    margin-top: 20px;
     bottom: 0;
     .left{
         width:15%;
         div{
-            width:75%;
+            width:83%;
             margin-left: auto;
             display: flex;
             .fb{
@@ -43,7 +43,7 @@
         }
     }
     .right{
-        width:25%; 
+        width:25%;
         margin:auto;
         div{
             width:100%;
@@ -62,7 +62,7 @@
        margin: auto 20px;
        padding: 0 35px;
    }
-    
+
 }
 
 .f2{
@@ -108,7 +108,7 @@
             }
         }
         .right{
-            width:100%; 
+            width:100%;
             div{
                 width:100%;
                 p{
@@ -126,11 +126,11 @@
             margin: auto 20px;
             padding: 0 35px;
         }
-       
+
     }
 }
 
-@media screen and (max-width: 700px) and (min-width: 1px) { 
+@media screen and (max-width: 700px) and (min-width: 1px) {
     .footer{
         display:block;
         .left{
@@ -162,7 +162,7 @@
             }
         }
         .right{
-            width:100%; 
+            width:100%;
             div{
                 width:100%;
                 p{
