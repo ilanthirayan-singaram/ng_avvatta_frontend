@@ -15,6 +15,7 @@ export class ChangeemailComponent implements OnInit {
   changeEmailShow : string = 'none';
   forgotPasswordShow : string = 'none';
   emailId : boolean = false;
+  user_id: any;
   constructor(private router : Router, 
     private service : ServiceService, 
     private common : CommonService,
@@ -74,8 +75,10 @@ closeModal() {
         this.errorMessage(changePassword.error_messages);
       }
       else {
-        localStorage.clear();
+        
         this.errorMessage(changePassword.message);
+        this.common.userActivity('user', 'emailchange', '0', '0', 'email change', '0', '0').subscribe();
+        localStorage.clear();
         this.router.navigateByUrl('');
         location.reload();
       }

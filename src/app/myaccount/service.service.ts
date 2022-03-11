@@ -11,6 +11,7 @@ import * as CryptoJS from 'crypto-js';
   providedIn: 'root'
 })
 export class ServiceService {
+  
   billDetailApi: string;
   fullSubscription: string;
   UrlApi: string;
@@ -215,6 +216,17 @@ export class ServiceService {
       headers: this.headers
     });
   }
+
+  mobile_data(data) {
+    return this.http.post('https://avvatta.com:8100/avvatta_email/mobile_update', data, {
+      headers: this.headers
+    });
+  }
+  mondia(data) {
+    return this.http.post('https://avvatta.com:8100/avvatta_email/mondia_prepay', data, {
+      headers: this.headers
+    });
+  }
   cancelMemberShip(data) {
     return this.http.post('https://www.avvatta.com:8100/public/cancel_membership', data, {
       headers: this.headers
@@ -260,4 +272,5 @@ export class ServiceService {
     const bytes = CryptoJS.AES.decrypt(data, this.encryptSecretKey);
     // console.log(JSON.parse(bytes.toString(CryptoJS.enc.Utf8)));
   }
+  
 }

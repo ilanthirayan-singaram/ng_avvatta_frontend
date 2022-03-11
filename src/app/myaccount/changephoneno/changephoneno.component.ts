@@ -73,8 +73,10 @@ export class ChangephonenoComponent implements OnInit {
         this.errorMessage(changePassword.error_messages);
       }
       else {
-        localStorage.clear();
+     
         this.errorMessage(changePassword.message);
+        this.common.userActivity('user', 'phonenochange', '0', '0', 'phoneno change', '0', '0').subscribe();
+        localStorage.clear();
         this.router.navigateByUrl('');
         location.reload();
       }

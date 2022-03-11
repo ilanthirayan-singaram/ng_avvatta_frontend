@@ -7,6 +7,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { CommonService } from '../../common.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { CheckmailPipe } from '../../checkmail.pipe';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 // Get month
 const getMonth = (idx) => {
@@ -52,6 +53,7 @@ export class ModalComponent implements OnInit {
   register = [];
   ipAddress:string;
 
+
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
     private service: ServiceService,
@@ -59,7 +61,8 @@ export class ModalComponent implements OnInit {
     private router: Router,
     private spinner: NgxSpinnerService,
     private deviceService:DeviceDetectorService,
-    private pipe: CheckmailPipe
+    private pipe: CheckmailPipe,
+    private http: HttpClient,
   ) {
   }
 
@@ -112,8 +115,12 @@ export class ModalComponent implements OnInit {
 
   getIpAddress(){
     this.service.getIPAddress().subscribe((res:any)=>{
+     console.log('IPADDRESS',res)
       this.ipAddress=res.ip;
       console.log('IPADDRESS',this.ipAddress)
+      // return this.http.post(this.urlApi + 'setlog', data);
+      // return this.http.get
+      
     });
   }
 

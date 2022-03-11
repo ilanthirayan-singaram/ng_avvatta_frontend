@@ -169,7 +169,7 @@ export class VideopopupComponent implements OnInit {
       this.dangerousVideoUrl = 'https://webapps.leaplearning.no/en/lit/?access_token='+ this.passedData.game.iframe;
       this.safeURL = this.dangerousVideoUrl;
       this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
-      // console.log(this.safeURL);
+      console.log(this.safeURL);
     }
     else{
       this.iframe = 'none';

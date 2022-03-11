@@ -252,9 +252,20 @@ getSlideShow(){
           slide.push(element);
         }
       });
+
+      
       this.slidesShow = slide;
         // console.log(this.slidesShow);
       }
+      if (window.location.href.split('/')[2] == 'gh.avvatta.com'){
+        this.slidesShow.forEach(element => {
+          if(element.id != 6){
+            slide.push(element);
+          }
+        });
+        this.slidesShow = slide;
+          // console.log(this.slidesShow);
+        }
       this.common.loaderStop();
     }
   }, err => {
@@ -661,6 +672,7 @@ onResize(event?) {
   getIpAddress(){
     this.service.getIPAddress().subscribe((res:any)=>{
       this.ipAddress=res.ip;
+    
     }, err => {
       this.common.loaderStop();
     });

@@ -170,7 +170,7 @@ export class ServiceService {
 
   public getIPAddress()
   {
-    return this.http.get("https://api.ipify.org/?format=json");
+    return this.http.get("http://api64.ipify.org/?format=json");
   }
   
   categoried(){
@@ -183,6 +183,12 @@ export class ServiceService {
     return this.http.post(this.UrlApi+'ngclearloggeddevice', data, {
       headers:this.headers
       });
+  }
+
+  ghclearLoggeddevice(data){
+    return this.http.post(this.UrlApi+'ghclearloggeddevice',data,{
+      headers:this.headers
+    })
   }
 
   ngResetToken(data){

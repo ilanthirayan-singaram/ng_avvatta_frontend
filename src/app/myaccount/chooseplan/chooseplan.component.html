@@ -122,7 +122,8 @@
                                                                 </label>
                                                             </div> -->
                                                             <div class="selectbutton">
-                                                                <button (click)="continuePay(d.amount, d2.currency)">SUBSCRIBE</button>
+                                                                <button (click)="continuePay(d.amount, d2.currency,d.id)">SUBSCRIBE</button>
+                                                               
                                                             </div>
                                                         </div>
                                                     </div>
@@ -172,7 +173,8 @@
                                                                 </label>
                                                             </div> -->
                                                             <div class="selectbutton">
-                                                                <button (click)="continuePay(d.amount, d2.currency)">SUBSCRIBE</button>
+                                                                <button (click)="continuePay(d.amount, d2.currency,d.id)">SUBSCRIBE</button>
+                                                              
                                                             </div>
                                                         </div>
                                                     </div>
@@ -223,7 +225,8 @@
                                                                 </label>
                                                             </div> -->
                                                             <div class="selectbutton">
-                                                                <button (click)="continuePay(d.amount, d2.currency)">SUBSCRIBE</button>
+                                                                <button (click)="continuePay(d.amount, d2.currency,d.id)">SUBSCRIBE</button>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
@@ -275,7 +278,8 @@
                                                                 </label>
                                                             </div> -->
                                                             <div class="selectbutton">
-                                                                <button (click)="continuePay(d.amount, d2.currency)">SUBSCRIBE</button>
+                                                                <button (click)="continuePay(d.amount, d2.currency,d.id)">SUBSCRIBE</button>
+                                                               
                                                             </div>
                                                         </div>
                                                     </div>
@@ -345,7 +349,7 @@
                                                         <p class="access" [style.background]="d.second_color_code">Access : {{d.no_of_account}} Device</p>
                                                         <div class="selectbtn" [style.background]="d.first_color_code" (click)="clickContinue(d, d2.currency)">
                                                             <div class="selectbutton">
-                                                                <button (click)="continuePay(d.amount, d2.currency)">SUBSCRIBE</button>
+                                                                <button (click)="continuePay(d.amount, d2.currency,d.id)">SUBSCRIBE</button>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -49,7 +49,8 @@ export class CancellationComponent implements OnInit {
     }
     this.common.loaderStart();
     this.service.cancelMemberShip(cancel).subscribe(data=>{
-      this.common.loaderStop();
+      this.common.userActivity('user', 'account', '0', '0', 'cancel membership', '0', '0').subscribe();
+      // this.common.loaderStop();
       this.errorMessage(JSON.parse(JSON.stringify(data)).error_messages);
       // console.log(data);
     })

@@ -24,8 +24,11 @@ export class StudychampComponent implements OnInit {
   safeURL: SafeResourceUrl;
   passedData;
   cat_id: number = 207;
+  selected: number = 0;
   Source;
   sourcefile;
+  Showtext:boolean = false;
+  hideimage:boolean = true;
  
 
   constructor(
@@ -39,7 +42,7 @@ export class StudychampComponent implements OnInit {
   ngOnInit(): void {
 
     this.category(this.click);
-    this.video(this.cat_id );
+    this.video(this.cat_id, false);
   }
  
   category(id) {
@@ -50,13 +53,19 @@ export class StudychampComponent implements OnInit {
     })
   }
   subcategory(id) {
+    this.selected = id;
     this.cat_id = id;
     this.service.subCategory({ cat_id: id }).subscribe(data => {
       this.sublist = JSON.parse(JSON.stringify(data)).categories;
     })
+    this.Showtext = true;
+    this.hideimage = false;
   }
 
-  video(id) {
+  video(id, status) {
+    if(status == true){
+      this.selected = id;
+    }
     let data;
     data = {
       cat_id: this.cat_id,
@@ -96,7 +105,8 @@ openPdf(content,genere,content_id) {
     this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.sourcefile);
  
     // window.open(this.sourcefile ,"_blank");
-    this.common.userActivity('elearn', 'fun', content.id, this.cat_id, 'pdf', '0', 'stchamp').subscribe();
+    console.log('sdfgh',this.cat_id)
+    this.common.userActivity('elearn', 'fun', content.id, this.cat_id, 'interact', '0', 'stchamp').subscribe();
 
 
 }

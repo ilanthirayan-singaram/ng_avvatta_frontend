@@ -40,17 +40,20 @@ export class ChangeplanComponent implements OnInit {
   }
 
   cancelSubscribe(req_id, cdata) {
-    // this.common.loaderStart();
+
     let id;
     id = {
-      request_id: req_id
+      request_id: req_id,
+      subscription_id: cdata.subscription_id
     }
+  
     if (window.location.href.split('/')[2] == 'www.avvatta.com' || window.location.href.split('/')[2] == 'avvatta.com' || window.location.href.split('/')[2] == 'localhost:4200') {
       this.service.cancelSubscription(id).subscribe(data => {
           // console.log(data);
         this.common.loaderStop();
         this.packageList();
         this.errorMessage(JSON.parse(JSON.stringify(data)).message)
+        this.common.userActivity('user', 'cancelsubscription', '0', '0', 'cancel subscription', '0', '0').subscribe();
       });
     }
     else {

@@ -69,8 +69,10 @@ export class ChangepasswordComponent implements OnInit {
       }
       else {
         // // console.log(changePassword)
-        localStorage.clear();
+        
         this.errorMessage(changePassword.message);
+        this.common.userActivity('user', 'changepassword', '0', '0', 'change password', '0', '0').subscribe();
+        localStorage.clear();
         this.router.navigateByUrl('');
         location.reload();
       }

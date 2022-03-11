@@ -68,13 +68,15 @@ export class SubscriptionComponent implements OnInit {
     
     this.common.loaderOnLoad();
     this.subscriptionId = this.dialogRef._containerInstance._config.data.select;
-    // console.log(this.subscriptionId)
+    //  console.log('sub',this.subscriptionId)
     this.common.loaderStart();
     this.common.subscription({ id: JSON.parse(this.subscriptionId) }).subscribe(data => {
       if (JSON.parse(JSON.stringify(data)).success == true) {
         this.subscriptionData = JSON.parse(JSON.stringify(data)).data;
-        console.log(this.subscriptionData)
+        this.common.userActivity('user', 'newsubscription', '0', '0', 'new subscription', '0', '0').subscribe();
+       
         this.subscriptionHead = this.subscriptionData[0].description.split(" ").reverse().slice(1).reverse().join(" ");
+       
         this.common.loaderStop();
       }
     })
@@ -93,7 +95,7 @@ export class SubscriptionComponent implements OnInit {
   }
 
   a(){
-    console.log(this.test)
+    // console.log(this.test)
   }
 
   show(val) {
@@ -202,7 +204,7 @@ export class SubscriptionComponent implements OnInit {
   }
 
   checkBillingMobile(){
-    console.log(this.billingMobile);
+    // console.log(this.billingMobile);
     if(!this.billingMobile){
       if(this.mobileNo != '' ){
       
@@ -392,11 +394,11 @@ export class SubscriptionComponent implements OnInit {
     this.dialogRef.close();
   }
   creditDebitCard(val) {
-    console.log('asd',val.value.selectOne);
+    // console.log('asd',val.value.selectOne);
     // selectOne
   }
   mobileNumber(val){
-    console.log('asd',val.value)
+    // console.log('asd',val.value)
   }
 
 

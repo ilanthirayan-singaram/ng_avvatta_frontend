@@ -734,7 +734,7 @@ export class CommonService {
         "msisdn": mobileNumber,
       }
 
-      if (window.location.href.split('/')[2] == 'ng.avvatta.com') {
+      // if (window.location.href.split('/')[2] == 'ng.avvatta.com') {
         let hex = {
           "hexcode": mn,
           "mobile": mobileNumber,
@@ -756,30 +756,32 @@ export class CommonService {
             this.initialLogin(pid, '********');
           });
         });
-      }
+      // }
     }
   }
   getmondia(mondia_session) {
-     let datas ={
-  
-           msisdn: 7894561230,
-           mondia_session: mondia_session
-  
-       }
-this.service.clearLoggeddevice(datas).subscribe(res=>{
-})
-
     let data = {
       mondia_session: mondia_session
     };
     this.service.mondiasession(data).subscribe(res => {
-      console.log(res);
-
       this.emailphone = [{ "name": "mobile", "value": res[0].mobile }];
+      console.log(this.emailphone);
       localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
+      let datas ={
+  
+        msisdn: res[0].mobile,
+        // mondia_session: mondia_session
 
-      this.initialLogin(res[0].pid, mondia_session);
+    }
+     this.service.ghclearLoggeddevice(datas).subscribe(res1=>{
+     console.log('hsfbjhsd', res1);
+
+     this.initialLogin(res[0].pid, mondia_session);
+});
     });
+    
+
+    
   }
 
 
@@ -841,6 +843,7 @@ this.service.clearLoggeddevice(datas).subscribe(res=>{
         os_version: this.browserDetails.os_version,
         age: JSON.parse(localStorage.getItem('main')).age,
       };
+    
       return this.http.post(this.urlApi + 'setlog', data);
     }
     else {
@@ -865,6 +868,7 @@ this.service.clearLoggeddevice(datas).subscribe(res=>{
         os_version: this.browserDetails.os_version,
         // age: JSON.parse(localStorage.getItem('main')).age,
       };
+    
       return this.http.post(this.urlApi + 'setlog', data);
     }
   }

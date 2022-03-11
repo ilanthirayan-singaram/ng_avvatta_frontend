@@ -6,25 +6,26 @@
 <div class="drop"></div>
 <div clas="drophead">
   <div class="dropdown mouse" *ngFor="let data of list">
-    <button class="dropbtn mouse" (mouseover)="subcategory(data.id)">{{data.name}}</button>
-    <div class="dropdown-content mouse">
+    
+    <button class="dropbtn mouse" (click)="subcategory(data.id)">{{data.name}}</button>
+    <div class="dropdown-content mouse" id="{{data.id}}" *ngIf="data.id == selected? true: false">
       <span class="hh-arrow">▲</span>
       <ng-container *ngFor="let l of sublist">
         <div class="mouse menu">
-          <a (click)="video(l.id)">{{l.name}}</a>
+          <a (click)="video(l.id, true)">{{l.name}}</a>
         </div>
       </ng-container>
     </div>
   </div>
 </div>
-<!-- <img   src="../../../../assets/image/studychamp.jpg" style="width: 100%;"> -->
-<div class="list1">
+<img   src="../../../../assets/image/studychamp.jpg"  *ngIf="hideimage" style="width: 100%;">
+<div class="list1" *ngIf="Showtext">
   <!-- <div class="list2"> -->
   <div class="left mouse">
       <div class="text1" *ngFor="let data of Source">
         <div (click)="openPdf(data)">▶&nbsp;{{data.content_name}}</div>
       </div>
-    </div>
+    </div> 
   <!-- </div> -->
 
   <!-- <div class="container1"> -->
