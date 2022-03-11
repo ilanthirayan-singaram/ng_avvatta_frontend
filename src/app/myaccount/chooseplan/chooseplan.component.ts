@@ -65,6 +65,11 @@ export class ChooseplanComponent implements OnInit {
     this.service.getBillingEmail(id).subscribe(data =>{
       this.billingEmail = data;
     });
+
+    if(JSON.parse(localStorage.getItem('log')).mobile){
+      this.billingMobile = JSON.parse(localStorage.getItem('log')).mobile;
+      console.log('mob',this.billingMobile)
+    }
     this.common.loaderOnLoad();
     this.subscriptionId = '56';
     this.common.loaderStart();
@@ -87,11 +92,14 @@ export class ChooseplanComponent implements OnInit {
         this.main.push({id:data1.id, sources:this.src, title:data1.title});
         this.src = [];
       })
+
+      
      if (window.location.href.split('/')[2] == 'www.avvatta.com' || window.location.href.split('/')[2] == 'avvatta.com'){
       this.main[this.main.length - 1].sources.pop();
     }
     this.subscriptionData = this.main;
     })
+    
     this.click = 'mobile';
     this.clicked = 'mobile';
     // this.getSubscribeData();
@@ -232,7 +240,7 @@ export class ChooseplanComponent implements OnInit {
   }
 
   checkBillingMobile(){
-    // console.log(this.billingMobile);
+    console.log('billingmobile',this.billingMobile);
     if(!this.billingMobile){
       if(this.mobileNo != '' ){
       
@@ -361,7 +369,7 @@ export class ChooseplanComponent implements OnInit {
     if(this.checking1){
       console.log('jai',this.checking1)
       this.checkBillingMobile();
-      console.log('mobile',this.checkBillingMobile);
+      
       
     }
   }
@@ -484,6 +492,9 @@ export class ChooseplanComponent implements OnInit {
   }
   creditDebitCard(val){
     // // console.log(val);
+  }
+  mobileNumber(val){
+    // console.log('asd',val.value)
   }
 
   public alertClose(val) {

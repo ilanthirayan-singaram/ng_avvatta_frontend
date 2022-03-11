@@ -528,6 +528,11 @@
                                     <div class="pin">
                                         <form #credit="ngForm" (ngSubmit)="creditDebitCard(credit)">
                                             <div class="r1">
+                                                <b>Billing Email:</b>{{billingEmail}}
+                                                <div class="fname" *ngIf="billingEmail == ''">
+                                                    <input [(ngModel)]="billmail" type="text" name="name" ngModel
+                                                        required #fname="ngModel" placeholder="Billing Email"><br>
+                                                </div>
                                                 <h3>You will be redirected to paygate to complete your transcation.</h3>
                                                 <div class="button">
                                                     <div class="check">
@@ -551,16 +556,23 @@
                             <div class="verify">
                                 <div class="vcontainer">
                                     <div class="pin">
-                                        <form #credit="ngForm" (ngSubmit)="creditDebitCard(credit)">
+                                        <form #mobile="ngForm" (ngSubmit)="mobileNumber(mobile)">
                                             <div class="r1">
-                                                <div class="fname">
-                                                    <input type="text" name="name" ngModel required #fname="ngModel" placeholder="Mobile Number"><br> An OTP will be “sent” to this mobile number for verification.
-                                                </div>
+                                                <b>Billing Mobile:</b>{{billingMobile}}
+                                                <div class="fname">    
+                                                    <!-- <select name="selectOne" [(ngModel)]="test" ngModel required (change)="a()">
+                                                        <option value="Paygate">Paygate</option>
+                                                        <option value="MondiaPay">MondiaPay</option>
+                                                    </select><br> -->
+                                                <input type="text"  *ngIf="billingMobile == ''" name="name" ngModel required #fname="ngModel"
+                                                    [(ngModel)]="mobileNo" placeholder="Mobile Number">
+                                                    <h3>You will be redirected to MondiaPay to complete your transcation.</h3>
+                                            </div>
                                                 <div class="button">
                                                     <div class="check">
                                                         <label class="main"> I agree to the terms and conditions.
                                                             <input type="checkbox" name="signin" value="" ngModel
-                                                                required>
+                                                                required (click)="checkTrue1(checking1)">
                                                             <span class="geekmark"></span>
                                                         </label>
                                                     </div>
