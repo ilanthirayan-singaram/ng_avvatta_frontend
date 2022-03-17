@@ -19,7 +19,7 @@ export class ServiceService {
   erosnowApi: string;
 
   headers = new HttpHeaders()
-.append('Strict-Transport-Security', 'max-age=63072000; includeSubDomains'); 
+.append('Strict-Transport-Security', 'max-age=63072000; includeSubDomains');
 
   constructor(private http: HttpClient) {
     this.getErosData();
@@ -30,8 +30,8 @@ export class ServiceService {
     // this.UrlApi = "http://192.168.0.105/netflix/public/userApi/";
     // this.UrlApi = "https://dev.avvatta.com:8100/avvata/public/userApi/";
   }
-  
-  
+
+
   wholeData(){
     return this.http.get('https://staging.videyo.tv/manage/exportSiteContentByUUIDForIngestion?uuid=6feee207-a3a1-41ab-9d55-e6dc8ce6c1dd');
   }
@@ -43,10 +43,10 @@ export class ServiceService {
 
   // erosnowUserRegister(){
   //   // console.log(headers);
-  //   let datas =  { 
-  //     "mobile":"9867130745", 
-  //     "partner_id":"9867130745-test", 
-  //     "calling_code": "+91" 
+  //   let datas =  {
+  //     "mobile":"9867130745",
+  //     "partner_id":"9867130745-test",
+  //     "calling_code": "+91"
   //    };
   //   return this.http.post(this.erosnowApi+'api/v1/partner/register', datas, { 'headers': headers }
   //    ).subscribe(data =>{
@@ -59,10 +59,10 @@ export class ServiceService {
     let datas;
     // url = 'https://stgapigateway.erosnow.com/api/v1/partner/register';
     url = 'https://apigateway.erosnow.com/api/v1/partner/register';
-    datas =  { 
-      "mobile":"9159820907", 
-      "partner_id":"9159820907-test", 
-      "calling_code": "+91" 
+    datas =  {
+      "mobile":"9159820907",
+      "partner_id":"9159820907-test",
+      "calling_code": "+91"
      };
      let headers = new HttpHeaders({
       'Content-type': 'application/json',
@@ -110,7 +110,7 @@ export class ServiceService {
   getDataFromErosNow(){
     // return this.http.get('https://dev.avvatta.com:8100/avvata/public/uploads/erosnowcontent/erosnow.json');
   }
-  
+
   getErosData(){
     return this.http.get('../../../assets/eros.json');
   }
@@ -154,4 +154,7 @@ serialEpisodeGet(data){
   return this.http.post(this.UrlApi+ 'serialepisodes', data);
 }
 
+filmDooList(data) {
+  return this.http.post(this.UrlApi+ 'filmdoo_list', data);
+}
 }

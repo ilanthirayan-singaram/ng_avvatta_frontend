@@ -36,7 +36,7 @@ const routes: Routes = [
       },
       {
         path: 'flimdo',
-        component: SeriesComponent
+        component: FilmdoComponent
       },
       {
         path: 'eros',
@@ -63,7 +63,7 @@ const routes: Routes = [
         component: MusicplayComponent
       }
   ];
-  
+
   @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
