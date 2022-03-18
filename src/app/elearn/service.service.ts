@@ -71,7 +71,8 @@ export class ServiceService {
   }
 
   public submitUnsequencedAnswer<T>(activityId: number, responseId: number, data: any): Observable<T> {
-    let url = this.SubmitUnsequencedAnswerUrl.replace('{activityId}', String(activityId));
+    if(activityId !== null && responseId!== null){
+   let url = this.SubmitUnsequencedAnswerUrl.replace('{activityId}', String(activityId));
     url = url.replace('{responseId}', String(responseId));
     const headers = new HttpHeaders()
       .append('JWT', this.getLoginToken())
@@ -79,7 +80,9 @@ export class ServiceService {
       .append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
     return this.http.post<T>(environment.syavulaApiBaseUrl + url, data, {
       headers
-    });
+    })
+    }
+   ;
   }
 
   public retryOrNextQuestion<T>(retryUrl, data: any): Observable<T> {
