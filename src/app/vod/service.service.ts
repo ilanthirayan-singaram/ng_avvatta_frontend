@@ -32,9 +32,9 @@ export class ServiceService {
   }
   
   
-  wholeData(){
-    return this.http.get('https://staging.videyo.tv/manage/exportSiteContentByUUIDForIngestion?uuid=6feee207-a3a1-41ab-9d55-e6dc8ce6c1dd');
-  }
+  // wholeData(){
+  //   return this.http.get('https://staging.videyo.tv/manage/exportSiteContentByUUIDForIngestion?uuid=6feee207-a3a1-41ab-9d55-e6dc8ce6c1dd');
+  // }
   subCategory(data){
     return this.http.post(this.UrlApi+'subCategories', data, {
       headers:this.headers
@@ -152,6 +152,13 @@ serialList() {
 
 serialEpisodeGet(data){
   return this.http.post(this.UrlApi+ 'serialepisodes', data);
+}
+
+
+//Filmdoo rental
+
+filmdoolist(){
+  return this.http.get(this.UrlApi + 'filmdoo_list')
 }
 
 }

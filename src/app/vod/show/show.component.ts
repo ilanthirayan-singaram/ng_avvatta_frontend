@@ -41,16 +41,16 @@ export class ShowComponent implements OnInit {
       };
     }
     this.onResize();
-    this.seriesDetail();
+    // this.seriesDetail();
     // this.common.checkInitial();
   }
-  seriesDetail(){
-    this.service.wholeData().subscribe(data =>{
-      this.wholeData = JSON.parse(JSON.stringify(data))['channels'];
-      // this.wholeData = this.wholeData['channels'];
-      // console.log(data);
-    })
-  }
+  // seriesDetail(){
+  //   this.service.wholeData().subscribe(data =>{
+  //     this.wholeData = JSON.parse(JSON.stringify(data))['channels'];
+  //     // this.wholeData = this.wholeData['channels'];
+  //     // console.log(data);
+  //   })
+  // }
   // openModal() {
   //   const dialogConfig = new MatDialogConfig();
   //   dialogConfig.disableClose = true;

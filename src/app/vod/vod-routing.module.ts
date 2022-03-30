@@ -36,7 +36,7 @@ const routes: Routes = [
       },
       {
         path: 'flimdo',
-        component: SeriesComponent
+        component: FilmdoComponent
       },
       {
         path: 'eros',
