@@ -59,8 +59,8 @@ export class FilmdoComponent implements OnInit {
     this.flimdoo()
     this.common.loaderOnLoad();
     // this.erosDataNow(this.step);
-    // this.erosDataNow(++this.step); 
-    // this.erosDataNow(++this.step); 
+    // this.erosDataNow(++this.step);
+    // this.erosDataNow(++this.step);
     // if (window.screen.width >= 760 ) {
     //   this.slideConfig = {
     //     "slidesToShow": 6,
@@ -91,7 +91,7 @@ export class FilmdoComponent implements OnInit {
       // this.erosDataNow();
     }
     }
-    
+
 
 playVideo(item){
   // console.log(item.content_id);

@@ -63,7 +63,7 @@ const routes: Routes = [
         component: MusicplayComponent
       }
   ];
-  
+
   @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
