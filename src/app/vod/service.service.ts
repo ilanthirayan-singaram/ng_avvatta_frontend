@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 const headers= new HttpHeaders()
   .set('content-type', 'application/json')
   .set('x-api-client', 'eBrfPqR4yqqfEWgHCMOBPLhOi5CkUcXvQ387wDDP' )
@@ -161,4 +162,28 @@ filmdoolist(){
   return this.http.get(this.UrlApi + 'filmdoo_list')
 }
 
+filmdetail(id):Observable<any>{
+  return this.http.get(`${this.UrlApi}filmdoo_single/${id}`)
+ 
+}
+
+filmsubscribe(id,data):Observable<any>{
+return this.http.post(`${this.UrlApi}filmdoo_subscribed/${id}`, data);
+}
+filmplay(id):Observable<any>{
+  return this.http.get(`${this.UrlApi}filmdoo_play/${id}`)
+}
+filmbuy(id):Observable<any>{
+  return this.http.get(`${this.UrlApi}filmdoo_buy/${id}`)
+}
+getBillingEmail(data) {
+  return this.http.post(this.UrlApi + 'get_billing_email', data, {
+    headers: this.headers
+  });
+}
+ paySubscription(data) {
+    return this.http.post(this.UrlApi + 'setsubscription', data, {
+      headers: this.headers
+    });
+  }
 }

@@ -1,5 +1,14 @@
 .emovie {
     background-color: #000;
+    .parent{
+        display: flex !important;
+        width: 95%;
+        margin: auto;
+    }
+    .child{
+        width:14.28%;
+    }
+	
     .mobilebanner{
         width: 100%;
         img{
@@ -401,6 +410,9 @@
 }
 
 @media screen and (max-width: 700px) and (min-width: 1px) {
+    .child{
+		width:33.3%;
+	}
     .emovie {
         .mobilebanner{
             width: 100%;
@@ -434,6 +446,9 @@
 
 
 @media(max-height: 400px) {
+    .child{
+		width:33.3%;
+	}
     .emovie {
         .maincontainer {
             height: 180px !important;

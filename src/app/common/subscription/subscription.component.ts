@@ -59,6 +59,7 @@ export class SubscriptionComponent implements OnInit {
       user_id : JSON.parse(localStorage.getItem('log')).id
     };
     this.service.getBillingEmail(id).subscribe(data =>{
+      console.log(data,'billingemail')
       this.billingEmail = data;
     });
 
