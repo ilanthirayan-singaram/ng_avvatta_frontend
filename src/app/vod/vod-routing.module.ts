@@ -68,7 +68,7 @@ const routes: Routes = [
         component:FilmdoodescriptionComponent
       }
   ];
-  
+
   @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
