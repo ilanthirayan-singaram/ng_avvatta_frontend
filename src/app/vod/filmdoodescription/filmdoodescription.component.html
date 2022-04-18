@@ -1,12 +1,14 @@
 <div class="movie">
     <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
         <p style="font-size: 20px; color: white">Loading...</p>
-    </ngx-spinner>  
-    <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>  
+    </ngx-spinner>
+    <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
     <ng-container *ngFor="let data of descData">
+
         <div class="maincontainer" style="background-image: url('{{data.banner_img}}');">
             <div class="middle web">
                 <div class="content">
+                  <app-back></app-back>
                    <div class="inside">
                     <div class="first">
                         <!-- <div class="left">&#10094;</div> -->
@@ -27,13 +29,13 @@
                     </div>
                     <div class="empty">
                     </div>
-                   
+
                     <!-- <div class="right">&#10095;</div> -->
                     </div>
                     <div class="second">
                         <div class="btncontainer">
                             <div class="left">
-                                
+
                                 <div class="buttons">
                                     <div class="play">
                                         <button action="https://secure.paygate.co.za/payweb3/process.trans" method="POST"  (click)="rentnow(data.id)">RENT NOW</button>
@@ -41,7 +43,7 @@
                                     <!-- <div class="watch">
                                         <button>Play Trailer</button>
                                     </div> -->
-                                    <div class="list" 
+                                    <div class="list"
                                     (click)="share(facebook)">
                                         <i class="fa fa-share-alt" aria-hidden="true"></i>
                                     </div>
@@ -56,7 +58,7 @@
                             <!-- <div class="right">
                                 <div>
                                     Seasons
-                                </div> 
+                                </div>
                                 <div>
                                     <div>1</div>
                                 </div>
@@ -65,7 +67,7 @@
                     </div>
                    </div>
                 </div>
-                
+
             </div>
         </div>
         <div class="mobilebanner">
@@ -78,7 +80,7 @@
                 <div class="first">
                     <!-- <div class="left">&#10094;</div> -->
                 <div class="info">
-                   
+
                 </div>
                 <div class="empty">
                     <h1>{{data.title}}</h1>
@@ -95,13 +97,13 @@
                         <p>{{data.release_year}}</p>
                     </strong>
                 </div>
-               
+
                 <!-- <div class="right">&#10095;</div> -->
                 </div>
                 <div class="second">
                     <div class="btncontainer">
                         <div class="left">
-                            
+
                             <div class="buttons">
                                 <div class="play">
                                     <button (click)="playVideo(data)">RENT NOW</button>
@@ -120,14 +122,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                </div>
             </div>
-            
+
         </div>
-    <app-back></app-back>
+
     <form ngNoForm #myFormPost name="myFormPost" id="payform"
     action="https://secure.paygate.co.za/payweb3/process.trans" method="POST"
     id="auto">

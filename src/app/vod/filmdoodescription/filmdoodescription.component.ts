@@ -41,17 +41,13 @@ export class FilmdoodescriptionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let id;
-    if(localStorage.getItem('id') != null){
-      id = localStorage.getItem('id')
-    }
-    else{
-      id = 0;
-    }
-    this.service.getBillingEmail(id).subscribe(data => {
+    let id = {
+      user_id : JSON.parse(localStorage.getItem('log')).id
+    };
 
+
+    this.service.getBillingEmail(id).subscribe(data =>{
       this.billingEmail = data;
-
     });
 
     this.subscription = this.ActivatedRoute.params.subscribe(params => {
