@@ -46,7 +46,7 @@ export class ServiceService {
     });
   }
   forgotPin(data) {
-    return this.http.post(this.UrlApi + 'resetpin', data, {
+    return this.http.post(this.UrlApi + 'resetparentpin', data, {
       headers: this.headers
     });
   }

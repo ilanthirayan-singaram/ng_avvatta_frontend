@@ -34,7 +34,7 @@ export class ElearnMainpageComponent implements OnInit {
     private service: ServiceService,
     private common: CommonService) {
   }
-  
+
     ngOnInit(): void {
       this.common.loaderOnLoad();
       this.category();
@@ -99,11 +99,11 @@ export class ElearnMainpageComponent implements OnInit {
     //     this.clickId = this.clickId + this.slidesShow.length - 1;
     //   }
     // }
-  
+
     slideShow() {
       this.clickId = 1;
     }
-  
+
     slide = {
       "slidesToShow": 1,
       "slidesToScroll": 1,
@@ -157,12 +157,12 @@ export class ElearnMainpageComponent implements OnInit {
       let id = 48;
       this.service.subCategory({cat_id: "6"}).subscribe(data => {
         this.list = JSON.parse(JSON.stringify(data)).categories;
-        if (window.location.href.split('/')[2] == 'avvatta.com' || window.location.href.split('/')[2] == 'www.avvatta.com'){
-          this.list.shift();
-        }
+        // if (window.location.href.split('/')[2] == 'avvatta.com' || window.location.href.split('/')[2] == 'www.avvatta.com'){
+        //   this.list.shift();
+        // }
       })
     }
-  
+
     checkCategory(id) {
       this.service.subCategory({cat_id: id}).subscribe(data => {
         this.subList = JSON.parse(JSON.stringify(data)).categories;
@@ -175,7 +175,7 @@ export class ElearnMainpageComponent implements OnInit {
         }
       })
     }
-    
+
     getVideoDataUrl() {
       this.common.loaderStart();
       let data;

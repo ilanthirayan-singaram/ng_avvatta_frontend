@@ -11,7 +11,7 @@ import * as CryptoJS from 'crypto-js';
   providedIn: 'root'
 })
 export class ServiceService {
-  
+
   billDetailApi: string;
   fullSubscription: string;
   UrlApi: string;
@@ -134,7 +134,7 @@ export class ServiceService {
     });
   }
   forgotPin(data) {
-    return this.http.post(this.UrlApi + 'resetpin', data, {
+    return this.http.post(this.UrlApi + 'resetparentpin', data, {
       headers: this.headers
     });
   }
@@ -231,7 +231,7 @@ export class ServiceService {
     return this.http.post('https://www.avvatta.com:8100/public/cancel_membership', data, {
       headers: this.headers
     });
-    // return this.http.post(this.UrlApi+'cencel_membership', data);  
+    // return this.http.post(this.UrlApi+'cencel_membership', data);
   }
 
   lastEpireDate(data) {
@@ -252,13 +252,13 @@ export class ServiceService {
     });
   }
 
-  
+
   downloadPersonalInfo(data) {
     // return this.http.post('http://129.232.184.36:8012/avvatta_email/public/api/personal', data);
     return this.http.post('https://www.avvatta.com:8100/avvatta_email/api/personal', data, {
       headers: this.headers
     });
-    // return this.http.post(this.UrlApi+'cencel_membership', data);  
+    // return this.http.post(this.UrlApi+'cencel_membership', data);
   }
   encryptSecretKey: string = "abc";
   dec: string;
@@ -272,5 +272,5 @@ export class ServiceService {
     const bytes = CryptoJS.AES.decrypt(data, this.encryptSecretKey);
     // console.log(JSON.parse(bytes.toString(CryptoJS.enc.Utf8)));
   }
-  
+
 }

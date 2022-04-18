@@ -16,7 +16,7 @@ export class ServiceService {
   searchApi: string;
   erossearchApi: string;
   headers = new HttpHeaders()
-  .append('Strict-Transport-Security', 'max-age=63072000; includeSubDomains'); 
+  .append('Strict-Transport-Security', 'max-age=63072000; includeSubDomains');
 
   constructor(private http: HttpClient,
     private pipe: CheckmailPipe) {
@@ -124,7 +124,7 @@ export class ServiceService {
   //   return this.http.post(this.UrlApi+'setsubscription', data);
   // }
   forgotPin(data) {
-    return this.http.post(this.UrlApi + 'resetpin', data, {
+    return this.http.post(this.UrlApi + 'resetparentpin', data, {
       headers:this.headers
       });
   }
@@ -149,7 +149,7 @@ export class ServiceService {
     this.closeStatus = data;
   }
 
-  // Slide show 
+  // Slide show
   SlideShow() {
     return this.http.get(this.UrlApi + 'getslider', {
       headers:this.headers
@@ -172,7 +172,7 @@ export class ServiceService {
   {
     return this.http.get("https://api.ipify.org/?format=json");
   }
-  
+
   categoried(){
     return this.http.get(this.UrlApi+'categories', {
       headers:this.headers
@@ -202,7 +202,7 @@ export class ServiceService {
       headers:this.headers
     });
   }
-  
+
 
 
 
