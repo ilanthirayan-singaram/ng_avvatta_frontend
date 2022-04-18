@@ -8,7 +8,7 @@
     .child{
         width:14.28%;
     }
-	
+
     .mobilebanner{
         width: 100%;
         img{
@@ -79,17 +79,17 @@
                         border: 2px solid #b7cb1a;
                     }
                 }
-                
+
                 .slide{
                     display: table-cell !important;
                     float: none !important;
                     height:inherit;
                 }
-                .slick-slider {  
-                    width: 95%;  
+                .slick-slider {
+                    width: 95%;
                     height:80px;
-                    margin: auto;  
-                  }              
+                    margin: auto;
+                  }
                   .slick-track {
                     height: inherit !important;
                     display: table !important;
@@ -97,7 +97,7 @@
                   .slick-track {
                     display: flex !important;
                   }
-                  
+
                   .slick-slide {
                     height: auto;
                   }
@@ -111,7 +111,7 @@
                         height: calc(100% - 20px);
                         margin:auto;
                         display:flex;
-                        background:#b7cb1a; 
+                        background:#b7cb1a;
                         border:1px solid #b7cb1a;
                         text-align:center;
                         padding:10px;
@@ -153,7 +153,7 @@
                 width:80%;
                 margin:auto;
                 display:flex;
-                background:#b7cb1a; 
+                background:#b7cb1a;
                 border:1px solid #b7cb1a;
                 text-align:center;
                 padding:10px;
@@ -182,7 +182,7 @@
         // background-image: url('http://129.232.184.36:8012/avvata/public/uploads/frontscreens/vod.jpg');
         height: 80vh;
         width: 100%;
-        background-position: center !important; 
+        background-position: center !important;
     background-repeat: no-repeat!important;
     background-size: cover !important;
     position: relative !important;
@@ -460,4 +460,8 @@
             font-size: 14px !important;
         }
     }
+}
+
+.cont{
+  margin-top: 5rem;
 }

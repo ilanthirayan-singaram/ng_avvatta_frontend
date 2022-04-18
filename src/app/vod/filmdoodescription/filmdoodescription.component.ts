@@ -44,17 +44,17 @@ export class FilmdoodescriptionComponent implements OnInit {
     let id = {
       user_id : JSON.parse(localStorage.getItem('log')).id
     };
+
+
     this.service.getBillingEmail(id).subscribe(data =>{
-     
       this.billingEmail = data;
-     
     });
 
     this.subscription = this.ActivatedRoute.params.subscribe(params => {
-   
+
 
       this.id = params['key']
-    
+
 
       this.service.filmdetail(this.id).subscribe(res => {
         // [JSON.parse(JSON.stringify(data)).data]
@@ -64,7 +64,7 @@ export class FilmdoodescriptionComponent implements OnInit {
 
 
     })
-   
+
 
 
     // this.common.loaderOnLoad();
@@ -80,21 +80,21 @@ export class FilmdoodescriptionComponent implements OnInit {
       id: this.id,
       payment_mode: "paygate"
     }
-    
-  
+
+
     this.service.filmsubscribe(id,sub).subscribe(data => {
- 
+
       if(data.success == true){
       this.service.filmplay(this.id).subscribe(res=>{
 
 this.common.vdoModals(res)
-    
+
 })
       }
       else{
         this.service.filmbuy(this.id).subscribe(result=>{
           this.pay = result;
-         
+
           let payment;
           payment =[{
             user_id:JSON.parse(localStorage.getItem('id')),
@@ -108,7 +108,7 @@ this.common.vdoModals(res)
             if (JSON.parse(JSON.stringify(data)).success == true) {
               this.autoSubmit = JSON.parse(JSON.stringify(data))
               localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
-    
+
               this.checkSum = this.autoSubmit.data.CHECKSUM;
               this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID;
               console.log(this.checkSum,this.parReqId,'checksumparreqId')
@@ -118,12 +118,12 @@ this.common.vdoModals(res)
                   this.myFormPost.nativeElement.submit();
                 }, 3000);
               }
-           
+
             }
           });
-          
+
    console.log(payment,'jai')
-          
+
 
         })
       }
@@ -134,7 +134,7 @@ this.common.vdoModals(res)
   private createNavigationUrl() {
     let searchParams = new URLSearchParams();
 
-  
+
     this.shareUrl = window.location.href;
     searchParams.set('u', this.shareUrl);
     this.navUrl = 'https://www.facebook.com/sharer/sharer.php?' + searchParams;
