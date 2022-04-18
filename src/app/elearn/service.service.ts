@@ -1,10 +1,11 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import * as CryptoJS from 'crypto-js';
+// import * as CryptoJS from 'crypto-js';
 import { env } from 'process';
 import { Observable } from 'rxjs';
 import { CommonService } from './../common.service';
+// import { getHashes } from 'crypto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,7 @@ export class ServiceService {
   learnLocalApi: string;
   leapLearURL: string;
   syavulaClientId: string = 'avvatta_gh';
-  syavulaClientPassword: string = '4eda0321741179f26a466f72d9113d03451118684e0d6cc7668425c1e91f6ca2dc42d646bdad5e5bff4f5030f72dc38d38d61274f79de1a5880a98ad77f5e1ede10691597ba5ec2a9ddbeb2a4d3a36b9e24c8d110f025549f734b03ddd7dd132fb72c780cd7ba31c89064fea89d201af843426011cef877de747f3184c98d433b1c0a64a0bf71251e9cc8abf27ad31f64b337c90c7b31f3fc10e66a77ff717909bb3c3ff479eec0c37a64504465746bf74c1e9744b622ac175cb7f114d38d43bdd32b9cc924380dbc36a537ba21d81f2c9eb837726e5fe241b4dccb23f375168638ad7ffee6b1e7220b84a75405d6eb3e60e928e848b12368f4cdd0290497c60';
-  
- 
+
 
   TokenName = 'syavula-login';
   UserTokenName = 'syavula-user-login';
@@ -31,21 +30,26 @@ export class ServiceService {
   UrlApi: string;
   siyavulaApi: string;
   sessionStorage: Storage;
+  region: string;
+  curriculum: string;
+  syavulaClientPassword: string;
+
+
 
   headers = new HttpHeaders()
-  .append('Strict-Transport-Security', 'max-age=63072000; includeSubDomains'); 
+  .append('Strict-Transport-Security', 'max-age=63072000; includeSubDomains');
 
   constructor(
     private http: HttpClient,
     private common: CommonService
   ) {
-    
+
     // this.http.get('../../../assets/json/siyavula.json').subscribe(data =>{
     //     this.syavulaClientId = JSON.parse(JSON.stringify(data))[0].client_id;
     //     this.syavulaClientPassword = JSON.parse(JSON.stringify(data))[0].password;
     //     // console.log(this.syavulaClientId, this.syavulaClientPassword);
     //   })
-    
+
     // this.common.siyavulaData('').subscribe(data =>{
     //   this.syavulaClientId = JSON.parse(JSON.stringify(data)).client_id;
     //   this.syavulaClientPassword = JSON.parse(JSON.stringify(data)).password;
@@ -59,6 +63,23 @@ export class ServiceService {
   }
 
   ngOnInit(){
+
+    if(window.location.href.split('/')[2] == 'ng.avvatta.com') {
+      //negiria
+      this.curriculum = 'NG';
+      this.region = 'NG';
+      this.syavulaClientPassword = 'd184d458a70a929fa314e79656dd6893545f60135fe1cebc7ad5767d3849b45224cb78fef357a0467f2d6738d101c2bf680f740ebe4464a9881573be49465b7dbc6e9f048d6f2c9a57f723888d50e19206e13b95c351cc3eea293e185c98d90a8c0727847fc34f38dfa6c23032aa1d8f663ebc2be8f20a3fe9bded5f1428bc8b91c8311febf6f240a045e18f693a1f6ca595bf96fc7cdf1cc1a34951f66882be5b8b496d8f601f125a1d5a1e4d85bf1daa0823a7376f4b736fdc10996dfe4e554e09be0934747f886103051834d2035c9d6274678cfa21c0338270582171e0aa18cebd9e0623ebf7541a9ddd9608d47f7dad7199ebbd1434e8468d463f2157db';
+    } else if (window.location.href.split('/')[2] == 'gh.avvatta.com') {
+      //ghana
+      this.curriculum = 'ZA';
+      this.region = 'CAPS';
+       this.syavulaClientPassword = '4eda0321741179f26a466f72d9113d03451118684e0d6cc7668425c1e91f6ca2dc42d646bdad5e5bff4f5030f72dc38d38d61274f79de1a5880a98ad77f5e1ede10691597ba5ec2a9ddbeb2a4d3a36b9e24c8d110f025549f734b03ddd7dd132fb72c780cd7ba31c89064fea89d201af843426011cef877de747f3184c98d433b1c0a64a0bf71251e9cc8abf27ad31f64b337c90c7b31f3fc10e66a77ff717909bb3c3ff479eec0c37a64504465746bf74c1e9744b622ac175cb7f114d38d43bdd32b9cc924380dbc36a537ba21d81f2c9eb837726e5fe241b4dccb23f375168638ad7ffee6b1e7220b84a75405d6eb3e60e928e848b12368f4cdd0290497c60';
+    } else {
+      //south africa
+      this.curriculum = 'ZA';
+      this.region = 'CAPS';
+      this.syavulaClientPassword = '269fd45e59d2b13c35ab216d93f2927a1dfdfbd8036075424475cac1b5cae525b4696ca569d846a47f3b834dcc6553b674543daa479dedfb88cfc57ff14b5d542d0c3db7fc1bbca4894614301fdfca5fce77a1c291828fee02ed62c0ec449e25ad396868532d0758e51624524408dc27cd7f3c84732bb014352f3ceef0586df793fab2e4600d0db28c28f8e1e6b40e369cc3642f8fcb82095124275661105f672d3371fde456aaa59e1b64fb4f1c96f3b19b83d0c5d0895e9eaac727c9773f87db438bba337f5da6a215ae1ac24d3fc48b430e0d7de075967d8ad25b101c07d913efebae93cf6fac9347dde7671ba8451206d5973ffa1658b5b73b27d4558636';
+    }
   }
 
   public getTopicsByLevel<T>(level: number): Observable<T> {
@@ -142,12 +163,14 @@ export class ServiceService {
 
     const loginModel: LoginModel = {
         "name":"avvatta_gh",
-        "password":"4eda0321741179f26a466f72d9113d03451118684e0d6cc7668425c1e91f6ca2dc42d646bdad5e5bff4f5030f72dc38d38d61274f79de1a5880a98ad77f5e1ede10691597ba5ec2a9ddbeb2a4d3a36b9e24c8d110f025549f734b03ddd7dd132fb72c780cd7ba31c89064fea89d201af843426011cef877de747f3184c98d433b1c0a64a0bf71251e9cc8abf27ad31f64b337c90c7b31f3fc10e66a77ff717909bb3c3ff479eec0c37a64504465746bf74c1e9744b622ac175cb7f114d38d43bdd32b9cc924380dbc36a537ba21d81f2c9eb837726e5fe241b4dccb23f375168638ad7ffee6b1e7220b84a75405d6eb3e60e928e848b12368f4cdd0290497c60",
+        "password":this.syavulaClientPassword,
         "client_ip":"105.184.237.123",
         "theme": "basic",
-        "region": "NG",
-        "curriculum": "NG"
+        "region": this.region,
+        "curriculum": this.curriculum
     };
+
+
 
     try {
       const result = await this.http.post(environment.syavulaApiBaseUrl + this.GetToken, loginModel).toPromise();
