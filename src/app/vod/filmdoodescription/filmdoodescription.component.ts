@@ -38,23 +38,27 @@ export class FilmdoodescriptionComponent implements OnInit {
     private router: Router,
     private service: ServiceService,
     private common: CommonService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    let id = {
-      user_id : JSON.parse(localStorage.getItem('log')).id
-    };
-    this.service.getBillingEmail(id).subscribe(data =>{
-     
+    let id;
+    if(localStorage.getItem('id') != null){
+      id = localStorage.getItem('id')
+    }
+    else{
+      id = 0;
+    }
+    this.service.getBillingEmail(id).subscribe(data => {
+
       this.billingEmail = data;
-     
+
     });
 
     this.subscription = this.ActivatedRoute.params.subscribe(params => {
-   
+
 
       this.id = params['key']
-    
+
 
       this.service.filmdetail(this.id).subscribe(res => {
         // [JSON.parse(JSON.stringify(data)).data]
@@ -64,7 +68,7 @@ export class FilmdoodescriptionComponent implements OnInit {
 
 
     })
-   
+
 
 
     // this.common.loaderOnLoad();
@@ -74,56 +78,58 @@ export class FilmdoodescriptionComponent implements OnInit {
     // this.playVideo(window.location.href.split('/')[6]);
     this.createNavigationUrl();
   }
-  rentnow(id){
+  rentnow(id) {
+    console.log(id,'idrendow')
     let sub = {
       user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))),
       id: this.id,
       payment_mode: "paygate"
     }
-    
-  
-    this.service.filmsubscribe(id,sub).subscribe(data => {
- 
-      if(data.success == true){
-      this.service.filmplay(this.id).subscribe(res=>{
 
-this.common.vdoModals(res)
-    
-})
+
+    this.service.filmsubscribe(id, sub).subscribe(data => {
+
+      if (data.success !== true) {
+        this.service.filmplay(this.id).subscribe(res => {
+          // this.common.erosNowPlayVideo(JSON.parse(JSON.parse(JSON.stringify(data)).data), 56, 'video', 'erosnow', content.content_id, 'eros_sub', 'play', '0', '');
+
+          this.common.Filmdooplay(JSON.parse(JSON.parse(JSON.stringify(data)).data),'','Video','flimdoo','','flimdoo_sub','play','0','')
+
+        })
       }
-      else{
-        this.service.filmbuy(this.id).subscribe(result=>{
+      else {
+        this.service.filmbuy(this.id).subscribe(result => {
           this.pay = result;
-         
+
           let payment;
-          payment =[{
-            user_id:JSON.parse(localStorage.getItem('id')),
+          payment = [{
+            user_id: JSON.parse(localStorage.getItem('id')),
             amount: this.pay.amount,
-                payment_mode: 'paygate',
-                subcribtion_id: id,
-                subcribtion_main_id: this.pay.id,
-                billing_email :  this.billingEmail,
+            payment_mode: 'paygate',
+            subcribtion_id: id,
+            subcribtion_main_id: this.pay.id,
+            billing_email:this.billingEmail,
           }]
           this.service.paySubscription(payment[0]).subscribe(data => {
             if (JSON.parse(JSON.stringify(data)).success == true) {
               this.autoSubmit = JSON.parse(JSON.stringify(data))
               localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
-    
+
               this.checkSum = this.autoSubmit.data.CHECKSUM;
               this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID;
-              console.log(this.checkSum,this.parReqId,'checksumparreqId')
+              console.log(this.checkSum, this.parReqId, 'checksumparreqId')
               if (this.myFormPost) {
                 // // console.log(this.checkSum, this.parReqId)
                 setTimeout(() => {
                   this.myFormPost.nativeElement.submit();
                 }, 3000);
               }
-           
+
             }
           });
-          
-   console.log(payment,'jai')
-          
+
+          console.log(payment, 'jai')
+
 
         })
       }
@@ -134,7 +140,7 @@ this.common.vdoModals(res)
   private createNavigationUrl() {
     let searchParams = new URLSearchParams();
 
-  
+
     this.shareUrl = window.location.href;
     searchParams.set('u', this.shareUrl);
     this.navUrl = 'https://www.facebook.com/sharer/sharer.php?' + searchParams;
@@ -187,8 +193,8 @@ this.common.vdoModals(res)
   playVideo(content) {
     this.common.loaderStart();
     // this.common.userActivity('video', 'erosnow', content.content_id, 'eros_sub', 'play', '0').subscribe();
-    this.service.getErosNowVideo({content_id: content.content_id}).subscribe(data =>{
-      if(data){
+    this.service.getErosNowVideo({ content_id: content.content_id }).subscribe(data => {
+      if (data) {
         this.common.erosNowPlayVideo(JSON.parse(JSON.parse(JSON.stringify(data)).data), 56, 'video', 'erosnow', content.content_id, 'eros_sub', 'play', '0', '');
         this.common.loaderStop();
       }
