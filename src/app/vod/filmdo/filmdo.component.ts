@@ -1,18 +1,4 @@
-// import { Component, OnInit } from '@angular/core';
 
-// @Component({
-//   selector: 'app-filmdo',
-//   templateUrl: './filmdo.component.html',
-//   styleUrls: ['./filmdo.component.scss']
-// })
-// export class FilmdoComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from '../service.service';
@@ -33,6 +19,8 @@ export class FilmdoComponent implements OnInit {
   wholeData: any = [];
   step: number = 1;
   slideConfig;
+  filmdata;
+  movie;
   constructor(private service: ServiceService, private common : CommonService, private router: Router) { }
   @HostListener('window:resize', ['$event'])
   onResize(event?) {
@@ -56,78 +44,59 @@ export class FilmdoComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.flimdoo()
+    
     this.common.loaderOnLoad();
-    // this.erosDataNow(this.step);
-    // this.erosDataNow(++this.step);
-    // this.erosDataNow(++this.step);
-    // if (window.screen.width >= 760 ) {
-    //   this.slideConfig = {
-    //     "slidesToShow": 6,
-    //     "slidesToScroll": 6,
-    //     "nextArrow": "<div class='nav-btn next-slide'></div>",
-    //     "prevArrow": "<div class='nav-btn prev-slide'></div>",
-    //     "infinite": false
-    //   };
-    // }
-    // else {
-    //   this.slideConfig = {
-    //     "slidesToShow": 3,
-    //     "slidesToScroll": 3,
-    //     "nextArrow": "<div class='nav-btn next-slide'></div>",
-    //     "prevArrow": "<div class='nav-btn prev-slide'></div>",
-    //     "infinite": false
-    //   };
-    // }
+    this.flimdoo();
+  
+    if (window.screen.width >= 760 ) {
+      this.slideConfig = {
+        "slidesToShow": 6,
+        "slidesToScroll": 6,
+        "nextArrow": "<div class='nav-btn next-slide'></div>",
+        "prevArrow": "<div class='nav-btn prev-slide'></div>",
+        "infinite": false
+      };
+    }
+    else {
+      this.slideConfig = {
+        "slidesToShow": 3,
+        "slidesToScroll": 3,
+        "nextArrow": "<div class='nav-btn next-slide'></div>",
+        "prevArrow": "<div class='nav-btn prev-slide'></div>",
+        "infinite": false
+      };
+    }
     this.onResize();
-
+   
   }
 
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if(this.step <= 6 ){
-      this.step = this.step + 1;
-      // this.erosDataNow();
+
+
+
+    flimdoo(){
+      this.service.filmdoolist().subscribe(data=>{
+       this.filmdata =JSON.parse(JSON.stringify(data));
+       this.movie =this.filmdata[0].movies;
+      //  console.log('sasmitha',this.movie[0].banner_img)
+       console.log('data',data)
+      //   console.log('flimdoo',data[0].movies)
+      //   console.log('film',data[0]);
+        
+      })
     }
-    }
 
 
-playVideo(item){
-  // console.log(item.content_id);
-  this.service.getErosNowVideo({content_id:item.content_id}).subscribe(data=>{
-    // console.log(data);
-  })
+
+
+goToDetailPage(id){
+
+  this.router.navigateByUrl(`/vod/fdesc/${id}`);
+  console.log(id,'asdfghj')
 }
 
-goToDetailPage(item){
-  this.common.userActivity('video', 'erosnow', item.content_id, 'eros_sub', 'interact', '0', '').subscribe(data=>{
-    console.log(data);
-  });
-  this.router.navigateByUrl('/vod/desc/' + item.content_id);
-}
 
-flimdoo(){
-  this.service.filmdoolist().subscribe(data=>{
-    console.log('flimdoo',data)
-  })
-}
-
-// erosDataNow(data){
-//   // this.common.loaderStart();
-//   this.service.erosNowData({steps:data}).subscribe(data => {
-//     if(data){
-//       this.fullData = [JSON.parse(JSON.stringify(data)).data];
-//       this.wholeData.push(JSON.parse(JSON.stringify(data)).data);
-//       // console.log(this.wholeData);
-//       // this.common.loaderStop();
-//     }
-//   });
-// }
-
-  vdoModals(val) {
-    this.common.checkLogin(val, '56', '', '', '', '', '', '', '');
-  }
+ 
 
 
 }

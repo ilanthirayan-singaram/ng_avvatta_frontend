@@ -16,6 +16,7 @@ import { SeriesComponent } from './erosnow/series/series.component';
 import { VideoComponent } from './erosnow/music/video/video.component';
 import { AudioComponent } from './erosnow/music/audio/audio.component';
 import { SeriesdescriptionComponent } from './seriesdescription/seriesdescription.component';
+import { FilmdoodescriptionComponent } from './filmdoodescription/filmdoodescription.component';
 
 const routes: Routes = [
     {
@@ -36,7 +37,7 @@ const routes: Routes = [
       },
       {
         path: 'flimdo',
-        component: FilmdoComponent
+        component: FilmdoComponent,
       },
       {
         path: 'eros',
@@ -61,6 +62,10 @@ const routes: Routes = [
       {
         path: 'mplay/:key',
         component: MusicplayComponent
+      },
+      {
+        path:'fdesc/:key',
+        component:FilmdoodescriptionComponent
       }
   ];
 
