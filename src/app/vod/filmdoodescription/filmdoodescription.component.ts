@@ -38,7 +38,7 @@ export class FilmdoodescriptionComponent implements OnInit {
     private router: Router,
     private service: ServiceService,
     private common: CommonService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     let id = {
@@ -74,7 +74,8 @@ export class FilmdoodescriptionComponent implements OnInit {
     // this.playVideo(window.location.href.split('/')[6]);
     this.createNavigationUrl();
   }
-  rentnow(id){
+  rentnow(id) {
+    console.log(id,'idrendow')
     let sub = {
       user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))),
       id: this.id,
@@ -82,27 +83,28 @@ export class FilmdoodescriptionComponent implements OnInit {
     }
 
 
-    this.service.filmsubscribe(id,sub).subscribe(data => {
+    this.service.filmsubscribe(id, sub).subscribe(data => {
 
-      if(data.success == true){
-      this.service.filmplay(this.id).subscribe(res=>{
+      if (data.success !== true) {
+        this.service.filmplay(this.id).subscribe(res => {
+          // this.common.erosNowPlayVideo(JSON.parse(JSON.parse(JSON.stringify(data)).data), 56, 'video', 'erosnow', content.content_id, 'eros_sub', 'play', '0', '');
 
-this.common.vdoModals(res)
+          this.common.Filmdooplay(JSON.parse(JSON.parse(JSON.stringify(data)).data),'','Video','flimdoo','','flimdoo_sub','play','0','')
 
-})
+        })
       }
-      else{
-        this.service.filmbuy(this.id).subscribe(result=>{
+      else {
+        this.service.filmbuy(this.id).subscribe(result => {
           this.pay = result;
 
           let payment;
-          payment =[{
-            user_id:JSON.parse(localStorage.getItem('id')),
+          payment = [{
+            user_id: JSON.parse(localStorage.getItem('id')),
             amount: this.pay.amount,
-                payment_mode: 'paygate',
-                subcribtion_id: id,
-                subcribtion_main_id: this.pay.id,
-                billing_email :  this.billingEmail,
+            payment_mode: 'paygate',
+            subcribtion_id: id,
+            subcribtion_main_id: this.pay.id,
+            billing_email:this.billingEmail,
           }]
           this.service.paySubscription(payment[0]).subscribe(data => {
             if (JSON.parse(JSON.stringify(data)).success == true) {
@@ -111,7 +113,7 @@ this.common.vdoModals(res)
 
               this.checkSum = this.autoSubmit.data.CHECKSUM;
               this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID;
-              console.log(this.checkSum,this.parReqId,'checksumparreqId')
+              console.log(this.checkSum, this.parReqId, 'checksumparreqId')
               if (this.myFormPost) {
                 // // console.log(this.checkSum, this.parReqId)
                 setTimeout(() => {
@@ -122,7 +124,7 @@ this.common.vdoModals(res)
             }
           });
 
-   console.log(payment,'jai')
+          console.log(payment, 'jai')
 
 
         })
@@ -187,8 +189,8 @@ this.common.vdoModals(res)
   playVideo(content) {
     this.common.loaderStart();
     // this.common.userActivity('video', 'erosnow', content.content_id, 'eros_sub', 'play', '0').subscribe();
-    this.service.getErosNowVideo({content_id: content.content_id}).subscribe(data =>{
-      if(data){
+    this.service.getErosNowVideo({ content_id: content.content_id }).subscribe(data => {
+      if (data) {
         this.common.erosNowPlayVideo(JSON.parse(JSON.parse(JSON.stringify(data)).data), 56, 'video', 'erosnow', content.content_id, 'eros_sub', 'play', '0', '');
         this.common.loaderStop();
       }
