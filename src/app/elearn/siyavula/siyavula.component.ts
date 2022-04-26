@@ -151,7 +151,7 @@ export class SiyavulaComponent implements OnInit {
       else{
       this.common.checkSubscription(checkData).subscribe(async data =>{
         // console.log(data, JSON.parse(JSON.stringify(data)).success);
-        if(JSON.parse(JSON.stringify(data)).success != true){
+        if(JSON.parse(JSON.stringify(data)).success == true){
           check = true;
           this.sideList = false;
           await this.service.verifyLogin();
