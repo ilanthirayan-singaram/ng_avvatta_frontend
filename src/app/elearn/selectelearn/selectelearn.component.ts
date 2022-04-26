@@ -8,7 +8,7 @@ import { ServiceService } from '../service.service';
 import { CommonService } from '../../common.service';
 import { HostListener } from "@angular/core";
 import { Router } from '@angular/router';
-import { environment } from '../../../environments/environment'; 
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -46,7 +46,7 @@ export class SelectelearnComponent implements OnInit {
 
   // Category
   category(id) {
-    this.service.subCategory({cat_id: id}).subscribe(data => {
+    this.service.subCategory({ cat_id: id }).subscribe(data => {
       this.list = JSON.parse(JSON.stringify(data)).categories;
       // console.log(this.list);
     })
@@ -55,7 +55,7 @@ export class SelectelearnComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event?) {
-    if(window.screen.width >= 800 ){
+    if (window.screen.width >= 800) {
       this.mainList = {
         "slidesToShow": 5,
         "slidesToScroll": 5,
@@ -71,7 +71,7 @@ export class SelectelearnComponent implements OnInit {
         "infinite": false
       };
     }
-    else{
+    else {
       this.mainList = {
         "slidesToShow": 2,
         "slidesToScroll": 2,
@@ -97,24 +97,24 @@ export class SelectelearnComponent implements OnInit {
       sub_cat: 69,
     }];
     this.service.categoryVideo(data[0]).subscribe(data => {
-      if(data){
+      if (data) {
         this.videoData = JSON.parse(JSON.stringify(data)).content;
-      // console.log(this.videoData);
-      this.common.loaderStop();
+        // console.log(this.videoData);
+        this.common.loaderStop();
       }
     });
-}
+  }
 
-  vdoModals(detail){
+  vdoModals(detail) {
     this.common.checkAllSignOut();
     let sub_type;
-    if(this.selectelearn == 45){
+    if (this.selectelearn == 45) {
       sub_type = 'fun';
     }
-    else if(this.selectelearn == 46){
+    else if (this.selectelearn == 46) {
       sub_type = 'high';
     }
-    else{
+    else {
       sub_type = 'code';
     }
     console.log(detail);
@@ -122,33 +122,39 @@ export class SelectelearnComponent implements OnInit {
     // this.common.userActivity('elearn', sub_type, detail.id, detail.id, 'interact', '0').subscribe(data =>{
     //   console.log('data', data);
     // });
-    if(detail.id == 206){
-      this.common.studychampCheckLogin('stchamp',45);
+    if (detail.id == 206) {
+      if (window.screen.width < 760) {
+        this.common.popupModal('Pdf show only in Laptop and desktop ');
+      } 
+      else {
+        this.common.studychampCheckLogin('stchamp', 45);
+      }
+
       // this.router.navigateByUrl('/elearning/stchamp/206');
     }
-    else if(detail.id == 147){
+    else if (detail.id == 147) {
       this.common.mentalUpCheckLogin('mentalup', 45);
       // this.router.navigateByUrl('mentalup'); 
     }
-    else if(detail.id == 184){
+    else if (detail.id == 184) {
       this.router.navigateByUrl('/elearning/stot/184');
     }
-    else{
+    else {
       this.router.navigateByUrl('/elearning/' + this.selectelearn + '/' + detail.id);
     }
-   
+
   }
 
-  
-  goToPlayVideoPage(data, genere){
+
+  goToPlayVideoPage(data, genere) {
     let main_type;
-    if(this.selectelearn == 45){
+    if (this.selectelearn == 45) {
       main_type = 'fun';
     }
-    else if(this.selectelearn == 46){
+    else if (this.selectelearn == 46) {
       main_type = 'hig';
     }
-    else{
+    else {
       main_type = 'cod';
     }
     this.common.checkLogin(data, '45', 'video', main_type, data.id, '69', 'play', '0', genere);
@@ -165,25 +171,25 @@ export class SelectelearnComponent implements OnInit {
       {
         id: 44,
         name: "Growth and development",
-        img: this.path+'elearning/elearning_growthdevelopment_page.PNG',
+        img: this.path + 'elearning/elearning_growthdevelopment_page.PNG',
         categ: ["MENTALUP", "KIDIOLAND", "SMILE & LEARN", "AKILI & ME", "TODDLER GAMES", "FINLAND WAY"]
       },
       {
         id: 45,
         name: "Fun and learning",
-        img:  this.path+'Elearning_fun_learning.webp',
+        img: this.path + 'Elearning_fun_learning.webp',
         categ: ["UBONGO KIDS", "TALES2GO", "DIY", "SHOWS", "LEARNING", "STORIES", "SMILE AND LEARN"]
       },
       {
         id: 46,
         name: "Higher learning",
-        img:  this.path+'Elearning_higher learning.webp',
+        img: this.path + 'Elearning_higher learning.webp',
         categ: ["ELEVATE", "SKILL UP", "PESTO ACADEMY", "WORKSHEET CLOUD", "BABBEL", "ADVANTAGE LEARN.COM"]
       },
       {
         id: 47,
         name: "coding",
-        img:  this.path+'Elearning_coding.webp',
+        img: this.path + 'Elearning_coding.webp',
         categ: ["CODING FOR KIDS", "CODING FOR TEENS", "CODING FOR YOUNG ADULTS"]
       },
       {
