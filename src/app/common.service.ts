@@ -316,37 +316,15 @@ export class CommonService {
   }
 
 
-  Filmdooplay(val, subscriptionId, type, category, content_id, sub_cat, action, duration, genere) {
+  Filmdooplay(val) {
+  
     if (localStorage.getItem("log") === null) {
       this.loginModal();
     }
     else {
-      let checkData;
-      checkData = {
-        user_id: JSON.parse(localStorage.getItem('id')),
-        subcribtion_id: subscriptionId
-      };
-      // // console.log(val);
-      let today = new Date();
-
-      let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-      if (date == '2021-6-10' || date == '2021-6-11' || date == '2021-6-12' || date == '2021-6-13') {
-        this.flimdooModal(val);
-      }
-      else {
-        this.checkSubscription(checkData).subscribe(data => {
-          // console.log(data);
-          if (JSON.parse(JSON.stringify(data)).success == true) {
-            this.flimdooModal(val);
-            this.userActivity(type, category, content_id, sub_cat, action, duration, genere).subscribe();
-          }
-          else {
-            // this.subscribeModal(subscriptionId);
-          }
-        })
-      }
+      this.vdoModals(val);
+      // this.userActivity(type, category, user_id, sub_cat, action, duration, genere).subscribe();
      
-
     }
   }
 
@@ -367,18 +345,18 @@ export class CommonService {
 
   //flimdoo video play
 
-  flimdooModal(selected) {
-    // console.log("test", selected);
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.id = "modal-component";
-    dialogConfig.height = "350px";
-    dialogConfig.width = "600px";
-    dialogConfig.data = {
-      game: selected
-    }
-    const modalDialog = this.matDialog.open(JwplayerComponent, dialogConfig);
-  }
+  // flimdooModal(selected) {
+  //   // console.log("test", selected);
+  //   const dialogConfig = new MatDialogConfig();
+  //   dialogConfig.disableClose = true;
+  //   dialogConfig.id = "modal-component";
+  //   dialogConfig.height = "350px";
+  //   dialogConfig.width = "600px";
+  //   dialogConfig.data = {
+  //     game: selected
+  //   }
+  //   const modalDialog = this.matDialog.open(VideopopupComponent, dialogConfig);
+  // }
 
   // Video popup
   vdoModals(selected) {
