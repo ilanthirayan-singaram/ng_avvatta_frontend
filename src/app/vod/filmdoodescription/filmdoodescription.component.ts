@@ -34,6 +34,8 @@ export class FilmdoodescriptionComponent implements OnInit {
   autoSubmit;
   checkSum: string;
   parReqId: string;
+  sourceFile;
+  flimdoo: any =[];
   constructor(public matDialog: MatDialog, private ActivatedRoute: ActivatedRoute,
     private router: Router,
     private service: ServiceService,
@@ -41,14 +43,24 @@ export class FilmdoodescriptionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let id = {
+    let id;
+    if(localStorage.getItem('id') != null){
+      id = localStorage.getItem('id')
+    }
+    else{
+      id = 0;
+    }
+    let user_id = {
       user_id : JSON.parse(localStorage.getItem('log')).id
     };
-
-
-    this.service.getBillingEmail(id).subscribe(data =>{
+  
+    this.service.getBillingEmail(user_id).subscribe(data => {
+ 
       this.billingEmail = data;
+
     });
+   
+    
 
     this.subscription = this.ActivatedRoute.params.subscribe(params => {
 
@@ -67,31 +79,28 @@ export class FilmdoodescriptionComponent implements OnInit {
 
 
 
-    // this.common.loaderOnLoad();
-    // this.descriptionDetail(window.location.href.split('/')[6]);
+
     this.onResize();
-    // console.log(window.location.href.split('/')[6]);
-    // this.playVideo(window.location.href.split('/')[6]);
+   
     this.createNavigationUrl();
   }
   rentnow(id) {
-    console.log(id,'idrendow')
+ 
     let sub = {
       user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))),
       id: this.id,
       payment_mode: "paygate"
     }
 
-
     this.service.filmsubscribe(id, sub).subscribe(data => {
 
-      if (data.success !== true) {
+      if (data.success == true) {
         this.service.filmplay(this.id).subscribe(res => {
-          // this.common.erosNowPlayVideo(JSON.parse(JSON.parse(JSON.stringify(data)).data), 56, 'video', 'erosnow', content.content_id, 'eros_sub', 'play', '0', '');
-
-          this.common.Filmdooplay(JSON.parse(JSON.parse(JSON.stringify(data)).data),'','Video','flimdoo','','flimdoo_sub','play','0','')
-
+          this.flimdoo = res; 
+        this.flimdoo.sourceFile = res.url
+          this.common.Filmdooplay(this.flimdoo)
         })
+        
       }
       else {
         this.service.filmbuy(this.id).subscribe(result => {
@@ -112,10 +121,10 @@ export class FilmdoodescriptionComponent implements OnInit {
               localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
 
               this.checkSum = this.autoSubmit.data.CHECKSUM;
-              this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID;
-              console.log(this.checkSum, this.parReqId, 'checksumparreqId')
+              this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID;0
+      
               if (this.myFormPost) {
-                // // console.log(this.checkSum, this.parReqId)
+          
                 setTimeout(() => {
                   this.myFormPost.nativeElement.submit();
                 }, 3000);
@@ -123,9 +132,6 @@ export class FilmdoodescriptionComponent implements OnInit {
 
             }
           });
-
-          console.log(payment, 'jai')
-
 
         })
       }
@@ -143,69 +149,24 @@ export class FilmdoodescriptionComponent implements OnInit {
   }
 
   public share(t) {
-    // console.log(this.navUrl);
-    // this.common.userActivity('video', 'erosnow', t.content_id, 'eros_sub', 'shared_fb', '0', '').subscribe();
+ 
+     this.common.userActivity('video', 'erosnow', t.content_id, 'eros_sub', 'shared_fb', '0', '').subscribe();
     return window.open(this.navUrl, "_blank");
   }
 
   ngDoCheck() {
     // this.pageReload();
     if (this.service.check == true) {
-      //  this.descriptionDetail(window.location.href.split('/')[6]);
       this.service.check = false;
     }
 
   }
 
-  // pageReload() {
-  //   if (localStorage.getItem('clockEros') == '1') {
-  //     localStorage.removeItem('clockEros');
-  //     window.location.reload();
-  //   }
-  // }
-
-  // descriptionDetail(contentId) {
-  //   this.common.loaderStart();
-  //   let userId;
-  //   if (localStorage.getItem('id') != null) {
-  //     userId = localStorage.getItem('id')
-  //   }
-  //   else {
-  //     userId = 0;
-  //   }
-  //   let detail = {
-  //     user_id: userId,
-  //     content_id: contentId
-  //   };
-  //   this.service.MovieDetail(detail).subscribe(data => {
-  //     // console.log(data);
-  //     if (data) {
-  //       // this.descData = [JSON.parse(JSON.stringify(data)).data];
-  //       this.common.loaderStop();
-  //     }
-  //   })
-  // }
-
-  playVideo(content) {
-    this.common.loaderStart();
-    // this.common.userActivity('video', 'erosnow', content.content_id, 'eros_sub', 'play', '0').subscribe();
-    this.service.getErosNowVideo({ content_id: content.content_id }).subscribe(data => {
-      if (data) {
-        this.common.erosNowPlayVideo(JSON.parse(JSON.parse(JSON.stringify(data)).data), 56, 'video', 'erosnow', content.content_id, 'eros_sub', 'play', '0', '');
-        this.common.loaderStop();
-      }
-    })
-  }
-
-
+  
+ 
 
   selectMovie(data) {
-    // console.log(data.content_id);
-    // this.common.userActivity('video', 'erosnow', data.content_id, 'eros_sub', 'interact', '0', '').subscribe(data=>{
-    //   console.log(data);
-    // });
-    // this.router.navigateByUrl('/vod/desc/' + data.content_id);
-    // localStorage.setItem('clockEros', '1');
+   
   }
 
   @HostListener('window:resize', ['$event'])
@@ -250,8 +211,8 @@ export class FilmdoodescriptionComponent implements OnInit {
       };
       this.common.loaderStart();
       this.common.addToFavourite(fav).subscribe(data => {
-        // this.common.userActivity('video', 'erosnow', JSON.parse(JSON.stringify(data)).content_id, 'eros_sub', 'add_fav', '0', '').subscribe();
-        // console.log(data);
+         this.common.userActivity('video', 'erosnow', JSON.parse(JSON.stringify(data)).content_id, 'eros_sub', 'add_fav', '0', '').subscribe();
+     
         this.service.check = true;
         this.successMessage((JSON.parse(JSON.stringify(data)).message));
         this.common.loaderStop();
@@ -283,8 +244,8 @@ export class FilmdoodescriptionComponent implements OnInit {
       };
       this.common.loaderStart();
       this.common.watchLater(fav).subscribe(data => {
-        // console.log(data);
-        // this.common.userActivity('video', 'erosnow', JSON.parse(JSON.stringify(data)).content_id, 'eros_sub', 'watch_later', '0', '').subscribe();
+       
+         this.common.userActivity('video', 'erosnow', JSON.parse(JSON.stringify(data)).content_id, 'eros_sub', 'watch_later', '0', '').subscribe();
         this.service.check = true;
         this.successMessage((JSON.parse(JSON.stringify(data)).message));
         this.common.loaderStop();
