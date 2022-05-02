@@ -8,8 +8,8 @@ export const environment = {
 
   imageUrl: "https://www.avvatta.com:8100/avvata/public/uploads/newverticalbanners/",
 
-  apiUrl : "https://www.avvatta.com:8100/public/userApi/",
-  // apiUrl : "https://ng.avvatta.com:8100/public/userApi/",
+  // apiUrl : "https://www.avvatta.com:8100/public/userApi/",
+  apiUrl : "https://ng.avvatta.com:8100/public/userApi/",
   // apiUrl : "http://192.168.0.128/netflix/public/userApi/",
   // http://192.168.0.129/netflix/public/userApi/erosnowcontentall?steps=6
   leapUrl: 'http://avvatta.com:8012/avvatta_jwt/public/api/',
