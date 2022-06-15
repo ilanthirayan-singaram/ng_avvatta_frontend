@@ -1,21 +1,26 @@
 #modal-content-wrapper {
 	overflow: hidden;
-    position:fixed;
-    width: 100%;
-    height: 100%;
+	position: fixed;
+	width: 100%;
+	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
 	color: white;
 	vertical-align: middle;
 	display: flex;
 	margin: auto;
-	h3{
+
+	h3 {
 		font-size: 20px !important;
 		font-weight: bold;
 	}
 
-	h4, p, div, a{
+	h4,
+	p,
+	div,
+	a {
 		font-size: 16px !important;
 	}
+
 	.modalcontainer {
 		padding: 10px;
 		width: calc(60% - 20px);
@@ -24,17 +29,21 @@
 		height: fit-content;
 		background: rgba(0, 0, 0, 0.8);
 		box-shadow: 0px 0px 2px 1px black;
+
 		.header {
 			text-align: right;
 			padding: 10px;
+
 			i {
 				cursor: pointer;
 			}
 		}
+
 		// login signup
 		.mcontainer {
 			width: 100%;
 			display: flex;
+
 			.left {
 				width: calc(50% - 20px);
 				padding: 20px;
@@ -42,24 +51,133 @@
 				vertical-align: middle;
 				display: flex;
 				margin: auto;
+
 				.login {
 					width: 100%;
 					margin: auto;
 					height: fit-content;
+
+					.head {
+						width: 100%;
+						display: flex;
+						// background:rgb(56, 144, 154);
+						color: #fff;
+
+						div {
+							width: 50%;
+							padding: 10px;
+							display: flex;
+							cursor: pointer;
+							border-right: 4px solid #fff;
+
+							h3 {
+								font-size: 16px;
+								font-weight: bold;
+								margin: auto;
+								vertical-align: middle;
+								display: flex;
+								align-items: center;
+							}
+						}
+
+						.privacy {
+							border: 0px;
+						}
+
+						.tac {
+							background: #b1b100;
+						}
+
+						.faq {
+							background: #b1b100;
+						}
+
+					}
+
+					.body {
+						width: calc(100% - 40px);
+						padding: 20px;
+						color: #000;
+						background: #fff;
+
+						.taccont,
+						.privacycont,
+						.aboutcont,
+						.contacecont,
+						.faqcont {
+							text-align: left;
+							// overflow:auto;
+							overflow: hidden;
+							height: auto;
+						}
+
+						h3 {
+							margin: 0px;
+							text-align: left;
+						}
+					}
+
+
 					.input {
 						width: 100%;
 						padding: 10px 0px;
+
+						.solution {
+							border: 1px solid gray;
+							display: inline;
+							padding: 2px
+						}
+
+
+
+
+
+						.input-field {
+							width: 100%;
+							padding: 10px;
+							text-align: center;
+						}
+
 						input {
 							padding: 15px;
 							width: calc(100% - 30px);
 							border-radius: 5px;
 							border: 1px solid #fff;
 							background: #fff;
+							// margin-bottom: 10px;
 						}
 					}
+
+					.input-box {
+						position: relative;
+						padding: 10px 0px;
+
+						input {
+							display: block;
+							border: 1px solid #fff;
+							background: #fff;
+							padding: 15px 15px 15px 50px;
+							width: 80%;
+						}
+					}
+
+					.unit {
+						position: absolute;
+						display: block;
+						left: 5px;
+						top: 23px;
+						z-index: 1;
+					}
+
+					.tac,
+					.faq:active {
+						// background-color: red !important;
+					}
+
 					.cont {
 						width: 100%;
 						padding: 10px 0px;
+
 						button {
 							width: 100%;
 							padding: 15px 0px;
@@ -70,14 +188,17 @@
 							cursor: pointer;
 						}
 					}
+
 					.foot {
 						width: 100%;
 						display: flex;
+
 						.forgot {
 							width: 50%;
 							cursor: pointer;
 							text-align: left;
 						}
+
 						.sign {
 							width: 50%;
 							cursor: pointer;
@@ -85,14 +206,25 @@
 						}
 					}
 				}
+
+				.phone {
+					background-color: red;
+				}
+
+				.email {
+					background-color: #b7cb1a;
+				}
+
 				.signup {
-					.danger{
-						color:red;
-						margin:0px;
+					.danger {
+						color: red;
+						margin: 0px;
 					}
+
 					.input {
 						width: 100%;
 						padding: 10px 0px;
+
 						input {
 							padding: 15px;
 							width: calc(100% - 30px);
@@ -101,13 +233,16 @@
 							background: #fff;
 						}
 					}
+
 					.name {
 						width: 100%;
 						padding: 10px 0px;
 						display: flex;
+
 						.fname {
 							width: 48%;
 							margin-right: auto;
+
 							input {
 								padding: 15px;
 								width: calc(100% - 30px);
@@ -116,9 +251,11 @@
 								background: #fff;
 							}
 						}
+
 						.lname {
 							width: 48%;
 							margin-left: auto;
+
 							input {
 								padding: 15px;
 								width: calc(100% - 30px);
@@ -128,9 +265,11 @@
 							}
 						}
 					}
+
 					.cont {
 						width: 100%;
 						padding: 10px 0px;
+
 						button {
 							width: 100%;
 							padding: 15px 0px;
@@ -141,33 +280,41 @@
 							cursor: pointer;
 						}
 					}
+
 					.foot {
 						width: 100%;
+
 						.hrline {
 							display: flex;
 							width: 100%;
+
 							.l,
 							.r {
 								width: 45%;
 							}
+
 							.c {
 								width: 10%;
 								text-align: center;
 							}
 						}
+
 						.social {
 							width: 100%;
 							display: flex;
+
 							.fb {
 								width: 10%;
 								padding: 10px;
 								margin-left: auto;
 							}
+
 							.google {
 								width: 10%;
 								padding: 10px;
 								margin-right: auto;
 							}
+
 							img {
 								width: 100%;
 							}
@@ -175,6 +322,7 @@
 					}
 				}
 			}
+
 			.right {
 				width: calc(50% - 20px);
 				padding: 20px;
@@ -182,20 +330,25 @@
 				vertical-align: middle;
 				display: flex;
 				margin: auto;
-				h3{
-					text-align:left;
+
+				h3 {
+					text-align: left;
 				}
+
 				div {
 					width: 100%;
 				}
+
 				.container {
 					width: 100%;
+
 					.box {
 						display: flex;
 						margin: auto;
 						overflow: hidden;
 						width: calc(100% - 2px);
 						margin: 20px 0px;
+
 						.icon {
 							width: calc(15% - 10px);
 							display: flex;
@@ -203,15 +356,18 @@
 							border: 3px solid #b7cb1a;
 							border-radius: 20px 0px 0px 0px;
 							padding: 5px;
-							.in{
+
+							.in {
 								width: 90%;
 								margin: auto;
 								vertical-align: middle;
 							}
+
 							img {
 								width: 100%;
 							}
 						}
+
 						.arrow {
 							display: flex;
 							border: 3px solid #b7cb1a;
@@ -219,7 +375,8 @@
 							border-width: 3px 0px;
 							color: #b7cb1a;
 							margin-left: -2px;
-							.in{
+
+							.in {
 								width: 100%;
 								margin: auto;
 								vertical-align: middle;
@@ -227,14 +384,16 @@
 								display: flex;
 							}
 						}
+
 						.text {
-							width: calc(80% - 20px);							
+							width: calc(80% - 20px);
 							display: flex;
 							align-items: center;
 							border: 3px solid #b7cb1a;
 							border-radius: 0px 0px 20px 0px;
 							border-width: 3px 3px 3px 0px;
 							padding: 5px;
+
 							h4,
 							p {
 								margin: 0px;
@@ -247,76 +406,81 @@
 		}
 
 
-// Forgot password
-// .epassword {
-	// .passcontainer {
-	// 	width: 80%;
-	// 	margin: auto;
-	// }
-	// h3 {
-	// 	width: 80%;
-	// 	margin: auto;
-	// 	padding: 10px;
-	// }
-	// p {
-	// 	width: 80%;
-	// 	margin: auto;
-	// 	padding: 10px;
-	// }
-	// .min {
-	// 	width: 50%;
-	// 	margin: auto;
-	// 	padding: 10px;
-	// 	text-align: left;
-	// }
-	// .input {
-	// 	width: 100%;
-	// 	input {
-	// 		width: calc(50% - 20px);
-	// 		margin: auto;
-	// 		padding: 10px;
-	// 		border-radius: 5px;
-	// 		border: 1px solid #fff;
-	// 		background: #fff;
-	// 	}
-	// }
-	// .button {
-	// 	width: 70%;
-	// 	display: flex;
-	// 	padding: 15px 0px;
-	// 	margin-left: auto;
-	// 	margin: auto;
-	// 	button {
-	// 		width: calc(50% - 30px);
-	// 		margin:auto;
-	// 		padding: 15px;
-	// 		background: #b7cb1a;
-	// 		border: 1px solid #b7cb1a;
-	// 		border-radius: 10px 0px;
-	// 		font-weight: bold;
-	// 		cursor: pointer;
-	// 	}
-	// }
-// }
-		
+		// Forgot password
+		// .epassword {
+		// .passcontainer {
+		// 	width: 80%;
+		// 	margin: auto;
+		// }
+		// h3 {
+		// 	width: 80%;
+		// 	margin: auto;
+		// 	padding: 10px;
+		// }
+		// p {
+		// 	width: 80%;
+		// 	margin: auto;
+		// 	padding: 10px;
+		// }
+		// .min {
+		// 	width: 50%;
+		// 	margin: auto;
+		// 	padding: 10px;
+		// 	text-align: left;
+		// }
+		// .input {
+		// 	width: 100%;
+		// 	input {
+		// 		width: calc(50% - 20px);
+		// 		margin: auto;
+		// 		padding: 10px;
+		// 		border-radius: 5px;
+		// 		border: 1px solid #fff;
+		// 		background: #fff;
+		// 	}
+		// }
+		// .button {
+		// 	width: 70%;
+		// 	display: flex;
+		// 	padding: 15px 0px;
+		// 	margin-left: auto;
+		// 	margin: auto;
+		// 	button {
+		// 		width: calc(50% - 30px);
+		// 		margin:auto;
+		// 		padding: 15px;
+		// 		background: #b7cb1a;
+		// 		border: 1px solid #b7cb1a;
+		// 		border-radius: 10px 0px;
+		// 		font-weight: bold;
+		// 		cursor: pointer;
+		// 	}
+		// }
+		// }
+
 		// Verify container
 		.verify {
 			width: 100%;
+
 			.vcontainer {
 				width: 100%;
+
 				.pin {
 					width: calc(50% - 40px);
 					margin: auto;
 					border: 3px solid #b7cb1a;
 					border-radius: 25px 0px;
 					padding: 20px;
+
 					.number {
 						width: 100%;
 						display: flex;
 						padding: 10px 0px;
+
 						.ip {
 							width: 25%;
 							text-align: center;
+
 							input {
 								width: calc(70% - 30px);
 								margin: auto;
@@ -329,9 +493,11 @@
 							}
 						}
 					}
+
 					.button {
 						width: 100%;
 						padding: 10px 0px;
+
 						button {
 							width: 100%;
 							padding: 15px 0px;
@@ -344,28 +510,37 @@
 					}
 				}
 			}
-			p{
+
+			p {
 				cursor: pointer;
 			}
 		}
+
 		// Complete profile
 		.profile {
 			width: 100%;
+
 			.mcontainers {
 				width: 80%;
 				margin: auto;
+
 				.outer {
 					width: 100%;
+
 					.inner {
 						width: 100%;
+
 						.left {
 							width: 50%;
 						}
+
 						.right {
 							width: 50%;
 						}
+
 						.input {
 							width: 100%;
+
 							input {
 								width: calc(95% - 30px);
 								margin: auto;
@@ -375,6 +550,7 @@
 								background: #fff;
 							}
 						}
+
 						.name,
 						.emailmobile,
 						.dateofbirth,
@@ -383,41 +559,50 @@
 							display: flex;
 							padding: 10px 0px;
 						}
+
 						.dobcontainer {
 							width: 100%;
+
 							.dob {
 								width: 95%;
 								margin: auto;
 								display: flex;
+
 								.dobinput {
 									width: 33.3%;
 									position: relative;
+
 									input::-webkit-outer-spin-button,
 									input::-webkit-inner-spin-button {
 										-webkit-appearance: none;
 										margin: 0;
 									}
+
 									div {
 										position: absolute;
 										top: 30%;
 										right: 10px;
 										color: #000;
 									}
+
 									input {
 										width: calc(95% - 30px);
 										margin: auto;
 										padding: 15px;
 									}
 								}
+
 								.dobinput {
 									width: 33.3%;
 									position: relative;
+
 									div {
 										position: absolute;
 										top: 30%;
 										right: 5px;
 										color: #000;
 									}
+
 									select {
 										width: 95%;
 										margin: auto;
@@ -425,20 +610,23 @@
 										border-radius: 5px;
 										border: 1px solid #fff;
 										background: #fff;
-										/* for Firefox */ 
+										/* for Firefox */
 										//  -moz-appearance: none; 
-										 /* for Safari, Chrome, Opera */ 
+										/* for Safari, Chrome, Opera */
 										//  -webkit-appearance: none; 
-						
+
 									}
-									img{
-										width:100%;
+
+									img {
+										width: 100%;
 									}
 								}
 							}
 						}
+
 						.gender {
 							width: 100%;
+
 							.input {
 								width: calc(95% - 30px);
 								margin: auto;
@@ -446,23 +634,29 @@
 								border-radius: 5px;
 								padding: 15px;
 								display: flex;
+
 								.lable {
 									width: 30%;
 								}
+
 								.option {
 									width: 35%;
 									display: flex;
+
 									input {
 										width: 30%;
 									}
+
 									label {
 										width: 70%;
 									}
 								}
 							}
-							input[type='radio']{
+
+							input[type='radio'] {
 								visibility: hidden;
 							}
+
 							input[type='radio']:after {
 								width: 10px;
 								height: 10px;
@@ -476,9 +670,11 @@
 								visibility: visible;
 								border: 5px solid white;
 							}
-							input[type='radio']:checked{
+
+							input[type='radio']:checked {
 								visibility: hidden;
 							}
+
 							input[type='radio']:checked:after {
 								width: 10px;
 								height: 10px;
@@ -493,16 +689,19 @@
 								border: 5px solid white;
 							}
 						}
+
 						h4 {
 							width: 95%;
 							margin: auto;
 							text-align: left;
 						}
 					}
+
 					.button {
 						width: 98%;
 						padding: 10px 0px;
 						margin: auto;
+
 						button {
 							width: 100%;
 							padding: 15px 0px;
@@ -515,118 +714,161 @@
 					}
 				}
 			}
-			.leftalign{
-				text-align:left !important;
+
+			.leftalign {
+				text-align: left !important;
 			}
 		}
 	}
+}
+.inputbox {
+	position: relative;
+	padding: 10px 0px;
+
+	input {
+		display: block;
+		border: 1px solid #d7d6d6;
+		background: #fff;
+		padding: 15px 15px 15px 50px;
+		width: 83%;
+		border-radius: 5px;
+	}
+}
+
+.unit {
+	position: absolute;
+	display: block;
+	left: 5px;
+	top: 23px;
+	z-index: 1;
+	color: #000;
 }
 
 
 
 @media screen and (max-width: 1200px) and (min-width: 801px) {
-	#modal-content-wrapper{
-		.modalcontainer{
+	#modal-content-wrapper {
+		.modalcontainer {
 			width: calc(95% - 20px);
 			// .mcontainer{
-				// display: block;
+			// display: block;
 			// }
 		}
 	}
 }
 
 @media screen and (max-width: 800px) and (min-width: 1px) {
-	#modal-content-wrapper{
+	#modal-content-wrapper {
 		overflow: auto;
-		.modalcontainer{
+
+		.modalcontainer {
 			width: calc(95% - 20px);
-			padding:0px;
-			.mcontainers{				
-				.outer{
-					.inner{
-						h4{
-							width:100% !important;
+			padding: 0px;
+
+			.mcontainers {
+				.outer {
+					.inner {
+						h4 {
+							width: 100% !important;
 						}
 					}
 				}
 			}
-			.verify{
+
+			.verify {
 				.vcontainer {
-					.pin{
+					.pin {
 						width: calc(70% - 40px);
 					}
 				}
 			}
-			.mcontainer{
+
+			.mcontainer {
 				display: block;
-				.left{
-					width:90%;
-					padding:0px;
-					h3{
-						margin:0px;
+
+				.left {
+					width: 90%;
+					padding: 0px;
+
+					h3 {
+						margin: 0px;
 					}
 				}
-				.right{
-					width:90%;
-					padding:0px;
-					h3{
-						margin:0px;
+
+				.right {
+					width: 90%;
+					padding: 0px;
+
+					h3 {
+						margin: 0px;
 					}
 				}
 			}
-			.profile{
-				.dateofbirth{
+
+			.profile {
+				.dateofbirth {
 					display: block !important;
-					.left, .right{
-						width:100% !important;
-						padding:5px 0px;
+
+					.left,
+					.right {
+						width: 100% !important;
+						padding: 5px 0px;
 					}
-					.dobcontainer{
-						width:100% !important;
-						.dob{
+
+					.dobcontainer {
+						width: 100% !important;
+
+						.dob {
 							width: calc(100% - 20px) !important;
+
 							// display: block !important;
-							.dobinput{
-								width:100% !important;
-								margin:10px 0px;
+							.dobinput {
+								width: 100% !important;
+								margin: 10px 0px;
 							}
 						}
 					}
-					.gender{
-						.input{
+
+					.gender {
+						.input {
 							display: block !important;
 							width: calc(90% - 20px) !important;
-							.option{
-								width:100% !important;
-								input{
-									width:20% !important;
+
+							.option {
+								width: 100% !important;
+
+								input {
+									width: 20% !important;
 								}
-								label{
-									width:80% !important;
+
+								label {
+									width: 80% !important;
 									text-align: left !important;
 								}
 							}
-							.lable, .option{
-								margin:10px 0px;
+
+							.lable,
+							.option {
+								margin: 10px 0px;
 							}
 						}
 					}
 				}
-			} 
+			}
 		}
+
 		.name,
 		.emailmobile,
 		.dateofbirth,
 		.password {
+
 			// display: block !important;
-			.left, .right{
-				width:100% !important;
+			.left,
+			.right {
+				width: 100% !important;
 				// margin:10px 0px;
 			}
 		}
 	}
-	
-}
 
- 
-  
+}

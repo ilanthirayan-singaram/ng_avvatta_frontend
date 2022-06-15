@@ -52,6 +52,9 @@ export class ModalComponent implements OnInit {
   date = [];
   register = [];
   ipAddress:string;
+  click : string;
+  clicked : string;
+  countryCode:number;
 
 
   constructor(
@@ -94,9 +97,32 @@ export class ModalComponent implements OnInit {
     if (localStorage.getItem('emailPhone') != '') {
       this.emailphone = JSON.parse(localStorage.getItem('emailPhone'));
     }
+    console.log(this.emailphone,'sas');
+    
     this.getYear();
     window.scroll(0, 0);
     this.loginShow = 'block';
+    if(window.location.href.split('/')[2] == 'avvatta.com' || window.location.href.split('/')[2] == 'www.avvatta.com'){
+       this.countryCode = +27
+    }
+    else if (window.location.href.split('/')[2] == 'gh.avvatta.com'){
+      this.countryCode = +233
+    }
+    else if (window.location.href.split('/')[2] == 'ng.avvatta.com'){
+    this.countryCode = +234
+    }
+    else {
+      this.countryCode = +91
+    }
+   
+    if(window.location.href.split('/')[5] == undefined){
+      this.click = 'Phone';
+      this.clicked = 'Phone';
+    }
+    else{
+      this.click = window.location.href.split('/')[5];
+      this.clicked = window.location.href.split('/')[5];
+    }
     // this.signUpShow = 'block';
     //  this.VerifyShow = 'block';
     // this.completeProfileShow = 'block';
@@ -146,7 +172,9 @@ export class ModalComponent implements OnInit {
     loginData = {
       device_type: this.deviceType,
       login_by: this.loginBy,
-      [this.emailphone[0].name]: this.emailphone[0].value,
+      mobile:this.countryCode+login.value.phone,
+      email:login.value.email,
+      // [this.emailphone[0].name]: this.emailphone[0].value,
       login_type: this.emailphone[0].name,
       password: login.value.password,
       device_browser:this.deviceService.getDeviceInfo().browser,
@@ -154,13 +182,15 @@ export class ModalComponent implements OnInit {
       device_os:deviceName
     };
     this.loginDta = loginData;
-    // console.log(loginData);
+    console.log(loginData,'logn');
     this.loginApi(login)
     
   }
 
   loginApi(login){
     this.service.loginCall(this.loginDta).subscribe(data => {
+      console.log(data,'datas');
+      
       let successData;
       successData = JSON.parse(JSON.stringify(data));
       localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
@@ -245,8 +275,8 @@ export class ModalComponent implements OnInit {
     let rsendPin;
     rsendPin = [{
       user_id: localStorage.getItem('id'),
-      login_type: this.emailphone[0].name,
-      [this.emailphone[0].name]: this.emailphone[0].value,
+      login_type: "mobile",
+     mobile: localStorage.getItem('mobile'),
     }];
     // console.log(rsendPin[0]);
     this.common.loaderStart();
@@ -297,12 +327,14 @@ successMessage(message){
     let signUpData = [];
     signUpData = [
       {
-        [this.emailphone[0].name]: this.emailphone[0].value,
+        mobile:this.countryCode+signUpform.value.mobile,
+        email:signUpform.value.email,
+        // [this.emailphone[0].name]: this.emailphone[0].value,
         fname: signUpform.value.fname,
         lname: signUpform.value.lname,
         device_type: this.deviceType,
         login_by: this.loginBy,
-        login_type: this.emailphone[0].name,
+        login_type: "mobile",
       }
     ];
     this.common.loaderStart();
@@ -342,8 +374,9 @@ successMessage(message){
     pins = pin.value.pin1 + pin.value.pin2 + pin.value.pin3 + pin.value.pin4;
     pinVerify = [
       {
-        [this.emailphone[0].name]: this.emailphone[0].value,
-        login_type: this.emailphone[0].name,
+        mobile:localStorage.getItem('mobile'),
+        // [this.emailphone[0].name]: this.emailphone[0].value,
+        login_type: 'mobile',
         id: localStorage.getItem('id'),
         email: localStorage.getItem('email'),
         token: localStorage.getItem('token'),
@@ -434,7 +467,7 @@ successMessage(message){
       mail = profileValue.value.email;
     }
     // number check
-    let mobileNumber = /^((\\+91-?)|0)?[0-9]{10}$/;
+    let mobileNumber = /^((\\91-?)|0)?[0-9]{12}$/;
     let phone;
     if (profileValue.value.mobile != undefined) {
       if (!profileValue.value.mobile.match(/^\s*$/)) {
@@ -464,7 +497,7 @@ successMessage(message){
         gender: profileValue.value.gender,
         dob: profileValue.value.date + "/" + profileValue.value.month + "/" + profileValue.value.year,
         password: profileValue.value.cpassword,
-        login_type: this.emailphone[0].name
+        login_type:"mobile"
       }
     ];
     this.common.loaderStart();
@@ -545,5 +578,11 @@ successMessage(message){
   //     this.common.loaderStop();
   //   });
   // }
+  
+  show(data){
+    this.clicked = data;
+    this.click = data;
+  }
+  
 
 }
