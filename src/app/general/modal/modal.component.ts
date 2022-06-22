@@ -34,6 +34,7 @@ export class ModalComponent implements OnInit {
   pinAlert: string = 'none';
   deviceType: string = 'web';
   loginBy: string = 'manual';
+  logintype:string;
   month: string;
   fname1: string;
   lname1: string;
@@ -182,18 +183,20 @@ export class ModalComponent implements OnInit {
       device_os:deviceName
     };
     this.loginDta = loginData;
-    console.log(loginData,'logn');
     this.loginApi(login)
     
   }
 
   loginApi(login){
     this.service.loginCall(this.loginDta).subscribe(data => {
-      console.log(data,'datas');
+  
       
       let successData;
       successData = JSON.parse(JSON.stringify(data));
+   
+      
       localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
+
 
       if(successData.status_code == 101){
         this.errorCode = successData.status_code;
@@ -206,7 +209,7 @@ export class ModalComponent implements OnInit {
     }];
    if(successData.mondia_user == true){
     this.service.signOutApiCall(signOut[0]).subscribe(data=>{
-      console.log('data', data);
+    
     });
    }
       }
@@ -232,6 +235,7 @@ export class ModalComponent implements OnInit {
         localStorage.setItem('log', JSON.stringify(data));
         localStorage.setItem('id', successData.id);
         localStorage.setItem('email', successData.email);
+        localStorage.setItem('mobile',successData.mobile)
         localStorage.setItem('token', successData.token);
         localStorage.setItem('parentpin', successData.set_parent);
         localStorage.setItem('logedid', successData.loged_user_id);
@@ -272,10 +276,17 @@ export class ModalComponent implements OnInit {
   }
   // Resend Pin
   reSendPin() {
+    if(localStorage.getItem('email')){
+      this.logintype = 'email'
+    }
+    else{
+      this.logintype = 'mobile'
+    }
     let rsendPin;
     rsendPin = [{
       user_id: localStorage.getItem('id'),
-      login_type: "mobile",
+      login_type: this.logintype,
+      email:localStorage.getItem('email'),
      mobile: localStorage.getItem('mobile'),
     }];
     // console.log(rsendPin[0]);
@@ -319,24 +330,30 @@ successMessage(message){
 
   signUp(signUpform: NgForm) {
     this.loginBy = 'manual';
-    if ((signUpform.value.fname == '') || (signUpform.value.lname == '') || (signUpform.value.email == '')) {
+    if ((signUpform.value.fname == '') || (signUpform.value.lname == '')) {
       // console.log(signUpform.value);
       this.errorMessage("Please fill all the fields");
       return;
+    }
+    if(signUpform.value.email){  
+      this.logintype ='email'
+    }
+    else{ 
+      this.logintype ='mobile'
     }
     let signUpData = [];
     signUpData = [
       {
         mobile:this.countryCode+signUpform.value.mobile,
         email:signUpform.value.email,
-        // [this.emailphone[0].name]: this.emailphone[0].value,
         fname: signUpform.value.fname,
         lname: signUpform.value.lname,
         device_type: this.deviceType,
         login_by: this.loginBy,
-        login_type: "mobile",
+        
+        login_type:this.logintype,
       }
-    ];
+    ]; 
     this.common.loaderStart();
     this.service.signUpCall(signUpData[0]).subscribe(res => {
       let signData = JSON.parse(JSON.stringify(res));
@@ -370,13 +387,17 @@ successMessage(message){
   getPin(pin: NgForm) {
     let pinVerify = [];
     // console.log(pin.value)
+    if(localStorage.getItem('email')){
+      this.logintype = 'email'
+    }else{
+      this.logintype = 'mobile'
+    }
     let pins;
     pins = pin.value.pin1 + pin.value.pin2 + pin.value.pin3 + pin.value.pin4;
     pinVerify = [
       {
         mobile:localStorage.getItem('mobile'),
-        // [this.emailphone[0].name]: this.emailphone[0].value,
-        login_type: 'mobile',
+        login_type: this.logintype,
         id: localStorage.getItem('id'),
         email: localStorage.getItem('email'),
         token: localStorage.getItem('token'),

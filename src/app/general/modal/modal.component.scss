@@ -225,6 +225,55 @@
 						color: red;
 						margin: 0px;
 					}
+					.input-box {
+						position: relative;
+						padding: 10px 0px;
+
+						input {
+							display: block;
+							border: 1px solid #fff;
+							background: #fff;
+							padding: 15px 15px 15px 50px;
+							width: 80%;
+						}
+					}
+
+					.unit {
+						position: absolute;
+						display: block;
+						left: 5px;
+						top: 23px;
+						z-index: 1;
+					}
+
+					.body {
+						width: calc(100% - 40px);
+						padding: 20px;
+						color: #000;
+						background: #fff;
+						input::-webkit-outer-spin-button,
+					input::-webkit-inner-spin-button {
+					  -webkit-appearance: none;
+					  margin: 0;
+					}
+
+						.taccont,
+						.privacycont,
+						.aboutcont,
+						.contacecont,
+						.faqcont {
+							text-align: left;
+							// overflow:auto;
+							overflow: hidden;
+							height: auto;
+						}
+
+						h3 {
+							margin: 0px;
+							text-align: left;
+						}
+					}
+
 
 					.input {
 						width: 100%;
@@ -269,6 +318,42 @@
 								background: #fff;
 							}
 						}
+					}
+					.head {
+						width: 100%;
+						display: flex;
+						// background:rgb(56, 144, 154);
+						color: #fff;
+
+						div {
+							width: 50%;
+							padding: 10px;
+							display: flex;
+							cursor: pointer;
+							border-right: 4px solid #fff;
+
+							h3 {
+								font-size: 16px;
+								font-weight: bold;
+								margin: auto;
+								vertical-align: middle;
+								display: flex;
+								align-items: center;
+							}
+						}
+
+						.privacy {
+							border: 0px;
+						}
+
+						.tac {
+							background: #b1b100;
+						}
+
+						.faq {
+							background: #b1b100;
+						}
+
 					}
 					
 					
@@ -733,10 +818,10 @@
 
 	input {
 		display: block;
-		border: 1px solid #d7d6d6;
+		border: 1px solid #fff;
 		background: #fff;
 		padding: 15px 15px 15px 50px;
-		width: 83%;
+		width: 80%;
 		border-radius: 5px;
 	}
 }

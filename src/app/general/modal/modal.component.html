@@ -192,7 +192,19 @@
                 <div class="mcontainer">
                     <div class="left">
                         <div class="signup">
+                            <div class="head">
+                                <div class="tac" [ngClass]="{'active': clicked == 'Phone'}" (click)="show('Phone')"
+                                >
+                                <h3>Phone </h3>
+                            </div>
+                            <div class="faq" [ngClass]="{'active': clicked == 'email'}" (click)="show('email')"
+                               >
+                                <h3> Email</h3>
+                            </div>
+                            </div>
+                            <div class="body">
                             <h3>Enter your credentials</h3>
+                            <div class="taccont" *ngIf="click=='Phone'"  >
                             <form #s="ngForm" (ngSubmit)="signUp(s)">
                                 <div class="name">
                                     <div class="fname">
@@ -205,7 +217,10 @@
                                 </div>
                                 <div class="inputbox">
                                     <div class="unit">{{this.countryCode}}</div>
-                                    <input type="text" name="mobile" autocomplete="off"  placeholder="Enter Mobile number" ngModel required  #phone="ngModel" />
+                                    <input type="tel" name="mobile" autocomplete="off"  placeholder="Enter Mobile number" ngModel required
+                                      #phone="ngModel" oninput="this.value = 
+                                      !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"  
+                                      (keyup)="checkMail(s.value.phone)" />
                                    
                                   </div>
                                 <!-- <div class="input">
@@ -216,6 +231,29 @@
                                     <button>CONTINUE</button>
                                 </div>
                             </form>
+                            </div>
+                            <div class="taccont" *ngIf="click=='email'"  >
+                                <form #s="ngForm" (ngSubmit)="signUp(s)">
+                                    <div class="name">
+                                        <div class="fname">
+                                            <input type="text" name="fname" ngModel required #fname="ngModel" placeholder="First Name">
+                                        </div>
+                                        <div class="lname">
+                                            <input type="text" name="lname" ngModel placeholder="Last Name">
+    
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="input">
+                                        <input type="text" name="email" ngModel placeholder="Enter Email Address" email #Email="ngModel" (keyup)="checkMail(s.value.email)">
+                                    </div>
+                                    <!-- <p *ngIf="emailphone" class="danger">Invalid Mobile Number</p> -->
+                                    <div class="cont">
+                                        <button>CONTINUE</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
                             <div class="foot">
                                 <div class="hrline">
                                     <div class="l" width=100>
@@ -375,7 +413,10 @@
                                     </div>
                                     <div class="right">
                                         <div class="input">
-                                            <input type="tel" maxlength="10" pattern="[0-9]{10}" name="mobile" placeholder="Enter mobile number" ngModel required [readonly]='phoneRead' [(ngModel)]="phone1">
+                                            <input type="tel" maxlength="10" pattern="[0-9]{10}" name="mobile" oninput="this.value = 
+                                            !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"  
+                                            (keyup)="checkMail(profile.value.phone)" 
+                                             placeholder="Enter mobile number" ngModel required [readonly]='phoneRead' [(ngModel)]="phone1">
                                         </div>
                                         <!-- <div class="input">
                                             <input type="text" name="email" ngModel placeholder="Email or Mobile number" email #Email="ngModel" [readonly]='phoneRead' [(ngModel)]="phone1" (keyup)="checkMail(s.value.email)">
