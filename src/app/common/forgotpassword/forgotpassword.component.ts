@@ -12,22 +12,49 @@ export class ForgotpasswordComponent implements OnInit {
   alertShow : boolean;
   alertMessage : {};
   pinAlert : boolean;
+  click : string;
+  clicked : string;
+  countryCode: number;
   constructor(private service : ServiceService, 
     private common : CommonService, 
     public matDialog: MatDialog,) { }
 
   ngOnInit(): void {
+    if(window.location.href.split('/')[2] == 'avvatta.com' || window.location.href.split('/')[2] == 'www.avvatta.com'){
+      this.countryCode = +27
+   }
+   else if (window.location.href.split('/')[2] == 'ng.avvatta.com'){
+     this.countryCode = +234
+   }
+   else {
+   this.countryCode = +233
+   }
+  //  else {
+  //    this.countryCode = +91
+  //  }
+    if(window.location.href.split('/')[5] == undefined){
+      this.click = 'Phone';
+      this.clicked = 'Phone';
+    }
+    else{
+      this.click = window.location.href.split('/')[5];
+      this.clicked = window.location.href.split('/')[5];
+    }
   }
   forgotPassword(email){
     if(this.pinAlert == false){
       let emailId;
       emailId = [
         {
-          [this.service.emailphone[0].name]: this.service.emailphone[0].value,
+          // mobile:this.service.emailphone[0].value,
+          mobile:this.countryCode+email.value.mobile,
+          email:email.value.email,
+        //  email: this.service.emailphone[0].value,
           login_type: this.service.emailphone[0].name,
           'X_CSRF_TOKEN': localStorage.getItem('token'),
           'X_id': localStorage.getItem('id'),
         }
+        
       ];
       this.common.loaderStart();
       this.service.forgotPasswordLink(emailId[0]).subscribe(data => {
@@ -35,9 +62,11 @@ export class ForgotpasswordComponent implements OnInit {
         successData = JSON.parse(JSON.stringify(data));
         this.service.close(successData.success);
         if (successData.success == false) {
+          console.log(successData.success,'fail')
           this.errorMessage(successData.error_messages);
         }
-        else {
+        else {          
+          console.log(successData.success,'sucess')
           this.successMessage(successData.message);
           // this.matDialog.closeAll();
         }
@@ -67,8 +96,13 @@ export class ForgotpasswordComponent implements OnInit {
   }
   
   successMessage(message){
+    console.log(message,'data')
     this.alertMessage = { success: message };
     this.alertShow = true;
+  }
+  show(data){
+    this.clicked = data;
+    this.click = data;
   }
 }
 

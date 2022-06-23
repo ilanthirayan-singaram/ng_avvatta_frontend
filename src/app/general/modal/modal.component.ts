@@ -316,7 +316,9 @@ successMessage(message){
   }
 
   // Sign Up function
+  
 
+  signUpByMobile
   signUp(signUpform: NgForm) {
     this.loginBy = 'manual';
     if ((signUpform.value.fname == '') || (signUpform.value.lname == '') || (signUpform.value.email == '')) {
