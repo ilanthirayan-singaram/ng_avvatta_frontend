@@ -39,17 +39,19 @@
                             </div>
                             <div class="body">
                                 <h3>Enter your credentials</h3>
-                                <div class="taccont" *ngIf="click=='Phone'"  >
+                                <div class="taccont phone_number" *ngIf="click=='Phone'"  >
                                     <form #l="ngForm" (ngSubmit)="login(l)">
                                      
                                         <!-- <div class="input-icons input">
-                                            <span>+91</span>
                                             <input type="text" name="email" autocomplete="off" ngModel required #email="ngModel" placeholder="Enter Mobile number" (keyup)="checkMail(l.value.email)">
                                         </div> -->
-                                        <div class="input-box">
-                                            <div class="unit">{{this.countryCode}}</div>
-                                            <input type="text" name="phone" autocomplete="off"  placeholder="Enter Mobile number" ngModel required  #phone="ngModel" value="" (keyup)="checkMail(l.value.phone)" autofocus="autofocus"/>
-                                           
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                {{this.countryCode}}
+                                            </span>
+                                            <input type="number" name="phone" autocomplete="off"  placeholder="Mobile number" ngModel required  #phone="ngModel" value="" (keyup)="checkMail(l.value.phone)" autofocus="autofocus">
+                                        
                                           </div>
                                         <div class="input">
                                             <input type="password" name="password" autocomplete="off" ngModel placeholder="Password">
@@ -63,7 +65,7 @@
                                 <div class="taccont" *ngIf="click=='email'">
                                     <form #l="ngForm" (ngSubmit)="login(l)">
                                         <div class="input">
-                                            <input type="text" name="email" autocomplete="off" ngModel required #email="ngModel" placeholder="Enter Email" (keyup)="checkMail(l.value.email)">
+                                            <input type="text" name="email" autocomplete="off" ngModel required #email="ngModel" placeholder="Email Address" (keyup)="checkMail(l.value.email)">
                                         </div>
                                         <div class="input">
                                             <input type="password" name="password" autocomplete="off" ngModel placeholder="Password">
@@ -180,6 +182,8 @@
             </div>
         </div>
         <!-- Forgot password End -->
+
+
         <!-- Sign up start -->
         <div [ngStyle]="{ 'display': signUpShow }">
             <div class="header" (click)="closeModal()">
@@ -187,9 +191,28 @@
             </div>
             <div class="sinlog">
                 <div class="mcontainer">
+
+
+
+
                     <div class="left">
                         <div class="signup">
+
+                            <div class="head" [ngClass]=" show ? 'Phone' : 'email'">
+                                <div class="tac" [ngClass]="{'active': clicked == 'Phone'}" (click)="show('Phone')"
+                                >
+                                <h3>Phone </h3>
+                            </div>
+                            <div class="faq" [ngClass]="{'active': clicked == 'email'}" (click)="show('email')"
+                               >
+                                <h3> Email</h3>
+                            </div>
+                          </div>
+
+                          <div class="body">
                             <h3>Enter your credentials</h3>
+                            <div class="taccont phone_number" *ngIf="click=='Phone'"  >
+
                             <form #s="ngForm" (ngSubmit)="signUp(s)">
                                 <div class="name">
                                     <div class="fname">
@@ -200,10 +223,12 @@
 
                                     </div>
                                 </div>
-                                <div class="inputbox">
-                                    <div class="unit">{{this.countryCode}}</div>
-                                    <input type="text" name="mobile" autocomplete="off"  placeholder="Enter Mobile number" ngModel required  #phone="ngModel" />
-                                   
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        {{this.countryCode}}
+                                    </span>
+                                    <input type="number" name="mobile" autocomplete="off"  placeholder="Enter Mobile number" ngModel required  #phone="ngModel">
+                                
                                   </div>
                                 <!-- <div class="input">
                                     <input type="text" name="email" ngModel placeholder="Email or Mobile number" email #Email="ngModel" (keyup)="checkMail(s.value.email)">
@@ -213,6 +238,31 @@
                                     <button>CONTINUE</button>
                                 </div>
                             </form>
+                            </div>
+                            <div class="taccont" *ngIf="click=='email'">
+                                <form #s="ngForm" (ngSubmit)="signUp(s)">
+                                    <div class="name">
+                                        <div class="fname">
+                                            <input type="text" name="fname" ngModel required #fname="ngModel" placeholder="First Name">
+                                        </div>
+                                        <div class="lname">
+                                            <input type="text" name="lname" ngModel placeholder="Last Name">
+    
+                                        </div>
+                                    </div>
+     
+
+                                    <div class="input">
+                                        <input type="email" name="email" ngModel placeholder="Email" email #Email="ngModel" (keyup)="checkMail(s.value.email)">
+                                    </div>
+                                    <!-- <p *ngIf="emailphone" class="danger">Invalid Mobile Number</p> -->
+                                    <div class="cont">
+                                        <button>CONTINUE</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                          </div>
                             <div class="foot">
                                 <div class="hrline">
                                     <div class="l" width=100>

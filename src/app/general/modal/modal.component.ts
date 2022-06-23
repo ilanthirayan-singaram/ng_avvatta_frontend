@@ -321,7 +321,7 @@ successMessage(message){
     this.loginBy = 'manual';
     if ((signUpform.value.fname == '') || (signUpform.value.lname == '') || (signUpform.value.email == '')) {
       // console.log(signUpform.value);
-      this.errorMessage("Please fill all the fields");
+      this.errorMessage("Please fill all the required fields");
       return;
     }
     let signUpData = [];

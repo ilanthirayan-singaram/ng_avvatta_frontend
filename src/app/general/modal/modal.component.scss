@@ -68,7 +68,6 @@
 							padding: 10px;
 							display: flex;
 							cursor: pointer;
-							border-right: 4px solid #fff;
 
 							h3 {
 								font-size: 16px;
@@ -85,20 +84,22 @@
 						}
 
 						.tac {
-							background: #b1b100;
+							background: #01010100;
 						}
 
 						.faq {
-							background: #b1b100;
+							background: #01010100;
+						}
+						.active{
+							background: #b7cb1a;
 						}
 
 					}
 
 					.body {
-						width: calc(100% - 40px);
-						padding: 20px;
+						
 						color: #000;
-						background: #fff;
+
 
 						.taccont,
 						.privacycont,
@@ -112,8 +113,41 @@
 						}
 
 						h3 {
-							margin: 0px;
+							margin: 10px 0px;
 							text-align: left;
+							color:#ffffff;
+
+						}
+
+						.input-group {
+							display: flex;
+							align-content: stretch;
+							height: 55px;
+							input[type=number] {
+								&::-webkit-outer-spin-button {
+									-webkit-appearance: none;
+									margin: 0;
+								}
+								&::-webkit-inner-spin-button {
+									-webkit-appearance: none;
+									margin: 0;
+								}
+							}
+							input[type=number] {
+								-moz-appearance: textfield;
+							}
+						}
+
+						.input-group>input {
+							flex: 1 0 auto;
+							padding: 15px;
+							border-radius: 5px;
+						}
+
+						.input-group-addon {
+							background: #eee;
+							border: 1px solid #ccc;
+							padding: 1em 1em;
 						}
 					}
 
@@ -159,6 +193,9 @@
 							padding: 15px 15px 15px 50px;
 							width: 80%;
 						}
+
+						
+						
 					}
 
 					.unit {
@@ -216,6 +253,81 @@
 				}
 
 				.signup {
+
+					.head {
+						width: 100%;
+						display: flex;
+						// background:rgb(56, 144, 154);
+						color: #fff;
+
+						div {
+							width: 50%;
+							padding: 10px;
+							display: flex;
+							cursor: pointer;
+
+							h3 {
+								font-size: 16px;
+								font-weight: bold;
+								margin: auto;
+								vertical-align: middle;
+								display: flex;
+								align-items: center;
+							}
+						}
+
+						.privacy {
+							border: 0px;
+						}
+
+						.tac {
+							background: #01010100;
+						}
+
+						.faq {
+							background: #01010100;
+						}
+						.active{
+							background: #b7cb1a;
+						}
+
+					}
+
+					.body{
+						
+						.input-group {
+							display: flex;
+							align-content: stretch;
+							height: 55px;
+							input[type=number] {
+								&::-webkit-outer-spin-button {
+									-webkit-appearance: none;
+									margin: 0;
+								}
+								&::-webkit-inner-spin-button {
+									-webkit-appearance: none;
+									margin: 0;
+								}
+							}
+							input[type=number] {
+								-moz-appearance: textfield;
+							}
+						}
+
+						.input-group>input {
+							flex: 1 0 auto;
+							padding: 15px;
+							border-radius: 5px;
+						}
+
+						.input-group-addon {
+							background: rgb(255, 255, 255);
+							color: #000;
+							border: 1px solid #ccc;
+							padding: 1em 1em;
+						}
+					}
+
 					.danger {
 						color: red;
 						margin: 0px;
@@ -721,6 +833,7 @@
 		}
 	}
 }
+
 .inputbox {
 	position: relative;
 	padding: 10px 0px;
