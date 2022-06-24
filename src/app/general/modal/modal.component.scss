@@ -90,20 +90,22 @@
 						.faq {
 							background: #01010100;
 						}
-						.active{
+
+						.active {
 							background: #b7cb1a;
 						}
 
 					}
 
 					.body {
-						
+
 						color: #000;
+
 						input::-webkit-outer-spin-button,
-					input::-webkit-inner-spin-button {
-					  -webkit-appearance: none;
-					  margin: 0;
-					}
+						input::-webkit-inner-spin-button {
+							-webkit-appearance: none;
+							margin: 0;
+						}
 
 						.taccont,
 						.privacycont,
@@ -119,7 +121,7 @@
 						h3 {
 							margin: 10px 0px;
 							text-align: left;
-							color:#ffffff;
+							color: #ffffff;
 
 						}
 
@@ -127,16 +129,19 @@
 							display: flex;
 							align-content: stretch;
 							height: 55px;
+
 							input[type=number] {
 								&::-webkit-outer-spin-button {
 									-webkit-appearance: none;
 									margin: 0;
 								}
+
 								&::-webkit-inner-spin-button {
 									-webkit-appearance: none;
 									margin: 0;
 								}
 							}
+
 							input[type=number] {
 								-moz-appearance: textfield;
 							}
@@ -198,8 +203,8 @@
 							width: 80%;
 						}
 
-						
-						
+
+
 					}
 
 					.unit {
@@ -217,7 +222,8 @@
 					.faq {
 						background: #01010100;
 					}
-					.active{
+
+					.active {
 						background: #b7cb1a;
 					}
 
@@ -297,28 +303,32 @@
 						.faq {
 							background: #01010100;
 						}
-						.active{
+
+						.active {
 							background: #b7cb1a;
 						}
 
 					}
 
-					.body{
-						
+					.body {
+
 						.input-group {
 							display: flex;
 							align-content: stretch;
 							height: 55px;
+
 							input[type=number] {
 								&::-webkit-outer-spin-button {
 									-webkit-appearance: none;
 									margin: 0;
 								}
+
 								&::-webkit-inner-spin-button {
 									-webkit-appearance: none;
 									margin: 0;
 								}
 							}
+
 							input[type=number] {
 								-moz-appearance: textfield;
 							}
@@ -342,6 +352,7 @@
 						color: red;
 						margin: 0px;
 					}
+
 					.input-box {
 						position: relative;
 						padding: 10px 0px;
@@ -364,14 +375,14 @@
 					}
 
 					.body {
-						
+
 						color: #000;
-				
+
 						input::-webkit-outer-spin-button,
-					input::-webkit-inner-spin-button {
-					  -webkit-appearance: none;
-					  margin: 0;
-					}
+						input::-webkit-inner-spin-button {
+							-webkit-appearance: none;
+							margin: 0;
+						}
 
 						.taccont,
 						.privacycont,
@@ -435,6 +446,7 @@
 							}
 						}
 					}
+
 					.head {
 						width: 100%;
 						display: flex;
@@ -446,7 +458,7 @@
 							padding: 10px;
 							display: flex;
 							cursor: pointer;
-						
+
 
 							h3 {
 								font-size: 16px;
@@ -469,13 +481,14 @@
 						.faq {
 							background: #01010100;
 						}
-						.active{
+
+						.active {
 							background: #b7cb1a;
 						}
 
 					}
-					
-					
+
+
 					.cont {
 						width: 100%;
 						padding: 10px 0px;
@@ -1077,9 +1090,63 @@
 			.left,
 			.right {
 				width: 100% !important;
+
 				// margin:10px 0px;
+				.input-group {
+					display: flex;
+					align-content: stretch;
+					height: 55px;
+
+					// input {
+					// 	padding: 17px 20px;
+					// 	border-radius: 5px;
+					// 	width: 68%;
+					// }
+
+					.data {
+						padding: 17px 20px !important;
+						border-radius: 5px !important;
+						width: 68% !important;
+					}
+
+					input[type=tel] {
+						&::-webkit-outer-spin-button {
+							-webkit-appearance: none;
+							margin: 0;
+
+						}
+					}
+
+					&::-webkit-inner-spin-button {
+						-webkit-appearance: none;
+						margin: 0;
+					}
+				}
+
+				input[type=number] {
+					-moz-appearance: textfield;
+
+				}
+			}
+
+			.input-group>input {
+				flex: 1 0 auto;
+				padding: 15px;
+				border-radius: 5px;
+			}
+
+			.input-group-addon {
+				background: #eee;
+				border: 1px solid #ccc;
+				padding: 1em 1em;
+
+			}
+
+			.code {
+				background: #fff !important;
+				color: black !important;
+				padding: 15px 5px !important;
 			}
 		}
 	}
-
 }
