@@ -156,6 +156,7 @@
 						.input-group-addon {
 							background: #eee;
 							border: 1px solid #ccc;
+							border-radius: 5px;
 							padding: 1em 1em;
 						}
 					}
@@ -229,7 +230,7 @@
 
 					.cont {
 						width: 100%;
-						padding: 10px 0px;
+						padding: 0px 0px 10px;
 
 						button {
 							width: 100%;
@@ -342,6 +343,7 @@
 
 						.input-group-addon {
 							background: rgb(255, 255, 255);
+							border-radius: 5px;
 							color: #000;
 							border: 1px solid #ccc;
 							padding: 1em 1em;
@@ -491,7 +493,7 @@
 
 					.cont {
 						width: 100%;
-						padding: 10px 0px;
+						padding: 10px 0px 10px;
 
 						button {
 							width: 100%;
@@ -1138,6 +1140,7 @@
 			.input-group-addon {
 				background: #eee;
 				border: 1px solid #ccc;
+				border-radius: 5px;
 				padding: 1em 1em;
 
 			}
