@@ -423,15 +423,15 @@
                                             <input type="text" name="email" placeholder="Enter email address" ngModel  required #email="ngModel" [value]='email1' [readonly]='emailRead'>
                                         </div>
                                     </div>
-                                    <!-- <div class="right">
+                                    <div class="right">
                                         <div class="input">
                                             <input type="tel" maxlength="10" pattern="[0-9]{10}" name="mobile" oninput="this.value = 
                                             !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"  
                                             (keyup)="checkMail(profile.value.phone)" 
                                              placeholder="Enter mobile number" ngModel required [readonly]='phoneRead' [(ngModel)]="phone1">
                                         </div>
-                                    </div> -->
-                                    <div class="right">
+                                    </div>
+                                    <!-- <div class="right">
                                     <div class="input-group">
                                         <span class=" code">
                                             {{this.countryCode}}
@@ -441,7 +441,7 @@
                                          !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"  
                                          (keyup)="checkMail(profile.value.phone)"  />
                                     </div>
-                                </div>
+                                </div> -->
                                 </div>
                                 <div>
                                     <h4>Date of Birth</h4>

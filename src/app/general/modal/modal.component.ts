@@ -34,6 +34,7 @@ export class ModalComponent implements OnInit {
   pinAlert: string = 'none';
   deviceType: string = 'web';
   loginBy: string = 'manual';
+  logintype:string;
   month: string;
   fname1: string;
   lname1: string;
@@ -97,7 +98,7 @@ export class ModalComponent implements OnInit {
     if (localStorage.getItem('emailPhone') != '') {
       this.emailphone = JSON.parse(localStorage.getItem('emailPhone'));
     }
-    console.log(this.emailphone,'sas');
+   
     
     this.getYear();
     window.scroll(0, 0);
@@ -176,6 +177,7 @@ export class ModalComponent implements OnInit {
       email:login.value.email,
       // [this.emailphone[0].name]: this.emailphone[0].value,
       login_type: this.emailphone[0].name,
+      // login_type:this.logintype,
       password: login.value.password,
       device_browser:this.deviceService.getDeviceInfo().browser,
       device_ip:this.ipAddress,
@@ -232,6 +234,7 @@ export class ModalComponent implements OnInit {
         localStorage.setItem('log', JSON.stringify(data));
         localStorage.setItem('id', successData.id);
         localStorage.setItem('email', successData.email);
+        localStorage.setItem('mobile',successData.mobile);
         localStorage.setItem('token', successData.token);
         localStorage.setItem('parentpin', successData.set_parent);
         localStorage.setItem('logedid', successData.loged_user_id);
@@ -272,10 +275,18 @@ export class ModalComponent implements OnInit {
   }
   // Resend Pin
   reSendPin() {
+
+    if(localStorage.getItem('email')){
+      this.logintype = 'email'
+    }
+    else{
+      this.logintype = 'mobile'
+    }
     let rsendPin;
     rsendPin = [{
       user_id: localStorage.getItem('id'),
-      login_type: "mobile",
+      login_type: this.logintype,
+      email:localStorage.getItem('email'),
      mobile: localStorage.getItem('mobile'),
     }];
     // console.log(rsendPin[0]);
@@ -318,7 +329,7 @@ successMessage(message){
   // Sign Up function
   
 
-  signUpByMobile
+
   signUp(signUpform: NgForm) {
     this.loginBy = 'manual';
     if ((signUpform.value.fname == '') || (signUpform.value.lname == '') || (signUpform.value.email == '')) {
@@ -327,6 +338,12 @@ successMessage(message){
       return;
     }
     let signUpData = [];
+    if(signUpform.value.email){  
+      this.logintype ='email'
+    }
+    else{ 
+      this.logintype ='mobile'
+    }
     signUpData = [
       {
         mobile:this.countryCode+signUpform.value.mobile,
@@ -336,7 +353,7 @@ successMessage(message){
         lname: signUpform.value.lname,
         device_type: this.deviceType,
         login_by: this.loginBy,
-        login_type: "mobile",
+        login_type:this.logintype,
       }
     ];
     this.common.loaderStart();
@@ -373,12 +390,17 @@ successMessage(message){
     let pinVerify = [];
     // console.log(pin.value)
     let pins;
+    if(localStorage.getItem('email')){
+      this.logintype = 'email'
+    }else{
+      this.logintype = 'mobile'
+    }
     pins = pin.value.pin1 + pin.value.pin2 + pin.value.pin3 + pin.value.pin4;
     pinVerify = [
       {
         mobile:localStorage.getItem('mobile'),
         // [this.emailphone[0].name]: this.emailphone[0].value,
-        login_type: 'mobile',
+        login_type: this.logintype,
         id: localStorage.getItem('id'),
         email: localStorage.getItem('email'),
         token: localStorage.getItem('token'),
@@ -488,6 +510,11 @@ successMessage(message){
     else {
       phone = profileValue.value.mobile;
     }
+    if(localStorage.getItem('email')){
+      this.logintype = 'email'
+    }else{
+      this.logintype = 'mobile'
+    }
     this.passwordCheck(profileValue.value.password, profileValue.value.cpassword);
     profileData = [
       {
@@ -499,7 +526,7 @@ successMessage(message){
         gender: profileValue.value.gender,
         dob: profileValue.value.date + "/" + profileValue.value.month + "/" + profileValue.value.year,
         password: profileValue.value.cpassword,
-        login_type:"mobile"
+        login_type: this.logintype,
       }
     ];
     this.common.loaderStart();
@@ -516,7 +543,7 @@ successMessage(message){
           device_type: this.deviceType,
           login_by: this.loginBy,
           [this.emailphone[0].name]: this.emailphone[0].value,
-          login_type: this.emailphone[0].name,
+          login_type: this.logintype,
           password: profileValue.value.cpassword,
           device_browser:this.deviceService.getDeviceInfo().browser,
           device_ip:this.ipAddress,
