@@ -28,20 +28,18 @@
                                 </div>
                             </form> -->
                             <div class="head">
-                                <div class="tac" [ngClass]="{'active': clicked == 'Phone'}" (click)="show('Phone')"
-                                >
-                                <h3>Phone </h3>
-                            </div>
-                            <div class="faq" [ngClass]="{'active': clicked == 'email'}" (click)="show('email')"
-                               >
-                                <h3> Email</h3>
-                            </div>
+                                <div class="tac" [ngClass]="{'active': clicked == 'Phone'}" (click)="show('Phone')">
+                                    <h3>Phone </h3>
+                                </div>
+                                <div class="faq" [ngClass]="{'active': clicked == 'email'}" (click)="show('email')">
+                                    <h3> Email</h3>
+                                </div>
                             </div>
                             <div class="body">
                                 <h3>Enter your credentials</h3>
-                                <div class="taccont phone_number" *ngIf="click=='Phone'"  >
+                                <div class="taccont phone_number" *ngIf="click=='Phone'">
                                     <form #l="ngForm" (ngSubmit)="login(l)">
-                                     
+
                                         <!-- <div class="input-icons input">
                                             <input type="text" name="email" autocomplete="off" ngModel required #email="ngModel" placeholder="Enter Mobile number" (keyup)="checkMail(l.value.email)">
                                         </div> -->
@@ -50,15 +48,15 @@
                                             <span class="input-group-addon">
                                                 {{this.countryCode}}
                                             </span>
-                                            <div class="unit">{{this.countryCode}}</div>
-                                            <input type="tel" name="phone" placeholder="Enter Mobile number"
-                                             ngModel required  #phone="ngModel" oninput="this.value = 
-                                             !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"  
-                                             (keyup)="checkMail(l.value.phone)"  />
+                                            <input type="tel" name="phone" placeholder="Enter Mobile number" ngModel
+                                                required #phone="ngModel" oninput="this.value = 
+                                             !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+                                                (keyup)="checkMail(l.value.phone)" />
                                         </div>
 
                                         <div class="input">
-                                            <input type="password" name="password" autocomplete="off" ngModel placeholder="Password">
+                                            <input type="password" name="password" autocomplete="off" ngModel
+                                                placeholder="Password">
                                         </div>
                                         <div class="cont">
                                             <button>CONTINUE</button>
@@ -69,10 +67,13 @@
                                 <div class="taccont" *ngIf="click=='email'">
                                     <form #l="ngForm" (ngSubmit)="login(l)">
                                         <div class="input">
-                                            <input type="email" name="email" autocomplete="off" ngModel required #email="ngModel" placeholder="Email Address" (keyup)="checkMail(l.value.email)">
+                                            <input type="email" name="email" autocomplete="off" ngModel required
+                                                #email="ngModel" placeholder="Email Address"
+                                                (keyup)="checkMail(l.value.email)">
                                         </div>
                                         <div class="input">
-                                            <input type="password" name="password" autocomplete="off" ngModel placeholder="Password">
+                                            <input type="password" name="password" autocomplete="off" ngModel
+                                                placeholder="Password">
                                         </div>
                                         <div class="cont">
                                             <button>CONTINUE</button>
@@ -126,7 +127,8 @@
                                     </div>
                                     <div class="text">
                                         <div>
-                                            <h4>Have fun improving Your child's skills on the e-learning offering-it includes brain games,audio stories,videos,and worksheets</h4>
+                                            <h4>Have fun improving Your child's skills on the e-learning offering-it
+                                                includes brain games,audio stories,videos,and worksheets</h4>
                                             <p></p>
                                         </div>
                                     </div>
@@ -144,8 +146,9 @@
                                     </div>
                                     <div class="text">
                                         <div>
-                                            <h4>Experience endless entertainment with a host  of free videos when you register</h4>
-                                            
+                                            <h4>Experience endless entertainment with a host of free videos when you
+                                                register</h4>
+
                                         </div>
                                     </div>
                                 </div>
@@ -203,67 +206,69 @@
                         <div class="signup">
 
                             <div class="head" [ngClass]=" show ? 'Phone' : 'email'">
-                                <div class="tac" [ngClass]="{'active': clicked == 'Phone'}" (click)="show('Phone')"
-                                >
-                                <h3>Phone </h3>
-                            </div>
-                            <div class="faq" [ngClass]="{'active': clicked == 'email'}" (click)="show('email')"
-                               >
-                                <h3> Email</h3>
-                            </div>
+                                <div class="tac" [ngClass]="{'active': clicked == 'Phone'}" (click)="show('Phone')">
+                                    <h3>Phone </h3>
+                                </div>
+                                <div class="faq" [ngClass]="{'active': clicked == 'email'}" (click)="show('email')">
+                                    <h3> Email</h3>
+                                </div>
                             </div>
                             <div class="body">
-                            <h3 style="color: #fff;">Enter your credentials</h3>
-                            <div class="taccont" *ngIf="click=='Phone'"  >
-                            <form #s="ngForm" (ngSubmit)="signUp(s)">
-                                <div class="name">
-                                    <div class="fname">
-                                        <input type="text" name="fname" ngModel required #fname="ngModel" placeholder="First Name">
-                                    </div>
-                                    <div class="lname">
-                                        <input type="text" name="lname" ngModel placeholder="Last Name">
+                                <h3 style="color: #fff;">Enter your credentials</h3>
+                                <div class="taccont" *ngIf="click=='Phone'">
+                                    <form #s="ngForm" (ngSubmit)="signUp(s)">
+                                        <div class="name">
+                                            <div class="fname">
+                                                <input type="text" name="fname" ngModel required #fname="ngModel"
+                                                    placeholder="First Name">
+                                            </div>
+                                            <div class="lname">
+                                                <input type="text" name="lname" ngModel placeholder="Last Name">
 
-                                    </div>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon ">
-                                        {{this.countryCode}}
-                                    </span>
-                                    <input type="tel" name="mobile" autocomplete="off"  placeholder="Enter Mobile number" ngModel required
-                                    #phone="ngModel" oninput="this.value = 
-                                    !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"  
-                                    (keyup)="checkMail(s.value.phone)" />
-                                
-                                  </div>
-                                <!-- <div class="input">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon ">
+                                                {{this.countryCode}}
+                                            </span>
+                                            <input type="tel" name="mobile" autocomplete="off"
+                                                placeholder="Enter Mobile number" ngModel required #phone="ngModel"
+                                                oninput="this.value = 
+                                    !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+                                                (keyup)="checkMail(s.value.phone)" />
+
+                                        </div>
+                                        <!-- <div class="input">
                                     <input type="text" name="email" ngModel placeholder="Email or Mobile number" email #Email="ngModel" (keyup)="checkMail(s.value.email)">
                                 </div> -->
-                                <!-- <p *ngIf="emailphone" class="danger">Invalid Mobile Number</p> -->
-                                <div class="cont">
-                                    <button>CONTINUE</button>
+                                        <!-- <p *ngIf="emailphone" class="danger">Invalid Mobile Number</p> -->
+                                        <div class="cont">
+                                            <button>CONTINUE</button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
-                            </div>
-                            <div class="taccont" *ngIf="click=='email'"  >
-                                <form #s="ngForm" (ngSubmit)="signUp(s)">
-                                    <div class="name">
-                                        <div class="fname">
-                                            <input type="text" name="fname" ngModel required #fname="ngModel" placeholder="First Name">
+                                <div class="taccont" *ngIf="click=='email'">
+                                    <form #s="ngForm" (ngSubmit)="signUp(s)">
+                                        <div class="name">
+                                            <div class="fname">
+                                                <input type="text" name="fname" ngModel required #fname="ngModel"
+                                                    placeholder="First Name">
+                                            </div>
+                                            <div class="lname">
+                                                <input type="text" name="lname" ngModel placeholder="Last Name">
+
+                                            </div>
                                         </div>
-                                        <div class="lname">
-                                            <input type="text" name="lname" ngModel placeholder="Last Name">
-    
+
+                                        <div class="input">
+                                            <input type="text" name="email" ngModel placeholder="Enter Email Address"
+                                                email #Email="ngModel" (keyup)="checkMail(s.value.email)">
                                         </div>
-                                    </div>
-                                    
-                                    <div class="input">
-                                        <input type="text" name="email" ngModel placeholder="Enter Email Address" email #Email="ngModel" (keyup)="checkMail(s.value.email)">
-                                    </div>
-                                    <!-- <p *ngIf="emailphone" class="danger">Invalid Mobile Number</p> -->
-                                    <div class="cont">
-                                        <button>CONTINUE</button>
-                                    </div>
-                                </form>
+                                        <!-- <p *ngIf="emailphone" class="danger">Invalid Mobile Number</p> -->
+                                        <div class="cont">
+                                            <button>CONTINUE</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="foot">
@@ -322,7 +327,8 @@
                                     </div>
                                     <div class="text">
                                         <div>
-                                            <h4>Have fun improving Your child's skills on the e-learning offering-it includes brain games,audio stories,videos,and worksheets</h4>
+                                            <h4>Have fun improving Your child's skills on the e-learning offering-it
+                                                includes brain games,audio stories,videos,and worksheets</h4>
                                             <!-- <p>Watch your downloads in offline mode</p> -->
                                         </div>
                                     </div>
@@ -340,8 +346,9 @@
                                     </div>
                                     <div class="text">
                                         <div>
-                                            <h4>Experience endless entertainment with a host  of free videos when you register</h4>
-                                            
+                                            <h4>Experience endless entertainment with a host of free videos when you
+                                                register</h4>
+
                                         </div>
                                     </div>
                                 </div>
@@ -369,16 +376,20 @@
                         <form #pin="ngForm" (ngSubmit)="getPin(pin)">
                             <div class="number">
                                 <div class="ip">
-                                    <input type="text" name="pin1" maxlength="1" placeholder="&#9679;" required ngModel #pin1="ngModel" #passcode1 (keyup)="keytab($event)">
+                                    <input type="text" name="pin1" maxlength="1" placeholder="&#9679;" required ngModel
+                                        #pin1="ngModel" #passcode1 (keyup)="keytab($event)">
                                 </div>
                                 <div class="ip">
-                                    <input type="text" name="pin2" maxlength="1" placeholder="&#9679;" ngModel #passcode2 (keyup)="keytab($event)">
+                                    <input type="text" name="pin2" maxlength="1" placeholder="&#9679;" ngModel
+                                        #passcode2 (keyup)="keytab($event)">
                                 </div>
                                 <div class="ip">
-                                    <input type="text" name="pin3" maxlength="1" placeholder="&#9679;" ngModel #passcode3 (keyup)="keytab($event)">
+                                    <input type="text" name="pin3" maxlength="1" placeholder="&#9679;" ngModel
+                                        #passcode3 (keyup)="keytab($event)">
                                 </div>
                                 <div class="ip">
-                                    <input type="text" name="pin4" maxlength="1" placeholder="&#9679;" ngModel #passcode4 (keyup)="keytab($event)">
+                                    <input type="text" name="pin4" maxlength="1" placeholder="&#9679;" ngModel
+                                        #passcode4 (keyup)="keytab($event)">
                                 </div>
                             </div>
                             <div class="button">
@@ -408,19 +419,22 @@
                                 <div class="name">
                                     <div class="left">
                                         <div class="input">
-                                            <input type="text" name="fname" placeholder="First name" ngModel required [value]='fname1' [(ngModel)]="fname1" #fname="ngModel">
+                                            <input type="text" name="fname" placeholder="First name" ngModel required
+                                                [value]='fname1' [(ngModel)]="fname1" #fname="ngModel">
                                         </div>
                                     </div>
                                     <div class="right">
                                         <div class="input">
-                                            <input type="text" name="lname" placeholder="Last name" ngModel required [value]='lname1' [(ngModel)]="lname1">
+                                            <input type="text" name="lname" placeholder="Last name" ngModel required
+                                                [value]='lname1' [(ngModel)]="lname1">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="emailmobile">
                                     <div class="left">
                                         <div class="input">
-                                            <input type="text" name="email" placeholder="Enter email address" ngModel  required #email="ngModel" [value]='email1' [readonly]='emailRead'>
+                                            <input type="text" name="email" placeholder="Enter email address" ngModel
+                                                required #email="ngModel" [(ngModel)]="email1"  [readonly]='emailRead'>
                                         </div>
                                     </div>
                                     <!-- <div class="right">
@@ -431,17 +445,18 @@
                                              placeholder="Enter mobile number" ngModel required [readonly]='phoneRead' [(ngModel)]="phone1">
                                         </div>
                                     </div> -->
-                                    <div class="right">
-                                    <div class="input-group">
-                                        <span class=" code">
-                                            {{this.countryCode}}
-                                        </span>
-                                        <input type="tel" name="phone" placeholder="Enter Mobile number" class="data"
-                                         ngModel required  #phone="ngModel" oninput="this.value = 
-                                         !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"  
-                                         (keyup)="checkMail(profile.value.phone)"  />
+                                    <div class="right" >
+                                        <div class="input-group" >
+                                            <div class=" code"   >
+                                                {{this.countryCode}}
+                                            </div>
+                                            <input type="tel" name="phone" placeholder="Enter Mobile number"
+                                                class="data" ngModel required #phone="ngModel" oninput="this.value = 
+                                         !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+                                                (keyup)="checkMail(profile.value.phone)" ngModel required
+                                                [readonly]='phoneRead' [(ngModel)]="mobilephone" />
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                                 <div>
                                     <h4>Date of Birth</h4>
@@ -456,7 +471,8 @@
                                                         <!-- <div class="downarrow">&#9660;</div> -->
                                                     </div>
                                                     <div class="dobinput">
-                                                        <select name="month" ngModel required [(ngModel)]="selectedMonth">
+                                                        <select name="month" ngModel required
+                                                            [(ngModel)]="selectedMonth">
                                                             <option *ngFor="let month of months; let i = index"
                                                                 [value]="i+1">{{month}}</option>
                                                         </select>
@@ -477,11 +493,13 @@
                                                 <div class="input">
                                                     <div class="lable">Gender</div>
                                                     <div class="option">
-                                                        <input type="radio" id="male" name="gender" value="male" ngModel required>
+                                                        <input type="radio" id="male" name="gender" value="male" ngModel
+                                                            required>
                                                         <label for="male">Male</label><br>
                                                     </div>
                                                     <div class="option">
-                                                        <input type="radio" id="female" name="gender" value="female" ngModel required>
+                                                        <input type="radio" id="female" name="gender" value="female"
+                                                            ngModel required>
                                                         <label for="female">Female</label><br>
                                                     </div>
                                                 </div>
@@ -494,12 +512,15 @@
                                     <div class="password">
                                         <div class="left">
                                             <div class="input">
-                                                <input type="password" name="password" placeholder="Password" ngModel required>
+                                                <input type="password" name="password" placeholder="Password" ngModel
+                                                    required>
                                             </div>
                                         </div>
                                         <div class="right">
                                             <div class="input">
-                                                <input type="password" name="cpassword" placeholder="Confirm Password" ngModel required (focusout)="passwordCheck(profile.value.password, profile.value.cpassword)">
+                                                <input type="password" name="cpassword" placeholder="Confirm Password"
+                                                    ngModel required
+                                                    (focusout)="passwordCheck(profile.value.password, profile.value.cpassword)">
                                             </div>
                                         </div>
                                     </div>

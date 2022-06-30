@@ -72,11 +72,11 @@ export class ChangeplanComponent implements OnInit {
         window.open("http://65.0.83.92/mtn/api/unsubscribe.php?mn=" + mn + "&pid=" + cdata.subscription_id + '&cp=1', "_self");
       }
       
-      if (window.location.href.split('/')[2] == 'zm.avvatta.com' || window.location.href.split('/')[2] == 'localhost:4200') {
-        let mn = JSON.parse(localStorage.getItem('log')).mobile;
-        console.log(mn.toString(16));
-        window.open(`http://zmmtn.avvatta.com/cvivamtnza/api/unsubscription_api.php?msisdn=${mn}&pid=${cdata.subscription_id}&source=cms`);
-      }
+      // if (window.location.href.split('/')[2] == 'zm.avvatta.com' || window.location.href.split('/')[2] == 'localhost:4200') {
+      //   let mn = JSON.parse(localStorage.getItem('log')).mobile;
+      //   console.log(mn.toString(16));
+      //   window.open(`http://zmmtn.avvatta.com/cvivamtnza/api/unsubscription_api.php?msisdn=${mn}&pid=${cdata.subscription_id}&source=cms`);
+      // }
     }
 
 
