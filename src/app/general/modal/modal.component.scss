@@ -764,7 +764,7 @@
 						}
 
 						.input {
-							width: 100%;
+							// width: 100%;
 
 							input {
 								width: calc(95% - 30px);
@@ -783,6 +783,67 @@
 							width: 100;
 							display: flex;
 							padding: 10px 0px;
+							.right {
+								// width: 100% !important;
+				
+								// margin:10px 0px;
+								.input-group {
+									display: flex;
+									align-content: stretch;
+									height: 55px;
+				
+									input {
+										padding: 17px 20px;
+										border-radius: 5px;
+										width: 68%;
+									}
+				
+									// .data {
+									// 	padding: 17px 20px !important;
+									// 	border-radius: 5px !important;
+									// 	width: 68% !important;
+									// }
+				
+									input[type=tel] {
+										&::-webkit-outer-spin-button {
+											-webkit-appearance: none;
+											margin: 0;
+				
+										}
+									}
+				
+									&::-webkit-inner-spin-button {
+										-webkit-appearance: none;
+										margin: 0;
+									}
+								}
+				
+								input[type=number] {
+									-moz-appearance: textfield;
+				
+								}
+							}
+				
+							.input-group>input {
+								flex: 1 0 auto;
+								padding: 15px;
+								border-radius: 5px;
+							}
+				
+							.input-group-addon {
+								background: #eee;
+								border: 1px solid #ccc;
+								border-radius: 5px;
+								padding: 1em 1em;
+				
+							}
+				
+							.code {
+								background: #fff !important;
+								color: black !important;
+								padding: 15px 5px !important;
+								border-radius: 5px !important;
+							}
 						}
 
 						.dobcontainer {
