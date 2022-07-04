@@ -44,7 +44,15 @@ export class FilmdoComponent implements OnInit {
   }
   ngOnInit(): void {
     this.common.loaderOnLoad();
-    this.flimdoo();
+    // this.flimdoo();
+    this.service.filmdoolist().subscribe((data) => {
+      this.filmdata = JSON.parse(JSON.stringify(data));
+      this.movie = this.filmdata[0].movies;
+      //  console.log('sasmitha',this.movie[0].banner_img)
+      console.log('data', data);
+      //   console.log('flimdoo',data[0].movies)
+      //   console.log('film',data[0]);
+    });
 
     if (window.screen.width >= 760) {
       this.slideConfig = {
@@ -67,14 +75,14 @@ export class FilmdoComponent implements OnInit {
   }
 
   flimdoo() {
-    this.service.filmdoolist().subscribe((data) => {
-      this.filmdata = JSON.parse(JSON.stringify(data));
-      this.movie = this.filmdata[0].movies;
-      //  console.log('sasmitha',this.movie[0].banner_img)
-      console.log('data', data);
-      //   console.log('flimdoo',data[0].movies)
-      //   console.log('film',data[0]);
-    });
+    // this.service.filmdoolist().subscribe((data) => {
+    //   this.filmdata = JSON.parse(JSON.stringify(data));
+    //   this.movie = this.filmdata[0].movies;
+    //   //  console.log('sasmitha',this.movie[0].banner_img)
+    //   console.log('data', data);
+    //   //   console.log('flimdoo',data[0].movies)
+    //   //   console.log('film',data[0]);
+    // });
   }
 
   goToDetailPage(id) {

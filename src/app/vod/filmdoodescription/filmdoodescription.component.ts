@@ -35,7 +35,7 @@ export class FilmdoodescriptionComponent implements OnInit {
   checkSum: string;
   parReqId: string;
   sourceFile;
-  flimdoo: any =[];
+  flimdoo: any = [];
   constructor(public matDialog: MatDialog, private ActivatedRoute: ActivatedRoute,
     private router: Router,
     private service: ServiceService,
@@ -43,64 +43,58 @@ export class FilmdoodescriptionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let id;
-    if(localStorage.getItem('id') != null){
-      id = localStorage.getItem('id')
-    }
-    else{
-      id = 0;
-    }
-    let user_id = {
-      user_id : JSON.parse(localStorage.getItem('log')).id
-    };
-  
-    this.service.getBillingEmail(user_id).subscribe(data => {
- 
-      this.billingEmail = data;
-
-    });
-   
-    
-
     this.subscription = this.ActivatedRoute.params.subscribe(params => {
-
-
       this.id = params['key']
-
-
       this.service.filmdetail(this.id).subscribe(res => {
         // [JSON.parse(JSON.stringify(data)).data]
         this.descData = [JSON.parse(JSON.stringify(res))]
 
       })
-
-
     })
+    let id;
+    if (localStorage.getItem('id') != null) {
+      id = localStorage.getItem('id')
+    }
+    else {
+      id = 0;
+    }
+    let user_id = {
+      user_id: JSON.parse(localStorage.getItem('log')).id
+    };
+
+    this.service.getBillingEmail(user_id).subscribe(data => {
+
+      this.billingEmail = data;
+
+    });
+   
 
 
 
 
     this.onResize();
-   
+
     this.createNavigationUrl();
   }
   rentnow(id) {
- 
+  
+
+  
     let sub = {
-      user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))),
+      user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))) || 0,
       id: this.id,
       payment_mode: "paygate"
     }
 
     this.service.filmsubscribe(id, sub).subscribe(data => {
-
+      console.log( data,'data');
       if (data.success == true) {
         this.service.filmplay(this.id).subscribe(res => {
-          this.flimdoo = res; 
-        this.flimdoo.sourceFile = res.url
+          this.flimdoo = res;
+          this.flimdoo.sourceFile = res.url
           this.common.Filmdooplay(this.flimdoo)
         })
-        
+
       }
       else {
         this.service.filmbuy(this.id).subscribe(result => {
@@ -113,7 +107,7 @@ export class FilmdoodescriptionComponent implements OnInit {
             payment_mode: 'paygate',
             subcribtion_id: id,
             subcribtion_main_id: this.pay.id,
-            billing_email:this.billingEmail,
+            billing_email: this.billingEmail,
           }]
           this.service.paySubscription(payment[0]).subscribe(data => {
             if (JSON.parse(JSON.stringify(data)).success == true) {
@@ -121,10 +115,10 @@ export class FilmdoodescriptionComponent implements OnInit {
               localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
 
               this.checkSum = this.autoSubmit.data.CHECKSUM;
-              this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID;0
-      
+              this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID; 0
+
               if (this.myFormPost) {
-          
+
                 setTimeout(() => {
                   this.myFormPost.nativeElement.submit();
                 }, 3000);
@@ -149,8 +143,8 @@ export class FilmdoodescriptionComponent implements OnInit {
   }
 
   public share(t) {
- 
-     this.common.userActivity('video', 'erosnow', t.content_id, 'eros_sub', 'shared_fb', '0', '').subscribe();
+
+    this.common.userActivity('video', 'erosnow', t.content_id, 'eros_sub', 'shared_fb', '0', '').subscribe();
     return window.open(this.navUrl, "_blank");
   }
 
@@ -162,11 +156,11 @@ export class FilmdoodescriptionComponent implements OnInit {
 
   }
 
-  
- 
+
+
 
   selectMovie(data) {
-   
+
   }
 
   @HostListener('window:resize', ['$event'])
@@ -211,8 +205,8 @@ export class FilmdoodescriptionComponent implements OnInit {
       };
       this.common.loaderStart();
       this.common.addToFavourite(fav).subscribe(data => {
-         this.common.userActivity('video', 'erosnow', JSON.parse(JSON.stringify(data)).content_id, 'eros_sub', 'add_fav', '0', '').subscribe();
-     
+        this.common.userActivity('video', 'erosnow', JSON.parse(JSON.stringify(data)).content_id, 'eros_sub', 'add_fav', '0', '').subscribe();
+
         this.service.check = true;
         this.successMessage((JSON.parse(JSON.stringify(data)).message));
         this.common.loaderStop();
@@ -244,8 +238,8 @@ export class FilmdoodescriptionComponent implements OnInit {
       };
       this.common.loaderStart();
       this.common.watchLater(fav).subscribe(data => {
-       
-         this.common.userActivity('video', 'erosnow', JSON.parse(JSON.stringify(data)).content_id, 'eros_sub', 'watch_later', '0', '').subscribe();
+
+        this.common.userActivity('video', 'erosnow', JSON.parse(JSON.stringify(data)).content_id, 'eros_sub', 'watch_later', '0', '').subscribe();
         this.service.check = true;
         this.successMessage((JSON.parse(JSON.stringify(data)).message));
         this.common.loaderStop();

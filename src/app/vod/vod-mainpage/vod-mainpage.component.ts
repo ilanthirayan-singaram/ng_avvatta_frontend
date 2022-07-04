@@ -63,8 +63,8 @@ export class VodMainpageComponent implements OnInit {
     // this.alertShow = true;
     // alert('Coming Soon');
     // this.errorMessage('Coming Soon');
-    this.common.popupModal('Coming Soon');
-    // this.router.navigateByUrl('/vod/flimdo');
+    // this.common.popupModal('Coming Soon');
+    this.router.navigateByUrl('/vod/flimdo');
   }
   successMessage(message){
     this.alertMessage = { success: message };
