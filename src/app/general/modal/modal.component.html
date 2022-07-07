@@ -37,7 +37,7 @@
                             </div>
                             <div class="body">
                                 <h3>Enter your credentials</h3>
-                                <div class="taccont phone_number" *ngIf="click=='Phone'">
+                                <div class="taccont phone_number" *ngIf="clicked=='Phone'">
                                     <form #l="ngForm" (ngSubmit)="login(l)">
 
                                         <!-- <div class="input-icons input">
@@ -64,7 +64,7 @@
                                     </form>
 
                                 </div>
-                                <div class="taccont" *ngIf="click=='email'">
+                                <div class="taccont" *ngIf="clicked=='email'">
                                     <form #l="ngForm" (ngSubmit)="login(l)">
                                         <div class="input">
                                             <input type="email" name="email" autocomplete="off" ngModel required
@@ -205,7 +205,7 @@
                     <div class="left">
                         <div class="signup">
 
-                            <div class="head" [ngClass]=" show ? 'Phone' : 'email'">
+                            <div class="head">
                                 <div class="tac" [ngClass]="{'active': clicked == 'Phone'}" (click)="show('Phone')">
                                     <h3>Phone </h3>
                                 </div>

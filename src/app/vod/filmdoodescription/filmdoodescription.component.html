@@ -38,7 +38,10 @@
 
                                 <div class="buttons">
                                     <div class="play">
-                                        <button action="https://secure.paygate.co.za/payweb3/process.trans" method="POST"  (click)="rentnow(data.id)">RENT NOW</button>
+                                        <button action="https://secure.paygate.co.za/payweb3/process.trans" method="POST"  (click)="rentnow(data.id)">
+                                            <ng-container *ngIf="RentNowBtn == 'rentnow'">RENT NOW</ng-container>
+                                            <ng-container *ngIf="RentNowBtn == 'play'">PLAY</ng-container>
+                                        </button>
                                     </div>
                                     <!-- <div class="watch">
                                         <button>Play Trailer</button>

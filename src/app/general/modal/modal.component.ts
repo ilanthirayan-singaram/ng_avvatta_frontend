@@ -53,8 +53,8 @@ export class ModalComponent implements OnInit {
   date = [];
   register = [];
   ipAddress: string;
-  click: string;
-  clicked: string;
+  click: string = 'Phone';
+  clicked: string = 'Phone';
   countryCode: number;
   mobilephone;
 
@@ -95,6 +95,8 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.clicked = 'Phone';
+    this.click = 'Phone';
     this.getIpAddress();
     // localStorage.setItem('parentpin', '1');
     if (localStorage.getItem('emailPhone') != '') {
@@ -116,15 +118,6 @@ export class ModalComponent implements OnInit {
     }
     else {
       this.countryCode = +91
-    }
-
-    if (window.location.href.split('/')[5] == undefined) {
-      this.click = 'Phone';
-      this.clicked = 'Phone';
-    }
-    else {
-      this.click = window.location.href.split('/')[5];
-      this.clicked = window.location.href.split('/')[5];
     }
     // this.signUpShow = 'block';
     //  this.VerifyShow = 'block';

@@ -36,6 +36,7 @@ export class FilmdoodescriptionComponent implements OnInit {
   parReqId: string;
   sourceFile;
   flimdoo: any = [];
+  RentNowBtn: string = 'rentnow';
   constructor(public matDialog: MatDialog, private ActivatedRoute: ActivatedRoute,
     private router: Router,
     private service: ServiceService,
@@ -48,7 +49,23 @@ export class FilmdoodescriptionComponent implements OnInit {
       this.service.filmdetail(this.id).subscribe(res => {
         // [JSON.parse(JSON.stringify(data)).data]
         this.descData = [JSON.parse(JSON.stringify(res))]
-
+        let sub = {
+          user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))) || 0,
+          id: this.id,
+          payment_mode: "paygate"
+        }
+    
+      if(localStorage.getItem('log')){
+        this.service.filmsubscribe(this.descData[0].id, sub).subscribe(data => {
+          console.log( data,'data');
+          if (data.success == true) {
+            this.RentNowBtn = 'play';
+          }
+          else{
+            this.RentNowBtn = 'rentnow';
+          }
+      });
+      }
       })
     })
     let id;
@@ -89,6 +106,7 @@ export class FilmdoodescriptionComponent implements OnInit {
     this.service.filmsubscribe(id, sub).subscribe(data => {
       console.log( data,'data');
       if (data.success == true) {
+        // this.RentNowBtn = 'play';
         this.service.filmplay(this.id).subscribe(res => {
           this.flimdoo = res;
           this.flimdoo.sourceFile = res.url
