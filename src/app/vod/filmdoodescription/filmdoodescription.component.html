@@ -5,7 +5,7 @@
     <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
     <ng-container *ngFor="let data of descData">
 
-        <div class="maincontainer" style="background-image: url('{{data.banner_url}}');">
+        <div class="maincontainer"  style="background-image: url('{{data.banner_url}}')">
             <div class="middle web">
                 <div class="content">
                   <app-back></app-back>
