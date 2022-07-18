@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./filmdo.component.scss'],
 })
 export class FilmdoComponent implements OnInit {
-  banner: string = environment.imageUrl + 'erowsnow.webp';
+  banner: string = environment.imageUrl + 'filmdoo_banner.webp';
   fullData: any;
   wholeData: any = [];
   step: number = 1;

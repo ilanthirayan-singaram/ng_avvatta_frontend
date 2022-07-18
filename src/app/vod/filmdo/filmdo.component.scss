@@ -4,6 +4,7 @@
         display: flex !important;
         width: 95%;
         margin: auto;
+       
     }
     .child{
         width:14.28%;
@@ -382,6 +383,7 @@
         .slide {
             img {
                 cursor: pointer;
+                border-radius: 15px;
             }
         }
         .slick-slide:focus {

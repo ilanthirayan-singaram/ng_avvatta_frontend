@@ -54,18 +54,17 @@ export class FilmdoodescriptionComponent implements OnInit {
           id: this.id,
           payment_mode: "paygate"
         }
-    
-      if(localStorage.getItem('log')){
-        this.service.filmsubscribe(this.descData[0].id, sub).subscribe(data => {
-          console.log( data,'data');
-          if (data.success == true) {
-            this.RentNowBtn = 'play';
-          }
-          else{
-            this.RentNowBtn = 'rentnow';
-          }
-      });
-      }
+
+        if (localStorage.getItem('log')) {
+          this.service.filmsubscribe(this.descData[0].id, sub).subscribe(data => {
+            if (data.success == true) {
+              this.RentNowBtn = 'play';
+            }
+            else {
+              this.RentNowBtn = 'rentnow';
+            }
+          });
+        }
       })
     })
     let id;
@@ -84,70 +83,80 @@ export class FilmdoodescriptionComponent implements OnInit {
       this.billingEmail = data;
 
     });
-   
-
-
-
-
     this.onResize();
 
     this.createNavigationUrl();
-  }
-  rentnow(id) {
-  
 
-  
+  }
+
+
+
+  rentnow(id) {
+
     let sub = {
       user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))) || 0,
       id: this.id,
       payment_mode: "paygate"
     }
+    if (localStorage.getItem("log") === null) {
+      this.common.loginModal();
+    }
+    else {
+      this.service.filmsubscribe(id, sub).subscribe(data => {
 
-    this.service.filmsubscribe(id, sub).subscribe(data => {
-      console.log( data,'data');
-      if (data.success == true) {
-        // this.RentNowBtn = 'play';
-        this.service.filmplay(this.id).subscribe(res => {
-          this.flimdoo = res;
+      })
+    }
+
+    if (this.RentNowBtn == 'play') {
+      let data = {
+        user_id: localStorage.getItem('id')
+
+      }
+      this.service.filmdooPlay(id, data).subscribe(res => {
+
+        this.flimdoo = res;
+        if (this.flimdoo.url) {
           this.flimdoo.sourceFile = res.url
           this.common.Filmdooplay(this.flimdoo)
-        })
+        }
+        else {
+          this.service.filmbuy(this.id).subscribe(result => {
+            this.pay = result;
 
-      }
-      else {
-        this.service.filmbuy(this.id).subscribe(result => {
-          this.pay = result;
+            let payment;
+            payment = [{
+              user_id: JSON.parse(localStorage.getItem('id')),
+              amount: this.pay.amount,
+              payment_mode: 'paygate',
+              subcribtion_id: id,
+              subcribtion_main_id: this.pay.id,
+              billing_email: this.billingEmail,
+            }]
+            this.service.paySubscription(payment[0]).subscribe(data => {
+              if (JSON.parse(JSON.stringify(data)).success == true) {
+                this.autoSubmit = JSON.parse(JSON.stringify(data))
+                localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
 
-          let payment;
-          payment = [{
-            user_id: JSON.parse(localStorage.getItem('id')),
-            amount: this.pay.amount,
-            payment_mode: 'paygate',
-            subcribtion_id: id,
-            subcribtion_main_id: this.pay.id,
-            billing_email: this.billingEmail,
-          }]
-          this.service.paySubscription(payment[0]).subscribe(data => {
-            if (JSON.parse(JSON.stringify(data)).success == true) {
-              this.autoSubmit = JSON.parse(JSON.stringify(data))
-              localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
+                this.checkSum = this.autoSubmit.data.CHECKSUM;
+                this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID; 0
 
-              this.checkSum = this.autoSubmit.data.CHECKSUM;
-              this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID; 0
+                if (this.myFormPost) {
 
-              if (this.myFormPost) {
+                  setTimeout(() => {
+                    this.myFormPost.nativeElement.submit();
+                  }, 3000);
+                }
 
-                setTimeout(() => {
-                  this.myFormPost.nativeElement.submit();
-                }, 3000);
               }
+            });
 
-            }
-          });
+          })
+        }
 
-        })
-      }
-    })
+      })
+
+    }
+
   }
 
 
