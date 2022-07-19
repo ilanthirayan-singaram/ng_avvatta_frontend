@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { CommonService } from './../../common.service';
+import { ServiceService } from 'src/app/vod/service.service';
 
 @Component({
   selector: 'app-success',
@@ -12,10 +13,11 @@ export class SuccessComponent implements OnInit {
   ghanaStatus: string;
 status : string;
 alertShow : boolean;
+pay:string
   alertMessage : {};
   emailphone;
   constructor(private route: ActivatedRoute, private router : Router,
-    private common: CommonService) { }
+    private common: CommonService,private service:ServiceService) { }
 
   ngOnInit(): void {
     this.route.queryParams
@@ -29,7 +31,15 @@ alertShow : boolean;
     this.emailphone = JSON.parse(localStorage.getItem('emailPhone'));
   }
   // console.log("asdcas", this.ghanaStatus == '', "sdcsdc", this.ghanaStatus)
+  this.pay = localStorage.getItem('payid')
+  console.log(this.pay,'pay');
+  if(this.status == '1'){
+    this.subscribe();
   }
+  
+   
+  }
+  
 
   signOut(){
     this.common.loaderStart();
@@ -63,7 +73,23 @@ alertShow : boolean;
 
   goBack(){
     this.common.getPreviousUrl();
+    
   }
+ 
+  subscribe(){
+   
+      let sub = {
+             user_id: JSON.parse(localStorage.getItem('log')).id,
+           id: this.pay,
+              payment_mode: "paygate"
+            }
+
+         this.service.filmsubscribe(this.pay,sub).subscribe(res=>{
+        console.log(res,'rea');
+
+        })
+    }
+  
 
   goBackGhanauser(){
     this.router.navigateByUrl('');
@@ -71,6 +97,7 @@ alertShow : boolean;
 
   clickHere(){
    this.signOut();
+  
   }
   errorMessage(message){
     this.alertMessage = { error: message };

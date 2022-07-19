@@ -45,23 +45,32 @@ export class FilmdoodescriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.ActivatedRoute.params.subscribe(params => {
+      console.log(params, 'params');
+
       this.id = params['key']
+      console.log(this.id, 'idddddd');
+
       this.service.filmdetail(this.id).subscribe(res => {
-        // [JSON.parse(JSON.stringify(data)).data]
+        
         this.descData = [JSON.parse(JSON.stringify(res))]
-        let sub = {
-          user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))) || 0,
-          id: this.id,
-          payment_mode: "paygate"
-        }
 
         if (localStorage.getItem('log')) {
-          this.service.filmsubscribe(this.descData[0].id, sub).subscribe(data => {
-            if (data.success == true) {
+          let data = {
+            user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))),
+          }
+          console.log(id, 'idd');
+
+          this.service.filmdooPlay(this.id, data).subscribe(res => {
+            console.log(res, 'button');
+
+            if (res.url !== '') {
               this.RentNowBtn = 'play';
+              console.log("play")
             }
             else {
               this.RentNowBtn = 'rentnow';
+              console.log('rent');
+              
             }
           });
         }
@@ -93,69 +102,66 @@ export class FilmdoodescriptionComponent implements OnInit {
 
   rentnow(id) {
 
-    let sub = {
-      user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))) || 0,
-      id: this.id,
-      payment_mode: "paygate"
-    }
-    if (localStorage.getItem("log") === null) {
-      this.common.loginModal();
+    if (localStorage.getItem('log') === null) {
+      this.common.loginModal()
     }
     else {
-      this.service.filmsubscribe(id, sub).subscribe(data => {
+      if (this.RentNowBtn == 'play') {
+        let data = {
+          user_id: JSON.parse(JSON.stringify(localStorage.getItem('id'))),
+        }
+        this.service.filmdooPlay(this.id, data).subscribe(res => {
 
-      })
-    }
+          this.flimdoo = res;
+            this.flimdoo.sourceFile = res.url
+            this.common.Filmdooplay(this.flimdoo)
+        })
+      }
+      else {
+        this.service.filmbuy(this.id).subscribe(result => {
+          this.pay = result;
+          localStorage.setItem('payid',JSON.stringify(this.pay.id))
+          console.log(this.pay, 'pay');
+          
+          let payment;
+          payment = [{
+            user_id: JSON.parse(localStorage.getItem('id')),
+            amount: this.pay.amount,
+            payment_mode: 'paygate',
+            subcribtion_id: id,
+            subcribtion_main_id: this.pay.id,
+            billing_email: this.billingEmail,
+          }]
+          this.service.paySubscription(payment[0]).subscribe(data => {
+            console.log(data, 'data');
 
-    if (this.RentNowBtn == 'play') {
-      let data = {
-        user_id: localStorage.getItem('id')
+            if (JSON.parse(JSON.stringify(data)).success == true) {
+              this.autoSubmit = JSON.parse(JSON.stringify(data))
+              localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
+             
+              this.checkSum = this.autoSubmit.data.CHECKSUM;
+              this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID; 
+
+              if (this.myFormPost) {
+                
+                setTimeout(() => {
+                  this.myFormPost.nativeElement.submit();
+                }, 3000);
+              
+              
+              }
+             }
+          });
+
+
+        })
 
       }
-      this.service.filmdooPlay(id, data).subscribe(res => {
-
-        this.flimdoo = res;
-        if (this.flimdoo.url) {
-          this.flimdoo.sourceFile = res.url
-          this.common.Filmdooplay(this.flimdoo)
-        }
-        else {
-          this.service.filmbuy(this.id).subscribe(result => {
-            this.pay = result;
-
-            let payment;
-            payment = [{
-              user_id: JSON.parse(localStorage.getItem('id')),
-              amount: this.pay.amount,
-              payment_mode: 'paygate',
-              subcribtion_id: id,
-              subcribtion_main_id: this.pay.id,
-              billing_email: this.billingEmail,
-            }]
-            this.service.paySubscription(payment[0]).subscribe(data => {
-              if (JSON.parse(JSON.stringify(data)).success == true) {
-                this.autoSubmit = JSON.parse(JSON.stringify(data))
-                localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
-
-                this.checkSum = this.autoSubmit.data.CHECKSUM;
-                this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID; 0
-
-                if (this.myFormPost) {
-
-                  setTimeout(() => {
-                    this.myFormPost.nativeElement.submit();
-                  }, 3000);
-                }
-
-              }
-            });
-
-          })
-        }
-
-      })
 
     }
+
+
+
 
   }
 
