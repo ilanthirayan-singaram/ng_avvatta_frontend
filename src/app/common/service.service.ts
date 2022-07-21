@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { CheckmailPipe } from '../checkmail.pipe';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -77,6 +78,9 @@ export class ServiceService {
     return this.http.post('https://avvatta.com:8100/avvatta_email/mondia_prepay', data, {
       headers: this.headers
     });
+  }
+  cellc(data:any):Observable<any>{
+    return this.http.post<any>(`${this.UrlApi}initcellcpayment`,data)
   }
 
 }

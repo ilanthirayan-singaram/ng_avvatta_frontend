@@ -46,15 +46,18 @@ export class SubscriptionComponent implements OnInit {
   billmail: any = '';
   moobile:any;
   test: string = 'Paygate';
-
+paymode:any;
   constructor(private router: Router,
     public matDialog: MatDialog,
     public dialogRef: MatDialogRef<SubscriptionComponent>,
     private common: CommonService,
     private service: ServiceService,
-    private location: Location) { }
+    private location: Location) {
+      this.paymode = 'cellc'
+     }
 
   ngOnInit(): void {
+    
     let id = {
       user_id : JSON.parse(localStorage.getItem('log')).id
     };
@@ -93,6 +96,11 @@ export class SubscriptionComponent implements OnInit {
     this.choosePlanShow = 'block';
 
 
+  }
+
+  onChangeCategory(event){
+    console.log(event,'event');
+    
   }
 
   a(){
@@ -218,12 +226,14 @@ export class SubscriptionComponent implements OnInit {
       
                 user_id: JSON.parse(localStorage.getItem('log')).id,
                 // mobile: this.mobileNo,
-                mobile:JSON.parse(localStorage.getItem('log')).mobile,
-                user_token: JSON.parse(localStorage.getItem('log')).token
+                msisdn:JSON.parse(localStorage.getItem('log')).mobile,
+                pid:this.amount[0].id
                 
               };
-              this.service.mobile_data(datas).subscribe(data => {
+              this.service.cellc(datas).subscribe(data => {
                 this.mobile = data
+                console.log(data.transaction_id,'data');
+                window.open(data.weburl)
                
               });
               let payments;
@@ -232,10 +242,12 @@ export class SubscriptionComponent implements OnInit {
                 user_token:JSON.parse(localStorage.getItem('log')).token,
                 pid:this.amount[0].id
               }];
+              console.log(payments,'payments');
+              
               let id = JSON.parse(localStorage.getItem('id'));
-              this.service.mondia(payments[0]).subscribe(data => {
-                 window.open("https://avvatta.com:8100/avvatta_email/mondiapay/" + this.amount[0].id+"?user_id="+id, "_self"); 
-              });
+              // this.service.mondia(payments[0]).subscribe(data => {
+              //   //  window.open("https://avvatta.com:8100/avvatta_email/mondiapay/" + this.amount[0].id+"?user_id="+id, "_self"); 
+              // });
             }
             else {
               this.errorMessage('Please check the box');
@@ -253,11 +265,14 @@ export class SubscriptionComponent implements OnInit {
       
           user_id: JSON.parse(localStorage.getItem('log')).id,
           // mobile: this.mobileNo,
-          mobile:JSON.parse(localStorage.getItem('log')).mobile,
-          user_token: JSON.parse(localStorage.getItem('log')).token
+          msisdn:JSON.parse(localStorage.getItem('log')).mobile,
+          pid:this.amount[0].id
         };
-        this.service.mobile_data(datas).subscribe(data => {
-          this.mobile = data
+        this.service.cellc(datas).subscribe(data => {
+          // this.mobile = data
+          // console.log(data.transaction_id,'data');
+          window.open(data.weburl)
+          
         
         });
         let payments;
@@ -267,9 +282,9 @@ export class SubscriptionComponent implements OnInit {
           pid:this.amount[0].id
         }];
         let id = JSON.parse(localStorage.getItem('id'));
-        this.service.mondia(payments[0]).subscribe(data => {
-          window.open("https://avvatta.com:8100/avvatta_email/mondiapay/" + this.amount[0].id+"?user_id="+id, "_self");
-        });
+        // this.service.mondia(payments[0]).subscribe(data => {
+        //   // window.open("https://avvatta.com:8100/avvatta_email/mondiapay/" + this.amount[0].id+"?user_id="+id, "_self");
+        // });
       }
       else {
         this.errorMessage('Please check the box');
@@ -279,6 +294,7 @@ export class SubscriptionComponent implements OnInit {
 
 
   confirmPayment() {
+   
     if(this.checking){
       this.checkBillingMail();
     }
@@ -291,6 +307,8 @@ export class SubscriptionComponent implements OnInit {
   }
 
   checkTrue1(val){
+    console.log(val,'val');
+    
   this.checking1 = !this.checking1;  
   }
 
@@ -398,8 +416,8 @@ export class SubscriptionComponent implements OnInit {
     // console.log('asd',val.value.selectOne);
     // selectOne
   }
-  mobileNumber(val){
-    // console.log('asd',val.value)
+  mobileNumber(payform){
+    console.log('paymode',payform.value)
   }
 
 

@@ -107,8 +107,8 @@
                                                     <label class="script">
                                                         <input (click)="selectPaymentTrue(selected === i)"
                                                             [checked]="selected === i" (change)="selected = i"
-                                                            type="checkbox" name="subscribe" ngModel required #subscribe="ngModel"
-                                                            value="password">
+                                                            type="checkbox" name="subscribe" ngModel required
+                                                            #subscribe="ngModel" value="password">
                                                         <span class="geekmark"></span>
                                                     </label>
                                                 </div>
@@ -358,16 +358,38 @@
                                         <form #mobile="ngForm" (ngSubmit)="mobileNumber(mobile)">
                                             <div class="r1">
                                                 <b>Billing Mobile:</b>{{billingMobile}}
-                                                <div class="fname">    
-                                                        <!-- <select name="selectOne" [(ngModel)]="test" ngModel required (change)="a()">
+                                                <div class="fname">
+                                                    <!-- <select name="selectOne" [(ngModel)]="test" ngModel required (change)="a()">
                                                             <option value="Paygate">Paygate</option>
                                                             <option value="MondiaPay">MondiaPay</option>
                                                         </select><br> -->
-                                                    <input type="text"  *ngIf="billingMobile == ''" name="name" ngModel required #fname="ngModel"
-                                                        [(ngModel)]="mobileNo" placeholder="Mobile Number">
-                                                        <h3>You will be redirected to MondiaPay to complete your transcation.</h3>
+                                                    <input type="text" *ngIf="billingMobile == ''" name="name" ngModel
+                                                        required #fname="ngModel" [(ngModel)]="mobileNo"
+                                                        placeholder="Mobile Number">
+                                                    <div class="ratio">
+                                                        <label for="cellc">Cell C</label>
+                                                        <input type="radio"  id="cellc" name="paymode" value="cellc" ngModel
+                                                        required   >
+                                                    </div>
+                                                     <div class="ratio">
+                                                        <label for="mtn">MTN</label>
+                                                        <input type="radio"  id="mtn" name="paymode" value="mtn" ngModel
+                                                        required >
+                                                    </div>
+                                                    <div class="ratio">
+                                                        <label for="telkom">Telkom</label>
+                                                        <input type="radio"   id="telkom" name="paymode" value="telkom" ngModel
+                                                        required >
+                                                    </div>
+                                                    <div class="ratio">
+                                                        <label for="vodacom">Vodacom</label>
+                                                        <input type="radio"   id="vodacom" name="paymode" value="vodacom" ngModel
+                                                        required >
+                                                    </div> 
+                                                    <h3>You will be redirected to MondiaPay to complete your
+                                                        transcation.</h3>
                                                 </div>
-                                                <div class="button">
+                                                <!-- <div class="button">
                                                     <div class="check">
                                                         <label class="main"> I agree to the terms and conditions.
                                                             <input type="checkbox" name="signin" value="" ngModel
@@ -375,7 +397,7 @@
                                                             <span class="geekmark"></span>
                                                         </label>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
 
 

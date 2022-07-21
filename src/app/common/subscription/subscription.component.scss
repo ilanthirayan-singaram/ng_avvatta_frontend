@@ -9,17 +9,31 @@
 	display: flex;
 	width: 100%;
 	margin: auto;
-	h3{
+
+	.ratio {
+		background: none repeat scroll 0 0 #F6F6F6;
+		border-radius: 5px;
+		float: left;
+		margin: 3px;
+		padding: 9px;
+		width: 96%;
+	}
+	
+
+	h3 {
 		font-weight: bold !important;
 	}
-	.footbtn{	
+
+	.footbtn {
 		background: #b7cb1a;
 		font-weight: bold;
-		.button{
-			width:100%;
-			padding:0px 0px 10px 0px;
+
+		.button {
+			width: 100%;
+			padding: 0px 0px 10px 0px;
 		}
 	}
+
 	.sub.modalcontainer {
 		padding: 10px;
 		width: calc(75% - 20px);
@@ -28,20 +42,25 @@
 		background: rgba(0, 0, 0, 0.8) !important;
 		box-shadow: 0px 0px 2px 1px black;
 		position: relative;
+
 		.header {
 			text-align: right;
 			padding: 10px;
+
 			i {
 				cursor: pointer;
 			}
 		}
+
 		// Payment method
 		.payment {
 			padding: 10px;
+
 			.button {
 				width: 60%;
 				padding: 10px 0px;
 				margin: auto;
+
 				button {
 					width: calc(100% - 20px);
 					margin: 10px;
@@ -54,10 +73,12 @@
 				}
 			}
 		}
+
 		.paymentsuccess {
 			.body {
 				width: 80%;
 				margin: auto;
+
 				.succ {
 					width: calc(100px - 40px);
 					height: calc(100px - 40px);
@@ -71,18 +92,22 @@
 					align-items: center;
 					text-align: center;
 					margin: auto;
+
 					i {
 						margin: auto;
 					}
 				}
+
 				h4 {
 					margin: auto;
 				}
 			}
+
 			.button {
 				width: 60%;
 				padding: 10px 0px;
 				margin: auto;
+
 				button {
 					width: calc(100% - 20px);
 					margin: 10px;
@@ -95,10 +120,12 @@
 				}
 			}
 		}
+
 		.paymentfail {
 			.body {
 				width: 80%;
 				margin: auto;
+
 				.succ {
 					width: calc(20% - 40px);
 					margin: 20px auto;
@@ -108,15 +135,18 @@
 					padding: 20px;
 					font-size: 30px;
 				}
+
 				h4 {
 					margin: auto;
 				}
 			}
+
 			.button {
 				width: 60%;
 				padding: 10px 0px;
 				display: flex;
 				margin: auto;
+
 				button {
 					width: calc(100% - 20px);
 					margin: 10px;
@@ -131,7 +161,8 @@
 		}
 	}
 }
-select{
+
+select {
 	width: 50%;
 	height: 4vh;
 	padding: 5px;
@@ -143,9 +174,9 @@ select{
 
 
 
-option{
+option {
 	// height: 5px;
-    color: #000;
+	color: #000;
 }
 
 // Subscribe
@@ -153,21 +184,26 @@ option{
 	.header {
 		width: calc(100% - 40px);
 		display: flex;
+
 		.content {
 			width: 60%;
 			margin-left: auto;
 			text-align: center;
 			padding: 10px 0px;
+
 			h3,
 			p {
 				margin: 0px;
 			}
 		}
+
 		.right {
 			width: 20%;
 			display: flex;
+
 			.skip {
 				width: 80%;
+
 				button {
 					width: 70%;
 					text-align: center;
@@ -179,32 +215,40 @@ option{
 					margin: auto;
 				}
 			}
+
 			.head {
 				width: 20%;
 			}
 		}
 	}
+
 	.choose {
 		width: 100%;
+
 		.others {
 			width: 33.3%;
+
 			.container {
 				box-shadow: 5px 0 26px -2px #000;
 				position: relative;
 			}
+
 			.head {
 				width: 100%;
 				background: #b7cb1a;
+
 				p {
 					font-weight: bold;
 					text-transform: uppercase;
 				}
 			}
+
 			button {
 				background: #b7cb1a;
 				border: 0px;
 			}
 		}
+
 		// .eros {
 		//     width: 16.6%;
 		//     .head {
@@ -238,10 +282,12 @@ option{
 			display: flex;
 			border-radius: 10px;
 			overflow: hidden;
+
 			p {
 				margin: 0;
 				padding: 5px;
 			}
+
 			.container {
 				width: 100%;
 				margin: auto;
@@ -250,16 +296,20 @@ option{
 				overflow: hidden;
 				text-align: center;
 				position: relative;
+
 				.head {
 					padding: 0px 0px 10px 0px;
 				}
+
 				.bodycontent {
 					width: calc(100% - 0px);
 					background: #fff;
 					position: relative;
+
 					p {
 						padding: 10px 0px;
 					}
+
 					.circle {
 						width: 20px;
 						height: 20px;
@@ -268,32 +318,40 @@ option{
 						top: -10px;
 						box-shadow: 0 0 6px -2px #000;
 					}
+
 					.rxx {
 						font-weight: bold;
 					}
+
 					.day {
 						color: #7d7777;
 					}
+
 					.selectbtn {
 						display: flex;
+
 						.check {
 							width: 20%;
 							margin: auto 0 auto auto;
 						}
+
 						.selectbutton {
 							width: fit-content;
 							margin-right: auto;
+
 							button {
 								width: 100%;
 								text-align: left;
 							}
 						}
+
 						button {
 							padding: 10px;
 							font-weight: bold;
 							width: 100%;
 							background: unset;
 						}
+
 						.script {
 							display: block;
 							position: relative;
@@ -301,9 +359,11 @@ option{
 							cursor: pointer;
 							font-size: 20px;
 						}
+
 						input[type=checkbox] {
 							visibility: hidden;
 						}
+
 						.geekmark {
 							position: absolute;
 							top: 0;
@@ -312,20 +372,25 @@ option{
 							width: 15px;
 							border: 2px solid #fff;
 						}
+
 						.script input:checked~.geekmark {
 							background-color: #fff;
 						}
+
 						.script .geekmark {
 							background-color: #fff;
 						}
+
 						.geekmark:after {
 							content: "";
 							position: absolute;
 							display: none;
 						}
+
 						.script input:checked~.geekmark:after {
 							display: block;
 						}
+
 						.script .geekmark:after {
 							content: '✔';
 							font-size: 21px;
@@ -337,9 +402,11 @@ option{
 				}
 			}
 		}
+
 		.button {
 			width: 100%;
 			padding: 10px 0px;
+
 			button {
 				width: 100%;
 				padding: 10px;
@@ -351,15 +418,18 @@ option{
 				cursor: pointer;
 			}
 		}
+
 		.subs {
 			width: 100%;
 			display: flex;
 		}
+
 		.form {
 			width: 60%;
 			margin: auto;
 		}
 	}
+
 	.footer {
 		text-align: center;
 	}
@@ -400,31 +470,38 @@ option{
 		height: fit-content;
 		text-align: center;
 	}
+
 	.paymethod {
-		width: calc(100% - 20px); 
+		width: calc(100% - 20px);
 		display: flex;
 		padding: 10px;
+
 		.redeem {
 			width: 30%;
 			margin: auto 0 auto auto;
 			padding: 20px 0px;
+
 			.left {
 				width: 100%;
 				margin: 10px 0px;
+
 				.cont {
 					width: calc(100% - 6px);
 					overflow: hidden;
 					border: 3px solid #fff;
 					border-radius: 10px 0px;
 					display: block;
+
 					h4 {
 						margin: 0px;
 						padding: 10px;
 					}
+
 					.check {
 						width: calc(80% - 0px);
 						text-align: left;
 						margin: auto;
+
 						//    Check box
 						.main {
 							display: block;
@@ -432,12 +509,14 @@ option{
 							padding-left: 30px;
 							cursor: pointer;
 							font-size: 16px;
-							color:#000;
+							color: #000;
 						}
+
 						/* Hide the default checkbox */
 						input[type=checkbox] {
 							visibility: hidden;
 						}
+
 						/* Creating a custom checkbox 
 					based on demand */
 						.geekmark {
@@ -449,6 +528,7 @@ option{
 							border-radius: 5px;
 							border: 2px solid #fff;
 						}
+
 						/* Checkmark to be shown in checkbox */
 						/* It is not be shown when not checked */
 						.geekmark:after {
@@ -456,10 +536,12 @@ option{
 							position: absolute;
 							display: none;
 						}
+
 						/* Display checkmark when checked */
 						.main input:checked~.geekmark:after {
 							display: block;
 						}
+
 						/* Styling the checkmark using webkit */
 						/* Rotated the rectangle by 45 degree and  
 					showing only two border to make it look 
@@ -473,31 +555,38 @@ option{
 							border-width: 0 2px 2px 0;
 							transform: rotate(45deg);
 						}
+
 						input:checked {
 							border-radius: 5px;
 							border: 3px solid #fff;
 						}
 					}
+
 					.topay {
 						width: calc(100% - 20px);
 						display: flex;
 						color: #000;
 						padding: 10px;
 						text-align: center;
+
 						.left {
 							width: 50%;
-							}
 						}
-						.right {
-							width: 50%;
-						}
+					}
+
+					.right {
+						width: 50%;
+					}
 				}
+
 				.values {
 					width: calc(100% - 20px);
 					display: flex;
 					padding: 10px;
+
 					.input {
 						width: 75%;
+
 						input {
 							padding: 10px;
 							width: calc(90% - 20px);
@@ -508,9 +597,11 @@ option{
 						}
 					}
 				}
+
 				.button {
 					width: 25%;
 					margin: auto;
+
 					button {
 						text-align: center;
 						border: 2px solid #fff;
@@ -523,9 +614,11 @@ option{
 					}
 				}
 			}
+
 			.right {
 				width: 100%;
 				margin: 10px 0px;
+
 				.cont {
 					width: calc(100% - 0px);
 					padding: 10px;
@@ -533,19 +626,23 @@ option{
 					border: 3px solid #fff;
 					border-radius: 10px 0px;
 				}
+
 				.text {
 					width: 100%;
 					display: flex;
+
 					h4 {
 						width: 50%;
 						margin: 0px;
 						text-align: center;
 					}
 				}
+
 				.button {
 					width: 70%;
 					display: flex;
 					margin: auto;
+
 					button {
 						width: calc(100% - 20px);
 						margin: 10px;
@@ -560,10 +657,12 @@ option{
 			}
 		}
 	}
+
 	.help {
 		width: calc(50% - 10px);
 		margin: auto;
 		margin: auto auto auto 10px;
+
 		.head {
 			width: 100%;
 			display: flex;
@@ -571,12 +670,14 @@ option{
 			color: #fff;
 			border-radius: 5px 5px 0px 0px;
 			overflow: auto;
+
 			div {
 				width: 50%;
 				padding: 10px;
 				display: flex;
 				cursor: pointer;
 				border-right: 4px solid #fff;
+
 				h3 {
 					margin: auto;
 					vertical-align: middle;
@@ -584,10 +685,12 @@ option{
 					align-items: center;
 				}
 			}
+
 			.faq {
 				border: 0px;
 			}
 		}
+
 		.body {
 			width: calc(100% - 40px);
 			padding: 20px;
@@ -596,6 +699,7 @@ option{
 			margin: auto;
 			border-radius: 0px 0px 5px 5px;
 			overflow: auto;
+
 			.taccont,
 			.privacycont,
 			.aboutcont,
@@ -605,29 +709,35 @@ option{
 				// overflow:auto;
 				// height: 60vh;
 			}
+
 			h3 {
 				margin: 0px;
 				text-align: left;
 			}
 		}
 	}
+
 	// .aboutcont{
 	.verify {
 		width: 90%;
 		margin: auto;
+
 		.paypal {
 			width: 20% !important;
 			margin: auto;
+
 			img {
 				width: 100%;
 			}
 		}
+
 		.fname {
 			margin: auto;
 			width: 100%;
 			padding: 10px 0px;
 			position: relative;
 			color: #000;
+
 			input {
 				width: calc(100% - 20px);
 				margin: auto;
@@ -636,6 +746,7 @@ option{
 				border: 1px solid #000;
 				background: #fff;
 			}
+
 			.placeimage {
 				width: 25%;
 				position: absolute;
@@ -643,33 +754,42 @@ option{
 				right: 5px;
 				color: #ccc;
 				display: flex;
+
 				.imgs {
 					width: 50%;
+
 					img {
 						width: 100%;
 					}
 				}
 			}
 		}
+
 		.vcontainer {
 			width: 100%;
+
 			.pin {
 				width: 100%;
+
 				.r1 {
 					width: 100%;
+
 					// display:flex;
 					h3 {
 						text-align: center;
 						font-weight: bold;
 					}
 				}
+
 				.number {
 					width: 45%;
 					margin: auto;
 					display: flex;
 					padding: 10px 0px;
+
 					.ip {
 						width: 25%;
+
 						input {
 							width: calc(95% - 20px);
 							margin: auto;
@@ -681,16 +801,19 @@ option{
 						}
 					}
 				}
+
 				.button {
 					width: 100%;
 					margin: auto;
 					padding: 10px 0px;
 					display: flex;
 					text-align: center;
+
 					.check {
 						width: calc(80% - 0px);
 						text-align: left;
 						margin: auto;
+
 						//    Check box
 						.main {
 							display: block;
@@ -699,10 +822,12 @@ option{
 							cursor: pointer;
 							font-size: 16px;
 						}
+
 						/* Hide the default checkbox */
 						input[type=checkbox] {
 							visibility: hidden;
 						}
+
 						/* Creating a custom checkbox 
                     based on demand */
 						.geekmark {
@@ -714,6 +839,7 @@ option{
 							border-radius: 5px;
 							border: 2px solid #b7cb1a;
 						}
+
 						/* Checkmark to be shown in checkbox */
 						/* It is not be shown when not checked */
 						.geekmark:after {
@@ -721,10 +847,12 @@ option{
 							position: absolute;
 							display: none;
 						}
+
 						/* Display checkmark when checked */
 						.main input:checked~.geekmark:after {
 							display: block;
 						}
+
 						/* Styling the checkmark using webkit */
 						/* Rotated the rectangle by 45 degree and  
                     showing only two border to make it look 
@@ -738,13 +866,16 @@ option{
 							border-width: 0 2px 2px 0;
 							transform: rotate(45deg);
 						}
+
 						input:checked {
 							border-radius: 5px;
 							border: 3px solid #b7cb1a;
 						}
 					}
+
 					.btn {
 						width: 20%;
+
 						button {
 							width: 100%;
 							padding: 15px 0px;
@@ -756,14 +887,30 @@ option{
 						}
 					}
 				}
+
+				input[type="radio"] {
+					appearance: none;
+					// visibility: hidden;
+					width: 20px;
+					height: 20px;
+					border: 2px solid #555555;
+					border-radius: 50%;
+					background-clip: content-box;
+					padding: 3px;
+					background-color: #b7cb1a;
+					float: right;
+				}
+
 			}
 		}
 	}
+
 	.cont {
 		width: 50%;
 		margin: auto;
 		// padding: 10px 0px;
 		display: flex;
+
 		button {
 			width: calc(50% - 20px);
 			padding: 15px 0px;
@@ -773,23 +920,28 @@ option{
 			font-weight: bold;
 			cursor: pointer;
 		}
+
 		.btn1 {
 			margin-right: auto;
 		}
+
 		.btn2 {
 			margin-left: auto;
 		}
 	}
+
 	.selectcountry {
 		position: relative;
 		width: 25%;
 		margin: auto 0;
+
 		div {
 			position: absolute;
 			top: 30%;
 			right: 10px;
 			color: #000;
 		}
+
 		select {
 			width: 100%;
 			margin: auto 0 auto auto;
@@ -799,21 +951,26 @@ option{
 			background: #fff;
 		}
 	}
+
 	.dobcontainer {
 		margin: auto;
 		width: 45%;
+
 		.dob {
 			width: 100%;
 			display: flex;
+
 			.dobinput {
 				width: 25%;
 				position: relative;
+
 				div {
 					position: absolute;
 					top: 30%;
 					right: 20px;
 					color: #ccc;
 				}
+
 				select {
 					width: 95%;
 					margin: auto;
@@ -826,20 +983,25 @@ option{
 					/* for Safari, Chrome, Opera */
 					//  -webkit-appearance: none; 
 				}
+
 				img {
 					width: 100%;
 					height: 50px;
 				}
+
 				select:required:invalid {
 					color: gray;
 				}
+
 				option[value=""][disabled] {
 					display: none;
 				}
+
 				option {
 					color: black;
 				}
 			}
+
 			input {
 				width: calc(95% - 20px);
 				margin: auto;
@@ -850,6 +1012,7 @@ option{
 			}
 		}
 	}
+
 	// }
 	// FAQ
 	.faqcont {
@@ -857,11 +1020,13 @@ option{
 			width: calc(100% - 20px);
 			padding: 10px;
 			display: flex;
+
 			.left {
 				overflow: hidden;
 				width: calc(30% - 40px);
 				padding: 0px 20px;
 				text-align: left;
+
 				.head {
 					border: 1px solid #b7cb1a;
 					border-radius: 10px 10px 0px 0px;
@@ -870,6 +1035,7 @@ option{
 					color: #000;
 					padding: 10px;
 				}
+
 				.body {
 					border: 1px solid rgb(56, 144, 154);
 					border-radius: 0px 0px 10px 10px;
@@ -877,20 +1043,25 @@ option{
 					width: calc(100% - 20px);
 					background: rgb(56, 144, 154);
 					color: #fff;
+
 					h4 {
 						margin: 0px;
 					}
+
 					ul {
 						list-style: none;
+
 						li {
 							padding: 5px 0px;
 						}
 					}
 				}
 			}
+
 			.right {
 				width: calc(70% - 20px);
 				padding: 10px;
+
 				p {
 					text-align: left;
 					margin: 0px;
@@ -898,17 +1069,21 @@ option{
 			}
 		}
 	}
+
 	ol {
 		counter-reset: item;
 		list-style-type: none;
 	}
+
 	ol>li:before {
 		content: counters(item, ".") ". ";
 		counter-increment: item
 	}
+
 	ul {
 		list-style-type: disc;
 	}
+
 	// Contact
 	.contacecont {
 		.box {
@@ -917,6 +1092,7 @@ option{
 			border-radius: 10px;
 			overflow: hidden;
 			box-shadow: 0 0 5px 2px #9e9e9ed1;
+
 			.head {
 				width: 100%;
 				margin: auto;
@@ -924,35 +1100,42 @@ option{
 				border: 1px solid #b7cb1a;
 				text-align: left;
 				color: #000;
+
 				h3 {
 					padding: 10px;
 					margin: 0;
 				}
 			}
+
 			.body {
 				width: calc(100% - 20px);
 				padding: 10px;
 				margin: auto;
 			}
 		}
+
 		p {
 			margin: 0px;
 			text-align: left;
 			padding: 5px;
 		}
+
 		span {
 			color: rgb(93, 186, 220);
 			font-weight: bold;
 		}
+
 		.dobinput {
 			width: 100%;
 			position: relative;
+
 			div {
 				position: absolute;
 				top: 30%;
 				right: 20px;
 				color: rgb(193, 193, 193);
 			}
+
 			select {
 				width: 100%;
 				margin: auto;
@@ -966,10 +1149,12 @@ option{
 				/* for Safari, Chrome, Opera */
 				//  -webkit-appearance: none; 
 			}
+
 			img {
 				width: 100%;
 			}
 		}
+
 		input,
 		textarea {
 			padding: 15px 10px;
@@ -979,19 +1164,24 @@ option{
 			background: #fff;
 			color: rgb(193, 193, 193);
 		}
+
 		textarea {
 			resize: none;
 		}
+
 		.foot {
 			width: 100%;
 			display: flex;
+
 			.text {
 				width: 80%;
 				margin: auto;
 			}
+
 			.btn {
 				width: 20%;
 				padding: 10px 0px;
+
 				button {
 					width: 100%;
 					padding: 15px 10px;
@@ -1004,105 +1194,127 @@ option{
 			}
 		}
 	}
+
 	.active {
 		background: #b7cb1a;
-    }  
+	}
 }
 
 // Responsive
 @media screen and (max-width: 700px) and (min-width:1px) {
-    #modal-content-wrapper {
-        height: unset;
-        overflow: auto;
-        position: unset;
-        .sub.modalcontainer {
-            width: calc(100% - 10px) !important;
-            padding: 80px 5px;
-        }
-        .paymethod {
-            display: block;
-            .redeem {
-                width: 100%;
-            }
-            .help {
-                width: 100%;
-            }
-        }
-        .cont {
-            width: 90%;
-        }
-        .body {
-            padding: 10px;
-            width: calc(100% - 20px);
-        }
-        h3 {
-            font-size: 14px;
-        }
-        p {
-            font-size: 14px;
-            margin: 0px;
-            padding: 5px 0px;
-        }
-        .help {
-            margin: 0;
-            .head {
-                div {
-                    padding: 3px;
-                    width: calc(50% - 6px);
-                }
-            }
-        }
-        .faqcont .content {
-            display: block;
-            .left {
-                width: 95%;
-            }
-            .right {
-                width: 95%;
-            }
-        }
-        .box {
-            width: 100%;
-        }
-    }
+	#modal-content-wrapper {
+		height: unset;
+		overflow: auto;
+		position: unset;
 
-	select{
+		.sub.modalcontainer {
+			width: calc(100% - 10px) !important;
+			padding: 80px 5px;
+		}
+
+		.paymethod {
+			display: block;
+
+			.redeem {
+				width: 100%;
+			}
+
+			.help {
+				width: 100%;
+			}
+		}
+
+		.cont {
+			width: 90%;
+		}
+
+		.body {
+			padding: 10px;
+			width: calc(100% - 20px);
+		}
+
+		h3 {
+			font-size: 14px;
+		}
+
+		p {
+			font-size: 14px;
+			margin: 0px;
+			padding: 5px 0px;
+		}
+
+		.help {
+			margin: 0;
+
+			.head {
+				div {
+					padding: 3px;
+					width: calc(50% - 6px);
+				}
+			}
+		}
+
+		.faqcont .content {
+			display: block;
+
+			.left {
+				width: 95%;
+			}
+
+			.right {
+				width: 95%;
+			}
+		}
+
+		.box {
+			width: 100%;
+		}
+	}
+
+	select {
 		width: 70% !important;
-		
+
 	}
 
 
-    .subscribe .choose{
-        .form {
-            width: 100%;
-            .body {
-                display: block;
-                .others {
-                    width: 100%;
-                    margin-bottom: 15px;
-                    .container{
-                        width:50%;
-                        border-radius: 10px;
-                        .head{
-                            padding:0px 0px 20px 0px;
-                        }
-                        .bodycontent{
-                            .day{
-                                padding:10px !important;
-                            }
-                            .circle{
-                                top:-12px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .button{
-            width:50%;
-            margin:auto;
-        }
-    } 
+	.subscribe .choose {
+		.form {
+			width: 100%;
+
+			.body {
+				display: block;
+
+				.others {
+					width: 100%;
+					margin-bottom: 15px;
+
+					.container {
+						width: 50%;
+						border-radius: 10px;
+
+						.head {
+							padding: 0px 0px 20px 0px;
+						}
+
+						.bodycontent {
+							.day {
+								padding: 10px !important;
+							}
+
+							.circle {
+								top: -12px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.button {
+			width: 50%;
+			margin: auto;
+		}
+	}
 }
 
 @media screen and (max-width: 850px) and (min-width: 1px) {
@@ -1113,9 +1325,9 @@ option{
 	// 	font-size: calc(100% - -10px) !important;
 	// }
 
-	select{
+	select {
 		width: 70% !important;
-	
+
 	}
 }
 
@@ -1123,6 +1335,7 @@ option{
 	p {
 		font-size: calc((15px + 1vh + 1vw)/2) !important;
 	}
+
 	h3 {
 		font-size: calc(90% - -4px) !important;
 	}
