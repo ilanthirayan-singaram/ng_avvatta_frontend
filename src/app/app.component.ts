@@ -6,6 +6,7 @@ import { GoogleanalyticsserviceService } from './googleanalyticsservice.service'
 import { environment } from 'src/environments/environment';
 import { Subject, timer, } from 'rxjs';
 import { map, switchMap, take, tap, takeUntil } from 'rxjs/operators';
+import { ConsoleToggleServiceService } from './console-toggle-service.service';
 const has = Object.prototype.hasOwnProperty;
 declare let ga: Function;
 declare let gtag: Function;
@@ -21,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'avvatta';
   previousUrl: string = null;
   currentUrl: string = null;
-  constructor(private service : CommonService, private router : Router, 
+  constructor(private service : CommonService, private router : Router,private consoleToggleService: ConsoleToggleServiceService,
     private gservice: GoogleanalyticsserviceService) {
       // if (environment.gaTrackingId) {
       //   // register google tag manager
@@ -40,6 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
       //   `;
       //   document.head.appendChild(gaScript);
       // }
+      this.consoleToggleService.disableConsoleInProduction();
       
    }
   
