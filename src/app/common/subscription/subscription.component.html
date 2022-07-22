@@ -363,30 +363,31 @@
                                                             <option value="Paygate">Paygate</option>
                                                             <option value="MondiaPay">MondiaPay</option>
                                                         </select><br> -->
-                                                    <input type="text" *ngIf="billingMobile == ''" name="name" ngModel
+                                                    <!-- <input type="text" *ngIf="billingMobile == ''" name="name" ngModel
                                                         required #fname="ngModel" [(ngModel)]="mobileNo"
-                                                        placeholder="Mobile Number">
-                                                    <div class="ratio">
+                                                        placeholder="Mobile Number"> -->
+                                                    <div class="row">
                                                         <label for="cellc">Cell C</label>
-                                                        <input type="radio"  id="cellc" name="paymode" value="cellc" ngModel
-                                                        required   >
+                                                        <input type="radio" name="paymode" value="cellc" ngModel
+                                                        required (ngModelChange)="mobileval($event)" checked [(ngModel)]="paymentType" >
                                                     </div>
-                                                     <div class="ratio">
+                                                     <div class="row">
                                                         <label for="mtn">MTN</label>
-                                                        <input type="radio"  id="mtn" name="paymode" value="mtn" ngModel
-                                                        required >
+                                                        <input type="radio" name="paymode" value="mtn" ngModel
+                                                        required  (ngModelChange)="mobileval($event)" >
                                                     </div>
-                                                    <div class="ratio">
+                                                    <div class="row">
                                                         <label for="telkom">Telkom</label>
-                                                        <input type="radio"   id="telkom" name="paymode" value="telkom" ngModel
-                                                        required >
+                                                        <input type="radio" name="paymode" value="telkom" ngModel
+                                                        required  (ngModelChange)="mobileval($event)" >
                                                     </div>
-                                                    <div class="ratio">
+                                                    <div class="row">
                                                         <label for="vodacom">Vodacom</label>
-                                                        <input type="radio"   id="vodacom" name="paymode" value="vodacom" ngModel
-                                                        required >
+                                                        <input type="radio" name="paymode" value="vodacom" ngModel
+                                                        required (ngModelChange)="mobileval($event)"  >
                                                     </div> 
-                                                    <h3>You will be redirected to MondiaPay to complete your
+
+                                                    <h3>You will be redirected to {{paymentmethod}} to complete your
                                                         transcation.</h3>
                                                 </div>
                                                 <!-- <div class="button">
@@ -406,49 +407,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="privacycont" *ngIf="click=='paypal'">
-                            <div class="verify">
-                                <div class="vcontainer">
-                                    <div class="pin">
-                                        <form #credit="ngForm" (ngSubmit)="creditDebitCard(credit)">
-                                            <div class="r1">
-                                                <div class="fname">
-                                                    <input type="text" name="name" ngModel required #fname="ngModel"
-                                                        placeholder="Account Number">
-                                                </div>
-
-                                                <div class="fname">
-                                                    <input type="text" name="name" ngModel required #fname="ngModel"
-                                                        placeholder="Account Type">
-                                                </div>
-                                            </div>
-                                            <div class="r1">
-                                                <div class="fname">
-                                                    <div class="paypal">
-                                                        <img src="../../assets/Images/Visa Icon.PNG" />
-                                                    </div>
-                                                </div>
-                                                <div class="button">
-                                                    <div class="check">
-                                                        <label class="main"> I agree the terms & conditions
-                                                            <input (click)="checkTrue(true)" type="checkbox" name="signin" value="" ngModel
-                                                                required>
-                                                            <span class="geekmark"></span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="btn">
-                                                        <button >PAY NOW</button>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+  
                     </div>
                 </div>
 

@@ -12,7 +12,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./subscription.component.scss']
 })
 export class SubscriptionComponent implements OnInit {
-
+  paymentType: string = 'cellc';
+  paymentmethod;
   subscriptionHead: string;
   @ViewChild('myFormPost') myFormPost: ElementRef;
   alertShow: boolean;
@@ -47,6 +48,7 @@ export class SubscriptionComponent implements OnInit {
   moobile:any;
   test: string = 'Paygate';
 paymode:any;
+  isChecked: any;
   constructor(private router: Router,
     public matDialog: MatDialog,
     public dialogRef: MatDialogRef<SubscriptionComponent>,
@@ -119,6 +121,13 @@ paymode:any;
   selectPayment() {
     this.pay = true;
   }
+  mobileval(event){
+    this.checking1 = true;  
+    console.log(this.checking1,'checking1')
+    this.paymentmethod = event
+    console.log(this.paymentmethod,'paymentmethod');
+  }
+ 
 
   checkBillingMail(){
     if(!this.billingEmail){
@@ -221,6 +230,7 @@ paymode:any;
 
             if (this.checking1 == true) {
               this.common.loaderStart();
+              
 
               let datas={
       
@@ -230,12 +240,26 @@ paymode:any;
                 pid:this.amount[0].id
                 
               };
-              this.service.cellc(datas).subscribe(data => {
-                this.mobile = data
-                console.log(data.transaction_id,'data');
-                window.open(data.weburl)
-               
-              });
+              if(this.paymentmethod =='cellc'){
+                this.service.cellc(datas).subscribe(data => {
+                  this.mobile = data
+                  
+                  console.log(data.transaction_id,'data');
+                  window.open(data.weburl)
+                 
+                });
+              }
+              else{
+                this.service.smartcall(datas).subscribe(data => {
+                  this.mobile = data
+                  
+                  console.log(data.transaction_id,'data');
+                  window.open(data.weburl)
+                 
+                });
+
+              }
+          
               let payments;
               payments = [{
                 user_id:JSON.parse(localStorage.getItem('log')).id,
@@ -268,13 +292,25 @@ paymode:any;
           msisdn:JSON.parse(localStorage.getItem('log')).mobile,
           pid:this.amount[0].id
         };
-        this.service.cellc(datas).subscribe(data => {
-          // this.mobile = data
-          // console.log(data.transaction_id,'data');
-          window.open(data.weburl)
-          
-        
-        });
+        if(this.paymentmethod =='cellc'){
+          this.service.cellc(datas).subscribe(data => {
+            this.mobile = data
+            
+            console.log(data.transaction_id,'data');
+            window.open(data.weburl)
+           
+          });
+        }
+        else{
+          this.service.smartcall(datas).subscribe(data => {
+            this.mobile = data
+            
+            console.log(data.transaction_id,'data');
+            window.open(data.weburl)
+           
+          });
+
+        }
         let payments;
         payments = [{
           user_id:JSON.parse(localStorage.getItem('log')).id,
@@ -307,10 +343,9 @@ paymode:any;
   }
 
   checkTrue1(val){
-    console.log(val,'val');
-    
   this.checking1 = !this.checking1;  
   }
+
 
   confirm() {
     this.subscribe = 'block';
@@ -417,7 +452,7 @@ paymode:any;
     // selectOne
   }
   mobileNumber(payform){
-    console.log('paymode',payform.value)
+    console.log('paymode',payform)
   }
 
 

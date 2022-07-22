@@ -82,5 +82,8 @@ export class ServiceService {
   cellc(data:any):Observable<any>{
     return this.http.post<any>(`${this.UrlApi}initcellcpayment`,data)
   }
+  smartcall(data:any):Observable<any>{
+    return this.http.post<any>(`${this.UrlApi}initsmartcallpayment`,data)
+  }
 
 }
