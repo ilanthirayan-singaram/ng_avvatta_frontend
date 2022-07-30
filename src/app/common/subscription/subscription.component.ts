@@ -305,7 +305,7 @@ paymode:any;
           this.service.smartcall(datas).subscribe(data => {
             this.mobile = data
             
-            console.log(data.transaction_id,'data');
+            // console.log(data.transaction_id,'data');
             window.open(data.weburl)
            
           });
