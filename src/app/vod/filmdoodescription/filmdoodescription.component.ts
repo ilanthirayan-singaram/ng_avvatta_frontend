@@ -26,6 +26,7 @@ export class FilmdoodescriptionComponent implements OnInit {
   isDirector: boolean = false;
   slideConfig;
   descData: any = [];
+  descData1: any = [];
   subscription;
   id: number;
   pay;
@@ -52,7 +53,9 @@ export class FilmdoodescriptionComponent implements OnInit {
 
       this.service.filmdetail(this.id).subscribe(res => {
         
-        this.descData = [JSON.parse(JSON.stringify(res))]
+        this.descData = [JSON.parse(JSON.stringify(res))];
+
+        this.descData1 = res;
 
         if (localStorage.getItem('log')) {
           let data = {
@@ -118,49 +121,49 @@ export class FilmdoodescriptionComponent implements OnInit {
         })
       }
       else {
-        this.service.filmbuy(this.id).subscribe(result => {
-          this.pay = result;
-          localStorage.setItem('payid',JSON.stringify(this.pay.id))
-          console.log(this.pay, 'pay');
+
+        this.common.filmdoRent(this.descData1.subscription_id);
+        // this.service.filmbuy(this.id).subscribe(result => {
+        //   this.pay = result;
+        //   localStorage.setItem('payid',JSON.stringify(this.pay.id))
+        //   console.log(this.pay, 'pay');
           
-          let payment;
-          payment = [{
-            user_id: JSON.parse(localStorage.getItem('id')),
-            amount: this.pay.amount,
-            payment_mode: 'paygate',
-            subcribtion_id: id,
-            subcribtion_main_id: this.pay.id,
-            billing_email: this.billingEmail,
-          }]
-          this.service.paySubscription(payment[0]).subscribe(data => {
-            console.log(data, 'data');
+        //   let payment;
+        //   payment = [{
+        //     user_id: JSON.parse(localStorage.getItem('id')),
+        //     amount: this.pay.amount,
+        //     payment_mode: 'paygate',
+        //     subcribtion_id: id,
+        //     subcribtion_main_id: this.pay.id,
+        //     billing_email: this.billingEmail,
+        //   }]
+        //   this.service.paySubscription(payment[0]).subscribe(data => {
+        //     console.log(data, 'data');
 
-            if (JSON.parse(JSON.stringify(data)).success == true) {
-              this.autoSubmit = JSON.parse(JSON.stringify(data))
-              localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
+        //     if (JSON.parse(JSON.stringify(data)).success == true) {
+        //       this.autoSubmit = JSON.parse(JSON.stringify(data))
+        //       localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
              
-              this.checkSum = this.autoSubmit.data.CHECKSUM;
-              this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID; 
+        //       this.checkSum = this.autoSubmit.data.CHECKSUM;
+        //       this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID; 
 
-              if (this.myFormPost) {
+        //       if (this.myFormPost) {
                 
-                setTimeout(() => {
-                  this.myFormPost.nativeElement.submit();
-                }, 3000);
+        //         setTimeout(() => {
+        //           this.myFormPost.nativeElement.submit();
+        //         }, 3000);
               
               
-              }
-             }
-          });
+        //       }
+        //      }
+        //   });
 
 
-        })
+        // })
 
       }
 
     }
-
-
 
 
   }

@@ -18,6 +18,7 @@ import { ModalComponent } from './general/modal/modal.component';
 import { SubscriptionComponent } from './common/subscription/subscription.component';
 import { JwplayerComponent } from './general/jwplayer/jwplayer.component';
 import { PopupComponent } from './general/popup/popup.component';
+import { FlimdooSubscriptionComponent } from './common/flimdoo-subscription/flimdoo-subscription.component';
 
 
 @Injectable({
@@ -925,6 +926,34 @@ export class CommonService {
   hexaLog(data) {
     return this.http.post(this.urlApi + 'hexlogs', data);
   }
+
+
+  filmdoRent(val) {
+  
+    if (localStorage.getItem("log") === null) {
+      this.loginModal();
+    }
+    else {
+      this.flimdoSubscribeModal(val);
+      // this.userActivity(type, category, user_id, sub_cat, action, duration, genere).subscribe();
+     
+    }
+  }
+
+
+
+  flimdoSubscribeModal(id) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "350px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = {select:id}
+    const modalDialog = this.matDialog.open(FlimdooSubscriptionComponent, dialogConfig);
+    // const modalDialog = this.matDialog.open(ChooseplanComponent, dialogConfig);
+
+  }
+
 
 }
 

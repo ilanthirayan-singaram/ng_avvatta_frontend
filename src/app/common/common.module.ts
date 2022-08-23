@@ -14,11 +14,13 @@ import { SubscriptionComponent } from './subscription/subscription.component';
 import { SuccessComponent } from './success/success.component';
 import { VirtualBackComponent } from './virtual-back/virtual-back.component';
 import { ForgotpinComponent } from './forgotpin/forgotpin.component';
-
+import { FlimdooSubscriptionComponent } from './flimdoo-subscription/flimdoo-subscription.component';
 
 
 @NgModule({
-  declarations: [ForgotpasswordComponent, 
+  declarations: [
+    FlimdooSubscriptionComponent,
+    ForgotpasswordComponent, 
     FootComponent, 
     CloseComponent, 
     AlertComponent, 
