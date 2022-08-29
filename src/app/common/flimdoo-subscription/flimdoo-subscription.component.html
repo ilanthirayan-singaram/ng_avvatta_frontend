@@ -99,8 +99,10 @@
                                         <div class="bodycontent">
                                             <span class="circle" [style.background]="d.first_color_code"></span>
                                             <p class="day">Validity : {{d.plan}} day</p>
-                                            <p class="access" [style.background]="d.second_color_code">Access :
-                                                {{d.no_of_account}} Device</p>
+                                            <!-- <p class="access" [style.background]="d.second_color_code">Access :
+                                                {{d.no_of_account}} Device</p> -->
+                                                <p class="access" [style.background]="d.second_color_code">Once you click play, the movie will expire in 48 hours.
+                                                </p>
                                             <div class="selectbtn" [style.background]="d.first_color_code"
                                                 (click)="clickContinue(d)">
                                                 <div class="check">
