@@ -176,6 +176,7 @@ paymode:any;
         billing_email: this.billingEmail,
       }]
 
+      localStorage.setItem('payid',JSON.stringify(this.amount[0].id))
     if(!this.billingEmail){
 
       // alert(JSON.stringify(this.checking))
