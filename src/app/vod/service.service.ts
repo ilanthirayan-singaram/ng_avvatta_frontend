@@ -168,7 +168,7 @@ filmdetail(id):Observable<any>{
 }
 
 filmsubscribe(id,data):Observable<any>{
-return this.http.post(`${this.UrlApi}filmdoo_subscribed/${id}`, data);
+return this.http.post(`${this.UrlApi}filmdoo_subscribed`, data);
 }
 filmdooPlay(id,data):Observable<any>{
   return this.http.post(`${this.UrlApi}filmdoo_play/${id}`,data)
