@@ -78,7 +78,7 @@ paymode:any;
     // alert(JSON.stringify(this.dialogRef._containerInstance._config.data))
     this.subscriptionId = this.dialogRef._containerInstance._config.data.select;
     //  console.log('sub',this.subscriptionId)
-
+      localStorage.setItem('payid',(this.dialogRef._containerInstance._config.data.id))
 
     this.common.loaderStart();
     this.common.subscription({ id: this.subscriptionId }).subscribe(data => {
@@ -108,31 +108,6 @@ paymode:any;
     this.choosePlanShow = 'block';
 
 
-  }
-
-
-  samplle(){
-
-        //   this.service.paySubscription(payment[0]).subscribe(data => {
-        //     console.log(data, 'data');
-
-        //     if (JSON.parse(JSON.stringify(data)).success == true) {
-        //       this.autoSubmit = JSON.parse(JSON.stringify(data))
-        //       localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
-             
-        //       this.checkSum = this.autoSubmit.data.CHECKSUM;
-        //       this.parReqId = this.autoSubmit.data.PAY_REQUEST_ID; 
-
-        //       if (this.myFormPost) {
-                
-        //         setTimeout(() => {
-        //           this.myFormPost.nativeElement.submit();
-        //         }, 3000);
-              
-              
-        //       }
-        //      }
-        //   });
   }
 
   onChangeCategory(event){
@@ -171,12 +146,13 @@ paymode:any;
         user_id: JSON.parse(localStorage.getItem('id')),
         amount: this.amount[0].amount,
         payment_mode: 'paygate',
-        subcribtion_id: this.subscriptionId,
-        subcribtion_main_id: this.amount[0].id,
+        subcribtion_id: this.amount[0].id,
+        subcribtion_main_id: this.subscriptionId,
         billing_email: this.billingEmail,
+        filmdoo:true
       }]
 
-      localStorage.setItem('payid',JSON.stringify(this.amount[0].id))
+
     if(!this.billingEmail){
 
       // alert(JSON.stringify(this.checking))
@@ -238,8 +214,6 @@ paymode:any;
       }
     }
     else{
-
-    // alert(JSON.stringify(this.payment)+"work")
       if (this.checking == true) {
         this.common.loaderStart();
         // let payment;

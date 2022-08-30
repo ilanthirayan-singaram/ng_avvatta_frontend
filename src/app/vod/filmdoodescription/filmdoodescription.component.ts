@@ -122,7 +122,11 @@ export class FilmdoodescriptionComponent implements OnInit {
       }
       else {
 
-        this.common.filmdoRent(this.descData1.subscription_id);
+        // this.service.filmbuy(this.id).subscribe(result => {
+        //     this.pay = result;
+        // alert(JSON.stringify(this.id))
+        this.common.filmdoRent(this.descData1.subscription_id,this.id);
+      // })
         // this.service.filmbuy(this.id).subscribe(result => {
         //   this.pay = result;
         //   localStorage.setItem('payid',JSON.stringify(this.pay.id))

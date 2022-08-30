@@ -928,13 +928,13 @@ export class CommonService {
   }
 
 
-  filmdoRent(val) {
+  filmdoRent(val,id) {
   
     if (localStorage.getItem("log") === null) {
       this.loginModal();
     }
     else {
-      this.flimdoSubscribeModal(val);
+      this.flimdoSubscribeModal(val,id);
       // this.userActivity(type, category, user_id, sub_cat, action, duration, genere).subscribe();
      
     }
@@ -942,13 +942,13 @@ export class CommonService {
 
 
 
-  flimdoSubscribeModal(id) {
+  flimdoSubscribeModal(id,val) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component";
     dialogConfig.height = "350px";
     dialogConfig.width = "600px";
-    dialogConfig.data = {select:id}
+    dialogConfig.data = {select:id,id:val}
     const modalDialog = this.matDialog.open(FlimdooSubscriptionComponent, dialogConfig);
     // const modalDialog = this.matDialog.open(ChooseplanComponent, dialogConfig);
 

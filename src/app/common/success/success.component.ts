@@ -83,7 +83,6 @@ pay:string
            id: this.pay,
               payment_mode: "paygate"
             }
-
          this.service.filmsubscribe(this.pay,sub).subscribe(res=>{
         console.log(res,'rea');
 
