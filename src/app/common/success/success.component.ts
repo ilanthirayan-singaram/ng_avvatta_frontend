@@ -72,7 +72,9 @@ pay:string
   }
 
   goBack(){
-    this.common.getPreviousUrl();
+    // this.common.getPreviousUrl();
+
+    this.router.navigateByUrl(localStorage.getItem('currentUrl'));
     
   }
  

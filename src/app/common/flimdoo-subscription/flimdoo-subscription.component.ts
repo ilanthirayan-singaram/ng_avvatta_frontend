@@ -152,7 +152,6 @@ paymode:any;
         filmdoo:true
       }]
 
-
     if(!this.billingEmail){
 
       // alert(JSON.stringify(this.checking))
@@ -182,7 +181,18 @@ paymode:any;
               //   subcribtion_main_id: this.dialogRef._containerInstance._config.data.select,
               //   billing_email : this.billmail,
               // }];
-              // alert(JSON.stringify(this.payment[0]))
+              // alert(JSON.stringify(this.payment[0])) this.payment = [{
+      
+
+                this.payment = [{
+                  user_id: JSON.parse(localStorage.getItem('id')),
+                  amount: this.amount[0].amount,
+                  payment_mode: 'paygate',
+                  subcribtion_id: this.amount[0].id,
+                  subcribtion_main_id: this.subscriptionId,
+                  billing_email: this.billmail,
+                  filmdoo:true
+                }]
               this.service.paySubscription(this.payment[0]).subscribe(data => {
                 if (JSON.parse(JSON.stringify(data)).success == true) {
                   this.autoSubmit = JSON.parse(JSON.stringify(data))

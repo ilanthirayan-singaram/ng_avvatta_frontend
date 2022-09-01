@@ -65,7 +65,8 @@ export class CommonService {
         this.purl = this.curl;
         this.curl = event.url;
         if (this.purl != undefined && this.curl != undefined) {
-          if ((this.purl.split('/')[1] != this.curl.split('/')[1]) && (this.curl.split('/')[1].split('?')[0] != 'paymentstatus')) {
+          if ((this.purl.split('/').slice(1).join('/') != this.curl.split('/').slice(1).join('/')) && (this.curl.split('/')[1].split('?')[1] != 'paymentstatus')) {
+            
             localStorage.setItem('previousUrl', this.purl);
             localStorage.setItem('currentUrl', this.curl);
           }
