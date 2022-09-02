@@ -1,0 +1,431 @@
+<div id="modal-content-wrapper">
+    <div class="modalcontainer sub" [ngStyle]="{'display':subscribe}">
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <!-- <ngx-spinner
+        bdColor="rgba(51,51,51,0.8)"
+        size="medium"
+        color="#fff"
+        type="ball-scale-multiple"
+      >
+        <p style="font-size: 20px; color: white">Loading...</p>
+      </ngx-spinner> -->
+        <!-- <app-close></app-close> s -->
+        <!-- Patment method Start -->
+        <div class="payment" [ngStyle]="{ 'display': paymentMethodShow }">
+
+            <app-close (click)="closeModal()"></app-close>
+            <form #payment="ngForm" (ngSubmit)="paymentMethod(payment)">
+                <div class="body">
+                    <h3>Choose Your Payment Method</h3>
+                    <div class="button">
+                        <button (click)="success()">Credit / Debit Card</button>
+                        <button (click)="success()">Payment Method 2</button>
+                        <button (click)="success()">Payment Method 3</button>
+                    </div>
+                </div>
+            </form>
+            <div class="footer">
+                <app-foot (click)="closeModal()"></app-foot>
+            </div>
+        </div>
+        <!-- Payment Method End -->
+        <!-- Payment Success Start -->
+        <div class="paymentsuccess" [ngStyle]="{ 'display': paymentSuccessShow }">
+            <app-close (click)="closeModal()"></app-close>
+            <div class="body">
+                <h3>Payment Successful</h3>
+                <div class="succ">
+                    <i class='fas fa-check'></i>
+                </div>
+                <p>You will be redirected to the home page.</p>
+                <p>Please do not close the browser.</p>
+                <p>If you are not automatically redirected.</p>
+                <div class="button">
+                    <button (click)="clickHere()">CLICK HERE</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Success End -->
+        <!-- Payment Fail Start -->
+        <div class="paymentfail" [ngStyle]="{ 'display': paymentFailShow }">
+            <app-close (click)="closeModal()"></app-close>
+            <div class="body">
+                <h3>Sorry, Payment Failed!</h3>
+                <div class="succ">
+                    <i class='fas fa-pen'></i>
+                </div>
+                <p>Unfortunately, your payment was unsuccessful</p>
+                <p>Please ensure that the card details you paid is correct as register.</p>
+                <p>Alternatively, please try a different payment method.</p>
+                <p>If the problem presists, Please contact Avvatta customer service</p>
+                <div class="button">
+                    <button>PAY NOW</button>
+                    <button>GO BACK</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Fail End -->
+        <!-- Choose plan Start -->
+        <div class="subscribe" [ngStyle]="{ 'display': choosePlanShow }">
+            <div class="choose">
+                <div class="header">
+                    <div class="content">
+                        <h3>Choose Your Plan</h3>
+                        <p>Switch plan or Cancel anytime</p>
+                    </div>
+                    <div class="right">
+                        <div class="skip"><button (click)="closeModal()">SKIP</button></div>
+                        <div class="head">
+                            <i class="fa fa-close" (click)="closeModal()"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subs">
+                    <div class="form">
+                        <form #chooseplan="ngForm" (ngSubmit)="choosePlan(chooseplan)">
+
+
+                            <h1>{{subscriptionHead}}</h1>
+                            <div class="body">
+                                <div class="others" *ngFor="let d of subscriptionData;  let i = index">
+                                    <div class="container" [style.z-index]="index+1" (click)="selectPayment()">
+                                        <div class="head" [style.background]="d.first_color_code">
+                                            <p>{{d.title.split(' ').reverse()[0]}}</p>
+                                            <strong>{{d.currency}}&nbsp;{{d.amount}}</strong><sup>.00</sup>
+                                        </div>
+                                        <div class="bodycontent">
+                                            <span class="circle" [style.background]="d.first_color_code"></span>
+                                            <p class="day">Validity : {{d.plan}} day</p>
+                                            <!-- <p class="access" [style.background]="d.second_color_code">Access :
+                                                {{d.no_of_account}} Device</p> -->
+                                                <p class="access" [style.background]="d.second_color_code">Once you click play, the movie will expire in 48 hours.
+                                                </p>
+                                            <div class="selectbtn" [style.background]="d.first_color_code"
+                                                (click)="clickContinue(d)">
+                                                <div class="check">
+                                                    <label class="script">
+                                                        <input (click)="selectPaymentTrue(selected === i)"
+                                                            [checked]="selected === i" (change)="selected = i"
+                                                            type="checkbox" name="subscribe" ngModel required
+                                                            #subscribe="ngModel" value="password">
+                                                        <span class="geekmark"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="selectbutton">
+                                                    <button>SELECT</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <form ngNoForm #myFormPost name="myFormPost" id="payform"
+                                        action="https://secure.paygate.co.za/payweb3/process.trans" method="POST"
+                                        id="auto">
+                                        <input type="hidden" name="CHECKSUM" value="{{checkSum}}">
+                                        <input type="hidden" name="PAY_REQUEST_ID" value="{{parReqId}}">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <button (click)="continuePay()">CONTINUE</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- <div class="redeem">
+                <div class="left">
+                    <div class="cont">
+                        <p>Redeem your voucher / promo code</p>
+                        <div class="values">
+                            <div class="input">
+                                <input type="text" name="pname" placeholder="" ngModel required>
+                            </div>
+                            <div class="button">
+                                <button>Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right" *ngIf="pay">
+                  <div class="cont"  *ngFor="let pay of selectPay">
+                    <div class="text">
+                        <p>Pay {{pay.title}}</p>
+                        <p>ZAR {{pay.amount}}</p>
+                    </div>
+                    <div class="button">
+                        <button (click)="continuePay(pay.amount)">CONTINUE TO PAY</button>
+                    </div>
+                  </div>
+                </div>
+            </div> -->
+                </div>
+                <div class="footer">
+                    <!-- <div>
+                        <div>
+                            <form ngNoForm #myFormPost name="myFormPost" id="payform" action="https://secure.paygate.co.za/payweb3/process.trans" method="POST" id="auto" >
+                                <input type="hidden" name="PAY_REQUEST_ID" value="{{parReqId}}" >
+                                 <input type="hidden"  name="CHECKSUM" value="{{checkSum}}">
+                            </form>
+                        </div>
+                    </div> -->
+                    <app-foot (click)="closeModal()"></app-foot>
+                </div>
+            </div>
+        </div>
+        <!-- Choose plan End -->
+
+    </div>
+
+
+
+
+
+    <div class="modalcontainer pay" [ngStyle]="{'display':pament}">
+        <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+        <div class="modalcontainer">
+            <app-close (click)="closeModal()"></app-close>
+            <div *ngFor="let data of amount">
+                <h3>Subscription Confirmation</h3>
+                <!-- <p> You have selected to subscribe to the {{data.description}} at a cost of
+                    {{data.currency}}{{data.amount}} valid for {{data.plan}} days.<br> Please click on the 'CONFIRM'
+                    button to make the payment or the 'CANCEL' button to cancel</p> -->
+                    <p> You have selected to subscribe to the FlimDoo at a cost of
+                        {{data.currency}}{{data.amount}} valid for {{data.plan}} days.<br> Please click on the 'CONFIRM'
+                        button to make the payment or the 'CANCEL' button to cancel</p>
+                <h3>Choose your Payment Method</h3>
+
+            </div>
+            <div class="paymethod">
+                <div class="redeem">
+                    <div class="left">
+                        <div class="cont">
+                            <p>Redeem your voucher/promo code</p>
+                            <div class="values">
+                                <div class="input">
+                                    <input type="text" name="pname" placeholder="" ngModel required>
+                                </div>
+                                <div class="button">
+                                    <button>Apply</button>
+                                </div>
+                            </div>
+                            <div class="footbtn">
+                                <div class="topay" *ngFor="let data of amount">
+                                    <div class="left">To Pay</div>
+                                    <div class="right">{{data.currency}}{{data.amount}}</div>
+                                </div>
+                                <!-- <div class="button">
+                                    <div class="check">
+                                        <label class="main"> CONTINUE TO PAY
+                                            <input type="checkbox" name="signin" value="" ngModel required
+                                                (click)="checkTrue(checking)">
+                                            <span class="geekmark"></span>
+                                        </label>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="help">
+                    <div class="head">
+                        <!-- <div class="contact" [ngClass]="{'active': clicked == 'mobile'}" (click)="show('mobile')">
+                            <h3>MOBILE</h3>
+                        </div> -->
+                        <div class="faq" [ngClass]="{'active': clicked == 'eft'}" (click)="show('eft')">
+                            <h3>CARDS/EFT</h3>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <!-- <div class="aboutcont" *ngIf="click=='credit'">
+                            <div class="verify">
+                                <div class="vcontainer">
+                                    <div class="pin">
+                                        <form #credit="ngForm" (ngSubmit)="creditDebitCard(credit)">
+                                            <div class="r1">
+                                                <div class="fname">
+                                                    <input type="text" name="name" ngModel required #fname="ngModel"
+                                                        placeholder="Cardholder Name">
+                                                    <div class="placeimage">
+                                                        <div class="imgs">
+                                                            <img src="../../assets/Images/Master Card.PNG" />
+                                                        </div>
+                                                        <div class="imgs">
+                                                            <img src="../../assets/Images/Visa Icon.PNG" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="dobcontainer">
+                                                    <div class="dob">
+                                                        <div class="dobinput">
+                                                            <select name="month" ngModel required
+                                                                [(ngModel)]="selectedMonth">
+                                                                <option value="MM" disabled selected>Month</option>
+                                                                <option *ngFor="let month of months; let i = index"
+                                                                    [value]="i+1">{{month}}</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="dobinput">
+                                                            <select name="year" ngModel required
+                                                                [(ngModel)]="selectedYear">
+                                                                <option value="YY" disabled selected>Year</option>
+                                                                <option *ngFor="let year of years">{{year}}</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="dobinput">
+                                                            <img src="../../assets/Images/CVV Icon.PNG" />
+                                                        </div>
+                                                        <div class="dobinput">
+                                                            <input type="text" name="cvvnumber" maxlength="3"
+                                                                placeholder="CVV" required ngModel>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="r1">
+                                                <div class="number">
+                                                    <div class="ip">
+                                                        <input type="text" maxlength="4" name="pin1" placeholder="1234"
+                                                            required ngModel>
+                                                    </div>
+                                                    <div class="ip">
+                                                        <input type="text" maxlength="4" name="pin2" placeholder="1234"
+                                                            required ngModel>
+                                                    </div>
+                                                    <div class="ip">
+                                                        <input type="text" maxlength="4" name="pin3" placeholder="1234"
+                                                            required ngModel>
+                                                    </div>
+                                                    <div class="ip">
+                                                        <input type="text" maxlength="4" name="pin4" placeholder="1234"
+                                                            required ngModel>
+                                                    </div>
+                                                </div>
+                                                <div class="button">
+                                                    <div class="check">
+                                                        <label class="main"> I agree the terms & conditions
+                                                            <input type="checkbox" name="signin" value="" ngModel
+                                                                required>
+                                                            <span class="geekmark"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="btn">
+                                                        <button>PAY NOW</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="taccont" *ngIf="click=='eft'">
+                            <div class="verify">
+                                <div class="vcontainer">
+                                    <div class="pin">
+                                        <form #credit="ngForm" (ngSubmit)="creditDebitCard(credit)">
+                                            <div class="r1">
+                                                <b>Billing Email:</b>{{billingEmail}}
+                                                <div class="fname" *ngIf="billingEmail == ''">
+                                                    <input [(ngModel)]="billmail" type="text" name="name" ngModel
+                                                        required #fname="ngModel" placeholder="Billing Email"><br>
+                                                </div>
+                                                <h3>You will be redirected to paygate to complete your transaction.</h3>
+                                                <div class="button">
+                                                    <div class="check">
+                                                        <label class="main"> I agree to the terms and conditions
+                                                            <input type="checkbox" name="signin" value="" ngModel
+                                                                required (click)="checkTrue(checking)">
+                                                            <span class="geekmark"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contacecont" *ngIf="click=='mobile'">
+                            <div class="verify">
+                                <div class="vcontainer">
+                                    <div class="pin">
+                                        <form #mobile="ngForm" (ngSubmit)="mobileNumber(mobile)">
+                                            <div class="r1">
+                                                <b>Billing Mobile:</b>{{billingMobile}}
+                                                <div class="fname">
+                                                    <!-- <select name="selectOne" [(ngModel)]="test" ngModel required (change)="a()">
+                                                            <option value="Paygate">Paygate</option>
+                                                            <option value="MondiaPay">MondiaPay</option>
+                                                        </select><br> -->
+                                                    <!-- <input type="text" *ngIf="billingMobile == ''" name="name" ngModel
+                                                        required #fname="ngModel" [(ngModel)]="mobileNo"
+                                                        placeholder="Mobile Number"> -->
+                                                    <div class="row">
+                                                        <label for="cellc">Cell C</label>
+                                                        <input type="radio" name="paymode" value="cellc" ngModel
+                                                        required (ngModelChange)="mobileval($event)" checked [(ngModel)]="paymentType" >
+                                                    </div>
+                                                     <div class="row">
+                                                        <label for="mtn">MTN</label>
+                                                        <input type="radio" name="paymode" value="mtn" ngModel
+                                                        required  (ngModelChange)="mobileval($event)" >
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="telkom">Telkom</label>
+                                                        <input type="radio" name="paymode" value="telkom" ngModel
+                                                        required  (ngModelChange)="mobileval($event)" >
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="vodacom">Vodacom</label>
+                                                        <input type="radio" name="paymode" value="vodacom" ngModel
+                                                        required (ngModelChange)="mobileval($event)"  >
+                                                    </div> 
+
+                                                    <h3>You will be redirected to {{paymentmethod}} to complete your
+                                                        transaction.</h3>
+                                                </div>
+                                                <!-- <div class="button">
+                                                    <div class="check">
+                                                        <label class="main"> I agree to the terms and conditions.
+                                                            <input type="checkbox" name="signin" value="" ngModel
+                                                                required (click)="checkTrue1(checking1)">
+                                                            <span class="geekmark"></span>
+                                                        </label>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+  
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="cont">
+                <button class="btn1" button="submit" (click)="confirmPayment()">CONFIRM</button>
+                <button class="btn2" button="type" (click)="closeModal()">CANCEL</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

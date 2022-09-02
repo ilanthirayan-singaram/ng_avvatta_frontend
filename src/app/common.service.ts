@@ -18,6 +18,7 @@ import { ModalComponent } from './general/modal/modal.component';
 import { SubscriptionComponent } from './common/subscription/subscription.component';
 import { JwplayerComponent } from './general/jwplayer/jwplayer.component';
 import { PopupComponent } from './general/popup/popup.component';
+import { FlimdooSubscriptionComponent } from './common/flimdoo-subscription/flimdoo-subscription.component';
 
 
 @Injectable({
@@ -64,7 +65,8 @@ export class CommonService {
         this.purl = this.curl;
         this.curl = event.url;
         if (this.purl != undefined && this.curl != undefined) {
-          if ((this.purl.split('/')[1] != this.curl.split('/')[1]) && (this.curl.split('/')[1].split('?')[0] != 'paymentstatus')) {
+          if ((this.purl.split('/').slice(1).join('/') != this.curl.split('/').slice(1).join('/')) && (this.curl.split('/')[1].split('?')[1] != 'paymentstatus')) {
+            
             localStorage.setItem('previousUrl', this.purl);
             localStorage.setItem('currentUrl', this.curl);
           }
@@ -925,6 +927,34 @@ export class CommonService {
   hexaLog(data) {
     return this.http.post(this.urlApi + 'hexlogs', data);
   }
+
+
+  filmdoRent(val,id) {
+  
+    if (localStorage.getItem("log") === null) {
+      this.loginModal();
+    }
+    else {
+      this.flimdoSubscribeModal(val,id);
+      // this.userActivity(type, category, user_id, sub_cat, action, duration, genere).subscribe();
+     
+    }
+  }
+
+
+
+  flimdoSubscribeModal(id,val) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "350px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = {select:id,id:val}
+    const modalDialog = this.matDialog.open(FlimdooSubscriptionComponent, dialogConfig);
+    // const modalDialog = this.matDialog.open(ChooseplanComponent, dialogConfig);
+
+  }
+
 
 }
 

@@ -72,7 +72,9 @@ pay:string
   }
 
   goBack(){
-    this.common.getPreviousUrl();
+    // this.common.getPreviousUrl();
+
+    this.router.navigateByUrl(localStorage.getItem('currentUrl'));
     
   }
  
@@ -83,7 +85,6 @@ pay:string
            id: this.pay,
               payment_mode: "paygate"
             }
-
          this.service.filmsubscribe(this.pay,sub).subscribe(res=>{
         console.log(res,'rea');
 
