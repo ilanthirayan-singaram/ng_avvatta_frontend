@@ -68,7 +68,7 @@ export class ChooseplanComponent implements OnInit {
 
     if(JSON.parse(localStorage.getItem('log')).mobile){
       this.billingMobile = JSON.parse(localStorage.getItem('log')).mobile;
-      console.log('mob',this.billingMobile)
+      // console.log('mob',this.billingMobile)
     }
     this.common.loaderOnLoad();
     this.subscriptionId = '56';
@@ -113,7 +113,7 @@ export class ChooseplanComponent implements OnInit {
   }
   
   test1(id:number, id2){
-    console.log('asdfghjk',id, id2);
+    
     this.initial1 = id;
     this.t = id2;
   }
@@ -147,7 +147,7 @@ export class ChooseplanComponent implements OnInit {
   }
 
   checkBillingMail(){
-    console.log('billingmail',this.billingEmail)
+   
     if(!this.billingEmail){
       if(this.billmail != '' ){
         // let emailChange;
@@ -240,7 +240,7 @@ export class ChooseplanComponent implements OnInit {
   }
 
   checkBillingMobile(){
-    console.log('billingmobile',this.billingMobile);
+    // console.log('billingmobile',this.billingMobile);
     if(!this.billingMobile){
       if(this.mobileNo != '' ){
       
@@ -283,7 +283,7 @@ export class ChooseplanComponent implements OnInit {
     }
     else{
       if (this.checking1 == true) {
-        // this.common.loaderStart();
+        this.common.loaderStart();
         let datas={
       
           user_id: JSON.parse(localStorage.getItem('log')).id,
@@ -362,12 +362,10 @@ export class ChooseplanComponent implements OnInit {
     // }
 
     if(this.checking){
-      console.log('sasmitha',this.checking)
       this.checkBillingMail();
-      console.log('mail',this.checkBillingMail)
     }
     if(this.checking1){
-      console.log('jai',this.checking1)
+     
       this.checkBillingMobile();
       
       
@@ -386,7 +384,7 @@ export class ChooseplanComponent implements OnInit {
     this.pament = 'block';
   }
   continuePay(amt, currency,id){
-    console.log('id',id)
+    // console.log('id',id)
     // console.log(this.amount[0]);
     // if(this.paymentCheck == true){
       if (window.location.href.split('/')[2] == 'ng.avvatta.com') {

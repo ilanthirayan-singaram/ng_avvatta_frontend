@@ -99,8 +99,10 @@
                                         <div class="bodycontent">
                                             <span class="circle" [style.background]="d.first_color_code"></span>
                                             <p class="day">Validity : {{d.plan}} day</p>
-                                            <p class="access" [style.background]="d.second_color_code">Access :
-                                                {{d.no_of_account}} Device</p>
+                                            <!-- <p class="access" [style.background]="d.second_color_code">Access :
+                                                {{d.no_of_account}} Device</p> -->
+                                                <p class="access" [style.background]="d.second_color_code">Once you click play, the movie will expire in 48 hours.
+                                                </p>
                                             <div class="selectbtn" [style.background]="d.first_color_code"
                                                 (click)="clickContinue(d)">
                                                 <div class="check">
@@ -188,9 +190,12 @@
             <app-close (click)="closeModal()"></app-close>
             <div *ngFor="let data of amount">
                 <h3>Subscription Confirmation</h3>
-                <p> You have selected to subscribe to the {{data.description}} at a cost of
+                <!-- <p> You have selected to subscribe to the {{data.description}} at a cost of
                     {{data.currency}}{{data.amount}} valid for {{data.plan}} days.<br> Please click on the 'CONFIRM'
-                    button to make the payment or the 'CANCEL' button to cancel</p>
+                    button to make the payment or the 'CANCEL' button to cancel</p> -->
+                    <p> You have selected to subscribe to the FlimDoo at a cost of
+                        {{data.currency}}{{data.amount}} valid for {{data.plan}} days.<br> Please click on the 'CONFIRM'
+                        button to make the payment or the 'CANCEL' button to cancel</p>
                 <h3>Choose your Payment Method</h3>
 
             </div>
@@ -227,9 +232,9 @@
                 </div>
                 <div class="help">
                     <div class="head">
-                        <div class="contact" [ngClass]="{'active': clicked == 'mobile'}" (click)="show('mobile')">
+                        <!-- <div class="contact" [ngClass]="{'active': clicked == 'mobile'}" (click)="show('mobile')">
                             <h3>MOBILE</h3>
-                        </div>
+                        </div> -->
                         <div class="faq" [ngClass]="{'active': clicked == 'eft'}" (click)="show('eft')">
                             <h3>CARDS/EFT</h3>
                         </div>

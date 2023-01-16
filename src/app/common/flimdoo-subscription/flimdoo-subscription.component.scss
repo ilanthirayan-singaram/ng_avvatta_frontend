@@ -280,7 +280,10 @@ option {
 		// }
 		.body {
 			width: 100%;
-			display: flex;
+			// display: flex;
+            display: grid;
+			place-items: center;
+            margin: 0 auto;
 			border-radius: 10px;
 			overflow: hidden;
 
@@ -673,7 +676,7 @@ option {
 			overflow: auto;
 
 			div {
-				width: 50%;
+				width: 100%;
 				padding: 10px;
 				display: flex;
 				cursor: pointer;

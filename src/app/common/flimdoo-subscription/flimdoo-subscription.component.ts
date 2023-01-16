@@ -1,17 +1,17 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { CommonService } from '../../common.service';
+import { CommonService } from 'src/app/common.service';
 import { ServiceService } from '../service.service';
-import { Location } from '@angular/common';
+import { SubscriptionComponent } from '../subscription/subscription.component';
 
 @Component({
-  selector: 'app-subscription',
-  templateUrl: './subscription.component.html',
-  styleUrls: ['./subscription.component.scss']
+  selector: 'app-flimdoo-subscription',
+  templateUrl: './flimdoo-subscription.component.html',
+  styleUrls: ['./flimdoo-subscription.component.scss']
 })
-export class SubscriptionComponent implements OnInit {
+export class FlimdooSubscriptionComponent implements OnInit {
+
   paymentType: string = 'cellc';
   paymentmethod;
   subscriptionHead: string;
@@ -47,6 +47,8 @@ export class SubscriptionComponent implements OnInit {
   billmail: any = '';
   moobile:any;
   test: string = 'Paygate';
+  pay_det;
+  payment;
 paymode:any;
   isChecked: any;
   constructor(private router: Router,
@@ -54,7 +56,7 @@ paymode:any;
     public dialogRef: MatDialogRef<SubscriptionComponent>,
     private common: CommonService,
     private service: ServiceService,
-    private location: Location) {
+    ) {
       this.paymode = 'cellc'
      }
 
@@ -73,21 +75,29 @@ paymode:any;
     }
     
     this.common.loaderOnLoad();
+    // alert(JSON.stringify(this.dialogRef._containerInstance._config.data))
     this.subscriptionId = this.dialogRef._containerInstance._config.data.select;
     //  console.log('sub',this.subscriptionId)
+      localStorage.setItem('payid',(this.dialogRef._containerInstance._config.data.id))
+
     this.common.loaderStart();
-    this.common.subscription({ id: JSON.parse(this.subscriptionId) }).subscribe(data => {
+    this.common.subscription({ id: this.subscriptionId }).subscribe(data => {
       if (JSON.parse(JSON.stringify(data)).success == true) {
         this.subscriptionData = JSON.parse(JSON.stringify(data)).data;
+        let temp=this.subscriptionData
+        this.subscriptionData=[]
+        this.subscriptionData.push(temp[0])
         this.common.userActivity('user', 'newsubscription', '0', '0', 'new subscription', '0', '0').subscribe();
        
-        this.subscriptionHead = this.subscriptionData[0].description.split(" ").reverse().slice(1).reverse().join(" ");
+        this.subscriptionHead = "FlimDoo"
+        // this.subscriptionHead = this.subscriptionData[0].description.split(" ").reverse().slice(1).reverse().join(" ");
        
-        this.common.loaderStop();
+        this.common.loaderStop(); 
       }
     })
-    this.click = 'mobile';
-    this.clicked = 'mobile';
+
+    this.click = 'eft';
+    this.clicked = 'eft';
     // this.getSubscribeData();
     this.common.checkInitial();
     this.subscribe = 'block';
@@ -130,7 +140,21 @@ paymode:any;
  
 
   checkBillingMail(){
+
+
+      this.payment = [{
+        user_id: JSON.parse(localStorage.getItem('id')),
+        amount: this.amount[0].amount,
+        payment_mode: 'paygate',
+        subcribtion_id: this.amount[0].id,
+        subcribtion_main_id: this.subscriptionId,
+        billing_email: this.billingEmail,
+        filmdoo:true
+      }]
+
     if(!this.billingEmail){
+
+      // alert(JSON.stringify(this.checking))
       if(this.billmail != '' ){
         // let emailChange;
         // emailChange = [{
@@ -148,16 +172,28 @@ paymode:any;
           //   this.errorMessage(changePassword.error_messages);
             if (this.checking == true) {
               this.common.loaderStart();
-              let payment;
-              payment = [{
-                user_id: JSON.parse(localStorage.getItem('id')),
-                amount: this.amount[0].amount,
-                payment_mode: 'paygate',
-                subcribtion_id: this.amount[0].id,
-                subcribtion_main_id: this.dialogRef._containerInstance._config.data.select,
-                billing_email : this.billmail,
-              }];
-              this.service.paySubscription(payment[0]).subscribe(data => {
+              // let payment;
+              // payment = [{
+              //   user_id: JSON.parse(localStorage.getItem('id')),
+              //   amount: this.amount[0].amount,
+              //   payment_mode: 'paygate',
+              //   subcribtion_id: this.amount[0].id,
+              //   subcribtion_main_id: this.dialogRef._containerInstance._config.data.select,
+              //   billing_email : this.billmail,
+              // }];
+              // alert(JSON.stringify(this.payment[0])) this.payment = [{
+      
+
+                this.payment = [{
+                  user_id: JSON.parse(localStorage.getItem('id')),
+                  amount: this.amount[0].amount,
+                  payment_mode: 'paygate',
+                  subcribtion_id: this.amount[0].id,
+                  subcribtion_main_id: this.subscriptionId,
+                  billing_email: this.billmail,
+                  filmdoo:true
+                }]
+              this.service.paySubscription(this.payment[0]).subscribe(data => {
                 if (JSON.parse(JSON.stringify(data)).success == true) {
                   this.autoSubmit = JSON.parse(JSON.stringify(data))
                   localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
@@ -190,16 +226,16 @@ paymode:any;
     else{
       if (this.checking == true) {
         this.common.loaderStart();
-        let payment;
-        payment = [{
-          user_id: JSON.parse(localStorage.getItem('id')),
-          amount: this.amount[0].amount,
-          payment_mode: 'paygate',
-          subcribtion_id: this.amount[0].id,
-          subcribtion_main_id: this.dialogRef._containerInstance._config.data.select,
-          billing_email : this.billingEmail,
-        }];
-        this.service.paySubscription(payment[0]).subscribe(data => {
+        // let payment;
+        // payment = [{
+        //   user_id: JSON.parse(localStorage.getItem('id')),
+        //   amount: this.amount[0].amount,
+        //   payment_mode: 'paygate',
+        //   subcribtion_id: this.amount[0].id,
+        //   subcribtion_main_id: this.dialogRef._containerInstance._config.data.select,
+        //   billing_email : this.billingEmail,
+        // }];
+        this.service.paySubscription(this.payment[0]).subscribe(data => {
           if (JSON.parse(JSON.stringify(data)).success == true) {
             this.autoSubmit = JSON.parse(JSON.stringify(data))
             localStorage.setItem('test', JSON.stringify(this.autoSubmit.data));
@@ -331,12 +367,12 @@ paymode:any;
 
   confirmPayment() {
    
-    if(this.checking){
+    // if(this.checking){
       this.checkBillingMail();
-    }
-    if(this.checking1){
-      this.checkBillingMobile();
-    }
+    // }
+    // if(this.checking1){
+    //   this.checkBillingMobile();
+    // }
   }
   checkTrue(val) {
     this.checking = !this.checking;
@@ -431,7 +467,8 @@ paymode:any;
   //   this.amount = val;
   // }
   clickContinue(val) {
-    // console.log(val);
+    console.log(val);
+    // alert(JSON.stringify(val))
     this.amount = [val];
     // console.log(this.amount);
     // // console.log(this.amount);

@@ -21,6 +21,7 @@ import { VideoComponent } from './erosnow/music/video/video.component';
 import { MusicplayComponent } from './musicplay/musicplay.component';
 import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SeriesdescriptionComponent } from './seriesdescription/seriesdescription.component';
+import { FilmdoodescriptionComponent } from './filmdoodescription/filmdoodescription.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { SeriesdescriptionComponent } from './seriesdescription/seriesdescriptio
     FilmdoComponent, 
     ErosnowComponent, 
     VodMainpageComponent, MoviedescriptionComponent, MovieComponent, MusicComponent, 
-    MainpageComponent, VideoComponent, MusicplayComponent, SeriesdescriptionComponent
+    MainpageComponent, VideoComponent, MusicplayComponent, SeriesdescriptionComponent, FilmdoodescriptionComponent
   ],
   imports: [
     CommonModule,

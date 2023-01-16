@@ -1,0 +1,147 @@
+<div class="movie">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
+    <app-alert [Message]="alertMessage" *ngIf="alertShow" (click)="alertClose(alertMessage)"></app-alert>
+    <ng-container *ngFor="let data of descData">
+
+        <div class="maincontainer"  style="background-image: url('{{data.banner_url}}')">
+            <div class="middle web">
+                <div class="content">
+                
+                   <div class="inside">
+                    <div class="first">
+                        <!-- <div class="left">&#10094;</div> -->
+                    <div class="info">
+                        <h1>{{data.title}}</h1>
+                        <p>
+                            {{data.synopsis}}
+                        </p>
+                        <strong>
+                            <p >
+                                Starring: {{data.cast}}
+                            </p>
+                            <p >
+                                Creators: {{data.director}}
+                            </p>
+                            <p>{{data.release_year}}</p>
+                        </strong>
+                    </div>
+                    <div class="empty">
+                    </div>
+
+                    <!-- <div class="right">&#10095;</div> -->
+                    </div>
+                    <div class="second">
+                        <div class="btncontainer">
+                            <div class="left">
+
+                                <div class="buttons">
+                                    <div class="play">
+                                        <button action="https://secure.paygate.co.za/payweb3/process.trans" method="POST"  (click)="rentnow(data.id)">
+                                            <ng-container *ngIf="RentNowBtn == 'rentnow'">RENT NOW</ng-container>
+                                            <ng-container *ngIf="RentNowBtn == 'play'">PLAY</ng-container>
+                                        </button>
+                                    </div>
+                                    <!-- <div class="watch">
+                                        <button>Play Trailer</button>
+                                    </div> -->
+                                    <div class="list"
+                                    (click)="share(facebook)">
+                                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="list">
+                                        <i (click)="watchLaterClick()" class="fa fa-plus" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="list">
+                                        <i [ngClass]="{'active': data.iswishlist == 1}" class="fa fa-heart" aria-hidden="true" (click)="addFavourite()"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="right">
+                                <div>
+                                    Seasons
+                                </div>
+                                <div>
+                                    <div>1</div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                   </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="mobilebanner">
+            <img src="{{data.banner_url}}" />
+        </div>
+
+        <div class="middle mob" *ngFor="let data of descData">
+            <div class="content">
+               <div class="inside">
+                <div class="first">
+                    <!-- <div class="left">&#10094;</div> -->
+                <div class="info">
+
+                </div>
+                <div class="empty">
+                    <h1>{{data.title}}</h1>
+                    <p>
+                        {{data.synopsis}}
+                    </p>
+                    <strong>
+                        <p >
+                            Starring:{{data.cast}}
+                        </p>
+                        <p >
+                            Creators:{{data.director}}
+                        </p>
+                        <p>{{data.release_year}}</p>
+                    </strong>
+                </div>
+
+                <!-- <div class="right">&#10095;</div> -->
+                </div>
+                <div class="second">
+                    <div class="btncontainer">
+                        <div class="left">
+
+                            <div class="buttons">
+                                <div class="play">
+                                    <button action="https://secure.paygate.co.za/payweb3/process.trans" method="POST"  (click)="rentnow(data.id)">
+                                        <ng-container *ngIf="RentNowBtn == 'rentnow'">RENT NOW</ng-container>
+                                        <ng-container *ngIf="RentNowBtn == 'play'">PLAY</ng-container>
+                                    </button>
+                                </div>
+                                <!-- <div class="watch">
+                                    <button>Play Trailer</button>
+                                </div> -->
+                                <div class="list">
+                                    <i (click)="watchLaterClick()" class="fas fa-plus" aria-hidden="true"></i>
+                                </div>
+                                <div class="list">
+                                    <i  (click)="share(facebook)" class="fa fa-share-alt" aria-hidden="true"></i>
+                                </div>
+                                <div class="list">
+                                    <i [ngClass]="{'active': data.iswishlist != 0}" class="fa fa-heart" aria-hidden="true" (click)="addFavourite()"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+               </div>
+            </div>
+
+        </div>
+       
+    <form ngNoForm #myFormPost name="myFormPost" id="payform"
+    action="https://secure.paygate.co.za/payweb3/process.trans" method="POST"
+    id="auto">
+    <input type="hidden" name="CHECKSUM" value="{{checkSum}}">
+    <input type="hidden" name="PAY_REQUEST_ID" value="{{parReqId}}">
+</form>
+</ng-container>
+</div>
+<app-back></app-back>

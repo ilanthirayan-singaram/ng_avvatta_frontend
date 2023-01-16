@@ -29,7 +29,7 @@ export class AccountComponent implements OnInit {
   emailphone = [];
   email;
   phone;
-  countryCode:string;
+  // countryCode:string;
   billingEmail: any;
   constructor(public matDialog: MatDialog, 
     private service : ServiceService, 
@@ -49,15 +49,15 @@ export class AccountComponent implements OnInit {
       this.emailphone = JSON.parse(localStorage.getItem('emailPhone'));
       this.email = [JSON.parse(localStorage.getItem('log'))][0].email;
       this.phone = [JSON.parse(localStorage.getItem('log'))][0].mobile;
-      if (window.location.href.split('/')[2] == 'ng.avvatta.com'){
-        this.countryCode = '+234';
-      }
-      else if(window.location.href.split('/')[2] == 'avvatta.com' || window.location.href.split('/')[2] == 'www.avvatta.com'){
-        this.countryCode = '+27';
-      }
-      else{
-        this.countryCode = '+233';
-      }
+      // if (window.location.href.split('/')[2] == 'ng.avvatta.com'){
+      //   this.countryCode = '+234';
+      // }
+      // else if(window.location.href.split('/')[2] == 'avvatta.com' || window.location.href.split('/')[2] == 'www.avvatta.com'){
+      //   this.countryCode = '+27';
+      // }
+      // else{
+      //   this.countryCode = '+233';
+      // }
       // // console.log(this.phone)
     }
   }

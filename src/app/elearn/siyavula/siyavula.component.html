@@ -44,7 +44,8 @@
 
   <div class="body2" *ngIf="screen === 2">
     <div class="list1" *ngFor="let topic of topics;">
-      <div class="sublist" *ngFor="let chapter of topic.chapters;">
+      <div class="sublist" *ngFor="let chapter of topic?.chapters;">
+       
         <div class="text" (mouseover)="topicMouseOver(chapter, $event)" (mouseout)="topicMouseOut(chapter)">&#9654;&nbsp;{{chapter.title}}</div>
         <div class="percent" (mouseover)="topicMouseOver(chapter, $event)" (mouseout)="topicMouseOut(chapter)">({{ chapter.mastery ? chapter.mastery : 0 }}%)</div>
       </div>

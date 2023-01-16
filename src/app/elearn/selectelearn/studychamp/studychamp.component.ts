@@ -15,7 +15,7 @@ import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
   encapsulation: ViewEncapsulation.None
 })
 export class StudychampComponent implements OnInit {
-  
+
   click;
   list;
   play;
@@ -29,7 +29,7 @@ export class StudychampComponent implements OnInit {
   sourcefile;
   Showtext:boolean = false;
   hideimage:boolean = true;
- 
+
 
   constructor(
     private router: Router,
@@ -37,14 +37,14 @@ export class StudychampComponent implements OnInit {
     private common: CommonService,
     private sanitizer: DomSanitizer,
   ) { }
-  
+
 
   ngOnInit(): void {
 
     this.category(this.click);
     this.video(this.cat_id, false);
   }
- 
+
   category(id) {
 
     this.service.subCategory({ cat_id: 206 }).subscribe(data => {
@@ -72,18 +72,18 @@ export class StudychampComponent implements OnInit {
       sub_cat: id,
     };
     this.service.categoryVideo(data).subscribe(data => {
-     
+
       this.play = JSON.parse(JSON.stringify(data)).content;
       // console.log('play',this.play)
       this.Source=this.play[0].source ;
       // console.log('dfghjkl',this.Source)
       // this.sourcefile=this.Source[0].sourceFile;
       // this.sourcefile=this.Source.sourcefile;
-     
+
       this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.sourcefile=this.Source[0].sourceFile +'?page=hsn#toolbar=0');
     // console.log('source',this.sourcefile=this.Source[0].sourceFile)
     })
-  
+
 }
 
 
@@ -101,9 +101,9 @@ openPdf(content,genere,content_id) {
     // this.Source=this.play[0].source;
     // this.sourcefile=this.Source[0].sourceFile;
     this.sourcefile=content.sourceFile +'?page=hsn#toolbar=0';
-    
+
     this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.sourcefile);
- 
+
     // window.open(this.sourcefile ,"_blank");
     console.log('sdfgh',this.cat_id)
     this.common.userActivity('elearn', 'fun', content.id, this.cat_id, 'interact', '0', 'stchamp').subscribe();

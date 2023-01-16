@@ -34,6 +34,7 @@ export class ModalComponent implements OnInit {
   pinAlert: string = 'none';
   deviceType: string = 'web';
   loginBy: string = 'manual';
+  logintype: string;
   month: string;
   fname1: string;
   lname1: string;
@@ -51,7 +52,12 @@ export class ModalComponent implements OnInit {
   years = [];
   date = [];
   register = [];
-  ipAddress:string;
+  ipAddress: string;
+  click: string = 'Phone';
+  clicked: string = 'Phone';
+  countryCode: number;
+  mobilephone;
+
 
 
   constructor(
@@ -60,7 +66,7 @@ export class ModalComponent implements OnInit {
     private common: CommonService,
     private router: Router,
     private spinner: NgxSpinnerService,
-    private deviceService:DeviceDetectorService,
+    private deviceService: DeviceDetectorService,
     private pipe: CheckmailPipe,
     private http: HttpClient,
   ) {
@@ -89,14 +95,30 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.clicked = 'Phone';
+    this.click = 'Phone';
     this.getIpAddress();
     // localStorage.setItem('parentpin', '1');
     if (localStorage.getItem('emailPhone') != '') {
       this.emailphone = JSON.parse(localStorage.getItem('emailPhone'));
     }
+
+
     this.getYear();
     window.scroll(0, 0);
     this.loginShow = 'block';
+    if (window.location.href.split('/')[2] == 'avvatta.com' || window.location.href.split('/')[2] == 'www.avvatta.com') {
+      this.countryCode = +27
+    }
+    else if (window.location.href.split('/')[2] == 'gh.avvatta.com') {
+      this.countryCode = +233
+    }
+    else if (window.location.href.split('/')[2] == 'ng.avvatta.com') {
+      this.countryCode = +234
+    }
+    else {
+      this.countryCode = +91
+    }
     // this.signUpShow = 'block';
     //  this.VerifyShow = 'block';
     // this.completeProfileShow = 'block';
@@ -109,18 +131,18 @@ export class ModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  comingSoon(){
+  comingSoon() {
     this.errorMessage("Coming Soon");
   }
 
-  getIpAddress(){
-    this.service.getIPAddress().subscribe((res:any)=>{
-     console.log('IPADDRESS',res)
-      this.ipAddress=res.ip;
-      console.log('IPADDRESS',this.ipAddress)
+  getIpAddress() {
+    this.service.getIPAddress().subscribe((res: any) => {
+      console.log('IPADDRESS', res)
+      this.ipAddress = res.ip;
+      console.log('IPADDRESS', this.ipAddress)
       // return this.http.post(this.urlApi + 'setlog', data);
       // return this.http.get
-      
+
     });
   }
 
@@ -136,58 +158,59 @@ export class ModalComponent implements OnInit {
     }
     this.common.loaderStart();
     // device type
-    if(this.deviceService.getDeviceInfo().device == 'Unknown'){
+    if (this.deviceService.getDeviceInfo().device == 'Unknown') {
       deviceName = 'Windows';
     }
-    else{
+    else {
       deviceName = this.deviceService.getDeviceInfo().device;
     }
     let loginData = {};
     loginData = {
       device_type: this.deviceType,
       login_by: this.loginBy,
-      [this.emailphone[0].name]: this.emailphone[0].value,
+      mobile: this.countryCode + login.value.phone,
+      email: login.value.email,
+      // [this.emailphone[0].name]: this.emailphone[0].value,
       login_type: this.emailphone[0].name,
+      // login_type:this.logintype,
       password: login.value.password,
-      device_browser:this.deviceService.getDeviceInfo().browser,
-      device_ip:this.ipAddress,
-      device_os:deviceName
+      device_browser: this.deviceService.getDeviceInfo().browser,
+      device_ip: this.ipAddress,
+      device_os: deviceName
     };
     this.loginDta = loginData;
-    // console.log(loginData);
     this.loginApi(login)
-    
+
   }
 
-  loginApi(login){
+  loginApi(login) {
     this.service.loginCall(this.loginDta).subscribe(data => {
       let successData;
       successData = JSON.parse(JSON.stringify(data));
       localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
 
-      if(successData.status_code == 101){
+      if (successData.status_code == 101) {
         this.errorCode = successData.status_code;
         this.user_id = successData.user_id;
         let signOut;
-    signOut = [{
-      [this.emailphone[0].name]: this.emailphone[0].value,
-      signout_from_all_device : 1,
-      id : this.user_id
-    }];
-   if(successData.mondia_user == true){
-    this.service.signOutApiCall(signOut[0]).subscribe(data=>{
-      console.log('data', data);
-    });
-   }
+        signOut = [{
+          [this.emailphone[0].name]: this.emailphone[0].value,
+          signout_from_all_device: 1,
+          id: this.user_id
+        }];
+        if (successData.mondia_user == true) {
+          this.service.signOutApiCall(signOut[0]).subscribe(data => {
+          });
+        }
       }
-   else{
-    this.service.loginCall(this.loginDta).subscribe(data => {
-      let successData;
-      successData = JSON.parse(JSON.stringify(data));
-      localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
-    });
+      else {
+        this.service.loginCall(this.loginDta).subscribe(data => {
+          let successData;
+          successData = JSON.parse(JSON.stringify(data));
+          localStorage.setItem('emailPhone', JSON.stringify(this.emailphone));
+        });
 
-   }
+      }
       if (successData.success == false) {
         this.errorMessage(successData.error_messages);
         login.resetForm();
@@ -202,6 +225,7 @@ export class ModalComponent implements OnInit {
         localStorage.setItem('log', JSON.stringify(data));
         localStorage.setItem('id', successData.id);
         localStorage.setItem('email', successData.email);
+        localStorage.setItem('mobile', successData.mobile);
         localStorage.setItem('token', successData.token);
         localStorage.setItem('parentpin', successData.set_parent);
         localStorage.setItem('logedid', successData.loged_user_id);
@@ -228,25 +252,33 @@ export class ModalComponent implements OnInit {
   }
 
   public alertClose(val) {
-    if(val.error){
+    if (val.error) {
       this.alertShow = false;
-      if(this.errorCode == 101){
+      if (this.errorCode == 101) {
         this.loginApi('login');
       }
-        
+
     }
-    else{
+    else {
       this.alertShow = false;
       this.dialogRef.close();
     }
   }
   // Resend Pin
   reSendPin() {
+
+    if (localStorage.getItem('email')) {
+      this.logintype = 'email'
+    }
+    else {
+      this.logintype = 'mobile'
+    }
     let rsendPin;
     rsendPin = [{
       user_id: localStorage.getItem('id'),
-      login_type: this.emailphone[0].name,
-      [this.emailphone[0].name]: this.emailphone[0].value,
+      login_type: this.logintype,
+      email: localStorage.getItem('email'),
+      mobile: this.countryCode + localStorage.getItem('mobile'),
     }];
     // console.log(rsendPin[0]);
     this.common.loaderStart();
@@ -262,15 +294,15 @@ export class ModalComponent implements OnInit {
     });
   }
 
-errorMessage(message){
-  this.alertMessage = { error: message };
-  this.alertShow = true;
-}
+  errorMessage(message) {
+    this.alertMessage = { error: message };
+    this.alertShow = true;
+  }
 
-successMessage(message){
-  this.alertMessage = { success: message };
-  this.alertShow = true;
-}
+  successMessage(message) {
+    this.alertMessage = { success: message };
+    this.alertShow = true;
+  }
 
   // Forgot password show
   showForgotPassword() {
@@ -287,22 +319,33 @@ successMessage(message){
 
   // Sign Up function
 
+
+
   signUp(signUpform: NgForm) {
     this.loginBy = 'manual';
     if ((signUpform.value.fname == '') || (signUpform.value.lname == '') || (signUpform.value.email == '')) {
       // console.log(signUpform.value);
-      this.errorMessage("Please fill all the fields");
+      this.errorMessage("Please fill all the required fields");
       return;
     }
     let signUpData = [];
+    if (signUpform.value.email) {
+      this.logintype = 'email'
+    }
+    else {
+      this.logintype = 'mobile'
+    }
+    this.mobilephone = signUpform.value.mobile;
     signUpData = [
       {
-        [this.emailphone[0].name]: this.emailphone[0].value,
+        mobile: this.countryCode + signUpform.value.mobile,
+        email: signUpform.value.email,
+        // [this.emailphone[0].name]: this.emailphone[0].value,
         fname: signUpform.value.fname,
         lname: signUpform.value.lname,
         device_type: this.deviceType,
         login_by: this.loginBy,
-        login_type: this.emailphone[0].name,
+        login_type: this.logintype,
       }
     ];
     this.common.loaderStart();
@@ -318,7 +361,8 @@ successMessage(message){
         this.VerifyShow = 'block';
         localStorage.setItem('fname', signData.firstname);
         localStorage.setItem('lname', signData.lastname);
-        localStorage.setItem('mobile', signData.mobile);
+        localStorage.setItem('mobile', this.mobilephone);
+        localStorage.setItem('countrycode', JSON.stringify(this.countryCode));
         localStorage.setItem('email', signData.email);
         localStorage.setItem('id', signData.id);
         localStorage.setItem('token', signData.token);
@@ -339,11 +383,17 @@ successMessage(message){
     let pinVerify = [];
     // console.log(pin.value)
     let pins;
+    if (localStorage.getItem('email')) {
+      this.logintype = 'email'
+    } else {
+      this.logintype = 'mobile'
+    }
     pins = pin.value.pin1 + pin.value.pin2 + pin.value.pin3 + pin.value.pin4;
     pinVerify = [
       {
-        [this.emailphone[0].name]: this.emailphone[0].value,
-        login_type: this.emailphone[0].name,
+        mobile: this.countryCode + localStorage.getItem('mobile'),
+        // [this.emailphone[0].name]: this.emailphone[0].value,
+        login_type: this.logintype,
         id: localStorage.getItem('id'),
         email: localStorage.getItem('email'),
         token: localStorage.getItem('token'),
@@ -396,12 +446,14 @@ successMessage(message){
   }
 
   completeProfile(profileValue) {
+    console.log(profileValue, 'profileValueprofileValue');
+
     let deviceName;
     let profileData = [];
-    if(this.deviceService.getDeviceInfo().device == 'Unknown'){
+    if (this.deviceService.getDeviceInfo().device == 'Unknown') {
       deviceName = 'Windows';
     }
-    else{
+    else {
       deviceName = this.deviceService.getDeviceInfo().device;
     }
     if ((profileValue.value.fname == '') || (profileValue.value.lname == '') || (profileValue.value.date == '') || (profileValue.value.month == '') || (profileValue.value.year == '') || (profileValue.value.gender == '') || (profileValue.value.password == '') || (profileValue.value.cpassword == '')) {
@@ -434,7 +486,7 @@ successMessage(message){
       mail = profileValue.value.email;
     }
     // number check
-    let mobileNumber = /^((\\+91-?)|0)?[0-9]{10}$/;
+    let mobileNumber = /^((\\91-?)|0)?[0-9]{12}$/;
     let phone;
     if (profileValue.value.mobile != undefined) {
       if (!profileValue.value.mobile.match(/^\s*$/)) {
@@ -443,7 +495,9 @@ successMessage(message){
           return;
         }
         else {
-          phone = profileValue.value.mobile;
+          phone = this.countryCode + profileValue.value.phone;
+       
+
         }
       }
       else {
@@ -451,22 +505,29 @@ successMessage(message){
       }
     }
     else {
-      phone = profileValue.value.mobile;
+      phone = this.countryCode + profileValue.value.phone;
+    }
+    if (localStorage.getItem('email')) {
+      this.logintype = 'email'
+    } else {
+      this.logintype = 'mobile'
     }
     this.passwordCheck(profileValue.value.password, profileValue.value.cpassword);
     profileData = [
       {
         fname: profileValue.value.fname,
         lname: profileValue.value.lname,
-        email: mail,
+        email: profileValue.value.email,
         token: localStorage.getItem('token'),
-        mobile: phone,
+        mobile: this.countryCode + profileValue.value.phone,
         gender: profileValue.value.gender,
         dob: profileValue.value.date + "/" + profileValue.value.month + "/" + profileValue.value.year,
         password: profileValue.value.cpassword,
-        login_type: this.emailphone[0].name
+        login_type: this.logintype,
       }
     ];
+    console.log(profileData, 'profiledata');
+
     this.common.loaderStart();
     this.service.completeProfileCall(profileData[0]).subscribe(res => {
       let signUpData;
@@ -480,12 +541,14 @@ successMessage(message){
         loginData = [{
           device_type: this.deviceType,
           login_by: this.loginBy,
-          [this.emailphone[0].name]: this.emailphone[0].value,
-          login_type: this.emailphone[0].name,
+          mobile: this.countryCode + profileValue.value.phone,
+          email: profileValue.value.email,
+          // [this.emailphone[0].name]: this.emailphone[0].value,
+          login_type: this.logintype,
           password: profileValue.value.cpassword,
-          device_browser:this.deviceService.getDeviceInfo().browser,
-          device_ip:this.ipAddress,
-          device_os:deviceName
+          device_browser: this.deviceService.getDeviceInfo().browser,
+          device_ip: this.ipAddress,
+          device_os: deviceName
         }];
         // console.log(loginData);
         this.service.loginCall(loginData[0]).subscribe(data => {
@@ -545,5 +608,11 @@ successMessage(message){
   //     this.common.loaderStop();
   //   });
   // }
+
+  show(data) {
+    this.clicked = data;
+    this.click = data;
+  }
+
 
 }

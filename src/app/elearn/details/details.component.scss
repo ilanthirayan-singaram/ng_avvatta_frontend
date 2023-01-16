@@ -6,6 +6,10 @@
     }
     .child{
         width:14.28%;
+
+		h3{
+			cursor: pointer;
+		}
     }
 	
 	background-color: #000;
@@ -158,6 +162,7 @@
 			margin: auto;
 		}
 		.playlist {
+            cursor:pointer;
 			width: 90%;
 			margin: auto;
 			border-radius: 15px;
@@ -287,6 +292,9 @@
 @media screen and (max-width: 700px) and (min-width: 1px) {
 	.child{
 		width:33.3%;
+		h3{
+			cursor: pointer;
+		}
 	}
 	.selectkid .maincontainer {
 		display: none;

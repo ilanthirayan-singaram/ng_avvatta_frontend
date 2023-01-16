@@ -1,1 +1,51 @@
-<p>filmdo works!</p>
+<div class="emovie">
+
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
+   <div class="mobilebanner">
+        <img src="{{banner}}" />
+        <!-- <img src="../../../../assets/Banner - Eros promo.jpg" /> -->
+    </div>
+    <div class="cont">
+      <app-back></app-back>
+        <div class="row">
+            <div class="carousel" *ngFor="let item of filmdata">
+                {{item.title}}
+
+                <ng-container *ngIf="item.movies.length >= slideConfig.slidesToShow ">
+
+                    <h4  *ngIf="item.movies.length !=0" style="color: #fff">RENT FROM R{{item.rental}}</h4>
+                    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+                        style="display:flex" class="slide">
+
+                            <div ngxSlickItem *ngFor="let item2 of item.movies">
+                                <div class="playlist" (click)="goToDetailPage(item2.id)">
+                                    {{item2.id|json}}
+                                    <img defaultImage="../../../assets/Images/vdodummy.jpeg" width="100%"
+                                        [lazyLoad]="item2.thumbnail_img" />
+                                </div>
+                                <h3 style="color:#fff;text-align: center;">{{item2.title}}
+                                </h3>
+
+                            </div>
+                    </ngx-slick-carousel>
+                </ng-container>
+                 <ng-container *ngIf="item.movies.length < slideConfig.slidesToShow ">
+                    <h4 *ngIf="item.movies.length !=0" style="color: #fff">RENT FROM R{{item.rental}}</h4>
+                    <div class="parent">
+                        <div class="child" *ngFor ="let item2 of item.movies">
+                            <div class="playlist" (click)="goToDetailPage(item2.id)">
+                                <img defaultImage="../../../assets/Images/vdodummy.jpeg" width="100%"  [lazyLoad]="item2.thumbnail_img" />
+                            </div>
+                            <h3 style="color:#fff;text-align: center;">{{item2.title}}
+                            </h3>
+
+                        </div>
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+</div>

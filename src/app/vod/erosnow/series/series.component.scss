@@ -339,7 +339,7 @@
             padding: 20px 0px;
         }
         .playlist {
-            // background: #fff !important;
+            cursor:pointer;      // background: #fff !important;
             width: 90%;
             margin: auto;
             // border-radius: 15px;
@@ -405,6 +405,9 @@
     }
     .child{
         width:14.28%;
+        h3{
+			cursor: pointer;
+		}
     }
 }
 
@@ -420,6 +423,9 @@
         }
         .child{
             width:33.3%;
+            h3{
+                cursor: pointer;
+            }
         }
         .maincontainer {
             display: none;

@@ -63,7 +63,8 @@ export class VodMainpageComponent implements OnInit {
     // this.alertShow = true;
     // alert('Coming Soon');
     // this.errorMessage('Coming Soon');
-    this.common.popupModal('Coming Soon');
+    // this.common.popupModal('Coming Soon');
+    this.router.navigateByUrl('/vod/flimdo');
   }
   successMessage(message){
     this.alertMessage = { success: message };
@@ -85,15 +86,15 @@ export class VodMainpageComponent implements OnInit {
       this.router.navigateByUrl('/vod/desc/' + item.content_id);
     }
 
-  list(){
-    this.service.wholeData().subscribe(data =>{
+  // list(){
+  //   this.service.wholeData().subscribe(data =>{
       
-      this.channel = JSON.parse(JSON.stringify(data)).channels;
-      // console.log( this.channel);
-      this.channel = this.channel[0].playlists;
-      // console.log( this.channel);
-    });
-  }
+  //     this.channel = JSON.parse(JSON.stringify(data)).channels;
+  //     // console.log( this.channel);
+  //     this.channel = this.channel[0].playlists;
+  //     // console.log( this.channel);
+  //   });
+  // }
   btn = {
     "slidesToShow": 1,
     "slidesToScroll": 1,
